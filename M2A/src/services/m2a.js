@@ -48,11 +48,7 @@ export function extractData(item) {
         type: "string",
         value: item.item_folder
       },
-      item_box: {
-        title: "Box",
-        type: "string",
-        value: item.item_box
-      },
+
       item_collection: {
         title: "Collection",
         type: "string",
