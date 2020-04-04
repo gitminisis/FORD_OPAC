@@ -79,7 +79,7 @@ class Audio extends React.Component {
                 marginTop: "20px"
               }}
             />
-            <audio style={{ width: "100%" }} src={audio} controls></audio>
+            <audio style={{ width: "100%" }} src={audio.low_res} controls></audio>
           </div>
         </Card>
       </Col>

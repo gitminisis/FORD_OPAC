@@ -4,12 +4,15 @@ export const JSON_ARRAY_FIELD = [
   "report.item",
   "report.filters.div.xml.filter",
   "report.filters.div.xml.filter.item_group",
-  "report.item.item_subject"
+  "report.item.item_subject",
+  "report.item.item_location",
+  "report.item.item_media"
 ];
 
 export const DETAIL_JSON_ARRAY_FIELD = [
   "report.item.item_subject",
-  "report.item.item_location"
+  "report.item.item_location",
+  "report.item.item_media"
 ];
 export function xmlToJson(xml, arrayForm) {
   let xmlText = new XMLSerializer().serializeToString(xml);
@@ -65,8 +68,9 @@ export function getCookie(cname) {
 
 export function downloadMedia(url) {
   var link = document.createElement("a");
-  link.href = url;
+  link.href = "";
   link.download = url;
+  console.log(url);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

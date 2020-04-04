@@ -44,8 +44,7 @@ class Detail extends React.Component {
               style={{ width: "100%" }}
               extra={
                 <Button.Group id="summaryButtonGroup">
-                  <Tooltip title="Previous Record">
-                    {" "}
+                  <Tooltip title={rawData.prev_page ? "Previous Record" : null}>
                     <Button
                       disabled={!rawData.prev_page}
                       onClick={_ =>
@@ -63,7 +62,7 @@ class Detail extends React.Component {
                       onClick={_ =>
                         (window.location = rawData.return_summary
                           ? rawData.return_summary.a._href
-                          : ".")
+                          : "/")
                       }
                     >
                       <AiOutlineRollback />
@@ -75,7 +74,7 @@ class Detail extends React.Component {
                       <FaTree />
                     </Button>
                   </Tooltip>
-                  <Tooltip title="Next Record">
+                  <Tooltip title={rawData.next_page ? "Next Record" : null}>
                     {" "}
                     <Button
                       disabled={!rawData.next_page}
@@ -127,7 +126,7 @@ class Detail extends React.Component {
               onClick={_ =>
                 (window.location = rawData.return_summary
                   ? rawData.return_summary.a._href
-                  : ".")
+                  : "/")
               }
             >
               <AiOutlineRollback />

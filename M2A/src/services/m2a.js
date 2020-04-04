@@ -1,7 +1,7 @@
 export function extractData(item) {
   return {
     item_link: item.item_link,
-    media: item.item_media ? item.item_media : [],
+    media: item.item_media !== [""] ? item.item_media : [],
     data: {
       item_sisn: {
         title: "SISN",
@@ -84,26 +84,25 @@ export function extractData(item) {
 }
 
 export function getFirstImage(item) {
+  console.log(item);
   let imageArray = item.media.filter(e => e.type === "Image");
   if (imageArray.length === 0) {
     return null;
   }
-  return imageArray[0];
+  return imageArray[0].low_res;
 }
 
-// export const DETAIL_DATA_FIELD = [
-//   "item_refd",
-//   "item_date",
-//   "item_box_qualifier",
-//   "item_box",
-//   "item_folder",
-//   "item_collection",
-//   "item_location",
-//   "item_level_desc",
-//   "item_make",
-//   "item_model",
-//   "item_color",
-//   "item_desc"
-// ];
-
-export const DETAIL_DATA_FIELD = ["item_refd", "item_date", "item_level_desc"];
+export const DETAIL_DATA_FIELD = [
+  "item_refd",
+  "item_date",
+  "item_subject",
+  "item_box",
+  "item_folder",
+  "item_collection",
+  "item_location",
+  "item_level_desc",
+  "item_make",
+  "item_model",
+  "item_color",
+  "item_desc"
+];

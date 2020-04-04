@@ -20,8 +20,9 @@ export function save(src, type) {
 
 export function deleteItem(src, type) {
   let media = localStorage.getItem(type);
-
+  console.log(type);
   media = JSON.parse(media);
+
   media = media.filter(e => {
     return e !== src;
   });

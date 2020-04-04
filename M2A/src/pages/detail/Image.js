@@ -1,7 +1,7 @@
 import React from "react";
-import { Tabs, Icon, Col, Row, Card, Tooltip, message, Empty } from "antd";
+import { Tabs, Icon, Col, Row, Card, Tooltip, message, Empty,Button } from "antd";
 import { save } from "../../services/savedBag";
-
+import {downloadMedia} from '../../services/index';
 class Image extends React.Component {
   render() {
     let data = this.props.item;
@@ -61,7 +61,7 @@ class Image extends React.Component {
           <div
             className="detailImageContainer"
             style={{
-              backgroundImage: `url(${item})`
+              backgroundImage: `url(${item.low_res})`
             }}
           ></div>
         </Card>

@@ -65,7 +65,7 @@ class Summary extends React.Component {
               <Row>
                 <Col span={24}>
                   <Card
-                  className="summaryHeader"
+                    className="summaryHeader"
                     title={
                       <h4>
                         {data.record_count} results for "{data.search_statement}
@@ -98,7 +98,10 @@ class Summary extends React.Component {
                     }
                   >
                     {" "}
-                    <Filter data={data.filters.div.xml.filter} />
+                    <Filter
+                      data={data.filters.div.xml.filter}
+                    
+                    />
                     <Sort data={data.sorts} />
                     <Row>
                       {" "}
@@ -107,10 +110,12 @@ class Summary extends React.Component {
                         <div style={{ float: "right", maxWidth: "420px" }}>
                           <Tree ref={this.tree}></Tree>
                           <FilterDrawer
+                            dir="right"
                             data={data.filters.div.xml.filter}
                             ref={this.filter}
                           ></FilterDrawer>
                           <SortDrawer
+                            dir="right"
                             data={data.sorts}
                             ref={this.sort}
                           ></SortDrawer>
@@ -124,18 +129,6 @@ class Summary extends React.Component {
                             <ListView data={data} />
                           )}
                         </Row>
-                        {/* {data.pagination ? (
-                          <Pagination
-                            onChange={e => {
-                              let url = data.pagination.a[e - 1]._href;
-                              window.location = url;
-                            }}
-                            defaultCurrent={Number.parseInt(
-                              data.pagination.a.filter(e => e.b)[0].b
-                            )}
-                            total={data.pagination.a.length}
-                          />
-                        ) : null} */}
                       </Col>
                       <Col sm={24} md={0} lg={0} id="mobileNavBar">
                         <Button

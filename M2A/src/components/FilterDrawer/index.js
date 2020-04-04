@@ -37,9 +37,9 @@ class FilterDrawer extends React.Component {
       <>
         {" "}
         <Drawer
-          placement="bottom"
+          id="leftDrawer"
+          placement={this.props.dir}
           width={"100vw"}
-          height={"80vh"}
           zIndex={9001}
           title="FILTER"
           closable

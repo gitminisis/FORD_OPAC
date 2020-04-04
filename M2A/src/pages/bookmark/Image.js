@@ -1,5 +1,15 @@
 import React from "react";
-import { Tabs, Icon, Col, Row, Card, Tooltip, message, Empty } from "antd";
+import {
+  Tabs,
+  Icon,
+  Col,
+  Row,
+  Card,
+  Tooltip,
+  message,
+  Empty,
+  Button
+} from "antd";
 import { save } from "../../services/savedBag";
 
 class Image extends React.Component {
@@ -22,12 +32,16 @@ class Image extends React.Component {
           }}
           actions={[
             <Tooltip title="Remove">
-              <Icon type="close-circle" /> Remove
+              <Button onClick={_ => this.props.remove(item,"Image")}>
+                {" "}
+                <Icon type="close-circle" /> Remove
+              </Button>
+              
             </Tooltip>,
             <Tooltip title="Copy URL">
-              <span>
+              <Button onClick={_ => this.props.copy(item)}>
                 <Icon type="link" /> Copy
-              </span>
+              </Button>
             </Tooltip>
           ]}
         >

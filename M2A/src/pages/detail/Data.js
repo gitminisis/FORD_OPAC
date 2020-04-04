@@ -7,7 +7,7 @@ class Data extends React.Component {
   render() {
     let rawData = this.props.data;
     let data = extractData(rawData.item);
-
+    console.log(data);
     return (
       <Descriptions
         id="dataDescriptions"
@@ -24,7 +24,7 @@ class Data extends React.Component {
                   {item.value}
                 </Descriptions.Item>
               );
-            } else if ((item.type = "array")) {
+            } else if ((item.type = "array") && item.value.length > 0) {
               return (
                 <Descriptions.Item label={item.title}>
                   {item.value.map(e => (

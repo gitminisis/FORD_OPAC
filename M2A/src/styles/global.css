@@ -1,11 +1,12 @@
 @import "~react-image-gallery/styles/css/image-gallery.css";
+
 @font-face {
   /* Antenna Bold */
   font-family: "AntennaBold";
 
   src:
-    /*IE8*/ url("./85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff")
-    format("woff");
+    /*IE8*/
+    url("./85bf2123-24cb-4bfd-a720-efe63c68c84d-3.woff") format("woff");
 }
 
 @font-face {
@@ -61,10 +62,12 @@
   border: 1px solid #1b394e !important;
   color: white !important;
 }
+
 .btn.focus,
 .btn:focus {
   box-shadow: none !important;
 }
+
 .sideBarCard .ant-card-head {
   background-color: #1b394e !important;
   color: white !important;
@@ -81,6 +84,7 @@
   background-color: transparent !important;
   color: black !important;
 }
+
 .ant-tree-switcher-line-icon svg {
   margin-bottom: 5px !important;
 }
@@ -107,11 +111,11 @@
   font-weight: bold !important;
 }
 
-.mediaCard > .ant-card-body {
+.mediaCard>.ant-card-body {
   font-size: 1.1rem !important;
 }
 
-.mediaCard > .ant-card-head {
+.mediaCard>.ant-card-head {
   background: #dbdbdb !important;
   color: #003478 !important;
   font-weight: bold;
@@ -178,9 +182,11 @@
     height: 65% !important;
     background-size: auto 70% !important;
   }
+
   .homeImageContainer {
     height: 65vw !important;
   }
+
   .detailImageContainer {
     background-size: auto 100% !important;
   }
@@ -189,6 +195,7 @@
   .homeCard {
     height: 100vw !important;
   }
+
   .detailCard {
     height: auto !important;
   }
@@ -228,13 +235,16 @@
 }
 
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+
   .summaryCard,
   .homeCard {
     height: 50vw !important;
   }
+
   .detailCard {
     height: auto !important;
   }
+
   .listRow {
     padding-bottom: 20px;
 
@@ -287,6 +297,7 @@
 .detailCard .ant-card-body {
   padding: 20 !important;
 }
+
 .summaryImageContainer,
 .homeImageContainer {
   height: 20vw;
@@ -296,6 +307,7 @@
   background-size: auto 60%;
   transition: all 0.3s;
 }
+
 .detailImageContainer {
   height: 200px;
 
@@ -304,6 +316,7 @@
   background-size: auto 80%;
   transition: all 0.3s;
 }
+
 .summaryImageContainer:hover {
   transform: scale(1.05);
 }
@@ -339,7 +352,7 @@
   margin-top: 5px !important;
 }
 
-#summary_report .ant-radio-button-wrapper > .ant-radio-button {
+#summary_report .ant-radio-button-wrapper>.ant-radio-button {
   display: inherit !important;
 }
 
@@ -373,6 +386,7 @@
   border: 0 !important;
   font-size: 20px !important;
 }
+
 .detailMobileNavBarButton {
   border-radius: 0 !important;
   height: 100% !important;
@@ -381,7 +395,8 @@
   font-size: 20px !important;
 }
 
-#treeDrawer .ant-drawer-content-wrapper {
+#treeDrawer .ant-drawer-content-wrapper,
+#leftDrawer .ant-drawer-content-wrapper {
   width: 100vw !important;
   max-width: 700px !important;
 }
@@ -412,6 +427,7 @@
   margin-bottom: 5px !important;
   font-size: 20px !important;
 }
+
 #mediaTabs .ant-tabs-top-bar {
   height: 50px !important;
 }
@@ -429,14 +445,17 @@
   text-align: center;
   margin: 0 auto !important;
 }
+
 .summaryMediaCard {
   font-size: 1.2rem !important;
   width: 80% !important;
   margin: 0 auto !important;
 }
-.summaryMediaCard .ant-card-actions > li > span:hover {
+
+.summaryMediaCard .ant-card-actions>li>span:hover {
   color: rgba(0, 0, 0, 0.45) !important;
 }
+
 .summaryMedia .ant-card-body {
   display: none !important;
 }
@@ -465,6 +484,7 @@
 #detailButtonGroup button {
   font-size: 20px !important;
 }
+
 .ant-tabs-nav .ant-tabs-tab-active {
   color: #2d96cd !important;
 }

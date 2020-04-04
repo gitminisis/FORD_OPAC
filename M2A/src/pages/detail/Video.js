@@ -61,7 +61,7 @@ class Video extends React.Component {
           <div className="detailVideoContainer">
             <video
               style={{ width: "100%" }}
-              src={`/m2a/dist/${video}`}
+              src={`/m2a/dist/${video.low_res}`}
               controls
             ></video>
           </div>

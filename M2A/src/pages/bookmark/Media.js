@@ -20,6 +20,25 @@ import Text from "./Text";
 import { FaImage, FaVolumeUp, FaPlayCircle, FaFileAlt } from "react-icons/fa";
 import { deleteItem, getAll, removeAll } from "../../services/savedBag";
 class Media extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: getAll("Image"),
+      audio: getAll("Audio"),
+      video: getAll("Moving Image"),
+      text: getAll("Textual")
+    };
+  }
+  remove = (url, type) => {
+    deleteItem(url, type);
+    this.setState({
+      image: getAll("Image"),
+      audio: getAll("Audio"),
+      video: getAll("Moving Image"),
+      text: getAll("Textual")
+    });
+  };
+  copy = _ => {};
   render() {
     let image = getAll("Image");
 
@@ -41,7 +60,11 @@ class Media extends React.Component {
             key="1"
           >
             <Row gutter={16}>
-              <Image item={image}></Image>
+              <Image
+                item={this.state.image}
+                remove={this.remove}
+                copy={this.copy}
+              ></Image>
             </Row>
           </TabPane>
           <TabPane
@@ -53,7 +76,11 @@ class Media extends React.Component {
             key="2"
           >
             <Row gutter={16}>
-              <Video item={video} />
+              <Video
+                item={this.state.video}
+                remove={this.remove}
+                copy={this.copy}
+              />
             </Row>
           </TabPane>
           <TabPane
@@ -66,7 +93,11 @@ class Media extends React.Component {
           >
             {" "}
             <Row gutter={16}>
-              <Audio item={audio} />
+              <Audio
+                item={this.state.audio}
+                remove={this.remove}
+                copy={this.copy}
+              />
             </Row>
           </TabPane>
           <TabPane
@@ -79,7 +110,11 @@ class Media extends React.Component {
           >
             {" "}
             <Row gutter={16}>
-              <Text item={text} />
+              <Text
+                item={this.state.text}
+                remove={this.remove}
+                copy={this.copy}
+              />
             </Row>
           </TabPane>
         </Tabs>

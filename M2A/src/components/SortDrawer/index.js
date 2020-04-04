@@ -39,9 +39,9 @@ class SortDrawer extends React.Component {
       <>
         {" "}
         <Drawer
-          placement="bottom"
+          id="leftDrawer"
+          placement={this.props.dir}
           width={"100vw"}
-          height={"320px"}
           zIndex={9001}
           title="SORT"
           closable
