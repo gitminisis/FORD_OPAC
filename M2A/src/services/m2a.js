@@ -84,7 +84,9 @@ export function extractData(item) {
 }
 
 export function getFirstImage(item) {
-  console.log(item);
+  if (!item.media) {
+    return null;
+  }
   let imageArray = item.media.filter(e => e.type === "Image");
   if (imageArray.length === 0) {
     return null;

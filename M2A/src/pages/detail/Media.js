@@ -88,7 +88,11 @@ class Media extends React.Component {
             </Row>
           </TabPane>
         </Tabs>
-        <Button type="primary" href="/bookmark.html">
+        <Button
+          type="primary"
+          href="/bookmark.html"
+          style={{ margin: "0 auto" }}
+        >
           View Additional Clearance
         </Button>
       </div>
