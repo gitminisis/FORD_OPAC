@@ -13,6 +13,9 @@ $(document).ready(function () {
 
   $(".filterDropdown ul li").on("click", function () {
     filter.selectFilterValue($(this));
+    setTimeout(function () {
+      filter.closeAllFilter();
+    }, 10);
   });
 
   // When clicking out of the filter, option is closed
