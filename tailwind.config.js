@@ -6,7 +6,7 @@ module.exports = {
     "./assets/js/*.js",
   ],
   theme: {
-    extend: {},
+    extends: {},
   },
   plugins: [],
 };

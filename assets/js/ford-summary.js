@@ -1,10 +1,19 @@
 $(document).ready(function () {
-  setTotalRecord();
+  const summary = new Summary();
+  summary.init();
 });
 
-function setTotalRecord() {
-  let hiddenTotalRecord = document.getElementById("hiddenTotalRecord");
-  if (hiddenTotalRecord) {
-    $("#totalRecord").text(hiddenTotalRecord.innerText);
+class Summary {
+  setTotalRecord() {
+    let hiddenTotalRecord = document.getElementById("hiddenTotalRecord");
+    if (hiddenTotalRecord) {
+      $("#totalRecord").text(hiddenTotalRecord.innerText);
+    }
   }
+
+  init() {
+    this.setTotalRecord();
+  }
+
+  
 }
