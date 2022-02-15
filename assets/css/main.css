@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @font-face {
   font-family: "Ford Antenna";
   src: url("../fonts/antenna-regular.woff2") format("woff2");
@@ -40,9 +39,9 @@
   border-radius: 9999px;
 }
 .filterDropdown {
-  max-height: 300px;
+  max-height: 250px;
   visibility: visible;
-  transition: all 0.17s linear;
+  transition: all 0.17s ease-in;
 }
 .hideDropdown {
   max-height: 0;
@@ -72,6 +71,24 @@
 
 /* End of Color Filter */
 
+/* Filter Collapse */
+#filterCollapse {
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s, opacity 0.2s linear;
+}
+.collapse {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom:0;
+  opacity: 0;
+}
+.open-collapse {
+  max-height: 2000px !important;
+  padding-top: 100px !important;
+  padding-bottom: 200px !important;
+  opacity: 1 !important;
+}
+/* End of Filter Collapse */
 /* FORD UI CSS */
 
 .fmc-select option {

@@ -3,7 +3,13 @@ $(document).ready(function () {
 
   // Toggle the collpase filter
   $(".filterButton").on("click", function () {
-    $("#filterCollapse").collapse("toggle");
+    $("#filterCollapse").toggleClass("open-collapse");
+    setTimeout(function () {
+      if ($("#filterCollapse").hasClass("open-collapse")) {
+        console.log("test");
+        $("#advancedSearchInput").focus();
+      }
+    }, 300);
   });
 
   // Expand filter on click
@@ -110,7 +116,9 @@ class Filter {
       dropdown.hasClass("hideDropdown") ? "expand_less" : "expand_more"
     );
     this.closeAllFilter(filterDOM);
-    dropdown.toggleClass("hideDropdown");
+    setTimeout(function () {
+      dropdown.toggleClass("hideDropdown");
+    }, 100);
   }
 
   selectFilterValue(filterOptionDOM) {

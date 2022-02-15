@@ -3019,9 +3019,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .filterDropdown {
-  max-height: 300px;
+  max-height: 250px;
   visibility: visible;
-  transition: all 0.17s linear;
+  transition: all 0.17s ease-in;
 }
 
 .hideDropdown {
@@ -3067,6 +3067,29 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 /* End of Color Filter */
+
+/* Filter Collapse */
+
+#filterCollapse {
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s, opacity 0.2s linear;
+}
+
+.collapse {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom:0;
+  opacity: 0;
+}
+
+.open-collapse {
+  max-height: 2000px !important;
+  padding-top: 100px !important;
+  padding-bottom: 200px !important;
+  opacity: 1 !important;
+}
+
+/* End of Filter Collapse */
 
 /* FORD UI CSS */
 
