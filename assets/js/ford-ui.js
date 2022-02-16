@@ -58,6 +58,11 @@ $(document).ready(function () {
   });
 });
 
+// HELPER FUNCTIONS
+function removeWhiteSpace(string) {
+  return string.replace(/(\r\n|\n|\r)/gm, "");
+}
+
 class Filter {
   constructor() {
     this.year = "";

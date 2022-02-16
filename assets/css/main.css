@@ -74,21 +74,46 @@
 /* Filter Collapse */
 #filterCollapse {
   overflow: hidden;
-  transition: max-height 0.3s, padding 0.3s, opacity 0.2s linear;
+  transition: max-height 0.3s, padding 0.3s, opacity 0.4s linear;
 }
 .collapse {
   max-height: 0;
   padding-top: 0;
-  padding-bottom:0;
-  opacity: 0;
+  padding-bottom: 0;
+  /* opacity: 0; */
 }
 .open-collapse {
   max-height: 2000px !important;
   padding-top: 100px !important;
   padding-bottom: 200px !important;
-  opacity: 1 !important;
+  /* opacity: 1 !important; */
 }
 /* End of Filter Collapse */
+
+/* Grid/List Toggle */
+.gridSwitchButton,
+.listSwitchButton {
+  border-color: #243c5a;
+  color: #243c5a;
+}
+
+.selectedToggle {
+  background-color: #243c5a;
+  color: white;
+}
+
+/* Grid/List Toggle */
+
+/* Summary Page */
+
+.currentPageNumber {
+  border-color: #243c5a;
+}
+
+.recordHeading {
+  cursor: pointer;
+}
+/* Summary Page */
 /* FORD UI CSS */
 
 .fmc-select option {
