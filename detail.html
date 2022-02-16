@@ -1,478 +1,76 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!--  -->
-    <link href="./assets/css/main.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            background: {
-              imageHover: "rgba(0,0,0,0)",
-            },
-            backgroundImage: {
-              test: "url('https://images.unsplash.com/photo-1606611013016-969c19ba27bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZCUyMGNhcnxlbnwwfHwwfHw%3D&w=1000&q=80')",
-            },
-            boxShadowColor: {
-              headerShadow:
-                "0 30px 30px 0 rgba(0,0,0,0.09), 0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1)",
-              buttonShadow:
-                "0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1)",
-            },
-            height: {
-              "90px": "90px",
-            },
-            colors: {
-              primary: "primary",
-              secondary: "#6C6C6C",
-            },
-          },
-        },
-        plugins: [],
-      };
-    </script>
-  </head>
-  <body>
-    <!-- Start of header -->
-    <div id="header relative">
-      <nav
-        class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl"
-      >
-        <div class="flex justify-center inline-block align-middle items-center">
-          <img
-            class="w-18 h-8 mx-1"
-            src="https://www.carlogos.org/car-logos/ford-logo-2017.png"
-          />
+<!-- include virtual="[FORD_INCLUDE]html/header.html"-->
 
-          <span
-            class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
-          ></span>
-          <span
-            class="ml-[10px] text-[16px] sm:text-[20px] text-medium leading-[21px] tracking-[0.42px] sm:tracking-[0.53px] text-[#243C5A]"
-            >Ford Heritage Vault</span
-          >
-        </div>
+<!-- include virtual="[FORD_INCLUDE]html/topbar.html"-->
 
-        <div
-          class="flex w-20 sm:w-40 space-x-2 sm:space-x-4 justify-around inline-block align-middle"
-        >
-          <button
-            class="inline-flex space-4 items-center hidden sm:inline-flex h-[60px]"
-          >
-            <span class="">Filter</span>
-            <span class="material-icons px-2">tune</span>
-          </button>
+<!-- Start of Detail section -->
+<section id="detail">
+  <!-- include virtual="[FORD_INCLUDE]html/detail/topbar.html"-->
 
-          <button
-            class="inline-flex space-4 items-center hidden sm:inline-flex h-[60px]"
-          >
-            <soan class="">Collection</soan>
-            <span class="material-icons px-2">shopping_bag</span>
-          </button>
-
-          <div class="inline-flex space-2 items-center inline-block sm:hidden">
-            <span class="material-icons px-2">tune</span>
-          </div>
-          <div class="inline-flex items-center inline-block sm:hidden">
-            <span class="material-icons px-2">shopping_bag</span>
-          </div>
-        </div>
-      </nav>
-
-      <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
-    </div>
-    <!--End of header-->
-
-    <!-- Start of Detail section -->
-    <section id="detail">
-      <!-- Start of Top Bar -->
+  <!-- Start of Detail Record body -->
+  <div class="">
+    <div
+      class="w-full h-auto bg-white px-[15px] sm:px-[100px] grid grid-cols-12 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px]"
+    >
+      <!-- Start of Records -->
       <div
-        class="w-full h-24 bg-[#F4F4F4] flex flex-row justify-between place-items-center px-[15px] sm:px-[100px]"
-      >
+        class="col-span-12 sm:col-span-7 bg-test bg-cover h-[30vw] min-h-[340px] max-h-[700px]"
+      ></div>
+      <div class="col-span-12 sm:col-span-5 grid grid-cols-1">
         <div
-          class="breadcrumb text-[18px] font-medium leading-[59px] hidden sm:block text-[#6C6C6C]"
+          class="col-span-1 order-3 sm:order-1 bg-[#F4F4F4] p-[15px] sm:p-[30px]"
         >
-          <a href="/">Home Search</a>
-          <span>></span>
-          <span>Result</span>
-          <span>></span>
-          <span class="text-[#243C5A]">Detail</span>
-        </div>
-
-        <div class="flex justify-start items-center">
-          <span class="material-icons inline sm:hidden"> arrow_back </span>
-          <div class="font-medium">
-            <p class="">
-              <span id="totalRecord" class="text-[22px]">4572</span>
-              <span class="text-[#6C6C6C]">Results</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <!-- End of Top Bar -->
-
-      <!-- Start of Detail Record body -->
-      <div class="">
-        <div
-          class="w-full h-auto bg-white px-[15px] sm:px-[100px] grid grid-cols-12 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px]"
-        >
-          <!-- Start of Records -->
-          <div
-            class="col-span-12 sm:col-span-7 bg-test bg-cover h-[30vw] min-h-[340px] max-h-[700px]"
-          ></div>
-          <div class="col-span-12 sm:col-span-5 grid grid-cols-1">
-            <div
-              class="col-span-1 order-3 sm:order-1 bg-[#F4F4F4] p-[15px] sm:p-[30px]"
-            >
-              <h2
-                class="text-[#243C5A] text-[26px] font-medium leading-[40px] hidden sm:block"
-              >
-                Built for America
-              </h2>
-
-              <div class="text-[12px] text-[#4D4D4D] leading-[25px] mt-[25px]">
-                <p class="font-medium">Subject(s):</p>
-                <p>
-                  Ford Motor Company | F Series |trucks | components and
-                  features | trims
-                </p>
-
-                <p class="font-medium">Color</p>
-
-                <span
-                  class="rounded-full w-[24px] h-[24px] inline-block bg-[#B22627]"
-                ></span>
-                <span
-                  class="rounded-full w-[24px] h-[24px] inline-block bg-black"
-                ></span>
-              </div>
-            </div>
-
-            <div
-              class="col-span-1 order-1 sm:order-2 bg-[#F4F4F4] p-[15px] sm:p-[30px] text-[16px] leading-[19px] text-[#243C5A] flex flex-row sm:flex-col justify-between"
-            >
-              <p class="flex">
-                PDF <span class="material-icons items-center"> download </span>
-              </p>
-              <a href="">I need an accessible PDF</a>
-            </div>
-
-            <div
-              class="col-span-1 order-2 sm:order-3 bg-[#F4F4F4] sm:bg-white flex justify-between p-[15px] sm:p-[30px] text-[#243C5A] text-[18px]"
-            >
-              <div class="flex">
-                <button>
-                  Copy Link<span class="material-icons text-[16px]">
-                    share
-                  </span>
-                </button>
-              </div>
-
-              <div class="flex">SocialMediaLink</div>
-            </div>
-          </div>
-          <!-- End of Detail Record -->
-        </div>
-      </div>
-      <!-- End of Search results body -->
-    </section>
-    <!-- End of Detail section -->
-
-    <!-- Start of Trending Section -->
-    <section id="trending">
-      <h2
-        class="text-center text-[#243C5A] text-[34px] sm:text-[54px] font-medium leading-[59px] my-[20px] sm:my-[60px]"
-      >
-        You May Also Like
-      </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
-        <div
-          class="col-auto sm:col-span-3 bg-black h-[300px] sm:h-[20vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
+          <h2
+            class="text-[#243C5A] text-[26px] font-medium leading-[40px] hidden sm:block"
           >
-            <p>1964 Ford GT at Le Mans</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
+            Built for America
+          </h2>
+
+          <div class="text-[12px] text-[#4D4D4D] leading-[25px] mt-[25px]">
+            <p class="font-medium">Subject(s):</p>
+            <p>
+              Ford Motor Company | F Series |trucks | components and features |
+              trims
+            </p>
+
+            <p class="font-medium">Color</p>
+
+            <span
+              class="rounded-full w-[24px] h-[24px] inline-block bg-[#B22627]"
+            ></span>
+            <span
+              class="rounded-full w-[24px] h-[24px] inline-block bg-black"
+            ></span>
           </div>
         </div>
 
         <div
-          class="col-auto sm:col-span-3 bg-black h-[300px] sm:h-[20vw] relative text-white"
+          class="col-span-1 order-1 sm:order-2 bg-[#F4F4F4] p-[15px] sm:p-[30px] text-[16px] leading-[19px] text-[#243C5A] flex flex-row sm:flex-col justify-between"
         >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>2016 Showroom Launch</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="col-auto sm:col-span-4 sm:row-span-2 bg-black h-[300px] sm:h-[40vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>2008 Ford F-150 Raptor in Las Vegas</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="col-auto sm:col-span-2 bg-black h-[300px] sm:h-[20vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>1995 Ford Fiesta</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="hidden sm:block col-span-4 bg-black h-[20vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>250 Raptor Road Trip</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="hidden sm:block col-span-4 bg-white h-[30vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>Everest Weather Drive</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="hidden sm:block col-span-6 bg-[#243C5A] h-[30vw] relative text-white"
-        >
-          <div
-            class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px]"
-          >
-            <p>2020 Ford F-150 interior life</p>
-            <div>
-              <span class="material-icons"> arrow_forward_ios </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End of Trending Section -->
-
-    <!-- Start of Footer Section -->
-    <section id="footer">
-      <!-- License -->
-      <div
-        id="license"
-        class="bg-[#00142E] text-center text-white py-[50px] px-[8px] sm:px-[200px]"
-      >
-        <p class="text-[16px] sm:text-[18px] font-medium leading-[21px]">
-          Please read carefully
-        </p>
-        <p
-          class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px]"
-        >
-          Multimedia License Agreement | Images, video and audio from this Web
-          site are provided the purpose of editorial use only. <br />
-          You must contact archives@ford.com to obtain approval for advertising,
-          marketing or other commercial users.
-        </p>
-
-        <p class="mt-[40px] text-[16px] text-[#9C9C9C] leading-[24px]">
-          &copy; 2021 The Ford Motor Company. All Rights Reserved.
-        </p>
-      </div>
-      <!-- License -->
-
-      <!-- BlackBox -->
-      <div
-        id="blackbox"
-        class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex"
-      >
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Ford Press
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Media
-            </p>
-          </div>
-        </div>
-
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Contact Us
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Motor Company
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Investors
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Heritage Vault
-            </p>
-          </div>
-        </div>
-
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Support
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Support US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Lincoln Support US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Recalls
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              FordPass
-            </p>
-          </div>
-        </div>
-
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Shop
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Lincoln US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Global Sites
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="blackbox_mobile"
-        class="flex sm:hidden flex-col bg-black h-auto text-[#F4F4F4] text-[18px] divide-y divide-[#F4F4F4] px-[15px] py-[40px]"
-      >
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Ford Press</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Media</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Contact</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford Motor Company</p>
-            <p>Investors</p>
-            <p>Ford Heritage Vault</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Support</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford Support US</p>
-            <p>Lincoln Support US</p>
-            <p>Recalls</p>
-            <p>FordPass</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Shop</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford US</p>
-            <p>Lincoln US</p>
-            <p>Global Sites</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- BlackBox -->
-
-      <!-- Contact Us -->
-      <div
-        id="contactus"
-        class="h-[170px] sm:h-[80px] bg-[#243C5A] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px]"
-      >
-        <div class="">
-          <p class="text-[16px] text-[#F4F4F4] leading-[19px]">
-            Share your thoughts about fordheritagevault.com
+          <p class="flex">
+            PDF <span class="material-icons items-center"> download </span>
           </p>
+          <a href="">I need an accessible PDF</a>
         </div>
 
-        <div class="flex flex flex-col sm:flex-row justify-around">
-          <div>
-            <p class="text-[16px] text-[#F4F4F4] leading-[19px]">
-              Connect with us
-            </p>
+        <div
+          class="col-span-1 order-2 sm:order-3 bg-[#F4F4F4] sm:bg-white flex justify-between p-[15px] sm:p-[30px] text-[#243C5A] text-[18px]"
+        >
+          <div class="flex">
+            <button>
+              Copy Link<span class="material-icons text-[16px]"> share </span>
+            </button>
           </div>
-          <div></div>
+
+          <div class="flex">SocialMediaLink</div>
         </div>
       </div>
+      <!-- End of Detail Record -->
+    </div>
+  </div>
+  <!-- End of Search results body -->
+</section>
+<!-- End of Detail section -->
 
-      <!-- Contact Us -->
-    </section>
+<!-- include virtual="[FORD_INCLUDE]html/detail/trending.html"-->
 
-    <!-- End of Footer Section -->
-  </body>
-</html>
+<!-- include virtual="[FORD_INCLUDE]html/footer.html"-->

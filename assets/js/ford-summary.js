@@ -80,11 +80,11 @@ class Summary {
     }
     if (paginationObject.pages.length > 0) {
       let appendHTMLString = "";
-      appendHTMLString += `<div class="flex justify-around text-center space-x-[36px] self-center">`;
+      appendHTMLString += `<div class="flex justify-around text-center space-x-[10px] sm:space-x-[36px] self-center">`;
 
       paginationObject.pages.map((page) => {
         appendHTMLString += `
-        <a class="w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
+        <a class="sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
           page.current
             ? ' pb-[5px] border-b-[3px] border-solid border-b-[#243C5A]" '
             : '"'
