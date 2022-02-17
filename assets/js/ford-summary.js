@@ -84,9 +84,9 @@ class Summary {
 
       paginationObject.pages.map((page) => {
         appendHTMLString += `
-        <a class="sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
+        <a class="flex self-center justify-center w-[20px] sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
           page.current
-            ? ' pb-[5px] border-b-[3px] border-solid border-b-[#243C5A]" '
+            ? '  border-b-[3px] border-solid border-b-[#243C5A]" '
             : '"'
         } href=${page.pageLink}>
            ${page.pageNumber}
