@@ -1,6 +1,8 @@
 $(document).ready(function () {
-  const summary = new Summary();
-  summary.init();
+  if (document.getElementById("summary")) {
+    const summary = new Summary();
+    summary.init();
+  }
 
   $(".recordHeading").on("click", function () {
     console.log(summary.getRecordURL($(this)));
@@ -9,12 +11,25 @@ $(document).ready(function () {
 });
 
 class Summary {
+
+  /**
+   * Find hiddenTotalRecord DOM and 
+   * set the value to innerText
+   *
+   * @memberof Summary
+   */
   setTotalRecord() {
     let hiddenTotalRecord = document.getElementById("hiddenTotalRecord");
     if (hiddenTotalRecord) {
       $("#totalRecord").text(hiddenTotalRecord.innerText);
     }
   }
+  
+  /**
+   * Add href to grid/list toggle button
+   *
+   * @memberof Summary
+   */
   setGridListToggle() {
     let isGrid = this.isGrid();
     let gridButton = $(".gridSwitchButton");
@@ -31,12 +46,55 @@ class Summary {
       listButton.click(false);
       gridButton.find("a").attr("href", gridLink);
     }
+    this.viewButtonTrigger();
   }
 
+
+  /**
+   *
+   * This function is to prevent when 
+   * users click on the edge of the button 
+   * and a redirection doesn't get 
+   * triggered
+   * 
+   * @memberof Summary
+   */
+  viewButtonTrigger() {
+    let gridButton = $(".gridSwitchButton");
+    let listButton = $(".listSwitchButton");
+    gridButton.on("click", function () {
+      window.location = $(this).find("a").attr("href");
+    });
+    listButton.on("click", function () {
+      window.location = $(this).find("a").attr("href");
+    });
+  }
+  
+  /**
+   * Check if the current summary report is Grid
+   *
+   * @returns boolean true if the summary report 
+   * has isGrid as a hidden span 
+   * 
+   * @memberof Summary
+   */
   isGrid() {
     return document.getElementById("isGrid");
   }
 
+
+
+
+  /**
+   *
+   * Generate an object based on MINISIS 
+   * returned pagination DOM
+   * 
+   * @returns an object containing next/previous/current 
+   * page URL
+   * 
+   * @memberof Summary
+   */
   generatePaginationObject() {
     let pagination = $("#hiddenPagination");
     let object = {
