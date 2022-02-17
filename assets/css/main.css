@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @font-face {
   font-family: "Ford Antenna";
   src: url("../fonts/antenna-regular.woff2") format("woff2");
@@ -115,13 +113,47 @@
 }
 /* Summary Page */
 
-
 /* Footer */
-.footerSocialLink{
+.footerSocialLink {
   font-size: 30px;
 }
 /* Footer */
 
+#backTop {
+  display: inline-block;
+  background-color: #1700f4;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#backTop::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#backTop:hover {
+  cursor: pointer;
+  background-color: #00142e;
+}
+#backTop:active {
+  background-color: #00095b;
+}
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+}
 /* FORD UI CSS */
 
 .fmc-select option {

@@ -1,6 +1,8 @@
 $(document).ready(function () {
-  const detail = new Detail();
-  detail.init();
+  if (document.getElementById("detail")) {
+    const detail = new Detail();
+    detail.init();
+  }
 });
 
 class Detail {

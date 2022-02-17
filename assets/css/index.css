@@ -900,6 +900,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 24px;
 }
 
+.w-\[20px\] {
+  width: 20px;
+}
+
 .w-\[120px\] {
   width: 120px;
 }
@@ -922,10 +926,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[60px\] {
   width: 60px;
-}
-
-.w-\[20px\] {
-  width: 20px;
 }
 
 .min-w-0 {
@@ -1587,11 +1587,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(221 218 218 / var(--tw-text-opacity));
 }
 
-.text-\[\#6e7c8d\] {
-  --tw-text-opacity: 1;
-  color: rgb(110 124 141 / var(--tw-text-opacity));
-}
-
 .saturate-0 {
   --tw-saturate: saturate(0);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1757,11 +1752,51 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* Footer */
 
-.footerSocialLink{
+.footerSocialLink {
   font-size: 30px;
 }
 
 /* Footer */
+
+#backTop {
+  display: inline-block;
+  background-color: #1700f4;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+#backTop::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+
+#backTop:hover {
+  cursor: pointer;
+  background-color: #00142e;
+}
+
+#backTop:active {
+  background-color: #00095b;
+}
+
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+}
 
 /* FORD UI CSS */
 

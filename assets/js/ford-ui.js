@@ -1,5 +1,19 @@
 $(document).ready(function () {
   let filter = new Filter();
+  let backTopBtn = $("#backTop");
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 300) {
+      backTopBtn.addClass("show");
+    } else {
+      backTopBtn.removeClass("show");
+    }
+  });
+
+  backTopBtn.on("click", function (e) {
+    e.preventDefault();
+    $("html, body").animate({ scrollTop: 0 }, "300");
+  });
 
   // Toggle the collpase filter
   $(".filterButton").on("click", function () {
