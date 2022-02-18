@@ -5,7 +5,6 @@ $(document).ready(function () {
   }
 
   $(".recordHeading").on("click", function () {
-    console.log(summary.getRecordURL($(this)));
     window.location.href = summary.getRecordURL($(this));
   });
 });
