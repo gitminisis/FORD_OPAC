@@ -2,6 +2,11 @@ $(document).ready(function () {
   let filter = new Filter();
   let backTopBtn = $("#backTop");
 
+  $(".closeModal").on("click", function (e) {
+    $(this).parent().parent().parent().parent().addClass("hidden");
+  });
+
+  // Back to top Button
   $(window).scroll(function () {
     if ($(window).scrollTop() > 300) {
       backTopBtn.addClass("show");
@@ -14,6 +19,9 @@ $(document).ready(function () {
     e.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "300");
   });
+  // Back to top Button
+
+  // Request Modal section
 
   // Toggle the collpase filter
   $(".filterButton").on("click", function () {

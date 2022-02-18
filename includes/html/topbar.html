@@ -4,22 +4,24 @@
     class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl"
   >
     <div class="flex justify-center align-middle items-center">
-      <img
-        class="w-18 h-8 mx-1"
-        src="https://www.carlogos.org/car-logos/ford-logo-2017.png"
-      />
+      <a href="/" class="flex justify-center align-middle items-center"
+        ><img
+          class="w-18 h-8 mx-1"
+          src="https://www.carlogos.org/car-logos/ford-logo-2017.png"
+        />
 
-      <span
-        class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
-      ></span>
-      <span
-        class="ml-[10px] text-[16px] sm:text-[20px] text-medium leading-[21px] tracking-[0.42px] sm:tracking-[0.53px] text-[#243C5A]"
-        >Ford Heritage Vault</span
-      >
+        <span
+          class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
+        ></span>
+        <span
+          class="ml-[10px] text-[16px] sm:text-[20px] text-medium leading-[21px] tracking-[0.42px] sm:tracking-[0.53px] text-[#243C5A]"
+          >Ford Heritage Vault</span
+        >
+      </a>
     </div>
 
     <div
-      class="flex w-20 sm:w-40 space-x-2 sm:space-x-4 justify-around align-middle"
+      class="flex w-20 sm:w-40 space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]"
     >
       <button
         class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton"
@@ -43,146 +45,6 @@
   </nav>
 
   <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
-
-  <!-- Start of Filter Collapse -->
-
-  <div
-    id="filterCollapse"
-    class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]"
-  >
-    <div class="col-span-12">
-      <div class="w-full sm:w-3/4 text-[#9C9C9C]">
-        <form class="relative flex items-center">
-          <input
-            id="advancedSearchInput"
-            placeholder="What Are You Looking For?"
-            autofocus
-            class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]"
-          />
-          <span class="material-icons absolute right-0 font-[14px]">
-            search
-          </span>
-        </form>
-      </div>
-    </div>
-    <div class="col-span-4 sm:col-span-2">
-      <span class="text-[11px] leading-[16px] tracking-[1px]">Year</span>
-
-      <div
-        class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-      >
-        <span
-          class="self-center filterText"
-          data-filter="Year"
-          id="yearFilterValue"
-          >Year</span
-        >
-        <span class="material-icons self-center expand"> expand_more </span>
-
-        <div
-          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]"
-        >
-          <ul></ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-8 sm:col-span-3">
-      <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
-
-      <div
-        class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-      >
-        <span
-          class="self-center filterText"
-          data-filter="Make"
-          id="makeFilterValue"
-          >Make</span
-        >
-        <span class="material-icons self-center expand"> expand_more </span>
-
-        <div
-          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
-        >
-          <ul>
-            <li>2000</li>
-            <li>2000</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-12 sm:col-span-3">
-      <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
-
-      <div
-        class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-      >
-        <span
-          class="self-center filterText"
-          data-filter="Model"
-          id="modelFilterValue"
-          >Model</span
-        >
-        <span class="material-icons self-center expand"> expand_more </span>
-
-        <div
-          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
-        >
-          <ul>
-            <li>2000</li>
-
-            <li>2000</li>
-            <li>2000</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-12 sm:col-span-4">
-      <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-      <div class="flex justify-start items-center h-[50px] space-x-[10px]">
-        <!-- <span
-                    class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter"
-                    data-color="black"
-                  ></span> -->
-      </div>
-    </div>
-    <div class="col-span-8 sm:col-span-4">
-      <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
-
-      <div class="grid grid-cols-3 sm:grid-cols-4">
-        <div class="col-span-1 flex space-x-[10px] items-center">
-          <input
-            type="checkbox"
-            data-asset="Image"
-            id="imageAssetType"
-            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
-          />
-
-          <label class="" for="imageAssetType">JPEG</label>
-        </div>
-        <div class="col-span-2 flex space-x-[10px] items-center">
-          <input
-            type="checkbox"
-            data-asset="Moving Image"
-            id="movingImageAssetType"
-            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
-          />
-
-          <label class="" for="movingImageAssetType">Moving Image</label>
-        </div>
-        <div class="col-span-1 flex space-x-[10px] items-center">
-          <input
-            type="checkbox"
-            data-asset="Document"
-            id="documentAssetType"
-            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
-          />
-
-          <label class="" for="documentAssetType">PDF</label>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- End of Filter Collapse -->
+  <!-- include virtual="[FORD_INCLUDE]html/advancedSearch.html"-->
 </div>
 <!--End of header-->
