@@ -167,6 +167,9 @@ class Summary {
     return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text());
   }
 
+  bookmarkRecord(bookmarkButtonDOM){
+    let containerDiv = bookmarkButtonDOM.parent().parent().parent();
+  }i
   init() {
     this.setTotalRecord();
     this.setGridListToggle();
