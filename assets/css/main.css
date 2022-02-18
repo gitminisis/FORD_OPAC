@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Ford Antenna";
+  src: url("../fonts/antenna-medium.woff2") format("woff2");
+}
+
+* {
+  font-family: "Ford Antenna";
+}
+
+#headerShadow {
+  box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.09),
+    0 20px 20px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.buttonShadow {
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Start of dropdown UI */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border: 5px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+}
+.filterDropdown {
+  max-height: 250px;
+  visibility: visible;
+  transition: all 0.17s ease-in;
+}
+.hideDropdown {
+  max-height: 0;
+  visibility: hidden;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* End of dropdown UI */
+
+/* Color Filter */
+
+.selectedColorFilter {
+  border: 2px solid white;
+  outline: 1px solid black;
+}
+
+/* End of Color Filter */
+
+/* Filter Collapse */
+#filterCollapse {
+  overflow: hidden;
+  transition: max-height 0.4s, padding 0.4s ease-out, opacity 0.5s linear;
+}
+.collapse {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.open-collapse {
+  max-height: 2000px !important;
+  padding-top: 100px !important;
+  padding-bottom: 200px !important;
+}
+/* End of Filter Collapse */
+
+/* Grid/List Toggle */
+.gridSwitchButton,
+.listSwitchButton {
+  border-color: #243c5a;
+  color: #243c5a;
+}
+
+.selectedToggle {
+  background-color: #243c5a;
+  color: white;
+}
+
+/* Grid/List Toggle */
+
+/* Summary Page */
+
+.currentPageNumber {
+  border-color: #243c5a;
+}
+
+.recordHeading {
+  cursor: pointer;
+}
+/* Summary Page */
+
+/* Footer */
+.footerSocialLink {
+  font-size: 30px;
+}
+/* Footer */
+
+#backTop {
+  display: inline-block;
+  background-color: #1700f4;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+#backTop::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#backTop:hover {
+  cursor: pointer;
+  background-color: #00142e;
+}
+#backTop:active {
+  background-color: #00095b;
+}
+#backTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* FORD UI CSS */
+
+.fmc-select option {
+  background-color: #f4f4f4;
+  margin-top: 0;
+  outline: 1px solid #962929;
+  border-radius: 3px;
+}
+.fmc-select:focus,
+.fmc-select:active,
+.fmc-select:focus-visible {
+  box-sizing: border-box;
+  height: 50px;
+  border: 1px solid #6e6e6e;
+  outline: 0;
+}
+.fmc-select {
+  box-sizing: border-box;
+  height: 50px;
+  border: 1px solid #6e6e6e;
+  /* border-radius: 3px; */
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-repeat: no-repeat;
+  background-position: right 1.5rem center;
+
+  background-size: 16px;
+  line-height: 2rem;
+  appearance: none;
+  background-color: transparent;
+}

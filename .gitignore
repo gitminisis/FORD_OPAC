@@ -1,3 +1,4 @@
+node_modules/
+package-lock.json
 scripts/
-M2A/dist/
-M2A/node_modules/
+Legacy FORD OPAC/
