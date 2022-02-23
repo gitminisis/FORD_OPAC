@@ -2,11 +2,12 @@ $(document).ready(function () {
   if (document.getElementById("summary")) {
     const summary = new Summary();
     summary.init();
+    $(".recordHeading").on("click", function () {
+      window.location.href = summary.getRecordURL($(this));
+    });
   }
 
-  $(".recordHeading").on("click", function () {
-    window.location.href = summary.getRecordURL($(this));
-  });
+
 });
 
 class Summary {
@@ -23,7 +24,7 @@ class Summary {
       $("#totalRecord").text(hiddenTotalRecord.innerText);
     }
   }
-  
+
   /**
    * Add href to grid/list toggle button
    *
@@ -68,7 +69,7 @@ class Summary {
       window.location = $(this).find("a").attr("href");
     });
   }
-  
+
   /**
    * Check if the current summary report is Grid
    *
@@ -141,11 +142,10 @@ class Summary {
 
       paginationObject.pages.map((page) => {
         appendHTMLString += `
-        <a class="flex self-center justify-center w-[20px] sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
-          page.current
+        <a class="flex self-center justify-center w-[20px] sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${page.current
             ? '  border-b-[3px] border-solid border-b-[#243C5A]" '
             : '"'
-        } href=${page.pageLink}>
+          } href=${page.pageLink}>
            ${page.pageNumber}
         </a>
  
@@ -167,9 +167,9 @@ class Summary {
     return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text());
   }
 
-  bookmarkRecord(bookmarkButtonDOM){
+  bookmarkRecord(bookmarkButtonDOM) {
     let containerDiv = bookmarkButtonDOM.parent().parent().parent();
-  }i
+  } i
   init() {
     this.setTotalRecord();
     this.setGridListToggle();
