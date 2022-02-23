@@ -5,7 +5,7 @@ $(document).ready(function () {
   }
 });
 
-class Detail {
+class Detail extends Report {
   getReturnSummaryURL() {
     let hiddenURL = document.getElementById("hiddenReturnSummary");
     console.log(hiddenURL);
@@ -19,5 +19,6 @@ class Detail {
 
   init() {
     this.setReturnSummaryURL();
+    this.setTotalRecord();
   }
 }
