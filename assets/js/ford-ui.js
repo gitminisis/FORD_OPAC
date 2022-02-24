@@ -29,8 +29,26 @@ $(document).ready(function () {
   })
 
   $('.surveyCloseButton').on('click', function (e) {
-    $('#surveyModal').fadeOut(250);
+    $('#surveyModal').fadeOut(200);
   })
+
+  $(document).on('keyup', function (e) {
+
+    if (e.key == "Escape") {
+      $('#surveyModal').fadeOut(200);
+    }
+  });
+  // Hide dropdown menu on click outside
+  $('#surveyModal').on('click', function (e) {
+
+    $('#surveyModal').fadeOut(200);
+
+
+  });
+  $('#surveyModal .modalBody').on('click', function (e) {
+    e.stopPropagation();
+  });
+
   // Modal Handle
 
   // Home Latest from Archive section
@@ -59,7 +77,7 @@ $(document).ready(function () {
   // Black Box Mobile Expand 
   $('.expandBlackboxButton').on('click', function () {
     let collapseSection = $(this).parent().parent().find('.blackBoxCollapse')
-    
+
     collapseSection.toggleClass('openBlackBoxCollapse')
   })
 
