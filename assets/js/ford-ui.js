@@ -56,6 +56,16 @@ $(document).ready(function () {
   // Home Latest from Archive section
 
 
+  // Black Box Mobile Expand 
+  $('.expandBlackboxButton').on('click', function () {
+    let collapseSection = $(this).parent().parent().find('.blackBoxCollapse')
+    
+    collapseSection.toggleClass('openBlackBoxCollapse')
+  })
+
+
+  // Black Box Mobile Expand 
+
 });
 
 // HELPER FUNCTIONS

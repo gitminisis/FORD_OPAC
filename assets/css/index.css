@@ -693,11 +693,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 10px;
 }
 
-.mx-\[15px\] {
-  margin-left: 15px;
-  margin-right: 15px;
-}
-
 .my-\[15px\] {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -735,6 +730,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 30px;
 }
 
+.mb-\[8px\] {
+  margin-bottom: 8px;
+}
+
 .mb-\[15px\] {
   margin-bottom: 15px;
 }
@@ -765,10 +764,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-\[8px\] {
   margin-left: 8px;
-}
-
-.mt-\[15px\] {
-  margin-top: 15px;
 }
 
 .box-border {
@@ -983,12 +978,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 80%;
 }
 
-.w-\[60px\] {
-  width: 60px;
-}
-
 .w-\[50px\] {
   width: 50px;
+}
+
+.w-\[60px\] {
+  width: 60px;
 }
 
 .min-w-0 {
@@ -1890,6 +1885,27 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 /* End of Filter Collapse */
+
+/* Blackbox Collapse */
+
+.blackBoxCollapse {
+  overflow: hidden;
+  transition: max-height 0.4s, opacity 0.3s linear;
+}
+
+.collapse {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 5px;
+  opacity: 0;
+}
+
+.openBlackBoxCollapse {
+  max-height: 300px !important;
+  opacity: 1;
+}
+
+/* End of Blackbox Collapse */
 
 /* Grid/List Toggle */
 
