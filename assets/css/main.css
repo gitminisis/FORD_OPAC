@@ -23,7 +23,7 @@
 /* Start of dropdown UI */
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 8px;
 }
 
 /* Track */
@@ -34,7 +34,7 @@
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #4d4d4d;
-  border: 5px solid rgba(0, 0, 0, 0);
+  border: 2px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
   border-radius: 9999px;
 }
@@ -155,7 +155,6 @@
 .openBlackBoxCollapse {
   max-height: 300px !important;
   opacity: 1;
- 
 }
 /* End of Blackbox Collapse */
 
@@ -224,6 +223,10 @@
 #backTop.show {
   opacity: 1;
   visibility: visible;
+}
+
+.divider {
+  border-top: 1.5px solid #6e6e6e;
 }
 /* FORD UI CSS */
 
