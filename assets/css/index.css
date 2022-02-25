@@ -610,6 +610,22 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: calc(4vw);
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-\[5px\] {
+  right: 5px;
+}
+
+.top-\[5px\] {
+  top: 5px;
+}
+
+.right-\[10px\] {
+  right: 10px;
+}
+
 .z-\[1\] {
   z-index: 1;
 }
@@ -660,6 +676,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .col-auto {
   grid-column: auto;
+}
+
+.row-span-3 {
+  grid-row: span 3 / span 3;
+}
+
+.row-span-2 {
+  grid-row: span 2 / span 2;
 }
 
 .m-0 {
@@ -776,6 +800,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-\[20px\] {
   margin-top: 20px;
+}
+
+.mr-4 {
+  margin-right: 1rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .box-border {
@@ -1002,6 +1034,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 60px;
 }
 
+.w-\[100\%\] {
+  width: 100%;
+}
+
+.w-\[95\%\] {
+  width: 95%;
+}
+
+.w-\[12\.8px\] {
+  width: 12.8px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -1027,6 +1071,10 @@ Ensure the default browser behavior of the `hidden` attribute.
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.resize-none {
+  resize: none;
 }
 
 .grid-cols-6 {
@@ -1141,6 +1189,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   row-gap: 15px;
 }
 
+.gap-y-\[12px\] {
+  row-gap: 12px;
+}
+
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -1193,6 +1245,48 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-\[10px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(10px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(10px * var(--tw-space-y-reverse));
+}
+
+.space-x-\[5px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(5px * var(--tw-space-x-reverse));
+  margin-left: calc(5px * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-\[5px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(5px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(5px * var(--tw-space-y-reverse));
+}
+
+.space-y-\[3px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(3px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(3px * var(--tw-space-y-reverse));
+}
+
+.space-y-\[2px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2px * var(--tw-space-y-reverse));
+}
+
+.space-x-\[12px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(12px * var(--tw-space-x-reverse));
+  margin-left: calc(12px * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-\[12px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(12px * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(12px * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -1616,6 +1710,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[14px\] {
   font-size: 14px;
+}
+
+.text-\[9px\] {
+  font-size: 9px;
+}
+
+.text-\[25px\] {
+  font-size: 25px;
 }
 
 .font-medium {
@@ -2168,6 +2270,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 4 / span 4;
   }
 
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .sm\:row-span-2 {
     grid-row: span 2 / span 2;
   }
@@ -2434,6 +2540,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-top: 40px;
   }
 
+  .sm\:text-left {
+    text-align: left;
+  }
+
   .sm\:align-middle {
     vertical-align: middle;
   }
@@ -2464,6 +2574,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:text-\[50px\] {
     font-size: 50px;
+  }
+
+  .sm\:text-\[30px\] {
+    font-size: 30px;
   }
 
   .sm\:leading-\[24px\] {
