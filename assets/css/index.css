@@ -811,6 +811,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 8px;
 }
 
+.mb-\[30px\] {
+  margin-bottom: 30px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1449,6 +1453,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-\[20px\] {
   padding: 20px;
+}
+
+.p-\[5px\] {
+  padding: 5px;
 }
 
 .px-\[15px\] {
@@ -2422,6 +2430,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:self-center {
     align-self: center;
+  }
+
+  .sm\:overflow-hidden {
+    overflow: hidden;
+  }
+
+  .sm\:overflow-scroll {
+    overflow: scroll;
   }
 
   .sm\:border-\[\#00142E\] {
