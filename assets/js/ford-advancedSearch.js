@@ -7,7 +7,6 @@ $(document).ready(function () {
   });
 
 
-
   // Request Modal section
 
   // Toggle the collpase filter
@@ -73,10 +72,32 @@ $(document).ready(function () {
       ? filter.addAssetType(assetType)
       : filter.removeAssetType(assetType);
   });
+
+
+  $('#advancedSearchForm').on('submit', function (e) {
+    e.preventDefault();
+    console.log('hi');
+    let keyword = $('#advancedSearchInput').val();
+    filter.keyword = keyword;
+    $('#hiddenKeywordInput').val(filter.generateSearchExpression())
+    var actionurl = e.currentTarget.action;
+
+    //do your own request an handle the results
+    $.ajax({
+      url: actionurl,
+      type: 'post',
+      data: filter.generateSearchExpression() ,
+      success: function (data) {
+        console.log(data)
+      }
+    });
+  })
+
+
+
 });
 
-
-
+// TODO: FIX FILTER ADVANCED SEARCH FOR OTHER FIELDS
 class Filter {
   constructor() {
     this.year = "";
@@ -161,4 +182,30 @@ class Filter {
       }
     });
   }
+
+  generateSearchExpression() {
+    let searchExpression = '';
+    let keywordExp = `${FIELD_NAME.keyword} ${this.keyword}`;
+    let yearExp = ` AND ${FIELD_NAME.year} ${this.year}`;
+    let makeExp = ` AND ${FIELD_NAME.make} ${this.make}`;
+    let modelExp = ` AND ${FIELD_NAME.model} ${this.model}`;
+    let colorExp = ` AND ${FIELD_NAME.color} ${this.color}`;
+    let assetExp = ' AND ' + this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ');
+
+
+
+    searchExpression = `${keywordExp}  ${yearExp}  ${makeExp}  ${modelExp}  ${colorExp}  ${assetExp}`;
+
+    return searchExpression;
+  }
+}
+
+
+const FIELD_NAME = {
+  year: "A_MEDIA_YEAR",
+  make: "A_MEDIA_MAKE",
+  model: "A_MEDIAL_MODEL",
+  color: "A_MEDIAL_COLOR",
+  assetType: "A_MEDIA_TYPE ",
+  keyword: "KEYWORD_CL"
 }
