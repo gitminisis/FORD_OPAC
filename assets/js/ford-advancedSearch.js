@@ -19,17 +19,16 @@ $(document).ready(function () {
         $("#advancedSearchInput").focus();
       }
     }, 300);
-  }); 
+  });
 
   // Expand filter on click
   $(".filterSelect").on("click", function () {
-    let expand = $(this).find($(".expand"));
+    // let expand = $(this).find($(".expand"));
     let dropdown = $(this).find($(".filterDropdown"));
     console.log(dropdown.hasClass("hideDropdown"))
     if (dropdown.hasClass("hideDropdown")) {
       filter.openFilter($(this));
     }
-
     else {
       filter.closeAllFilter();
     }
