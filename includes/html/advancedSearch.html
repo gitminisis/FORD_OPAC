@@ -12,7 +12,6 @@
         method="POST"
         action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC&ERRMSG=[FORD_INCLUDE]/no-record.html"
       >
-    
         <input
           name="KEYWORD_CL"
           id="advancedSearchInput"
@@ -20,10 +19,11 @@
           autofocus
           class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]"
         />
+        <input name="BO1" value="AND" hidden />
+        <input name="KEYWORD" id="hiddenKeywordInput" hidden />
         <span class="material-icons absolute right-0 font-[14px]">
           search
         </span>
-        
       </form>
     </div>
   </div>

@@ -31,6 +31,8 @@ $(document).ready(function () {
     else {
       filter.closeAllFilter();
     }
+    filter.updateHiddenKeywordValue();
+
   });
 
   $(".filterDropdown ul li").on("click", function () {
@@ -61,6 +63,8 @@ $(document).ready(function () {
     } else {
       filter.resetColor();
     }
+    filter.updateHiddenKeywordValue();
+
   });
 
   // Asset Filter Handler
@@ -72,29 +76,31 @@ $(document).ready(function () {
     checked
       ? filter.addAssetType(assetType)
       : filter.removeAssetType(assetType);
+
+    filter.updateHiddenKeywordValue();
   });
 
+  $("#advancedSearchInput").on("change", function (e) {
+    filter.updateHiddenKeywordValue();
+  });
 
-  $('#advancedSearchForm').on('submit', function (e) {
-    e.preventDefault();
-    console.log('hi');
-    let keyword = $('#advancedSearchInput').val();
-    filter.keyword = keyword;
-    $('#hiddenKeywordInput').val(filter.generateSearchExpression())
-    var actionurl = e.currentTarget.action;
+  // $('#advancedSearchForm').on('submit', function (e) {
+  //   e.preventDefault();
+  //   let keyword = $('#advancedSearchInput').val();
+  //   filter.keyword = keyword;
+  //   let value = filter.generateSearchExpression();
+  //   console.log(value);
+  //   $('#hiddenKeywordInput').val(filter.generateSearchExpression())
 
-    //do your own request an handle the results
-    $.ajax({
-      url: actionurl,
-      type: 'post',
-      data: filter.generateSearchExpression() ,
-      success: function (data) {
-        console.log(data)
-      }
-    });
-  })
+  //   // $(this).submit();
+  // })
 
 
+  $("#filterCollapse").keyup(function (event) {
+    if (event.keyCode === 13) {
+      $('#advancedSearchForm').submit();
+    }
+  });
 
 });
 
@@ -187,17 +193,30 @@ class Filter {
   generateSearchExpression() {
     let searchExpression = '';
     let keywordExp = `${FIELD_NAME.keyword} ${this.keyword}`;
-    let yearExp = ` AND ${FIELD_NAME.year} ${this.year}`;
-    let makeExp = ` AND ${FIELD_NAME.make} ${this.make}`;
-    let modelExp = ` AND ${FIELD_NAME.model} ${this.model}`;
-    let colorExp = ` AND ${FIELD_NAME.color} ${this.color}`;
-    let assetExp = ' AND ' + this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ');
+    let yearExp = this.year.trim() === '' ? '' : `${FIELD_NAME.year} ${this.year}`;
+    let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} ${this.make}`;
+    let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} ${this.model}`;
+    let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} ${this.color}`;
+    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ').trim()
+    let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
 
 
 
-    searchExpression = `${keywordExp}  ${yearExp}  ${makeExp}  ${modelExp}  ${colorExp}  ${assetExp}`;
+    searchExpression = `
+    ${yearExp} ${yearExp === '' || makeExp === '' ? ' ' : ' AND '} 
+    ${makeExp} ${makeExp === '' || modelExp === '' ? ' ' : ' AND '} 
+    ${modelExp} ${modelExp === '' || colorExp === '' ? ' ' : ' AND '} 
+    ${colorExp} ${colorExp === '' || assetExp === '' ? ' ' : ' AND '} 
+    ${assetExp}`;
 
-    return searchExpression;
+    return searchExpression.trim();
+  }
+
+  updateHiddenKeywordValue() {
+    let keyword = $('#advancedSearchInput').val();
+    this.keyword = keyword;
+    let value = this.generateSearchExpression();
+    $('#hiddenKeywordInput').val(value);
   }
 }
 
@@ -205,8 +224,8 @@ class Filter {
 const FIELD_NAME = {
   year: "A_MEDIA_YEAR",
   make: "A_MEDIA_MAKE",
-  model: "A_MEDIAL_MODEL",
-  color: "A_MEDIAL_COLOR",
+  model: "A_MEDIA_MODEL",
+  color: "A_MEDIA_COLOR",
   assetType: "A_MEDIA_TYPE ",
   keyword: "KEYWORD_CL"
 }
