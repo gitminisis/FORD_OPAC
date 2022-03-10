@@ -1,6 +1,6 @@
 $(document).ready(function () {
   let filter = new Filter();
-
+  filter.getClusterValue('LEVEL_DESC')
 
   $(".closeModal").on("click", function (e) {
     $(this).parent().parent().parent().parent().addClass("hidden");
@@ -84,16 +84,6 @@ $(document).ready(function () {
     filter.updateHiddenKeywordValue();
   });
 
-  // $('#advancedSearchForm').on('submit', function (e) {
-  //   e.preventDefault();
-  //   let keyword = $('#advancedSearchInput').val();
-  //   filter.keyword = keyword;
-  //   let value = filter.generateSearchExpression();
-  //   console.log(value);
-  //   $('#hiddenKeywordInput').val(filter.generateSearchExpression())
-
-  //   // $(this).submit();
-  // })
 
 
   $("#filterCollapse").keyup(function (event) {
@@ -104,7 +94,6 @@ $(document).ready(function () {
 
 });
 
-// TODO: FIX FILTER ADVANCED SEARCH FOR OTHER FIELDS
 class Filter {
   constructor() {
     this.year = "";
@@ -124,33 +113,6 @@ class Filter {
     this.keyword = "";
   }
 
-  resetKeyword() {
-    this.keyword = "";
-  }
-
-  resetYear() {
-    this.year = "";
-  }
-
-  resetMake() {
-    this.make = "";
-  }
-
-  resetModel() {
-    this.model = "";
-  }
-
-  resetColor() {
-    this.color = "";
-  }
-
-  resetAssetType() {
-    this.assetType = [];
-  }
-
-  removeAssetType(t) {
-    this.assetType = this.assetType.filter((e) => e !== t);
-  }
 
   addAssetType(t) {
     this.assetType.push(t);
@@ -192,15 +154,12 @@ class Filter {
 
   generateSearchExpression() {
     let searchExpression = '';
-    let keywordExp = `${FIELD_NAME.keyword} ${this.keyword}`;
     let yearExp = this.year.trim() === '' ? '' : `${FIELD_NAME.year} ${this.year}`;
     let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} ${this.make}`;
     let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} ${this.model}`;
     let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} ${this.color}`;
     let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
-
-
 
     searchExpression = `
     ${yearExp} ${yearExp === '' || makeExp === '' ? ' ' : ' AND '} 
@@ -217,6 +176,18 @@ class Filter {
     this.keyword = keyword;
     let value = this.generateSearchExpression();
     $('#hiddenKeywordInput').val(value);
+  }
+
+  getClusterUrl(exp) {
+    let session = getCookie('HOME_SESSID');
+    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+  }
+
+  getClusterValue(exp) {
+    let url = this.getClusterUrl(exp);
+    $.get(url).then(response => {
+      console.log(response)
+    })
   }
 }
 
