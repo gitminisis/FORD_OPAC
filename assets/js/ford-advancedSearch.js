@@ -182,7 +182,7 @@ class Filter {
   }
 
   getClusterUrl(exp) {
-    let session = getCookie('HOME_SESSID');
+    let session = $("#sessionid").text().trim();
     return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
