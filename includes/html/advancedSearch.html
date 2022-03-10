@@ -44,7 +44,7 @@
       <div
         class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]"
       >
-        <ul></ul>
+        <ul id="yearFilterList"></ul>
       </div>
     </div>
   </div>
@@ -65,10 +65,7 @@
       <div
         class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
       >
-        <ul>
-          <li>2000</li>
-          <li>2000</li>
-        </ul>
+        <ul id="makeFilterList"></ul>
       </div>
     </div>
   </div>
@@ -89,22 +86,25 @@
       <div
         class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
       >
-        <ul>
-          <li>2000</li>
-
-          <li>2000</li>
-          <li>2000</li>
-        </ul>
+        <ul id="modelFilterList"></ul>
       </div>
     </div>
   </div>
   <div class="col-span-12 sm:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-    <div class="flex justify-start items-center h-[50px] space-x-[10px]">
-      <!-- <span
-                    class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter"
-                    data-color="black"
-                  ></span> -->
+    <div class="flex justify-start items-center h-[50px] space-x-[10px]" id="colorFilterList">
+      <span
+        class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter"
+        data-color="black"
+      ></span>
+      <span
+        class="w-[32px] h-[32px] bg-red-700 rounded-full inline-block colorFilter"
+        data-color="red"
+      ></span>
+      <span
+        class="w-[32px] h-[32px] bg-blue-700 rounded-full inline-block colorFilter"
+        data-color="blue"
+      ></span>
     </div>
   </div>
   <div class="col-span-8 sm:col-span-4">

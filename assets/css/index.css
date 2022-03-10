@@ -1417,6 +1417,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(72 72 72 / var(--tw-bg-opacity));
 }
 
+.bg-red-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+}
+
+.bg-blue-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.bg-red-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+
 .bg-test {
   background-image: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png');
 }

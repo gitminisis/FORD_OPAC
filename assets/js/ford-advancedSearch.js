@@ -1,11 +1,10 @@
 $(document).ready(function () {
   let filter = new Filter();
-  filter.getClusterValue('LEVEL_DESC')
+  filter.init();
 
   $(".closeModal").on("click", function (e) {
     $(this).parent().parent().parent().parent().addClass("hidden");
   });
-
 
   // Request Modal section
 
@@ -57,6 +56,7 @@ $(document).ready(function () {
       $(this).removeClass("selectedColorFilter");
     });
     let color = $(this).data("color");
+    console.log(color);
     if (filter.color !== color) {
       $(this).addClass("selectedColorFilter");
       filter.color = color;
@@ -111,6 +111,10 @@ class Filter {
     this.color = "";
     this.assetType = [];
     this.keyword = "";
+  }
+
+  resetColor() {
+    this.color = '';
   }
 
 
@@ -188,6 +192,47 @@ class Filter {
     $.get(url).then(response => {
       console.log(response)
     })
+  }
+
+  setClusterDropdown(id, exp) {
+    let url = this.getClusterUrl(exp);
+    $.get(url).then(response => {
+      console.log(response)
+      let x2js = new X2JS({
+        arrayAccessFormPaths: [
+          "cluster.index_list.option"
+        ]
+      });
+      var jsonObj = x2js.xml_str2json(response);
+      let optionArray = jsonObj.cluster.index_list.option;
+      let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
+      $(`#${id}FilterList`).append(optionArrayList.join(''));
+    })
+  }
+
+  setColorFilter(id, exp) {
+    let url = this.getClusterUrl(exp);
+    $.get(url).then(response => {
+      console.log(response)
+      let x2js = new X2JS({
+        arrayAccessFormPaths: [
+          "cluster.index_list.option"
+        ]
+      });
+      var jsonObj = x2js.xml_str2json(response);
+      let optionArray = jsonObj.cluster.index_list.option;
+      let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
+      data-color="${el}"></span>`)
+      $(`#${id}FilterList`).append(optionArrayList.join(''));
+    })
+  }
+
+  init() {
+    const filterList = ['year', 'make', 'model'];
+    filterList.map(filter => {
+      this.setClusterDropdown(filter, FIELD_NAME[filter])
+    })
+    this.setColorFilter('color', FIELD_NAME.color);
   }
 }
 
