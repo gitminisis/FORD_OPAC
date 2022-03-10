@@ -13,7 +13,7 @@ module.exports = {
       background: {
 
       },
-      
+
       backgroundImage: {
         test: "url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png')",
         'homeBanner': "url('../images/homepage-image.jpg')",
@@ -37,6 +37,9 @@ module.exports = {
 
       colors: {
         "primary-blue": "#243c5a",
+        blue: "#00095B",
+        brown :"#77401C"
+
       },
     },
   },
