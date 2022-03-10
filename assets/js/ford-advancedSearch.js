@@ -69,7 +69,6 @@ $(document).ready(function () {
 
   // Asset Filter Handler
 
-
   $(".assetTypeFilter").on("change", function (e) {
     let checked = $(this).is(":checked");
     let assetType = $(this).data("asset");

@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.22 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -1917,7 +1917,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 @font-face {
   font-family: "Ford Antenna";
 
-  src: url("../fonts/antenna-medium.woff2") format("woff2");
+  src: url("../fonts/antenna-medium.woff") format("woff");
 }
 
 * {

@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Ford Antenna";
-  src: url("../fonts/antenna-medium.woff2") format("woff2");
+  src: url("../fonts/antenna-medium.woff") format("woff");
 }
 
 * {
