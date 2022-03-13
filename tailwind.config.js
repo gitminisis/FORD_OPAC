@@ -37,6 +37,16 @@ module.exports = {
 
       colors: {
         "primary-blue": "#243c5a",
+        "blue":"#00095B",
+        "brown":"#77401C",
+        "green":"#0E331F",
+        "grey":"#757575",
+        "multi":"linear-gradient(180deg, #E32A2A 0%, #3D50A5 34.71%, #38E2C9 67.08%, #383838 100%)",
+        "yellow":"#E4941A",
+        "purple":"#662D6E",
+        "red":"#B22627",
+        "orange":"#f59042"
+
       },
     },
   },
