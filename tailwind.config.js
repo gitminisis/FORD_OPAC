@@ -9,12 +9,12 @@ module.exports = {
     extend: {
       background: {
         imageHover: "rgba(0,0,0,0)",
-      },
-      background: {
 
       },
+
 
       backgroundImage: {
+        multi: "linear-gradient(180deg, #E32A2A 0%, #3D50A5 34.71%, #38E2C9 67.08%, #383838 100%)",
         test: "url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png')",
         'homeBanner': "url('../images/homepage-image.jpg')",
         'homeInnovation': "url('../images/innovation.jpeg')",
@@ -38,7 +38,16 @@ module.exports = {
       colors: {
         "primary-blue": "#243c5a",
         blue: "#00095B",
-        brown :"#77401C"
+        brown: "#77401C",
+        green: "#0E331F",
+        grey: "#757575",
+
+        orange: "#E66926",
+        red: "#B22627",
+        yellow: "#E4941A",
+        purple: "#662D6E"
+
+
 
       },
     },
