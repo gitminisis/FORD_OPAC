@@ -1414,46 +1414,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: transparent;
 }
 
-.bg-blue {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 9 91 / var(--tw-bg-opacity));
-}
-
-.bg-brown {
-  --tw-bg-opacity: 1;
-  background-color: rgb(119 64 28 / var(--tw-bg-opacity));
-}
-
-.bg-green {
-  --tw-bg-opacity: 1;
-  background-color: rgb(14 51 31 / var(--tw-bg-opacity));
-}
-
-.bg-grey {
-  --tw-bg-opacity: 1;
-  background-color: rgb(117 117 117 / var(--tw-bg-opacity));
-}
-
-.bg-orange {
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 105 38 / var(--tw-bg-opacity));
-}
-
-.bg-purple {
-  --tw-bg-opacity: 1;
-  background-color: rgb(102 45 110 / var(--tw-bg-opacity));
-}
-
-.bg-red {
-  --tw-bg-opacity: 1;
-  background-color: rgb(178 38 39 / var(--tw-bg-opacity));
-}
-
-.bg-yellow {
-  --tw-bg-opacity: 1;
-  background-color: rgb(228 148 26 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#00095B\] {
   --tw-bg-opacity: 1;
   background-color: rgb(0 9 91 / var(--tw-bg-opacity));
@@ -1471,10 +1431,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-test {
   background-image: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png');
-}
-
-.bg-multi {
-  background-image: linear-gradient(180deg, #E32A2A 0%, #3D50A5 34.71%, #38E2C9 67.08%, #383838 100%);
 }
 
 .bg-homeBanner {
@@ -2367,16 +2323,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 3 / span 3;
   }
 
+  .sm\:col-span-1 {
+    grid-column: span 1 / span 1;
+  }
+
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
   .sm\:col-span-4 {
     grid-column: span 4 / span 4;
-  }
-
-  .sm\:col-span-1 {
-    grid-column: span 1 / span 1;
   }
 
   .sm\:row-span-2 {
@@ -2478,10 +2434,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 40px;
   }
 
-  .sm\:w-2\/3 {
-    width: 66.666667%;
-  }
-
   .sm\:w-\[600px\] {
     width: 600px;
   }
@@ -2492,6 +2444,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:w-1\/2 {
     width: 50%;
+  }
+
+  .sm\:w-2\/3 {
+    width: 66.666667%;
   }
 
   .sm\:max-w-\[600px\] {
@@ -2693,12 +2649,52 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+@media (min-width: 768px) {
+  .md\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
+  .md\:w-2\/3 {
+    width: 66.666667%;
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .lg\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+
   .lg\:grid-cols-10 {
     grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:col-span-4 {
+    grid-column: span 4 / span 4;
   }
 }
