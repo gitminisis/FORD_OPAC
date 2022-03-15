@@ -41,14 +41,10 @@ module.exports = {
         brown: "#77401C",
         green: "#0E331F",
         grey: "#757575",
-
         orange: "#E66926",
         red: "#B22627",
         yellow: "#E4941A",
         purple: "#662D6E"
-
-
-
       },
     },
   },
