@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let filter = new Filter();
   filter.init();
-
+  console.log(filter.getClusterValue("LEVEL_DESC"))
   $(".closeModal").on("click", function (e) {
     $(this).parent().parent().parent().parent().addClass("hidden");
   });
@@ -188,10 +188,11 @@ class Filter {
 
   getClusterValue(exp) {
     let url = this.getClusterUrl(exp);
-    $.get(url).then(response => {
-      console.log(response)
+    return $.get(url).then(response => {
+      return response;
     })
   }
+
 
   setClusterDropdown(id, exp) {
     let url = this.getClusterUrl(exp);
@@ -222,7 +223,7 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
       data-color="${el}"></span>`)
-      $(`#${id}FilterList`).append(optionArrayList.join(''));
+      $(`#${id}Filter`).append(optionArrayList.join(''));
     })
   }
 

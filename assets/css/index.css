@@ -1102,6 +1102,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.grid-cols-9 {
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1162,6 +1166,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-items: stretch;
 }
 
+.gap-0 {
+  gap: 0px;
+}
+
 .gap-x-\[25px\] {
   -moz-column-gap: 25px;
        column-gap: 25px;
@@ -1178,6 +1186,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .gap-x-\[24px\] {
   -moz-column-gap: 24px;
        column-gap: 24px;
+}
+
+.gap-y-\[10px\] {
+  row-gap: 10px;
 }
 
 .gap-x-\[20px\] {
@@ -2442,6 +2454,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 600px;
   }
 
+  .sm\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
   .sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -2636,5 +2652,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1024px) {
   .lg\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+
+  .lg\:grid-cols-10 {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
   }
 }
