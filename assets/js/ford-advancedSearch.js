@@ -22,7 +22,7 @@ $(document).ready(function () {
   $(".filterSelect").on("click", function () {
     // let expand = $(this).find($(".expand"));
     let dropdown = $(this).find($(".filterDropdown"));
-    console.log(dropdown.hasClass("hideDropdown"))
+
     if (dropdown.hasClass("hideDropdown")) {
       filter.openFilter($(this));
     }
@@ -150,6 +150,7 @@ class Filter {
     dropdown.each(function () {
       if (!$(this).hasClass("hideDropdown")) {
         $(this).addClass("hideDropdown");
+        $(this).parent().find('.expand').text("expand_more")
       }
     });
   }
