@@ -193,7 +193,6 @@ class Filter {
   setClusterDropdown(id, exp) {
     let url = this.getClusterUrl(exp);
     $.get(url).then(response => {
-      console.log(response)
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"
@@ -210,7 +209,6 @@ class Filter {
   setColorFilter(id, exp) {
     let url = this.getClusterUrl(exp);
     $.get(url).then(response => {
-      console.log(response)
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"
@@ -239,7 +237,6 @@ class Filter {
         $(this).removeClass("selectedColorFilter");
       });
       let color = $(this).data("color");
-      console.log(color);
       if (filter.color !== color) {
         $(this).addClass("selectedColorFilter");
         filter.color = color;
