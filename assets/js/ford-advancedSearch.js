@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let filter = new Filter();
   filter.init();
-  console.log(filter.getClusterValue("LEVEL_DESC"))
+
   $(".closeModal").on("click", function (e) {
     $(this).parent().parent().parent().parent().addClass("hidden");
   });
@@ -13,7 +13,6 @@ $(document).ready(function () {
     $("#filterCollapse").toggleClass("open-collapse");
     setTimeout(function () {
       if ($("#filterCollapse").hasClass("open-collapse")) {
-        console.log("test");
         $("#advancedSearchInput").focus();
       }
     }, 300);
@@ -23,7 +22,7 @@ $(document).ready(function () {
   $(".filterSelect").on("click", function () {
     // let expand = $(this).find($(".expand"));
     let dropdown = $(this).find($(".filterDropdown"));
-    console.log(dropdown.hasClass("hideDropdown"))
+
     if (dropdown.hasClass("hideDropdown")) {
       filter.openFilter($(this));
     }
@@ -151,6 +150,7 @@ class Filter {
     dropdown.each(function () {
       if (!$(this).hasClass("hideDropdown")) {
         $(this).addClass("hideDropdown");
+        $(this).parent().find('.expand').text("expand_more")
       }
     });
   }
@@ -161,16 +161,11 @@ class Filter {
     let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} ${this.make}`;
     let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} ${this.model}`;
     let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} ${this.color}`;
-    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ').trim()
+    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType}${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
 
-    searchExpression = `
-    ${yearExp} ${yearExp === '' || makeExp === '' ? ' ' : ' AND '} 
-    ${makeExp} ${makeExp === '' || modelExp === '' ? ' ' : ' AND '} 
-    ${modelExp} ${modelExp === '' || colorExp === '' ? ' ' : ' AND '} 
-    ${colorExp} ${colorExp === '' || assetExp === '' ? ' ' : ' AND '} 
-    ${assetExp}`;
 
+    searchExpression = [yearExp, makeExp, modelExp, colorExp, assetExp].filter(e => e !== '').join(' AND ')
     return searchExpression.trim();
   }
 
@@ -197,7 +192,6 @@ class Filter {
   setClusterDropdown(id, exp) {
     let url = this.getClusterUrl(exp);
     $.get(url).then(response => {
-      console.log(response)
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"
@@ -207,13 +201,13 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
       $(`#${id}FilterList`).append(optionArrayList.join(''));
+      this.initUIHandler()
     })
   }
 
   setColorFilter(id, exp) {
     let url = this.getClusterUrl(exp);
     $.get(url).then(response => {
-      console.log(response)
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"
@@ -223,8 +217,36 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
       data-color="${el}"></span>`)
-      $(`#${id}FilterList`).append(optionArrayList.join(''));
+      $(`#${id}Filter`).append(optionArrayList.join(''));
+      this.initUIHandler();
     })
+  }
+
+  initUIHandler() {
+    let filter = this;
+    $(".filterDropdown ul li").on("click", function () {
+      filter.selectFilterValue($(this));
+      setTimeout(function () {
+        filter.closeAllFilter();
+      }, 10);
+    });
+
+    $(".colorFilter").on("click", function (e) {
+      $(".colorFilter").each(function (e) {
+        $(this).removeClass("selectedColorFilter");
+      });
+      let color = $(this).data("color");
+      if (filter.color !== color) {
+        $(this).addClass("selectedColorFilter");
+        filter.color = color;
+      } else {
+        filter.resetColor();
+      }
+      filter.updateHiddenKeywordValue();
+
+    });
+
+
   }
 
   init() {
