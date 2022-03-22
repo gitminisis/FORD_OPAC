@@ -51,6 +51,17 @@
   }
 }
 
+/** Trending Section */
+.trendingShadowLayer {
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 41, 0) 0%,
+    rgba(9, 9, 21, 0.61) 100%
+  );
+}
+
+/** Trending Section */
+
 /** Innovation Section */
 
 /* Start of dropdown UI */

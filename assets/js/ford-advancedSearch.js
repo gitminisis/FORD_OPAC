@@ -177,7 +177,8 @@ class Filter {
   }
 
   getClusterUrl(exp) {
-    let session = $("#sessionid").text().trim();
+    // let session = $("#sessionid").text().trim();
+    let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
     return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
