@@ -223,7 +223,7 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
       data-color="${el}"></span>`)
-      $(`#${id}Filter`).append(optionArrayList.join(''));
+      $(`#${id}FilterList`).append(optionArrayList.join(''));
     })
   }
 
