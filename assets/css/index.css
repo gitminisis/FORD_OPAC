@@ -935,6 +935,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: calc(22vw);
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
 .h-\[890px\] {
   height: 890px;
 }
@@ -1513,8 +1517,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-size: cover;
 }
 
+.bg-contain {
+  background-size: contain;
+}
+
 .bg-center {
   background-position: center;
+}
+
+.bg-left {
+  background-position: left;
 }
 
 .bg-no-repeat {
@@ -2466,6 +2478,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 400px;
   }
 
+  .sm\:h-full {
+    height: 100%;
+  }
+
   .sm\:h-\[650px\] {
     height: 650px;
   }
@@ -2494,8 +2510,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     max-width: 600px;
   }
 
-  .sm\:grid-cols-5 {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+  .sm\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .sm\:grid-cols-4 {
@@ -2504,14 +2520,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:grid-cols-10 {
     grid-template-columns: repeat(10, minmax(0, 1fr));
-  }
-
-  .sm\:grid-cols-8 {
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-  }
-
-  .sm\:grid-cols-12 {
-    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .sm\:flex-row {

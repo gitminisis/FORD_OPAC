@@ -1,10 +1,19 @@
 $(document).ready(function () {
   if (document.getElementById("summary")) {
     const summary = new Summary();
+    const downloader = new MediaDownloader();
     summary.init();
     $(".recordHeading").on("click", function () {
       window.location.href = summary.getRecordURL($(this));
     });
+
+
+    $(".downloadRecord").on("click", function(){
+      let recordDOM = $(this).parent().parent().parent();
+      console.log(recordDOM)
+      let accessURL = summary.getAccessURL(recordDOM);
+      downloader.downloadSingleAsset(accessURL);
+    })
   }
 
 
@@ -158,10 +167,34 @@ class Summary extends Report {
 
   bookmarkRecord(bookmarkButtonDOM) {
     let containerDiv = bookmarkButtonDOM.parent().parent().parent();
-  } i
+  }
+
+  getThumbnailURL(recordDOM) {
+    let span = recordDOM.find('.hidden_fields').find('.a_media_thumb')
+    return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
+  }
+
+  setRecordThumbnail(){
+    let summary = this;
+    $('.record').each(function(){
+      let url = summary.getThumbnailURL($(this));
+      let record_thumbnail = $(this).find('.record_thumbnail')
+      if(url){
+        record_thumbnail.removeClass('bg-test bg-cover')
+        record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
+        record_thumbnail.css("background-image", `url('${url}')`);
+      }
+    })
+  }
+
+  getAccessURL(recordDOM) {
+    let span = recordDOM.find('.hidden_fields').find('.a_media_low_res')
+    return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
+  }
   init() {
     this.setTotalRecord();
     this.setGridListToggle();
     this.createPagination();
+    this.setRecordThumbnail();
   }
 }
