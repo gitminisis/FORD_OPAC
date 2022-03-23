@@ -214,6 +214,11 @@
 .recordHeading {
   cursor: pointer;
 }
+
+.downloadRecord,
+.bookmarkRecord:hover {
+  color: #243c5a;
+}
 /* Summary Page */
 
 /* Footer */
