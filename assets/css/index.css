@@ -1974,15 +1974,12 @@ Ensure the default browser behavior of the `hidden` attribute.
       rgba(0, 0, 0, 0) 100%
     );
   }
-
-  .innovationColorLayer {
-    background: linear-gradient(0deg, #3e7089 0%, #477994 50.44%, #324ab0 100%);
-  }
 }
 
 /** Trending Section */
 
 .trendingShadowLayer {
+  cursor: pointer;
   background: linear-gradient(
     180deg,
     rgba(20, 20, 41, 0) 0%,
@@ -2015,7 +2012,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
-.filterDropdown {
+.filterDropdown,
+.surveyDropdown {
   max-height: 250px;
   visibility: visible;
   transition: all 0.17s ease-in;
@@ -2285,9 +2283,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.hover\:drop-shadow-xl:hover {
-  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+.hover\:shadow-lg:hover {
+  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.hover\:shadow-\[\#243C5A\]:hover {
+  --tw-shadow-color: #243C5A;
+  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .focus\:border-\[\#DDDADA\]:focus {
