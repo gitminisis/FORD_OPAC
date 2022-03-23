@@ -45,23 +45,17 @@
       rgba(0, 0, 0, 0) 100%
     );
   }
-
-
 }
 
 /** Trending Section */
 .trendingShadowLayer {
-  
   cursor: pointer;
   background: linear-gradient(
     180deg,
     rgba(20, 20, 41, 0) 0%,
     rgba(9, 9, 21, 0.61) 100%
   );
- 
 }
-
-
 
 /** Trending Section */
 
@@ -228,6 +222,10 @@
 
 .recordHeading {
   cursor: pointer;
+}
+.downloadRecord,
+.bookmarkRecord:hover {
+  color: #243c5a;
 }
 /* Summary Page */
 
