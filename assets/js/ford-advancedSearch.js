@@ -86,6 +86,7 @@ $(document).ready(function () {
 
   $("#filterCollapse").keyup(function (event) {
     if (event.keyCode === 13) {
+      sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
       $('#advancedSearchForm').submit();
     }
   });
@@ -118,6 +119,10 @@ class Filter {
 
   addAssetType(t) {
     this.assetType.push(t);
+  }
+
+  removeAssetType(t) {
+    this.assetType = this.assetType.filter(e => e !== t)
   }
 
   openFilter(filterDOM) {
@@ -173,6 +178,7 @@ class Filter {
     let keyword = $('#advancedSearchInput').val();
     this.keyword = keyword;
     let value = this.generateSearchExpression();
+    this.setFilterSessionStorage();
     $('#hiddenKeywordInput').val(value);
   }
 
@@ -250,12 +256,23 @@ class Filter {
 
   }
 
+  getFilterJSON() {
+
+    let {keyword, year, make, model, color, assetType } = this;
+    return {keyword, year, make, model, color, assetType };
+  }
+
+  setFilterSessionStorage() {
+    console.log(this.getFilterJSON())
+    sessionStorage.setItem('filter', JSON.stringify(this.getFilterJSON()))
+  }
   init() {
     const filterList = ['year', 'make', 'model'];
     filterList.map(filter => {
       this.setClusterDropdown(filter, FIELD_NAME[filter])
     })
     this.setColorFilter('color', FIELD_NAME.color);
+    this.setFilterSessionStorage();
   }
 }
 

@@ -2159,6 +2159,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.downloadRecord,
+.bookmarkRecord:hover {
+  color: #243c5a;
+}
+
 /* Summary Page */
 
 /* Footer */

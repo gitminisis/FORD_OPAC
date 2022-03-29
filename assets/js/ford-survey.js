@@ -15,7 +15,6 @@ $(document).ready(function () {
         else {
             survey.closeAllDropdown();
         }
-        // filter.updateHiddenKeywordValue();
 
     });
 
@@ -48,9 +47,14 @@ $(document).ready(function () {
     });
 
     $('#surveyComment').change(function () {
+        console.log(this.value)
         survey.updateSurveyComment(this.value);
     })
 
+
+    $('#survey-submit').on('click', function (e) {
+        survey.submit();
+    })
 })
 
 class Survey {
@@ -102,32 +106,76 @@ class Survey {
 
     updateSurveyComment(value) {
         console.log(value);
+        this.comment = value;
     }
 
     updateSurveyRate(name, value) {
         this[name] = value;
     }
 
+    submit() {
+        console.log(this)
+        let survey = this;
+        let SESSID = getCookie("HOME_SESSID");
+        let subject = survey.subject;
+        let body = `
+        \n
+        Ford Heritage Vault User Experience Feedback\n\n
+        Topic: ${survey.topic}
+        \n
+        Rate this page:
+        \n
+        Information: ${this.information}/5
+        \n
+        Visual Appeal: ${this.visual}/5
+        \n
+        Ease of Use: ${this.easeOfUse}/5
+        \n
+        Overall: ${this.overall}/5
+        \n
+        \n
+        Comments: ${this.comment}
+        `
+        let receiver = ''
+        let sender = 'noreply@minisisinc.com';
+        let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: `sender=${sender}&receiver=${receiver}&subject=${subject}&mailbody=${body}`,
 
+        }).done(function (res) {
+            survey.closeModal();
+        });
+
+
+    }
+    openModal() {
+        $('#surveyModal').fadeIn(400);
+    }
+
+    closeModal() {
+        $('#surveyModal').fadeOut(200);
+    }
     init() {
-        //  Modal Handle
+
         $('#surveyButton').on('click', function (e) {
-            $('#surveyModal').fadeIn(400);
+            this.openModal();
         })
 
 
         $('.surveyCloseButton').on('click', function (e) {
-            $('#surveyModal').fadeOut(200);
+            this.closeModal();
         })
 
         $(document).on('keyup', function (e) {
             if (e.key == "Escape") {
-                $('#surveyModal').fadeOut(200);
+                this.closeModal();
             }
         });
         // Hide dropdown menu on click outside
         $('#surveyModal').on('click', function (e) {
-            $('#surveyModal').fadeOut(200);
+            this.closeModal();
 
         });
 
