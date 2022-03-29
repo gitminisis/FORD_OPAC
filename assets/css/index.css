@@ -720,24 +720,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 16px;
 }
 
-.my-\[20px\] {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .mx-\[10px\] {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.my-\[15px\] {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
 .my-\[30px\] {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.my-\[15px\] {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .ml-\[10px\] {
@@ -1093,6 +1088,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .resize-none {
   resize: none;
+}
+
+.resize {
+  resize: both;
 }
 
 .grid-cols-6 {
@@ -1486,10 +1485,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/homepage-image.jpg');
 }
 
-.bg-homeInnovation {
-  background-image: url('../images/innovation.jpeg');
-}
-
 .bg-homeTrending1 {
   background-image: url('../images/trending1.png');
 }
@@ -1514,8 +1509,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/trending7.jpg');
 }
 
+<<<<<<< HEAD
 .bg-multi {
   background-image: linear-gradient(180deg, #E32A2A 0%, #3D50A5 34.71%, #38E2C9 67.08%, #383838 100%);
+=======
+.bg-homeInnovation {
+  background-image: url('../images/innovation.jpeg');
+>>>>>>> 1355ce840d6afbb31c653b938ae18b7be81701d4
 }
 
 .bg-cover {
@@ -2424,11 +2424,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
-  }
-
-  .sm\:my-\[60px\] {
-    margin-top: 60px;
-    margin-bottom: 60px;
   }
 
   .sm\:mx-\[60px\] {

@@ -11,5 +11,13 @@ class Report {
             $("#totalRecord").text(hiddenTotalRecord.innerText);
         }
     }
+
+    getFilter() {
+        let filter = sessionStorage.getItem("filter")
+        if (filter) {
+            return JSON.parse(filter)
+        }
+    }
+    
 }
 
