@@ -16,9 +16,16 @@ class Detail extends Report {
     let url = this.getReturnSummaryURL();
     $("#returnSummary").attr("href", url);
   }
+  
+  initLightgallery(){
+    lightGallery(document.getElementById('selector1'), {
+      selector: '.item'
+  });
 
+  }
   init() {
     this.setReturnSummaryURL();
     this.setTotalRecord();
+    this.initLightgallery();
   }
 }
