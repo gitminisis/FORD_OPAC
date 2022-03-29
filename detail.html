@@ -1,5 +1,5 @@
 <!-- include virtual="[FORD_INCLUDE]html/header.html"-->
-
+<link type="text/css" rel="stylesheet" href="/assets/css/lightgallery.min.css" />
 <!-- include virtual="[FORD_INCLUDE]html/topbar.html"-->
 
 <!-- Start of Detail section -->
@@ -13,15 +13,23 @@
     >
       <!-- Start of Records -->
       <div class="col-span-12 flex sm:hidden">
-        <h2
-          class="text-[#243C5A] text-[26px] font-medium leading-[40px] "
-        >
-          Built for America Built for AmericaBuilt for AmericaBuilt for AmericaBuilt for America
+        <h2 class="text-[#243C5A] text-[26px] font-medium leading-[40px]">
+          Built for America Built for AmericaBuilt for AmericaBuilt for
+          AmericaBuilt for America
         </h2>
       </div>
       <div
-        class="col-span-12 sm:col-span-7 bg-test bg-cover h-[30vw] min-h-[340px] max-h-[700px]"
-      ></div>
+        class="col-span-12 sm:col-span-7  h-[30vw] min-h-[340px] max-h-[700px]"
+      >
+      <div id="selector1">
+        <h2>Gallery title</h3>
+        <div class="item" data-src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-after/Landscape-BW.jpg">
+            <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-after/Landscape-BW.jpg" alt="alt" />
+        </div>
+        
+      </div>
+    
+    </div>
       <div class="col-span-12 sm:col-span-5 grid grid-cols-1">
         <div
           class="col-span-1 order-3 sm:order-1 bg-[#F4F4F4] p-[15px] sm:p-[30px]"
@@ -37,11 +45,11 @@
             <p>
               Ford Motor Company | F Series |trucks | components and features |
               trims
-              
             </p>
 
             <p class="font-medium">Color</p>
 
+            <span
               class="rounded-full w-[24px] h-[24px] inline-block bg-[#B22627]"
             ></span>
             <span
@@ -80,4 +88,13 @@
 
 <!-- include virtual="[FORD_INCLUDE]html/detail/trending.html"-->
 
+
+<!-- lightgallery plugins -->
+
 <!-- include virtual="[FORD_INCLUDE]html/footer.html"-->
+<script src="/assets/js/lightgallery.min.js"></script>
+<script type="text/javascript">
+  lightGallery(document.getElementById('selector1'), {
+    selector: '.item'
+});
+</script>
