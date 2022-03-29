@@ -178,7 +178,8 @@ class Filter {
 
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
-    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+    // let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
+    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
   getClusterValue(exp) {
@@ -254,7 +255,7 @@ class Filter {
     filterList.map(filter => {
       this.setClusterDropdown(filter, FIELD_NAME[filter])
     })
-    this.setColorFilter('color', FIELD_NAME.color);
+    // this.setColorFilter('color', FIELD_NAME.color);
   }
 }
 

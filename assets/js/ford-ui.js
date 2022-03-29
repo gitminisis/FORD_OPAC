@@ -20,34 +20,34 @@ $(document).ready(function () {
 
 
   //  Modal Handle
-  $('#surveyButton').on('click', function (e) {
-    $('#surveyModal').fadeIn(400);
-  })
+  // $('#surveyButton').on('click', function (e) {
+  //   $('#surveyModal').fadeIn(400);
+  // })
 
-  $('#requestButton').on('click', function (e) {
-    $('#requestModal').fadeIn(400);
-  })
+  // $('#requestButton').on('click', function (e) {
+  //   $('#requestModal').fadeIn(400);
+  // })
 
-  $('.surveyCloseButton').on('click', function (e) {
-    $('#surveyModal').fadeOut(200);
-  })
+  // $('.surveyCloseButton').on('click', function (e) {
+  //   $('#surveyModal').fadeOut(200);
+  // })
 
-  $(document).on('keyup', function (e) {
+  // $(document).on('keyup', function (e) {
 
-    if (e.key == "Escape") {
-      $('#surveyModal').fadeOut(200);
-    }
-  });
-  // Hide dropdown menu on click outside
-  $('#surveyModal').on('click', function (e) {
+  //   if (e.key == "Escape") {
+  //     $('#surveyModal').fadeOut(200);
+  //   }
+  // });
+  // // Hide dropdown menu on click outside
+  // $('#surveyModal').on('click', function (e) {
 
-    $('#surveyModal').fadeOut(200);
+  //   $('#surveyModal').fadeOut(200);
 
 
-  });
-  $('#surveyModal .modalBody').on('click', function (e) {
-    e.stopPropagation();
-  });
+  // });
+  // $('#surveyModal .modalBody').on('click', function (e) {
+  //   e.stopPropagation();
+  // });
 
   // Modal Handle
 
@@ -83,6 +83,20 @@ $(document).ready(function () {
 
 
   // Black Box Mobile Expand 
+
+
+  // Trending Now Hover Effect
+
+
+
+
+
+  $(".trendingShadowLayer").parent().on('mouseenter', function () {
+    $(this).find($('.trendingShadowLayer')).css('background', 'linear-gradient(180deg,rgba(20, 20, 41, 0) 0%,rgba(9, 9, 21, 0.8) 80%)')
+  });
+  $(".trendingShadowLayer").parent().on('mouseleave', function () {
+    $(this).find($('.trendingShadowLayer')).css('background', 'linear-gradient(180deg, rgba(20, 20, 41, 0) 0%, rgba(9, 9, 21, 0.61) 100% )')
+  });
 
 });
 

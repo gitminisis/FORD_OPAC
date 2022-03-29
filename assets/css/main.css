@@ -45,11 +45,19 @@
       rgba(0, 0, 0, 0) 100%
     );
   }
-
-  .innovationColorLayer {
-    background: linear-gradient(0deg, #3e7089 0%, #477994 50.44%, #324ab0 100%);
-  }
 }
+
+/** Trending Section */
+.trendingShadowLayer {
+  cursor: pointer;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 41, 0) 0%,
+    rgba(9, 9, 21, 0.61) 100%
+  );
+}
+
+/** Trending Section */
 
 /** Innovation Section */
 
@@ -71,7 +79,8 @@
   background-clip: padding-box;
   border-radius: 9999px;
 }
-.filterDropdown {
+.filterDropdown,
+.surveyDropdown {
   max-height: 250px;
   visibility: visible;
   transition: all 0.17s ease-in;
@@ -214,8 +223,7 @@
 .recordHeading {
   cursor: pointer;
 }
-
-.downloadRecord,
+.downloadRecord:hover,
 .bookmarkRecord:hover {
   color: #243c5a;
 }
