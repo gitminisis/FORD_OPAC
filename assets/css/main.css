@@ -223,7 +223,7 @@
 .recordHeading {
   cursor: pointer;
 }
-.downloadRecord,
+.downloadRecord:hover,
 .bookmarkRecord:hover {
   color: #243c5a;
 }

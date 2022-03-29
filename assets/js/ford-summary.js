@@ -184,6 +184,10 @@ class Summary extends Report {
         record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
         record_thumbnail.css("background-image", `url('${url}')`);
       }
+      // If No Digital Asset put placeholder
+      else{
+
+      }
     })
   }
 

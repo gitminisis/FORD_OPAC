@@ -720,24 +720,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 16px;
 }
 
-.my-\[20px\] {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .mx-\[10px\] {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.my-\[15px\] {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
 .my-\[30px\] {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.my-\[15px\] {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .ml-\[10px\] {
@@ -1446,10 +1441,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/homepage-image.jpg');
 }
 
-.bg-homeInnovation {
-  background-image: url('../images/innovation.jpeg');
-}
-
 .bg-homeTrending1 {
   background-image: url('../images/trending1.png');
 }
@@ -1472,6 +1463,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-homeTrending7 {
   background-image: url('../images/trending7.jpg');
+}
+
+.bg-homeInnovation {
+  background-image: url('../images/innovation.jpeg');
 }
 
 .bg-cover {
@@ -2159,7 +2154,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
-.downloadRecord,
+.downloadRecord:hover,
 .bookmarkRecord:hover {
   color: #243c5a;
 }
@@ -2380,11 +2375,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem;
-  }
-
-  .sm\:my-\[60px\] {
-    margin-top: 60px;
-    margin-bottom: 60px;
   }
 
   .sm\:mx-\[60px\] {
