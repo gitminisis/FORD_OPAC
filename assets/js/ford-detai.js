@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Textual</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/e78a5e108fac493c81b1c3d0d1ead7cd/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/e78a5e108fac493c81b1c3d0d1ead7cd/thumbnail</span> </div>'
+  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Video</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/access</span><span class="a_media_thumb">https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/thumbnail</span> </div>'
   if (document.getElementById("detail")) {
     $('body').append(imageTest)
     const detail = new Detail();
@@ -106,10 +106,18 @@ class Detail extends Report {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a> </div>`)
       }
       else if (mediaType === 'Audio') {
-
+        detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
       }
       else if (mediaType === 'Video') {
-
+        detailMediaDOM.append(` <video width="80%" class="mx-[auto]" controls>
+        <source src=${mediaLowRes} type="video/mp4">
+        <source src=${mediaLowRes} type="video/ogg">
+        Your browser does not support HTML video.
+      </video>
+      `)
+        lightGallery(document.getElementById('detail_media'), {
+          selector: '.item'
+        });
       }
 
     }
