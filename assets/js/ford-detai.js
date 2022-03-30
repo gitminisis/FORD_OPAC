@@ -2,6 +2,12 @@ $(document).ready(function () {
   if (document.getElementById("detail")) {
     const detail = new Detail();
     detail.init();
+
+    $('#copy-link').on('click', function () {
+      let sisn = $('#hidden_sisn_detail').text();
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL/sisn ${sisn}?sessionsearch`
+      copyToClipboard(url);
+    })
   }
 });
 
@@ -16,11 +22,11 @@ class Detail extends Report {
     let url = this.getReturnSummaryURL();
     $("#returnSummary").attr("href", url);
   }
-  
-  initLightgallery(){
+
+  initLightgallery() {
     lightGallery(document.getElementById('selector1'), {
       selector: '.item'
-  });
+    });
 
   }
   init() {

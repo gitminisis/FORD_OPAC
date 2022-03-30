@@ -271,7 +271,8 @@ class Filter {
     filterList.map(filter => {
       this.setClusterDropdown(filter, FIELD_NAME[filter])
     })
-    this.setColorFilter('color', FIELD_NAME.color);
+    // this.setColorFilter('color', FIELD_NAME.color);
+    this.initUIHandler();
     this.setFilterSessionStorage();
   }
 }
