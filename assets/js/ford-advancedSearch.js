@@ -185,7 +185,7 @@ class Filter {
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
     // let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
-    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
   getClusterValue(exp) {
@@ -203,7 +203,7 @@ class Filter {
         arrayAccessFormPaths: [
           "cluster.index_list.option"
         ]
-      });
+      })
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
