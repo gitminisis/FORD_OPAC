@@ -171,7 +171,7 @@ class Summary extends Report {
 
   getThumbnailURL(recordDOM) {
     let span = recordDOM.find('.hidden_fields').find('.a_media_thumb')
-    return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
+    return span.length > 0 ? span.eq(0).text().trim().replace(/\n/g, '') : null
   }
 
   setRecordThumbnail(){

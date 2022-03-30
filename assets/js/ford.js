@@ -43,7 +43,7 @@ function getTimestamp() {
 /**
  * Copy a string to the clipboard
  */
- function copyToClipboard (str) {
+function copyToClipboard (str) {
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');
@@ -54,6 +54,8 @@ function getTimestamp() {
     document.execCommand('copy');
     document.body.removeChild(el);
 };
+
+
 
 
 class MediaDownloader {

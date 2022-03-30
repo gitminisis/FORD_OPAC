@@ -114,29 +114,12 @@ class Survey {
     }
 
     submit() {
-        console.log(this)
+       
         let survey = this;
         let SESSID = getCookie("HOME_SESSID");
         let subject = survey.subject;
-        let body = `
-        \n
-        Ford Heritage Vault User Experience Feedback\n\n
-        Topic: ${survey.topic}
-        \n
-        Rate this page:
-        \n
-        Information: ${this.information}/5
-        \n
-        Visual Appeal: ${this.visual}/5
-        \n
-        Ease of Use: ${this.easeOfUse}/5
-        \n
-        Overall: ${this.overall}/5
-        \n
-        \n
-        Comments: ${this.comment}
-        `
-        let receiver = ''
+        let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`
+        let receiver = 'mikehoangdn1@gmail.com'
         let sender = 'noreply@minisisinc.com';
         let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
         $.ajax({
@@ -156,26 +139,36 @@ class Survey {
 
     closeModal() {
         $('#surveyModal').fadeOut(200);
+        this.reset();
+    }
+    reset(){
+        $(".surveyText").eq(0).text('Please Select')
+        $(".surveyText").eq(1).text('Choose a topic for your comments')
+        $("textarea#surveyComment").val('');
+        $('input[name="information"]').prop('checked', false);
+        $('input[name="visual"]').prop('checked', false);
+        $('input[name="easeOfUse"]').prop('checked', false);
+        $('input[name="overall"]').prop('checked', false);
     }
     init() {
-
+        let survey = this;
         $('#surveyButton').on('click', function (e) {
-            this.openModal();
+            survey.openModal();
         })
 
 
         $('.surveyCloseButton').on('click', function (e) {
-            this.closeModal();
+            survey.closeModal();
         })
 
         $(document).on('keyup', function (e) {
             if (e.key == "Escape") {
-                this.closeModal();
+                survey.closeModal();
             }
         });
         // Hide dropdown menu on click outside
         $('#surveyModal').on('click', function (e) {
-            this.closeModal();
+            survey.closeModal();
 
         });
 
