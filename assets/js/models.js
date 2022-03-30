@@ -23,10 +23,3 @@ class Report {
 
 
 
-class MediaAsset {
-    constructor(mediaType, mediaLowRes, mediaThumb) {
-        this.mediaType = mediaType;
-        this.mediaLowRest = mediaLowRes;
-        this.mediaThumb = mediaThumb;
-    }
-}
