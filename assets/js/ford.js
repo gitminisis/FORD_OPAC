@@ -43,7 +43,7 @@ function getTimestamp() {
 /**
  * Copy a string to the clipboard
  */
-function copyToClipboard (str) {
+function copyToClipboard(str) {
     const el = document.createElement('textarea');
     el.value = str;
     el.setAttribute('readonly', '');
@@ -53,6 +53,8 @@ function copyToClipboard (str) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    let toast = new MessageModal('Record URL has been copied')
+    toast.open()
 };
 
 
@@ -71,13 +73,15 @@ class MediaDownloader {
      * @param {*} downloadURL
      */
     downloadSingleAsset = (downloadURL) => {
+        let toast = new MessageModal('Your files are being processed ...', 99999)
+        toast.open()
         axios({
             url: downloadURL, //your url
             method: "GET",
             responseType: "arraybuffer", // important
         })
             .then(async function (response) {
-                console.log(response);
+                
                 let url;
                 if (window.webkitURL) {
                     url = window.webkitURL.createObjectURL(new Blob([response.data]));
@@ -86,17 +90,19 @@ class MediaDownloader {
                 }
                 const link = document.createElement("a");
                 link.href = url;
-                console.log(url);
+                
                 const fileName = response.headers["content-disposition"].split("=")[1];
 
                 const fileBlob = await fetch(downloadURL).then((res) => res.blob());
 
                 const fileData = new File([fileBlob], fileName);
+               
                 let zip = new JSZip();
 
                 zip.file(fileName, fileData);
-
+                
                 zip.generateAsync({ type: "blob" }).then(function (content) {
+                    toast.close();
                     saveAs(content, `DigitalAssets_${getTimestamp()}.zip`);
                 });
             })
@@ -106,15 +112,15 @@ class MediaDownloader {
     }
 
 
-    downloadMultiAssets = _ => {
-        this.initAssetBlobArray(URLarray);
-        console.log(this.assetBlobArray)
-        setTimeout(() => {
-            // console.log(this.assetBlobArray)
-            this.downloadBlobArray();
-        }, 1500)
+    // downloadMultiAssets = _ => {
+    //     this.initAssetBlobArray(URLarray);
+    //     console.log(this.assetBlobArray)
+    //     setTimeout(() => {
+    //         // console.log(this.assetBlobArray)
+    //         this.downloadBlobArray();
+    //     }, 1500)
 
-    }
+    // }
 
 
     initAssetBlobArray = URLarray => {
@@ -151,15 +157,19 @@ class MediaDownloader {
 
     downloadBlobArray = _ => {
         let zip = new JSZip();
+        let toast = new MessageModal('Your files are being processed ...', 99999)
+        toast.open()
         this.assetBlobArray.map((object, index) => {
             let { fileBlob, fileName } = object;
             let imgData = new File([fileBlob], fileName);
-
+            console.log(imgData)
             zip.file(fileName, imgData, {
                 base64: true
             });
         });
+
         zip.generateAsync({ type: "blob" }).then(function (content) {
+            toast.close()
             let time = new Date().toLocaleTimeString("en-US", {
                 hour12: false,
                 hour: "numeric",
@@ -178,16 +188,31 @@ class MediaDownloader {
 
 
 
-// const url_array = ['https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/2f1ebcd8bbd0433ca040d65cf8e4728f/access'
-//     ,
-//     'https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/4f9c16982232481ca39b3b7a3c69f81a/access',
-//     'https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/087f992a063a4c32a7a61dd84b46d8a6/access',
-//     'https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/e081083352a648948c89496e3fdb354c/access',
-//     'https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/access'
 
-// ]
-// let downloader = new MediaDownloader();
+class MessageModal {
 
-// // downloader.downloadSingleAsset(url_array[0]);
+    constructor(text, duration = 2000) {
+        this.toast = Toastify({
+            text: text,
+            duration: duration,
 
-// downloader.initAssetBlobArray(url_array);
+            newWindow: true,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+                background: '#00095B'
+            },
+            onClick: function () { }, // Callback after click
+        })
+    }
+
+    open() {
+        this.toast.showToast();
+    }
+
+    close() {
+        this.toast.hideToast();
+    }
+}

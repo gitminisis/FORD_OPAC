@@ -48,23 +48,7 @@ $(document).ready(function () {
     }
   });
 
-  // Color Filter Handler
 
-  $(".colorFilter").on("click", function (e) {
-    $(".colorFilter").each(function (e) {
-      $(this).removeClass("selectedColorFilter");
-    });
-    let color = $(this).data("color");
-    console.log(color);
-    if (filter.color !== color) {
-      $(this).addClass("selectedColorFilter");
-      filter.color = color;
-    } else {
-      filter.resetColor();
-    }
-    filter.updateHiddenKeywordValue();
-
-  });
 
   // Asset Filter Handler
 
@@ -83,7 +67,6 @@ $(document).ready(function () {
   });
 
 
-
   $("#filterCollapse").keyup(function (event) {
     if (event.keyCode === 13) {
       sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
@@ -91,6 +74,22 @@ $(document).ready(function () {
     }
   });
 
+  $('#advanced-reset').on('click', function () {
+
+    filter.resetUI();
+  })
+
+  $('#advanced-submit').on('click', function () {
+
+    if (filter.keyword.trim() === '') {
+      let toast = new MessageModal('Please input a keyword for the search')
+      toast.open();
+    }
+    else {
+      sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
+      $('#advancedSearchForm').submit();
+    }
+  })
 });
 
 class Filter {
@@ -258,14 +257,28 @@ class Filter {
 
   getFilterJSON() {
 
-    let {keyword, year, make, model, color, assetType } = this;
-    return {keyword, year, make, model, color, assetType };
+    let { keyword, year, make, model, color, assetType } = this;
+    return { keyword, year, make, model, color, assetType };
   }
 
   setFilterSessionStorage() {
     console.log(this.getFilterJSON())
     sessionStorage.setItem('filter', JSON.stringify(this.getFilterJSON()))
   }
+
+  resetUI() {
+    this.resetAll();
+    $("#advancedSearchInput").val('');
+    $('#yearFilterValue').text('Year')
+    $('#makeFilterValue').text('Make')
+    $('#modelFilterValue').text('Model')
+    $(".colorFilter").each(function (e) {
+      $(this).removeClass("selectedColorFilter");
+    });
+    $('input[type=checkbox]').prop('checked', false);
+
+  }
+
   init() {
     const filterList = ['year', 'make', 'model'];
     filterList.map(filter => {

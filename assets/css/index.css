@@ -710,6 +710,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0;
 }
 
+.mx-\[50px\] {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 .my-\[90px\] {
   margin-top: 90px;
   margin-bottom: 90px;
@@ -1155,6 +1160,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   justify-content: flex-start;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -1246,6 +1255,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-x-reverse: 0;
   margin-right: calc(10px * var(--tw-space-x-reverse));
   margin-left: calc(10px * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-\[40px\] > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(40px * var(--tw-space-x-reverse));
+  margin-left: calc(40px * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-0 > :not([hidden]) ~ :not([hidden]) {
@@ -1616,6 +1631,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-\[10px\] {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.px-\[40px\] {
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .py-1\.5 {
@@ -2138,6 +2158,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* Modal Animation */
 
+#advanced-submit{
+  box-shadow: 0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+}
+
 /* Color Filter */
 
 .selectedColorFilter {
@@ -2217,6 +2241,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 /* Summary Page */
+
+/* Detail Page */
+
+#detail a {
+  color:#243C5A
+}
+
+#detail a:hover {
+  text-decoration: underline;
+}
+
+/* Detail Page */
 
 /* Footer */
 
@@ -2349,6 +2385,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:shadow-\[\#243C5A\]:hover {
   --tw-shadow-color: #243C5A;
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.hover\:drop-shadow-xl:hover {
+  --tw-drop-shadow: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .focus\:border-\[\#DDDADA\]:focus {

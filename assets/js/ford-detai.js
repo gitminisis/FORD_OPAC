@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Video</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/access</span><span class="a_media_thumb">https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/thumbnail</span> </div>'
+  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/thumbnail</span> </div>'
   if (document.getElementById("detail")) {
     $('body').append(imageTest)
     const detail = new Detail();
@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $('#copy-link').on('click', function () {
       let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL/sisn ${sisn}?sessionsearch`
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
       copyToClipboard(url);
     })
   }
@@ -116,7 +116,7 @@ class Detail extends Report {
   }
   setDownloadButtonHandler(downloader){
     $('#download-detail-assets').on('click',function(){
-      downloader.downloadMultiAssets();
+      downloader.downloadBlobArray();
     })
   }
   setMediaView() {
@@ -196,6 +196,5 @@ class Detail extends Report {
     this.initDownloadSection();
   }
 }
-
 
 
