@@ -114,7 +114,7 @@ class Survey {
     }
 
     submit() {
-       
+
         let survey = this;
         let SESSID = getCookie("HOME_SESSID");
         let subject = survey.subject;
@@ -129,6 +129,8 @@ class Survey {
 
         }).done(function (res) {
             survey.closeModal();
+            let toast = new MessageModal('Your feedback has successfully been sent!')
+            toast.open();
         });
 
 
@@ -141,7 +143,7 @@ class Survey {
         $('#surveyModal').fadeOut(200);
         this.reset();
     }
-    reset(){
+    reset() {
         $(".surveyText").eq(0).text('Please Select')
         $(".surveyText").eq(1).text('Choose a topic for your comments')
         $("textarea#surveyComment").val('');

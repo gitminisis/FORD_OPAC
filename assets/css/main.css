@@ -158,6 +158,10 @@
 }
 /* Modal Animation */
 
+#advanced-submit{
+  box-shadow: 0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+}
+
 /* Color Filter */
 
 .selectedColorFilter {

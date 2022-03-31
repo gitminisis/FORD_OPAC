@@ -1,13 +1,33 @@
 <!-- Start of Filter Collapse -->
 
-<div id="filterCollapse" class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]">
+<div
+  id="filterCollapse"
+  class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]"
+>
   <div class="col-span-12">
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
-      <form id="advancedSearchForm" class="relative flex items-center" method="POST" action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC&ERRMSG=[FORD_INCLUDE]/no-record.html">
-        <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus aria-label="What Are You Looking For?"
-          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
+      <form
+        id="advancedSearchForm"
+        class="relative flex items-center"
+        method="POST"
+        action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC&ERRMSG=[FORD_INCLUDE]/no-record.html"
+      >
+        <input
+          required
+          name="KEYWORD_CL"
+          id="advancedSearchInput"
+          placeholder="What Are You Looking For?"
+          autofocus
+          aria-label="What Are You Looking For?"
+          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]"
+        />
         <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
-        <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
+        <input
+          name="KEYWORD"
+          id="hiddenKeywordInput"
+          hidden
+          aria-label="Hidden advanced search expression"
+        />
         <span class="material-icons absolute right-0 font-[14px]">
           search
         </span>
@@ -17,11 +37,20 @@
   <div class="col-span-4 md:col-span-4 xl:col-span-2">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Year</span>
 
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <span class="self-center filterText" data-filter="Year" id="yearFilterValue">Year</span>
+    <div
+      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
+    >
+      <span
+        class="self-center filterText"
+        data-filter="Year"
+        id="yearFilterValue"
+        >Year</span
+      >
       <span class="material-icons self-center expand"> expand_more </span>
 
-      <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]"
+      >
         <ul id="yearFilterList"></ul>
       </div>
     </div>
@@ -29,11 +58,20 @@
   <div class="col-span-8 md:col-span-8 xl:col-span-3">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
 
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <span class="self-center filterText" data-filter="Make" id="makeFilterValue">Make</span>
+    <div
+      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
+    >
+      <span
+        class="self-center filterText"
+        data-filter="Make"
+        id="makeFilterValue"
+        >Make</span
+      >
       <span class="material-icons self-center expand"> expand_more </span>
 
-      <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
+      >
         <ul id="makeFilterList"></ul>
       </div>
     </div>
@@ -41,62 +79,133 @@
   <div class="col-span-12 md:col-span-12 xl:col-span-3">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
 
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <span class="self-center filterText" data-filter="Model" id="modelFilterValue">Model</span>
+    <div
+      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
+    >
+      <span
+        class="self-center filterText"
+        data-filter="Model"
+        id="modelFilterValue"
+        >Model</span
+      >
       <span class="material-icons self-center expand"> expand_more </span>
 
-      <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
+      >
         <ul id="modelFilterList"></ul>
       </div>
     </div>
   </div>
   <div class="col-span-12 md:col-span-12 xl:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-    <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]" id="colorFilter">
-      <!-- <span
-        class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter col-span-1"
+    <div
+      class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
+      id="colorFilter"
+    >
+      <span
+        class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter"
         data-color="black"
-      ></span>
-      <span
-        class="w-[32px] h-[32px] bg-red-700 rounded-full inline-block colorFilter col-span-1"
-        data-color="red"
-      ></span>
-      <span
-        class="w-[32px] h-[32px] bg-blue-700 rounded-full inline-block colorFilter col-span-1"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter"
         data-color="blue"
-      ></span> -->
-      <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
-        class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter"
-        data-color="brown"></span><span class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter"
-        data-color="green"></span><span class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter"
-        data-color="grey"></span><span class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter"
-        data-color="multi"></span><span class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter"
-        data-color="orange"></span><span class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter"
-        data-color="purple"></span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block colorFilter"
-        data-color="red"></span><span class="w-[32px] h-[32px] bg-silver rounded-full inline-block colorFilter"
-        data-color="silver"></span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
-        data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
-        data-color="yellow"></span></div>
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter"
+        data-color="brown"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter"
+        data-color="green"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter"
+        data-color="grey"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter"
+        data-color="multi"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter"
+        data-color="orange"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter"
+        data-color="purple"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-red rounded-full inline-block colorFilter"
+        data-color="red"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-silver rounded-full inline-block colorFilter"
+        data-color="silver"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
+        data-color="white"
+      ></span
+      ><span
+        class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
+        data-color="yellow"
+      ></span>
+    </div>
   </div>
   <div class="col-span-8 md:col-span-8 xl:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
 
     <div class="grid grid-cols-3 sm:grid-cols-4">
       <div class="col-span-1 flex space-x-[10px] items-center">
-        <input type="checkbox" data-asset="Image" id="imageAssetType" class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+        <input
+          type="checkbox"
+          data-asset="Image"
+          id="imageAssetType"
+          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
+        />
 
         <label class="" for="imageAssetType">JPEG</label>
       </div>
       <div class="col-span-2 flex space-x-[10px] items-center">
-        <input type="checkbox" data-asset="Moving Image" id="movingImageAssetType" class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+        <input
+          type="checkbox"
+          data-asset="Moving Image"
+          id="movingImageAssetType"
+          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
+        />
 
         <label class="" for="movingImageAssetType">Moving Image</label>
       </div>
       <div class="col-span-1 flex space-x-[10px] items-center">
-        <input type="checkbox" data-asset="Document" id="documentAssetType" class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+        <input
+          type="checkbox"
+          data-asset="Document"
+          id="documentAssetType"
+          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
+        />
 
         <label class="" for="documentAssetType">PDF</label>
       </div>
+    </div>
+  </div>
+
+  <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
+    <div>
+      <button
+        class="color-[#00095B] py-[5px] hover:drop-shadow-xl"
+        id="advanced-reset"
+      >
+        Reset
+      </button>
+    </div>
+    <div>
+      <button
+        class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
+        id="advanced-submit"
+      >
+        Search
+      </button>
     </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Video</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/access</span><span class="a_media_thumb">https://titanapi.minisisinc.com/api/links/515fdd13553d4f37a82b97836f989ae4/uuid/5db8171ec16f424e9a30ee2d562a59e5/thumbnail</span> </div>'
+  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/thumbnail</span> </div>'
   if (document.getElementById("detail")) {
     $('body').append(imageTest)
     const detail = new Detail();
@@ -7,16 +7,16 @@ $(document).ready(function () {
 
     $('#copy-link').on('click', function () {
       let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC/FORD_DETAIL/sisn ${sisn}?sessionsearch`
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL/sisn ${sisn}?sessionsearch`
       copyToClipboard(url);
     })
   }
 });
 class MediaAsset {
   constructor(mediaType, mediaLowRes, mediaThumb) {
-    this.mediaType = mediaType.trim().replace(/ /g, '');
-    this.mediaLowRes = mediaLowRes.trim().replace(/ /g, '');
-    this.mediaThumb = mediaThumb.trim().replace(/ /g, '');
+    this.mediaType = mediaType.trim().replace(/ /g, '').replace(/\n/g, '');
+    this.mediaLowRes = mediaLowRes.trim().replace(/ /g, '').replace(/\n/g, '');
+    this.mediaThumb = mediaThumb.trim().replace(/ /g, '').replace(/\n/g, '');
   }
 }
 
@@ -77,7 +77,50 @@ class Detail extends Report {
     }
   }
 
+  initDownloadSection(){
+    const downloader = new MediaDownloader();
+    let detail = this;
 
+    let downloadSectionDOM = $("#download-section");
+    let { assets } = this;
+    if (assets.length === 0) {
+     return;
+
+    }
+    else{
+      let URLarray = assets.map(e=>e.mediaLowRes);
+      downloader.initAssetBlobArray(URLarray)
+      
+      let { mediaType, mediaLowRes, mediaThumb } = assets[0];
+      console.log(URLarray)
+      if (mediaType === 'Image') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Image <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Textual') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Textual <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Moving Image') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Video <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Audio') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Audio <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      this.setDownloadButtonHandler(downloader);
+    }
+  }
+  setDownloadButtonHandler(downloader){
+    $('#download-detail-assets').on('click',function(){
+      downloader.downloadBlobArray();
+    })
+  }
   setMediaView() {
     let { assets } = this;
     console.log(assets);
@@ -108,7 +151,7 @@ class Detail extends Report {
       else if (mediaType === 'Audio') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
       }
-      else if (mediaType === 'Video') {
+      else if (mediaType === 'Moving Image') {
         detailMediaDOM.append(` <video width="80%" class="mx-[auto]" controls>
         <source src=${mediaLowRes} type="video/mp4">
         <source src=${mediaLowRes} type="video/ogg">
@@ -146,13 +189,14 @@ class Detail extends Report {
 
 
   init() {
+   
     this.setReturnSummaryURL();
     this.setTotalRecord();
     this.initLightgallery();
     this.initDetailAssets();
     this.setMediaView();
+    this.initDownloadSection();
   }
 }
-
 
 
