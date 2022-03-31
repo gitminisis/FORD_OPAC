@@ -7,16 +7,16 @@ $(document).ready(function () {
 
     $('#copy-link').on('click', function () {
       let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC/FORD_DETAIL/sisn ${sisn}?sessionsearch`
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL/sisn ${sisn}?sessionsearch`
       copyToClipboard(url);
     })
   }
 });
 class MediaAsset {
   constructor(mediaType, mediaLowRes, mediaThumb) {
-    this.mediaType = mediaType.trim().replace(/ /g, '');
-    this.mediaLowRes = mediaLowRes.trim().replace(/ /g, '');
-    this.mediaThumb = mediaThumb.trim().replace(/ /g, '');
+    this.mediaType = mediaType.trim().replace(/ /g, '').replace(/\n/g, '');
+    this.mediaLowRes = mediaLowRes.trim().replace(/ /g, '').replace(/\n/g, '');
+    this.mediaThumb = mediaThumb.trim().replace(/ /g, '').replace(/\n/g, '');
   }
 }
 
@@ -77,7 +77,48 @@ class Detail extends Report {
     }
   }
 
+  initDownloadSection(){
+    const downloader = new MediaDownloader();
+    let detail = this;
 
+    let downloadSectionDOM = $("#download-section");
+    let { assets } = this;
+    if (assets.length === 0) {
+     return;
+
+    }
+    else{
+      let URLarray = assets.map(e=>e.mediaLowRes);
+      downloader.initAssetBlobArray(URLarray)
+      let { mediaType, mediaLowRes, mediaThumb } = assets[0];
+      if (mediaType === 'Image') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Image <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Textual') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Textual <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Moving Image') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Video <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      if (mediaType === 'Audio') {
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Audio <span class="material-icons items-center"> download </span> </button>')
+
+
+      }
+      this.setDownloadButtonHandler(downloader);
+    }
+  }
+  setDownloadButtonHandler(downloader){
+    $('#download-detail-assets').on('click',function(){
+      downloader.downloadMultiAssets();
+    })
+  }
   setMediaView() {
     let { assets } = this;
     console.log(assets);
@@ -108,7 +149,7 @@ class Detail extends Report {
       else if (mediaType === 'Audio') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
       }
-      else if (mediaType === 'Video') {
+      else if (mediaType === 'Moving Image') {
         detailMediaDOM.append(` <video width="80%" class="mx-[auto]" controls>
         <source src=${mediaLowRes} type="video/mp4">
         <source src=${mediaLowRes} type="video/ogg">
@@ -146,11 +187,13 @@ class Detail extends Report {
 
 
   init() {
+   
     this.setReturnSummaryURL();
     this.setTotalRecord();
     this.initLightgallery();
     this.initDetailAssets();
     this.setMediaView();
+    this.initDownloadSection();
   }
 }
 

@@ -119,7 +119,7 @@ class Survey {
         let SESSID = getCookie("HOME_SESSID");
         let subject = survey.subject;
         let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`
-        let receiver = 'mikehoangdn1@gmail.com'
+        let receiver = 'kyle@minisisinc.com'
         let sender = 'noreply@minisisinc.com';
         let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
         $.ajax({
