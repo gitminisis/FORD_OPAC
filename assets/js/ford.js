@@ -81,7 +81,7 @@ class MediaDownloader {
             responseType: "arraybuffer", // important
         })
             .then(async function (response) {
-                
+
                 let url;
                 if (window.webkitURL) {
                     url = window.webkitURL.createObjectURL(new Blob([response.data]));
@@ -90,17 +90,17 @@ class MediaDownloader {
                 }
                 const link = document.createElement("a");
                 link.href = url;
-                
+
                 const fileName = response.headers["content-disposition"].split("=")[1];
 
                 const fileBlob = await fetch(downloadURL).then((res) => res.blob());
 
                 const fileData = new File([fileBlob], fileName);
-               
+
                 let zip = new JSZip();
 
                 zip.file(fileName, fileData);
-                
+
                 zip.generateAsync({ type: "blob" }).then(function (content) {
                     toast.close();
                     saveAs(content, `DigitalAssets_${getTimestamp()}.zip`);
