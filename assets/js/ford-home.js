@@ -18,11 +18,11 @@ class LatestArchive {
     fetchData() {
         let object = this;
         let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL_XML?SESSIONSEARCH&exp=REFD ${this.refd}`;
-        fetch(url).then(function (response) { return response.json() }).then(y => {
-          
-        //    let x2js = new X2JS({})
-        //    let JSONObj = x2js.xml_str2json(y)
-        //    console.log(JSONObj)
+        fetch(url).then(function (response) { return response.text() }).then(y => {
+            console.log(y)
+               let x2js = new X2JS({})
+               let JSONObj = x2js.xml_str2json(y)
+               console.log(JSONObj)
         });
     }
 
