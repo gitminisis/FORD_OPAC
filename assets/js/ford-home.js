@@ -1,26 +1,29 @@
 $(document).ready(function () {
-
+    let trending1 = new LatestArchive('AR-2001-77-13208.11.1.1', $('.latestArchive').eq(0));
 
 })
 
 
 
-class TrendingNow {
-    constructor() {
+class LatestArchive {
+    constructor(refd, dom) {
         this.title = '';
         this.scope = '';
         this.mediaThumb = '';
         this.refd = '';
         this.dom = dom;
+        this.init(refd, dom)
     }
 
     fetchData() {
         let object = this;
-        let url = `/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL_XML?SESSIONSEARCH&exp=REFD ${this.refd}`;
-        return ajax.get(url).then(response => {
-            let x2js = new X2JS({});
-
-        })
+        let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL_XML?SESSIONSEARCH&exp=REFD ${this.refd}`;
+        fetch(url).then(function (response) { return response.json() }).then(y => {
+          
+        //    let x2js = new X2JS({})
+        //    let JSONObj = x2js.xml_str2json(y)
+        //    console.log(JSONObj)
+        });
     }
 
     setTitleUI() {
@@ -53,12 +56,7 @@ class TrendingNow {
 
         this.refd = refd;
         this.dom = dom;
-        this.fetchData().then(res => {
-            this.setTitleUI();
-            this.setScopeUI();
-            this.setThumbnail();
-            this.setButtonLinkUI();
-        })
+        this.fetchData()
     }
 
 }

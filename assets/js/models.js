@@ -10,6 +10,9 @@ class Report {
         if (hiddenTotalRecord) {
             $("#totalRecord").text(hiddenTotalRecord.innerText);
         }
+        else {
+            $("#totalRecord").parent().empty();
+        }
     }
 
     getFilter() {

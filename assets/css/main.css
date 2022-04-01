@@ -158,8 +158,8 @@
 }
 /* Modal Animation */
 
-#advanced-submit{
-  box-shadow: 0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1);
+#advanced-submit {
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Color Filter */
@@ -233,16 +233,17 @@
 }
 /* Summary Page */
 
-
 /* Detail Page */
 #detail a {
-  color:#243C5A
+  color: #243c5a;
 }
 #detail a:hover {
- text-decoration: underline;
+  text-decoration: underline;
+}
+#download-detail-assets {
+  width: 150px;
 }
 /* Detail Page */
-
 
 /* Footer */
 .footerSocialLink {

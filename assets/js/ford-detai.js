@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $('#copy-link').on('click', function () {
       let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
       copyToClipboard(url);
     })
   }
@@ -30,13 +30,19 @@ class Detail extends Report {
   }
   getReturnSummaryURL() {
     let hiddenURL = document.getElementById("hiddenReturnSummary");
-    console.log(hiddenURL);
-    return removeWhiteSpace(hiddenURL.innerText.replace(/"/g, ""));
+
+    return hiddenURL ? removeWhiteSpace(hiddenURL.innerText.replace(/"/g, "")) : null;
   }
 
   setReturnSummaryURL() {
     let url = this.getReturnSummaryURL();
-    $("#returnSummary").attr("href", url);
+    if (url) {
+      $("#returnSummary").attr("href", url);
+    }
+    else {
+      $("#returnSummary").prev().empty();
+      $("#returnSummary").empty();
+    }
   }
 
   initLightgallery() {
@@ -77,18 +83,18 @@ class Detail extends Report {
     }
   }
 
-  initDownloadSection(){
+  initDownloadSection() {
     const downloader = new MediaDownloader();
     let detail = this;
 
     let downloadSectionDOM = $("#download-section");
     let { assets } = this;
     if (assets.length === 0) {
-     return;
+      return;
 
     }
-    else{
-      let URLarray = assets.map(e=>e.mediaLowRes);
+    else {
+      let URLarray = assets.map(e => e.mediaLowRes);
       downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
@@ -97,12 +103,12 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Textual <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button>')
 
 
       }
       if (mediaType === 'Moving Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Video <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Moving Image <span class="material-icons items-center"> download </span> </button>')
 
 
       }
@@ -114,8 +120,8 @@ class Detail extends Report {
       this.setDownloadButtonHandler(downloader);
     }
   }
-  setDownloadButtonHandler(downloader){
-    $('#download-detail-assets').on('click',function(){
+  setDownloadButtonHandler(downloader) {
+    $('#download-detail-assets').on('click', function () {
       downloader.downloadBlobArray();
     })
   }
@@ -187,7 +193,7 @@ class Detail extends Report {
 
 
   init() {
-   
+
     this.setReturnSummaryURL();
     this.setTotalRecord();
     this.initLightgallery();
