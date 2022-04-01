@@ -8,7 +8,7 @@ $(document).ready(function () {
     });
 
 
-    $(".downloadRecord").on("click", function(){
+    $(".downloadRecord").on("click", function () {
       let recordDOM = $(this).parent().parent().parent();
       console.log(recordDOM)
       let accessURL = summary.getAccessURL(recordDOM);
@@ -174,19 +174,19 @@ class Summary extends Report {
     return span.length > 0 ? span.eq(0).text().trim().replace(/\n/g, '') : null
   }
 
-  setRecordThumbnail(){
+  setRecordThumbnail() {
     let summary = this;
-    $('.record').each(function(){
+    $('.record').each(function () {
       let url = summary.getThumbnailURL($(this));
       let record_thumbnail = $(this).find('.record_thumbnail')
-      if(url){
-        record_thumbnail.removeClass('bg-test bg-cover')
+      if (url) {
+        record_thumbnail.removeClass(' bg-cover')
         record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
         record_thumbnail.css("background-image", `url('${url}')`);
       }
       // If No Digital Asset put placeholder
-      else{
-
+      else {
+        record_thumbnail.addClass('bg-test')
       }
     })
   }
