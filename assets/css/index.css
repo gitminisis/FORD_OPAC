@@ -1073,10 +1073,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 60px;
 }
 
-.w-\[300px\] {
-  width: 300px;
-}
-
 .min-w-0 {
   min-width: 0px;
 }
@@ -2638,6 +2634,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 10rem;
   }
 
+  .sm\:w-\[50\%\] {
+    width: 50%;
+  }
+
   .sm\:w-\[40px\] {
     width: 40px;
   }
@@ -2651,22 +2651,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 
   .sm\:w-1\/2 {
-    width: 50%;
-  }
-
-  .sm\:w-\[400px\] {
-    width: 400px;
-  }
-
-  .sm\:w-\[80\%\] {
-    width: 80%;
-  }
-
-  .sm\:w-\[70\%\] {
-    width: 70%;
-  }
-
-  .sm\:w-\[50\%\] {
     width: 50%;
   }
 
