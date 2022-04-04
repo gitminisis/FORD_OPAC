@@ -79,5 +79,5 @@ class LatestArchive {
 }
 
 function getRecordPermalink(refd, report) {
-    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
+    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC33/${report}?SESSIONSEARCH&exp=REFD ${refd}`
 }
