@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/b0655a296f7940b383f58fdd01a18ddc/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/3919f29d405841fbaacb0b01e9a520de/thumbnail</span> </div>'
   if (document.getElementById("detail")) {
-    $('body').append(imageTest)
+    // $('body').append(imageTest)
     const detail = new Detail();
     detail.init();
 
@@ -46,10 +46,15 @@ class Detail extends Report {
   }
 
   initLightgallery() {
-    lightGallery(document.getElementById('selector1'), {
+    lightGallery(document.getElementById('detail_media'), {
       selector: '.item'
     });
 
+  }
+
+  initCarousel(DOMPath) {
+    let carousel = new Carousel(DOMPath);
+    carousel.init()
   }
 
   /**
@@ -127,7 +132,7 @@ class Detail extends Report {
   }
   setMediaView() {
     let { assets } = this;
-    console.log(assets);
+    let detail = this;
     let detailMediaDOM = $('#detail_media');
     // If there are no assets for this record, do nothing
     if (assets.length === 0) {
@@ -139,15 +144,7 @@ class Detail extends Report {
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /> </div>`)
-        lightGallery(document.getElementById('detail_media'), {
-          selector: '.item'
-        });
-
-
-
-        // detailMediaDOM.slick();
-
-
+        detail.initLightgallery();
       }
       else if (mediaType === 'Textual') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a> </div>`)
@@ -156,34 +153,31 @@ class Detail extends Report {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
       }
       else if (mediaType === 'Moving Image') {
-        detailMediaDOM.append(` <video width="80%" class="mx-[auto]" controls>
+        detailMediaDOM.append(`
+      <video width="80%" class="mx-[auto]" controls>
         <source src=${mediaLowRes} type="video/mp4">
         <source src=${mediaLowRes} type="video/ogg">
         Your browser does not support HTML video.
       </video>
       `)
-        lightGallery(document.getElementById('detail_media'), {
-          selector: '.item'
-        });
+
       }
 
     }
     else {
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
-
+        detailMediaDOM.append(`<div class="carousel h-[300px] sm:h-[400px] w-full sm:w-[50%]"><div class="slides">`)
         assets.map((asset, index) => {
           let { mediaType, mediaLowRes, mediaThumb } = asset;
-          detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes} ${index === 0 ? '' : 'hidden'}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /> </div>`)
+          detailMediaDOM.find('.slides').append(`<img src=${mediaThumb} alt="slide image" class="slide item" data-src=${mediaLowRes} />`)
         })
-
-        lightGallery(document.getElementById('detail_media'), {
-          selector: '.item'
-        });
-
+        detailMediaDOM.find('.carousel').append(`<div class="controls"> <div class="control prev-slide">&#9668;</div> <div class="control next-slide">&#9658;</div> </div> `)
+        detail.initLightgallery();
+        detail.initCarousel('.slides')
 
 
-        // detailMediaDOM.slick();
+
 
 
       }

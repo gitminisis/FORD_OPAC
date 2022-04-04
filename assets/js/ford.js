@@ -112,16 +112,6 @@ class MediaDownloader {
     }
 
 
-    // downloadMultiAssets = _ => {
-    //     this.initAssetBlobArray(URLarray);
-    //     console.log(this.assetBlobArray)
-    //     setTimeout(() => {
-    //         // console.log(this.assetBlobArray)
-    //         this.downloadBlobArray();
-    //     }, 1500)
-
-    // }
-
 
     initAssetBlobArray = URLarray => {
         URLarray.map(async (url, index) => {
@@ -215,4 +205,55 @@ class MessageModal {
     close() {
         this.toast.hideToast();
     }
+}
+
+
+
+class Carousel {
+    constructor(DOMPath) {
+        let dom = document.querySelector(DOMPath)
+        this.delay = 1500;
+        this.slides = dom;
+        this.slidesCount = dom.childElementCount;
+        this.maxLeft = (dom.childElementCount - 1) * 100 * -1;
+        this.current = 0;
+
+    }
+
+
+    init() {
+
+        let carousel = this;
+        console.log(this);
+        document.querySelector(".next-slide").addEventListener("click", function () {
+            carousel.changeSlide();
+        });
+        document.querySelector(".prev-slide").addEventListener("click", function () {
+            carousel.changeSlide(false);
+
+        });
+        // let autoChange = setInterval(carousel.changeSlide, carousel.delay);
+        const restart = function () {
+            clearInterval(autoChange);
+            autoChange = setInterval(carousel.changeSlide, carousel.delay);
+        };
+
+    }
+
+    changeSlide = (next = true) => {
+
+        let { current, maxLeft, slides } = this;
+
+        if (next) {
+            let x = current > maxLeft ? -100 : current * -1
+            this.current = current + x
+        } else {
+            this.current = this.current < 0 ? this.current + 100 : maxLeft;
+        }
+
+
+
+        this.slides.style.left = this.current + "%";
+    }
+
 }
