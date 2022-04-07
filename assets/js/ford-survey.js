@@ -47,7 +47,7 @@ $(document).ready(function () {
     });
 
     $('#surveyComment').change(function () {
-        console.log(this.value)
+       
         survey.updateSurveyComment(this.value);
     })
 
@@ -149,7 +149,6 @@ class Survey {
     }
 
     closeModal() {
-        console.log('close')
         $('#surveyModal').fadeOut(200);
         if (this.backTop) {
             $('#backTop').addClass('show');
@@ -167,6 +166,8 @@ class Survey {
         $('input[name="easeOfUse"]').prop('checked', false);
         $('input[name="overall"]').prop('checked', false);
     }
+
+    
     init() {
         let survey = this;
         $('#surveyButton').on('click', function (e) {

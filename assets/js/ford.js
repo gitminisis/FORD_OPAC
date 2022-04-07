@@ -264,7 +264,7 @@ class Tooltip {
     constructor(DOM, text) {
         this.DOM = DOM;
         this.text = text;
-        
+
     }
 
 
@@ -274,5 +274,100 @@ class Tooltip {
         <div class="w-3 h-3 -mb-2 rotate-45 bg-black"></div>
         <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">${this.text}</span>
     </div>`)
+    }
+}
+
+
+class PDFRequest {
+    constructor() {
+        this.name = '';
+        this.email = '';
+        this.refd = '';
+        this.title = '';
+    }
+    openModal() {
+        $('#requestPDFModal').fadeIn(400);
+        if ($('#backTop').hasClass('show')) {
+            $('#backTop').removeClass('show');
+            this.backTop = true;
+        }
+    }
+
+    closeModal() {
+        $('#requestPDFModal').fadeOut(200);
+        if (this.backTop) {
+            $('#backTop').addClass('show');
+            this.backTop = false;
+        }
+        this.reset();
+    }
+
+    validateEmail(str) {
+        if (str.trim() === '') {
+            return false;
+        }
+        const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        return EMAIL_REGEX.test(str);
+    }
+
+    submit() {
+        let emailInput = $('#requestEmailInput').val();
+        let nameInput = $('#requestNameInput').val();
+        console.log(emailInput, nameInput);
+        if (!this.validateEmail(emailInput)) {
+
+            new MessageModal('Invalid Email Address !').open();
+        }
+
+        let modal = this;
+        let SESSID = getCookie("HOME_SESSID");
+        let subject = 'I need an accessible PDF';
+        let body = `Accessible PDF Request \n\n Email Address: ${emailInput} \nFull Name: ${nameInput} \n\n Record Information:\n\nTitle: ${this.title}\n REFD: ${this.refd}`
+        let receiver = 'archives@ford.com'
+        let sender = 'noreply@minisisinc.com';
+        let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: `sender=${sender}&receiver=${receiver}&subject=${subject}&mailbody=${body}`,
+
+        }).done(function (res) {
+            modal.closeModal();
+            let toast = new MessageModal('Your request has successfully been sent!')
+            toast.open();
+        });
+    }
+
+    reset() {
+        $('#requestEmailInput').val('');
+        $('#requestNameInput').val('');
+    }
+
+    init() {
+
+        let modal = this;
+
+        $('.modalCloseButton').on('click', function (e) {
+            modal.closeModal();
+        })
+
+        $(document).on('keyup', function (e) {
+            if (e.key == "Escape") {
+                modal.closeModal();
+            }
+        });
+        // Hide dropdown menu on click outside
+        $('#requestPDFModal').on('click', function (e) {
+            modal.closeModal();
+        });
+        $('#requestPDFModal .modalBody').on('click', function (e) {
+            e.stopPropagation();
+        });
+
+        $('#request-submit').on('click', function (e) {
+            modal.submit();
+        });
+
     }
 }

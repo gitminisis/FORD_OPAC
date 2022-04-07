@@ -1,7 +1,7 @@
 $(document).ready(function () {
-  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> <span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span><span class="a_media_type">Image</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span></div>'
+  let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Textual</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> </div>'
   if (document.getElementById("detail")) {
-    // $('body').append(imageTest)
+    $('body').append(imageTest)
     const detail = new Detail();
     detail.init();
 
@@ -113,8 +113,11 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button><a id="requestPDF">I need an accessible PDF</a>')
-
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button><a id="requestPDF" class="cursor-pointer">I need an accessible PDF</a>')
+        let requestModal = new PDFRequest();
+        $("#requestPDF").on('click', function () {
+          requestModal.openModal();
+        })
 
       }
       if (mediaType === 'Moving Image') {
@@ -199,6 +202,7 @@ class Detail extends Report {
     this.initDetailAssets();
     this.setMediaView();
     this.initDownloadSection();
+    new PDFRequest().init();
   }
 }
 
