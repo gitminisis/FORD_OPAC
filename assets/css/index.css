@@ -837,6 +837,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 8px;
 }
 
+.mb-\[100px\] {
+  margin-bottom: 100px;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -2624,6 +2628,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:mt-\[80px\] {
     margin-top: 80px;
+  }
+
+  .sm\:mb-\[30px\] {
+    margin-bottom: 30px;
   }
 
   .sm\:block {

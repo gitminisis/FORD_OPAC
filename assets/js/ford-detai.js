@@ -113,7 +113,7 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button><a id="requestPDF">I need an accessible PDF</a>')
 
 
       }

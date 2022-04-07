@@ -66,6 +66,7 @@ class Survey {
         this.visual = 0;
         this.easeOfUse = 0;
         this.overall = 0;
+        this.backTop = false;
     }
 
     selectDropdownValue(dropdownDOM) {
@@ -114,6 +115,10 @@ class Survey {
     }
 
     submit() {
+        if (this.topic === '') {
+            new MessageModal('Please select a topic').open()
+            return;
+        }
 
         let survey = this;
         let SESSID = getCookie("HOME_SESSID");
@@ -137,12 +142,22 @@ class Survey {
     }
     openModal() {
         $('#surveyModal').fadeIn(400);
+        if ($('#backTop').hasClass('show')) {
+            $('#backTop').removeClass('show');
+            this.backTop = true;
+        }
     }
 
     closeModal() {
+        console.log('close')
         $('#surveyModal').fadeOut(200);
+        if (this.backTop) {
+            $('#backTop').addClass('show');
+            this.backTop = false;
+        }
         this.reset();
     }
+
     reset() {
         $(".surveyText").eq(0).text('Please Select')
         $(".surveyText").eq(1).text('Choose a topic for your comments')
