@@ -81,11 +81,11 @@ class TrendingNow extends FeatureRecord {
     }
 
     setButtonLinkUI() {
-        // let { dom, refd } = this;
-        // dom.find('.latestArchiveLink').on('click', function () {
-        //     let url = getRecordPermalink(refd, 'FORD_DETAIL');
-        //     window.open(url, '_blank')
-        // })
+        let { dom, refd } = this;
+        dom.on('click', function () {
+            let url = getRecordPermalink(refd, 'FORD_DETAIL');
+            window.open(url, '_blank')
+        })
     }
 
     init() {
