@@ -257,3 +257,22 @@ class Carousel {
     }
 
 }
+
+
+class Tooltip {
+
+    constructor(DOM, text) {
+        this.DOM = DOM;
+        this.text = text;
+        
+    }
+
+
+    init() {
+        this.DOM.addClass('relative group');
+        this.DOM.append(`<div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+        <div class="w-3 h-3 -mb-2 rotate-45 bg-black"></div>
+        <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">${this.text}</span>
+    </div>`)
+    }
+}

@@ -181,6 +181,32 @@ class Filter {
     $('#hiddenKeywordInput').val(value);
   }
 
+
+  updateDropdownUI() {
+    if (this.year !== '') {
+      $('#yearFilterValue').parent().css('background-color', '#00095B')
+    }
+    else if (this.year === '') {
+      $('#yearFilterValue').parent().css('background-color', 'black')
+    }
+
+
+    if (this.make !== '') {
+      $('#makeFilterValue').parent().css('background-color', '#00095B')
+    }
+    else if (this.make === '') {
+      $('#makeFilterValue').parent().css('background-color', 'black')
+    }
+
+    if (this.model !== '') {
+      $('#modelFilterValue').parent().css('background-color', '#00095B')
+    }
+    else if (this.model === '') {
+      $('#modelFilterValue').parent().css('background-color', 'black')
+    }
+  }
+
+
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
     // let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
@@ -279,12 +305,20 @@ class Filter {
 
   }
 
+  initTooltip() {
+    $(".colorFilter").each(function (e) {
+      console.log($(this), $(this).data("color"))
+      new Tooltip($(this), $(this).data("color")).init()
+    });
+  }
+
   init() {
     const filterList = ['year', 'make', 'model'];
     filterList.map(filter => {
       this.setClusterDropdown(filter, FIELD_NAME[filter])
     })
     // this.setColorFilter('color', FIELD_NAME.color);
+    this.initTooltip();
     this.initUIHandler();
     this.setFilterSessionStorage();
   }

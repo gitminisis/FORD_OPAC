@@ -43,7 +43,7 @@ module.exports = {
         grey: "#757575",
         orange: "#E66926",
         red: "#B22627",
-        yellow: "#E4941A",
+        yellow: "#F7FF0D",
         purple: "#662D6E"
       },
     },

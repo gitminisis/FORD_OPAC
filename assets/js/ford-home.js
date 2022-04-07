@@ -1,8 +1,10 @@
 $(document).ready(function () {
 
-    const LATEST_ARCHIVE_REFD = ['AR-2001-77-13208.11.1.1', 'AR-96-212010.5809', 'AR-96-212010.3075'];
+    if (document.getElementsByClassName('home')) {
+        const LATEST_ARCHIVE_REFD = ['AR-2001-77-13208.11.1.1', 'AR-96-212010.5809', 'AR-96-212010.3075'];
 
-    LATEST_ARCHIVE_REFD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).init())
+        LATEST_ARCHIVE_REFD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).init())
+    }
 
 
 
