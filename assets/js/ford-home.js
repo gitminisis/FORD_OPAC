@@ -94,7 +94,6 @@ class TrendingNow extends FeatureRecord {
         this.fetchData().then(function () {
             latestArchive.setThumbnail();
             latestArchive.setTitleUI();
-            latestArchive.setScopeUI();
             latestArchive.setButtonLinkUI();
 
         })
