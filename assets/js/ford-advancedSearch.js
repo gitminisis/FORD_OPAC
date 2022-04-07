@@ -288,7 +288,6 @@ class Filter {
   }
 
   setFilterSessionStorage() {
-    console.log(this.getFilterJSON())
     sessionStorage.setItem('filter', JSON.stringify(this.getFilterJSON()))
   }
 
@@ -307,7 +306,6 @@ class Filter {
 
   initTooltip() {
     $(".colorFilter").each(function (e) {
-      console.log($(this), $(this).data("color"))
       new Tooltip($(this), $(this).data("color")).init()
     });
   }

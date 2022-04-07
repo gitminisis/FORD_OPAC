@@ -45,6 +45,9 @@
       rgba(0, 0, 0, 0) 100%
     );
   }
+  .innovationColorLayer {
+    background: linear-gradient(0deg, #3e7089 0%, #477994 50.44%, #324ab0 100%);
+  }
 }
 
 /** Trending Section */
@@ -253,7 +256,7 @@
 /* Carousel */
 .carousel {
   margin: 0 auto;
- 
+
   overflow: hidden;
   position: relative;
 }
