@@ -1,413 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet"
-    />
-    
-<link href="./assets/css/main.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            background: {
-              imageHover: "rgba(0,0,0,0)",
-            },
-            backgroundImage: {
-              test: "url('https://images.unsplash.com/photo-1606611013016-969c19ba27bb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9yZCUyMGNhcnxlbnwwfHwwfHw%3D&w=1000&q=80')",
-            },
-            boxShadowColor: {
-              headerShadow:
-                "0 30px 30px 0 rgba(0,0,0,0.09), 0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1)",
-              buttonShadow:
-                "0 20px 20px 0 rgba(0,0,0,0.1), 0 10px 10px 0 rgba(0,0,0,0.1)",
-            },
-            height: {
-              "90px": "90px",
-            },
-            colors: {
-              primary: "primary",
-              secondary: "#6C6C6C",
-            },
-          },
-        },
-        plugins: [],
-      };
-    </script>
-  </head>
-  <body>
-    <!-- Start of header -->
-    <div id="header relative">
-      <nav
-        class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl"
-      >
-        <div class="flex justify-center inline-block align-middle items-center">
-          <img
-            class="w-18 h-8 mx-1"
-            src="https://www.carlogos.org/car-logos/ford-logo-2017.png"
-          />
+<!-- include virtual="[FORD_INCLUDE]html/header.html"-->
 
-          <span
-            class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
-          ></span>
-          <span
-            class="ml-[10px] text-[16px] sm:text-[20px] text-medium leading-[21px] tracking-[0.42px] sm:tracking-[0.53px] text-[#243C5A]"
-            >Ford Heritage Vault</span
-          >
-        </div>
+<!-- include virtual="[FORD_INCLUDE]html/topbar.html"-->
 
-        <div
-          class="flex w-20 sm:w-40 space-x-2 sm:space-x-4 justify-around inline-block align-middle"
-        >
-          <button
-            class="inline-flex space-4 items-center hidden sm:inline-flex h-[60px]"
-          >
-            <span class="">Filter</span>
-            <span class="material-icons px-2">tune</span>
-          </button>
+<!-- Start of Summary Body -->
+<section id="summary">
+  <!-- include virtual="[FORD_INCLUDE]collection/topbar.html"-->
 
-          <button
-            class="inline-flex space-4 items-center hidden sm:inline-flex h-[60px]"
-          >
-            <soan class="">Collection</soan>
-            <span class="material-icons px-2">shopping_bag</span>
-          </button>
-
-          <div class="inline-flex space-2 items-center inline-block sm:hidden">
-            <span class="material-icons px-2">tune</span>
-          </div>
-          <div class="inline-flex items-center inline-block sm:hidden">
-            <span class="material-icons px-2">shopping_bag</span>
-          </div>
-        </div>
-      </nav>
-
-      <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
-    </div>
-    <!--End of header-->
-
-    <!-- Start of Summary Body -->
-    <section id="summary">
-      <!-- Start of Top Bar -->
-      <div
-        class="w-full h-24 bg-[#F4F4F4] flex flex-row justify-between place-items-center px-[15px] sm:px-[100px]"
-      >
-        <div
-          class="breadcrumb text-[18px] font-medium leading-[59px] hidden sm:block"
-        >
-          <a href="/" class="text-[#6C6C6C]">Home Search</a>
-          <span class="text-[#6C6C6C]">></span>
-          <span class="text-[#243C5A]">Collection</span>
-        </div>
-
-        <div class="font-medium text-[18px] text-[#6C6C6C]">
-          <p>Saved in Collection: <span id="collectionRecords">6</span></p>
-        </div>
-      </div>
-      <!-- End of Top Bar -->
-
-      <!-- Start of Grid/List Toggle -->
-      <div
-        class="w-full h-auto bg-white px-[15px] sm:px-[100px] hidden sm:flex flex-col pt-[40px]"
-      >
-        <div class="grid justify-items-end">
-          <div class="flex justify-between text-[18px] space-x-[30px]">
-            <div class=" ">
-              <button
-                class="h-[40px] w-auto text-[#243C5A] grid content-center"
-              >
-                Remove All
-              </button>
-            </div>
-
-            <div class="">
-              <button
-                class="h-[40px] w-auto text-[#FFFFFF] rounded-[20px] px-[30px] py-[5px] bg-[#243C5A] grid content-center buttonShadow"
-              >
-                Download All
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End  of Grid/List Toggle -->
-
-      <!-- Start of Collection body -->
-      <div class="">
-        <div
-          class="w-full h-auto min-h-[400px] bg-white px-[15px] sm:px-[100px] grid grid-cols-6 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px] gap-y-[25px]"
-        >
-          <!-- Start of Records -->
-          <div
-            class="col-span-6 bg-white grid grid-cols-3 text-[#4D4D4D] record h-[20vw] min-h-[100px] max-h-[300px]"
-          >
-            <div class="col-span-1 bg-test bg-cover"></div>
-
-            <div
-              class="col-span-2 bg-[#F2F2F2] p-[15px] flex justify-between items-center space-x-[16px]"
-            >
-              <div class="text-[12px] leading-[12px]">
-                <h2 class="sm:text-[20px] sm:leading-[24px] font-medium">
-                  2008 Ford F-150 Raptor in Las Vegas
-                </h2>
-                <p class="sm:text-[12px] sm:leading-[15px]">JPEG</p>
-              </div>
-
-              <div class="grid place-items-center text-[#243C5A]">
-                <span class="material-icons"> close </span>
-              </div>
-            </div>
-          </div>
-          <!-- End of Records -->
-
-          <!-- Start of Pagination -->
-          <div
-            id="pagination"
-            class="col-span-6 flex justify-center w-full space-x-[36px] mt-[50px] text-[18px] leading-[24px] tracking-[1px] text-[#243C5A]"
-          >
-            <button class="flex self-center">
-              <span class="material-icons"> arrow_back_ios </span>Prev
-            </button>
-            <div
-              class="flex justify-around text-center space-x-[36px] self-center"
-            >
-              <div
-                class="w-[40px] pb-[5px] border-b-[3px] border-solid border-b-[#243C5A]"
-              >
-                <a class="">1</a>
-              </div>
-              <div class="w-[40px]">
-                <a class="">2</a>
-              </div>
-              <div class="w-[40px]">
-                <a class="">3</a>
-              </div>
-            </div>
-
-            <button class="flex self-center">
-              Next
-              <span class="material-icons"> arrow_forward_ios </span>
-            </button>
-          </div>
-          <!-- End of Pagination -->
-
-          <!-- Start of Remove/Download buttons -->
-          <div class="col-span-6 grid sm:hidden justify-items-center">
-            <div class="flex justify-between text-[18px] space-x-[30px]">
-              <div class=" ">
-                <button
-                  class="h-[40px] w-auto text-[#243C5A] grid content-center"
-                >
-                  Remove All
-                </button>
-              </div>
+  <!-- include virtual="[FORD_INCLUDE]collection/viewToggle.html"-->
   
-              <div class="">
-                <button
-                  class="h-[40px] w-auto text-[#FFFFFF] rounded-[20px] px-[30px] py-[5px] bg-[#243C5A] grid content-center buttonShadow"
-                >
-                  Download All
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- End of Remove/Download buttons -->
-        </div>
-      </div>
-      <!-- End of Collection body -->
-    </section>
-    <!-- End of Summary Body -->
-
-    <!-- Start of Footer Section -->
-    <section id="footer">
-      <!-- License -->
+  <!-- Start of Collection body -->
+  <div class="">
+    <div
+      class="w-full h-auto min-h-[400px] bg-white px-[15px] sm:px-[100px] grid grid-cols-6 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px] gap-y-[25px]"
+    >
+      <!-- Start of Records -->
       <div
-        id="license"
-        class="bg-[#00142E] text-center text-white py-[50px] px-[8px] sm:px-[200px]"
+        class="col-span-6 bg-white grid grid-cols-3 text-[#4D4D4D] record h-[20vw] min-h-[100px] max-h-[300px]"
       >
-        <p class="text-[16px] sm:text-[18px] font-medium leading-[21px]">
-          Please read carefully
-        </p>
-        <p
-          class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px]"
+        <div class="col-span-1 bg-test bg-cover"></div>
+
+        <div
+          class="col-span-2 bg-[#F2F2F2] p-[15px] flex justify-between items-center space-x-[16px]"
         >
-          Multimedia License Agreement | Images, video and audio from this Web
-          site are provided the purpose of editorial use only. <br />
-          You must contact archives@ford.com to obtain approval for advertising,
-          marketing or other commercial users.
-        </p>
+          <div class="text-[12px] leading-[12px]">
+            <h2 class="sm:text-[20px] sm:leading-[24px] font-medium">
+              2008 Ford F-150 Raptor in Las Vegas
+            </h2>
+            <p class="sm:text-[12px] sm:leading-[15px]">JPEG</p>
+          </div>
 
-        <p class="mt-[40px] text-[16px] text-[#9C9C9C] leading-[24px]">
-          &copy; 2021 The Ford Motor Company. All Rights Reserved.
-        </p>
+          <div
+            class="grid place-items-center text-[#243C5A] cursor-pointer collection-remove"
+          >
+            <span class="material-icons"> close </span>
+          </div>
+        </div>
       </div>
-      <!-- License -->
+      <!-- End of Records -->
 
-      <!-- BlackBox -->
+      <!-- Start of Pagination -->
       <div
-        id="blackbox"
-        class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex"
+        id="pagination"
+        class="col-span-6 flex justify-center w-full space-x-[36px] mt-[50px] text-[18px] leading-[24px] tracking-[1px] text-[#243C5A]"
       >
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Ford Press
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Media
-            </p>
+        <button class="flex self-center">
+          <span class="material-icons"> arrow_back_ios </span>Prev
+        </button>
+        <div class="flex justify-around text-center space-x-[36px] self-center">
+          <div
+            class="w-[40px] pb-[5px] border-b-[3px] border-solid border-b-[#243C5A]"
+          >
+            <a class="">1</a>
+          </div>
+          <div class="w-[40px]">
+            <a class="">2</a>
+          </div>
+          <div class="w-[40px]">
+            <a class="">3</a>
           </div>
         </div>
 
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Contact Us
-            </h3>
+        <button class="flex self-center">
+          Next
+          <span class="material-icons"> arrow_forward_ios </span>
+        </button>
+      </div>
+      <!-- End of Pagination -->
 
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Motor Company
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Investors
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Heritage Vault
-            </p>
+      <!-- Start of Remove/Download buttons -->
+      <div class="col-span-6 grid sm:hidden justify-items-center">
+        <div class="flex justify-between text-[18px] space-x-[30px]">
+          <div class="hover:drop-shadow-xl">
+            <button
+              class="h-[40px] w-auto text-[#243C5A] grid content-center hover:drop-shadow-xl collection-removeAll"
+            >
+              Remove All
+            </button>
           </div>
-        </div>
 
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Support
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford Support US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Lincoln Support US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Recalls
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              FordPass
-            </p>
-          </div>
-        </div>
-
-        <div class="w-1/4 flex justify-center">
-          <div>
-            <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]">
-              Shop
-            </h3>
-
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Ford US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Lincoln US
-            </p>
-            <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]">
-              Global Sites
-            </p>
+          <div class="hover:drop-shadow-xl">
+            <button
+              class="h-[40px] w-auto text-[#FFFFFF] rounded-[20px] px-[30px] py-[5px] bg-[#243C5A] grid content-center buttonShadow hover:drop-shadow-xl collection-downloadAll"
+            >
+              > Download All
+            </button>
           </div>
         </div>
       </div>
+      <!-- End of Remove/Download buttons -->
+    </div>
+  </div>
+  <!-- End of Collection body -->
+</section>
+<!-- End of Summary Body -->
 
-      <div
-        id="blackbox_mobile"
-        class="flex sm:hidden flex-col bg-black h-auto text-[#F4F4F4] text-[18px] divide-y divide-[#F4F4F4] px-[15px] py-[40px]"
-      >
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Ford Press</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Media</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Contact</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford Motor Company</p>
-            <p>Investors</p>
-            <p>Ford Heritage Vault</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Support</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford Support US</p>
-            <p>Lincoln Support US</p>
-            <p>Recalls</p>
-            <p>FordPass</p>
-          </div>
-        </div>
-
-        <div>
-          <div class="flex justify-between h-[60px] pt-[15px]">
-            <div><p>Shop</p></div>
-
-            <div><span class="material-icons"> expand_more </span></div>
-          </div>
-
-          <div class="bg-black w-full h-auto px-[15px] pb-[30px] hidden">
-            <p>Ford US</p>
-            <p>Lincoln US</p>
-            <p>Global Sites</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- BlackBox -->
-
-      <!-- Contact Us -->
-      <div
-        id="contactus"
-        class="h-[170px] sm:h-[80px] bg-[#243C5A] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px]"
-      >
-        <div class="">
-          <p class="text-[16px] text-[#F4F4F4] leading-[19px]">
-            Share your thoughts about fordheritagevault.com
-          </p>
-        </div>
-
-        <div class="flex flex flex-col sm:flex-row justify-around">
-          <div>
-            <p class="text-[16px] text-[#F4F4F4] leading-[19px]">
-              Connect with us
-            </p>
-          </div>
-          <div></div>
-        </div>
-      </div>
-
-      <!-- Contact Us -->
-    </section>
-
-    <!-- End of Footer Section -->
-  </body>
-</html>
+<!-- include virtual="[FORD_INCLUDE]html/footer.html"-->
