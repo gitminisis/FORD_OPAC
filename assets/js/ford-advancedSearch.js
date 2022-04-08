@@ -80,15 +80,15 @@ $(document).ready(function () {
   })
 
   $('#advanced-submit').on('click', function () {
-
-    if (filter.keyword.trim() === '') {
-      let toast = new MessageModal('Please input a keyword for the search')
-      toast.open();
-    }
-    else {
-      sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
-      $('#advancedSearchForm').submit();
-    }
+    $('#advancedSearchForm').submit();
+    // if (filter.keyword.trim() === '') {
+    //   let toast = new MessageModal('Please input a keyword for the search')
+    //   toast.open();
+    // }
+    // else {
+    //   sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
+    //   $('#advancedSearchForm').submit();
+    // }
   })
 });
 
