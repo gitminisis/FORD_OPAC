@@ -179,14 +179,15 @@ class Summary extends Report {
     $('.record').each(function () {
       let url = summary.getThumbnailURL($(this));
       let record_thumbnail = $(this).find('.record_thumbnail')
-      if (url) {
-        record_thumbnail.removeClass(' bg-cover')
+      console.log(url)
+      if (url !== null) {
+        record_thumbnail.removeClass('bg-cover')
         record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
         record_thumbnail.css("background-image", `url('${url}')`);
       }
       // If No Digital Asset put placeholder
       else {
-        record_thumbnail.addClass('bg-test')
+        record_thumbnail.addClass('bg-test bg-center')
       }
     })
   }
