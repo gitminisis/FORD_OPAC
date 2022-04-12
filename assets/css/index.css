@@ -682,6 +682,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-column: auto;
 }
 
+.col-start-4 {
+  grid-column-start: 4;
+}
+
 .row-span-3 {
   grid-row: span 3 / span 3;
 }
@@ -1578,6 +1582,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/innovation.jpeg');
 }
 
+.bg-norecord {
+  background-image: url('../images/norecord.jpeg');
+}
+
 .bg-cover {
   background-size: cover;
 }
@@ -2434,6 +2442,33 @@ Ensure the default browser behavior of the `hidden` attribute.
 .divider {
   border-top: 1.5px solid #6e6e6e;
 }
+
+/* No RECORD */
+
+.noRecordContainer {
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.noRecordContainer:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+  filter: blur(10px);
+  margin: -20px;
+}
+
+/* No RECORD */
 
 /* FORD UI CSS */
 

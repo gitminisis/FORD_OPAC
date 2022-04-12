@@ -17,6 +17,7 @@ module.exports = {
         multi: "linear-gradient(180deg, #E32A2A 0%, #3D50A5 34.71%, #38E2C9 67.08%, #383838 100%)",
         test: "url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png')",
         'homeBanner': "url('../images/homepage-image.jpg')",
+        'norecord': "url('../images/norecord.jpeg')",
         'homeInnovation': "url('../images/innovation.jpeg')",
         'homeInnovationMobile': 'linear-gradient(0deg, #3E7089 0%, #477994 50.44%, #324AB0 100%)',
         'homeTrending1': "url('../images/trending1.png')",
