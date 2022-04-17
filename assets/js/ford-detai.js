@@ -7,7 +7,7 @@ $(document).ready(function () {
 
     $('#copy-link').on('click', function () {
       let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
+      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
       copyToClipboard(url);
     })
   }

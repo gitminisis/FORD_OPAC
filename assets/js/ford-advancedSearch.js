@@ -179,30 +179,31 @@ class Filter {
     let value = this.generateSearchExpression();
     this.setFilterSessionStorage();
     $('#hiddenKeywordInput').val(value);
+    this.updateDropdownUI();
   }
 
 
   updateDropdownUI() {
     if (this.year !== '') {
-      $('#yearFilterValue').parent().css('background-color', '#00095B')
+      $('#yearFilterValue').parent().css('border-color', '#00095B')
     }
     else if (this.year === '') {
-      $('#yearFilterValue').parent().css('background-color', 'black')
+      $('#yearFilterValue').parent().css('border-color', 'black')
     }
 
 
     if (this.make !== '') {
-      $('#makeFilterValue').parent().css('background-color', '#00095B')
+      $('#makeFilterValue').parent().css('border-color', '#00095B')
     }
     else if (this.make === '') {
-      $('#makeFilterValue').parent().css('background-color', 'black')
+      $('#makeFilterValue').parent().css('border-color', 'black')
     }
 
     if (this.model !== '') {
-      $('#modelFilterValue').parent().css('background-color', '#00095B')
+      $('#modelFilterValue').parent().css('border-color', '#00095B')
     }
     else if (this.model === '') {
-      $('#modelFilterValue').parent().css('background-color', 'black')
+      $('#modelFilterValue').parent().css('border-color', 'black')
     }
   }
 
@@ -210,7 +211,7 @@ class Filter {
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
     // let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
-    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
   getClusterValue(exp) {
