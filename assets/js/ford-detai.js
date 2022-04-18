@@ -92,7 +92,11 @@ class Detail extends Report {
 
     }
   }
-
+  initColorTooltip(){
+    $(".detailColor ").each(function (e) {
+      new Tooltip($(this), $(this).next().text()).init()
+    });
+  }
   initDownloadSection() {
     const downloader = new MediaDownloader();
     let detail = this;
@@ -198,7 +202,7 @@ class Detail extends Report {
 
     this.setReturnSummaryURL();
     this.setTotalRecord();
-
+    this.initColorTooltip()
     this.initDetailAssets();
     this.setMediaView();
     this.initDownloadSection();

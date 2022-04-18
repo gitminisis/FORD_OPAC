@@ -199,7 +199,7 @@ class Filter {
 
 
   updateDropdownUI() {
-    console.log(this);
+  
     if (this.year !== '') {
       $('#yearFilterValue').parent().css('border-color', '#00095B')
       $('#yearFilterValue').parent().css('border-width', '2px')

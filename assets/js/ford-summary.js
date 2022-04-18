@@ -10,7 +10,7 @@ $(document).ready(function () {
 
     $(".downloadRecord").on("click", function () {
       let recordDOM = $(this).parent().parent().parent();
-      console.log(recordDOM)
+
       let accessURL = summary.getAccessURL(recordDOM);
       downloader.downloadSingleAsset(accessURL);
     })
@@ -179,7 +179,7 @@ class Summary extends Report {
     $('.record').each(function () {
       let url = summary.getThumbnailURL($(this));
       let record_thumbnail = $(this).find('.record_thumbnail')
-      console.log(url)
+    
       if (url !== null) {
         record_thumbnail.removeClass('bg-cover')
         record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
@@ -191,7 +191,10 @@ class Summary extends Report {
       }
     })
   }
-
+  initFilter(){
+    let filter = new Filter();
+    filter.init();
+  }
   getAccessURL(recordDOM) {
     let span = recordDOM.find('.hidden_fields').find('.a_media_low_res')
     return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
@@ -201,5 +204,6 @@ class Summary extends Report {
     this.setGridListToggle();
     this.createPagination();
     this.setRecordThumbnail();
+    this.initFilter();
   }
 }

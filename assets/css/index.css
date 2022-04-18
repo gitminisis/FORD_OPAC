@@ -2282,7 +2282,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Grid/List Toggle */
 
 .gridSwitchButton,
-.listSwitchButton {
+.listSwitchButton,.filterToggle {
   border-color: #243c5a;
   color: #243c5a;
 }
@@ -2517,7 +2517,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   width:0;
   flex-grow: 0;
   transition: all 0.4s ease-out;
-  background-color:red;
 }
 
 .right{

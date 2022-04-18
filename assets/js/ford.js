@@ -371,3 +371,36 @@ class PDFRequest {
 
     }
 }
+
+class Filter {
+
+    constructor() {
+        this.filterJSON = null;
+    }
+    getJSONFilter() {
+        let filter_xml = document.getElementById('filter_xml')
+        let filter = this;
+        if (filter_xml) {
+            let x2js = new X2JS({
+                arrayAccessFormPaths: [
+                    'xml.filter'
+                    , 'xml.filter.item_group'
+                ]
+            });
+            let jsonObj = x2js.xml2json(filter_xml);
+           filter = jsonObj.filter
+        }
+        return null;
+    }
+
+    toggleFilter() {
+        $('.left').toggleClass('filter-open')
+    }
+    init() {
+        let filter = this;
+        $(".filterToggle").click(function () {
+            filter.toggleFilter();
+        });
+        this.getJSONFilter();
+    }
+}
