@@ -769,6 +769,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: -0.5rem;
 }
 
+.mt-\[10px\] {
+  margin-top: 10px;
+}
+
+.mb-\[8px\] {
+  margin-bottom: 8px;
+}
+
 .mt-\[40px\] {
   margin-top: 40px;
 }
@@ -787,10 +795,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-\[20px\] {
   margin-bottom: 20px;
-}
-
-.mb-\[8px\] {
-  margin-bottom: 8px;
 }
 
 .mt-\[20px\] {
@@ -831,10 +835,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-\[29px\] {
   margin-top: 29px;
-}
-
-.mt-\[10px\] {
-  margin-top: 10px;
 }
 
 .mr-\[15px\] {
@@ -925,12 +925,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 0.75rem;
 }
 
-.h-\[50px\] {
-  height: 50px;
+.h-\[60px\] {
+  height: 60px;
 }
 
 .h-\[16px\] {
   height: 16px;
+}
+
+.h-\[50px\] {
+  height: 50px;
 }
 
 .h-\[calc\(100vh-80px\)\] {
@@ -939,10 +943,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[350px\] {
   height: 350px;
-}
-
-.h-\[60px\] {
-  height: 60px;
 }
 
 .h-\[170px\] {
@@ -1732,6 +1732,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 20px;
 }
 
+.pt-\[15px\] {
+  padding-top: 15px;
+}
+
+.pb-\[30px\] {
+  padding-bottom: 30px;
+}
+
 .pb-\[12px\] {
   padding-bottom: 12px;
 }
@@ -1746,14 +1754,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pt-\[80px\] {
   padding-top: 80px;
-}
-
-.pt-\[15px\] {
-  padding-top: 15px;
-}
-
-.pb-\[30px\] {
-  padding-bottom: 30px;
 }
 
 .pt-4 {
@@ -1811,6 +1811,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-\[35px\] {
+  font-size: 35px;
 }
 
 .text-\[24px\] {
@@ -2263,7 +2267,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 /* Blackbox Collapse */
 
-.blackBoxCollapse {
+.blackBoxCollapse, .filterCollapse {
   overflow: hidden;
   transition: max-height 0.4s, opacity 0.3s linear;
   max-height: 0;
@@ -2272,8 +2276,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0;
 }
 
-.openBlackBoxCollapse {
+.openBlackBoxCollapse,  {
   max-height: 300px !important;
+  opacity: 1;
+}
+
+.openFilterCollapse{
+  max-height: 3000px !important;
   opacity: 1;
 }
 
@@ -2517,6 +2526,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   width:0;
   flex-grow: 0;
   transition: all 0.4s ease-out;
+  color:black;
+  padding:15px 15px;
+  visibility: hidden
+}
+
+.left hr{
+  margin-top:15px;
 }
 
 .right{
@@ -2526,7 +2542,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .filter-open {
   flex-grow:2;
-  width:300px
+  width:300px;
+  visibility:visible;
 }
 
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {

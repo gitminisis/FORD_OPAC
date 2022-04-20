@@ -194,7 +194,7 @@
 /* End of Filter Collapse */
 
 /* Blackbox Collapse */
-.blackBoxCollapse {
+.blackBoxCollapse, .filterCollapse {
   overflow: hidden;
   transition: max-height 0.4s, opacity 0.3s linear;
   max-height: 0;
@@ -203,8 +203,13 @@
   opacity: 0;
 }
 
-.openBlackBoxCollapse {
+.openBlackBoxCollapse,  {
   max-height: 300px !important;
+  opacity: 1;
+}
+
+.openFilterCollapse{
+  max-height: 3000px !important;
   opacity: 1;
 }
 /* End of Blackbox Collapse */
@@ -423,9 +428,14 @@
   width:0;
   flex-grow: 0;
   transition: all 0.4s ease-out;
- 
+color:black;
+padding:15px 15px;
+visibility: hidden
 }
 
+.left hr{
+  margin-top:15px;
+}
 .right{
   flex-grow: 1;
   transition: all 0.4s ease-out;
@@ -433,7 +443,7 @@
 
 .filter-open {
   flex-grow:2;
-  width:300px
- 
+  width:300px;
+ visibility:visible;
  
 }

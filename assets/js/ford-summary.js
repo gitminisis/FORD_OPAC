@@ -191,8 +191,8 @@ class Summary extends Report {
       }
     })
   }
-  initFilter(){
-    let filter = new Filter();
+  initSummaryFilter(){
+    let filter = new SummaryFilter();
     filter.init();
   }
   getAccessURL(recordDOM) {
@@ -204,6 +204,6 @@ class Summary extends Report {
     this.setGridListToggle();
     this.createPagination();
     this.setRecordThumbnail();
-    this.initFilter();
+    this.initSummaryFilter();
   }
 }
