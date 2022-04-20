@@ -441,6 +441,7 @@ class SummaryFilter {
     }
     toggleFilter() {
         $('.left').toggleClass('filter-open')
+        $('.right').toggleClass('right-side')
         let isOpen = sessionStorage.getItem('openFilter')
         sessionStorage.setItem('openFilter',!(isOpen === 'true'));
     }
@@ -455,9 +456,11 @@ class SummaryFilter {
         }
         if (sessionStorage.getItem('openFilter') === 'true') {
             $('.left').addClass('filter-open')
+            $('.right').addClass('right-side')
         }
         else {
             $('.left').removeClass('filter-open')
+            $('.right').removeClass('right-side')
         }
         this.renderUI();
     }

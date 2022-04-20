@@ -2540,10 +2540,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition: all 0.4s ease-out;
 }
 
+.right-side{
+  width: 80%;
+  flex-grow:0;
+}
+
 .filter-open {
-  flex-grow:2;
-  width:300px;
-  visibility:visible;
+  flex-grow: 1;
+  visibility: visible;
 }
 
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {
