@@ -55,15 +55,15 @@ class FeatureRecord {
         this.dom = dom;
 
     }
-    
-    fetchData() {
+
+    fetchData(report = 'FORD_DETAIL_XML', x2jsArray = {}) {
         let object = this;
-        let url = getRecordPermalink(this.refd, 'FORD_DETAIL_XML');
+        let url = getRecordPermalink(this.refd, report);
         return fetch(url).then(function (response) { return response.text() }).then(y => {
             let dom = new DOMParser().parseFromString(y, 'text/html')
             let reportDOM = dom.querySelector('report');
 
-            let x2js = new X2JS({})
+            let x2js = new X2JS(x2jsArray)
             let JSONObj = x2js.xml2json(reportDOM);
 
             let { item } = JSONObj;

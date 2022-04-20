@@ -59,7 +59,18 @@ function copyToClipboard(str) {
 
 
 
+function getSummaryXMLURL(exp, report = "FORD_SUMMARY_XML") {
+    return `/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?sessionsearch&exp=${exp}`
+}
 
+function randomSlice(array, n) {
+    // Shuffle array
+    const shuffled = array.sort(() => 0.5 - Math.random());
+
+    // Get sub-array of first n elements after shuffled
+    let selected = shuffled.slice(0, n);
+    return selected;
+}
 class MediaDownloader {
 
     constructor() {
@@ -282,8 +293,8 @@ class PDFRequest {
     constructor() {
         this.name = '';
         this.email = '';
-        this.refd = '';
-        this.title = '';
+        this.refd = document.getElementsByClassName('detailREFD')[0].innerText;
+        this.title = document.getElementsByClassName('detailTitle')[0].innerText;
     }
     openModal() {
         $('#requestPDFModal').fadeIn(400);
@@ -368,6 +379,8 @@ class PDFRequest {
         $('#request-submit').on('click', function (e) {
             modal.submit();
         });
+        $('#requestREFD').text(document.getElementsByClassName('detailREFD')[0].innerText)
+        $('#requestTitle').text(document.getElementsByClassName('detailTitle')[0].innerText)
 
     }
 }
@@ -417,7 +430,9 @@ class SummaryFilter {
         $('.left').append('<h1 class="text-[35px]">Filter</h1>');
         let filterJSON = this.getJSONFilter();
         let filter = this;
-        console.log(filterJSON);
+        if (filterJSON === undefined) {
+            return;
+        }
         filterJSON.map(item => {
             let { item_group } = item;
             $('.left').append(`<hr /> <div id=${item._title} > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
@@ -443,12 +458,17 @@ class SummaryFilter {
         $('.left').toggleClass('filter-open')
         $('.right').toggleClass('right-side')
         let isOpen = sessionStorage.getItem('openFilter')
-        sessionStorage.setItem('openFilter',!(isOpen === 'true'));
+        sessionStorage.setItem('openFilter', !(isOpen === 'true'));
     }
     init() {
         let filter = this;
         $(".filterToggle").click(function () {
-            filter.toggleFilter();
+            if (filter.filterJSON === null) {
+                new MessageModal('No current filter for this search').open()
+            }
+            else {
+                filter.toggleFilter();
+            }
         });
 
         if (sessionStorage.getItem('openFilter') === null) {

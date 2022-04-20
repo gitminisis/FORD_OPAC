@@ -20,6 +20,42 @@ class MediaAsset {
   }
 }
 
+
+class AlsoLike extends FeatureRecord {
+  setTitleUI() {
+    let { dom, title } = this;
+
+    dom.find('.alsoLikeTitle').text(title)
+  }
+
+
+
+  setThumbnail() {
+    let { dom, mediaThumb } = this;
+
+    // dom.find('.latestArchiveThumb').removeClass('bg-black')
+    dom.css('background-image', `url('${mediaThumb}')`)
+  }
+
+  setButtonLinkUI() {
+    let { dom, refd } = this;
+    dom.on('click', function () {
+      let url = getRecordPermalink(refd, 'FORD_DETAIL');
+      window.open(url, '_blank')
+    })
+  }
+
+  init() {
+    let fr = this;
+
+    this.fetchData().then(function () {
+      fr.setThumbnail();
+      fr.setTitleUI();
+      fr.setButtonLinkUI();
+
+    })
+  }
+}
 class Detail extends Report {
   constructor() {
     super();
@@ -92,7 +128,7 @@ class Detail extends Report {
 
     }
   }
-  initColorTooltip(){
+  initColorTooltip() {
     $(".detailColor ").each(function (e) {
       new Tooltip($(this), $(this).next().text()).init()
     });
@@ -197,7 +233,66 @@ class Detail extends Report {
 
   }
 
+  getRecordSubject() {
+    let subjects = []
+    $('.detailSubject').each(function () {
+      subjects.push($(this).find('a').text());
+    })
+    return subjects;
+  }
+  fetchSubjectRecords(url) {
+    return fetch(url).then(function (response) { return response.text() }).then(y => {
+      return y;
+      // let dom = new DOMParser().parseFromString(y, 'text/html')
+      // let reportDOM = dom.querySelector('report');
 
+      // let x2js = new X2JS(x2jsArray)
+      // let JSONObj = x2js.xml2json(reportDOM);
+
+      // let { item } = JSONObj;
+      // this.title = item.item_title;
+      // this.refd = item.item_refd;
+      // this.scope = item.item_scope;
+      // this.mediaThumb = item.item_thumb;
+    });
+  }
+  initAlsoLikeRecords() {
+    let subjects = this.getRecordSubject();
+    let detail = this;
+    const numberOfRecords = 7;
+
+    try {
+      if (subjects.length > 0) {
+        let mainSubject = subjects[0];
+        let url = getSummaryXMLURL(`SUBJECT "${mainSubject}"`);
+        detail.fetchSubjectRecords(url).then(res => {
+          let dom = new DOMParser().parseFromString(res, 'text/html')
+          let reportDOM = dom.querySelector('report');
+
+          let x2js = new X2JS({
+            arrayAccessFormPaths: [
+              'report.item'
+              , 'report.item.div.span'
+            ]
+          })
+          let JSONObj = x2js.xml2json(reportDOM);
+          console.log(JSONObj)
+          let randomRecords = randomSlice(JSONObj.item, numberOfRecords).map(e => e.item_refd)
+          randomRecords.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).init())
+
+        })
+
+      }
+    } catch (error) {
+
+    }
+  }
+  setDefaultSubjectSearchReport(report = 'FORD_SUMMARY') {
+    $('.detailSubject').each(function () {
+      let href = $(this).find('a').attr('href')
+      $(this).find('a').attr('href', `${href}&REPORT=${report}`)
+    })
+  }
   init() {
 
     this.setReturnSummaryURL();
@@ -206,6 +301,8 @@ class Detail extends Report {
     this.initDetailAssets();
     this.setMediaView();
     this.initDownloadSection();
+    this.setDefaultSubjectSearchReport();
+    this.initAlsoLikeRecords();
     new PDFRequest().init();
   }
 }
