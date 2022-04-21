@@ -14,6 +14,13 @@ $(document).ready(function () {
       let accessURL = summary.getAccessURL(recordDOM);
       downloader.downloadSingleAsset(accessURL);
     })
+
+    $(".bookmarkRecord").on("click", function () {
+      let recordDOM = $(this).parent().parent().parent();
+
+      let SISN = recordDOM.find('.hiddenRecordSISN').text();
+      summary.addBookmark(SISN);
+    })
   }
 
 
@@ -161,9 +168,7 @@ class Summary extends Report {
     }
   }
 
-  getRecordURL(recordDOM) {
-    return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text());
-  }
+
 
   bookmarkRecord(bookmarkButtonDOM) {
     let containerDiv = bookmarkButtonDOM.parent().parent().parent();
@@ -179,7 +184,7 @@ class Summary extends Report {
     $('.record').each(function () {
       let url = summary.getThumbnailURL($(this));
       let record_thumbnail = $(this).find('.record_thumbnail')
-    
+
       if (url !== null) {
         record_thumbnail.removeClass('bg-cover')
         record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
@@ -191,13 +196,15 @@ class Summary extends Report {
       }
     })
   }
-  initSummaryFilter(){
+  initSummaryFilter() {
     let filter = new SummaryFilter();
     filter.init();
   }
-  getAccessURL(recordDOM) {
-    let span = recordDOM.find('.hidden_fields').find('.a_media_low_res')
-    return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
+
+  setButtonTooltip() {
+    new Tooltip($('.gridSwitchButton'), 'Grid View').init()
+    new Tooltip($('.listSwitchButton'), 'List View').init()
+    new Tooltip($('.filterToggle'), 'Filter').init()
   }
   init() {
     this.setTotalRecord();
@@ -205,5 +212,6 @@ class Summary extends Report {
     this.createPagination();
     this.setRecordThumbnail();
     this.initSummaryFilter();
+    this.setButtonTooltip();
   }
 }

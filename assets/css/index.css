@@ -1554,30 +1554,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/homepage-image.jpg');
 }
 
-.bg-homeTrending1 {
-  background-image: url('../images/trending1.png');
-}
-
-.bg-homeTrending5 {
-  background-image: url('../images/trending5.jpg');
-}
-
-.bg-homeTrending3 {
-  background-image: url('../images/trending3.jpg');
-}
-
-.bg-homeTrending4 {
-  background-image: url('../images/trending4.jpg');
-}
-
-.bg-homeTrending6 {
-  background-image: url('../images/trending6.png');
-}
-
-.bg-homeTrending7 {
-  background-image: url('../images/trending7.jpg');
-}
-
 .bg-homeInnovation {
   background-image: url('../images/innovation.jpeg');
 }

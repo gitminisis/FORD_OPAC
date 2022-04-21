@@ -433,6 +433,7 @@ class SummaryFilter {
         if (filterJSON === undefined) {
             return;
         }
+        filter.filterJSON = filterJSON;
         filterJSON.map(item => {
             let { item_group } = item;
             $('.left').append(`<hr /> <div id=${item._title} > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)

@@ -21,22 +21,46 @@ class Report {
             return JSON.parse(filter)
         }
     }
+    getThumbnailURL(recordDOM) {
+        let span = recordDOM.find('.hidden_fields').find('.a_media_thumb')
+        return span.length > 0 ? span.eq(0).text().trim().replace(/\n/g, '') : null
+    }
+    getRecordURL(recordDOM) {
+        return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text());
+    }
+    setRecordThumbnail() {
+        let summary = this;
+        $('.record').each(function () {
+            let url = summary.getThumbnailURL($(this));
+            let record_thumbnail = $(this).find('.record_thumbnail')
 
-    addBookmark(SISN) {
-        let SESSID = getCookie("HOME_SESSID");
-        let url = `${SESSID}/1/1?ADDSELECTION&COOKIE=BOOKMARK`
-        let data = `mcheckbox_${SISN}=${SISN}-DESCRIPTION`
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function (response) {
-                //if request if made successfully then the response represent the data
-
-                let roaster = new MessageModal(`Record SISN#${SISN} has been added to collection`)
-                roaster.open();
+            if (url !== null) {
+                record_thumbnail.removeClass('bg-cover')
+                record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
+                record_thumbnail.css("background-image", `url('${url}')`);
             }
-        });
+            // If No Digital Asset put placeholder
+            else {
+                record_thumbnail.addClass('bg-test bg-center')
+            }
+        })
+    }
+    getAccessURL(recordDOM) {
+        let span = recordDOM.find('.hidden_fields').find('.a_media_low_res')
+        return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
+    }
+    addBookmark(SISN) {
+        let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
+        return fetch(`${url}?ADDSELECTION&COOKIE=BOOKMARK`, {
+            method: 'post',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: `mcheckbox_${SISN}=${SISN}-DESCRIPTION_OPAC3`
+        }).then(function (r) {
+            console.log(r);
+            new MessageModal(`Record SISN#${SISN} has been added to collection`).open()
+        })
+
+
     }
 
 
