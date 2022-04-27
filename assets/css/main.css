@@ -216,7 +216,7 @@
 
 /* Grid/List Toggle */
 .gridSwitchButton,
-.listSwitchButton,.filterToggle {
+.listSwitchButton,.filterToggle,.filterModalButton {
   border-color: #243c5a;
   color: #243c5a;
 }
@@ -238,7 +238,7 @@
   cursor: pointer;
 }
 .downloadRecord:hover,
-.bookmarkRecord:hover {
+.bookmarkRecord:hover ,.deleteBookmarkRecord:hover{
   color: #243c5a;
 }
 /* Summary Page */
@@ -429,9 +429,10 @@
   flex-grow: 0;
   transition: all 0.4s ease-out;
 color:black;
-padding:15px 15px;
+
 visibility: hidden
 }
+
 
 .left hr{
   margin-top:15px;
@@ -440,14 +441,22 @@ visibility: hidden
   flex-grow: 1;
   transition: all 0.4s ease-out;
 }
-
+@media only screen and (max-width:639px){
+  .left{
+    display:none;
+  }
+  .right-side{
+    width:100% !important;
+    flex-grow: 1;
+  }
+}
 .right-side{
   width: 80%;
   flex-grow:0;
 }
 .filter-open {
   flex-grow: 1;
- 
+  padding: 15px 15px;
   visibility: visible;
  
 }

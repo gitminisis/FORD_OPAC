@@ -761,20 +761,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 25px;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
-.-mb-2 {
-  margin-bottom: -0.5rem;
-}
-
 .mt-\[10px\] {
   margin-top: 10px;
 }
 
 .mb-\[8px\] {
   margin-bottom: 8px;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.-mb-2 {
+  margin-bottom: -0.5rem;
 }
 
 .mt-\[40px\] {
@@ -921,16 +921,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 300px;
 }
 
-.h-3 {
-  height: 0.75rem;
-}
-
 .h-\[60px\] {
   height: 60px;
 }
 
 .h-\[16px\] {
   height: 16px;
+}
+
+.h-3 {
+  height: 0.75rem;
 }
 
 .h-\[50px\] {
@@ -1053,12 +1053,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 20px;
 }
 
-.w-3 {
-  width: 0.75rem;
-}
-
 .w-\[16px\] {
   width: 16px;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .w-\[120px\] {
@@ -1784,13 +1784,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 16px;
 }
 
+.text-\[35px\] {
+  font-size: 35px;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[35px\] {
-  font-size: 35px;
 }
 
 .text-\[24px\] {
@@ -2267,7 +2267,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 /* Grid/List Toggle */
 
 .gridSwitchButton,
-.listSwitchButton,.filterToggle {
+.listSwitchButton,.filterToggle,.filterModalButton {
   border-color: #243c5a;
   color: #243c5a;
 }
@@ -2503,7 +2503,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-grow: 0;
   transition: all 0.4s ease-out;
   color:black;
-  padding:15px 15px;
   visibility: hidden
 }
 
@@ -2516,6 +2515,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition: all 0.4s ease-out;
 }
 
+@media only screen and (max-width:639px){
+  .left{
+    display:none;
+  }
+
+  .right-side{
+    width:100% !important;
+    flex-grow: 1;
+  }
+}
+
 .right-side{
   width: 80%;
   flex-grow:0;
@@ -2523,6 +2533,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .filter-open {
   flex-grow: 1;
+  padding: 15px 15px;
   visibility: visible;
 }
 

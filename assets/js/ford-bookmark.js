@@ -23,6 +23,9 @@ $(document).ready(function () {
 
 
 class Bookmark extends Report {
+    getRecordURL(recordDOM) {
+        return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text()).replace("DESCRIPTION_OPAC3","SELECTION_LIST");
+    }
     init() {
         this.setTotalRecord();
         this.setRecordThumbnail();
