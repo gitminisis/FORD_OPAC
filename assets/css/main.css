@@ -194,7 +194,8 @@
 /* End of Filter Collapse */
 
 /* Blackbox Collapse */
-.blackBoxCollapse, .filterCollapse {
+.blackBoxCollapse,
+.filterCollapse {
   overflow: hidden;
   transition: max-height 0.4s, opacity 0.3s linear;
   max-height: 0;
@@ -203,15 +204,22 @@
   opacity: 0;
 }
 
-.openBlackBoxCollapse, .openFilterCollapse {
+.openBlackBoxCollapse {
   max-height: 300px !important;
+  opacity: 1;
+}
+
+.openFilterCollapse {
+  max-height: 3000px !important;
   opacity: 1;
 }
 /* End of Blackbox Collapse */
 
 /* Grid/List Toggle */
 .gridSwitchButton,
-.listSwitchButton {
+.listSwitchButton,
+.filterToggle,
+.filterModalButton {
   border-color: #243c5a;
   color: #243c5a;
 }
@@ -233,7 +241,8 @@
   cursor: pointer;
 }
 .downloadRecord:hover,
-.bookmarkRecord:hover {
+.bookmarkRecord:hover,
+.deleteBookmarkRecord:hover {
   color: #243c5a;
 }
 /* Summary Page */
@@ -326,13 +335,13 @@
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
+  color: white;
+  font-size: 50px;
 }
 #backTop::after {
-  content: "\f077";
-  font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
-  font-size: 2em;
+
   line-height: 50px;
   color: #fff;
 }
@@ -410,30 +419,55 @@
   background-color: transparent;
 }
 
-
 .summary-body {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
   display: flex;
- 
-
 }
 .left {
-  width:0;
+  width: 0;
   flex-grow: 0;
   transition: all 0.4s ease-out;
-  text:black
+  color: black;
+
+  visibility: hidden;
 }
 
-.right{
+.left hr {
+  margin-top: 15px;
+}
+.right {
   flex-grow: 1;
   transition: all 0.4s ease-out;
 }
-
+@media only screen and (max-width: 639px) {
+  .left {
+    display: none;
+  }
+  .right-side {
+    width: 100% !important;
+    flex-grow: 1;
+  }
+}
+.right-side {
+  width: 80%;
+  flex-grow: 0;
+}
 .filter-open {
-  flex-grow:2;
-  width:300px
- 
- 
+  flex-grow: 1;
+  padding: 15px 15px;
+  visibility: visible;
+}
+
+.showCollectionCount {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  border-radius: 100%;
+  width: 18px;
+  height: 18px;
+  background-color: #07b320;
+  font-size: 11px;
+  color: white;
 }

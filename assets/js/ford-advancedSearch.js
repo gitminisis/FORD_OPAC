@@ -1,6 +1,21 @@
 $(document).ready(function () {
   let filter = new Filter();
   filter.init();
+  $(".colorFilter").on("click", function (e) {
+    $(".colorFilter").each(function (e) {
+      $(this).removeClass("selectedColorFilter");
+    });
+    let color = $(this).data("color");
+  
+    if (filter.color !== color) {
+      $(this).addClass("selectedColorFilter");
+      filter.color = color;
+    } else {
+      filter.resetColor();
+    }
+    filter.updateHiddenKeywordValue();
+
+  });
 
   $(".closeModal").on("click", function (e) {
     $(this).parent().parent().parent().parent().addClass("hidden");
@@ -179,30 +194,38 @@ class Filter {
     let value = this.generateSearchExpression();
     this.setFilterSessionStorage();
     $('#hiddenKeywordInput').val(value);
+    this.updateDropdownUI();
   }
 
 
   updateDropdownUI() {
+  
     if (this.year !== '') {
-      $('#yearFilterValue').parent().css('background-color', '#00095B')
+      $('#yearFilterValue').parent().css('border-color', '#00095B')
+      $('#yearFilterValue').parent().css('border-width', '2px')
     }
     else if (this.year === '') {
-      $('#yearFilterValue').parent().css('background-color', 'black')
+      $('#yearFilterValue').parent().css('border-color', 'black')
+      $('#yearFilterValue').parent().css('border-width', '1px')
     }
 
 
     if (this.make !== '') {
-      $('#makeFilterValue').parent().css('background-color', '#00095B')
+      $('#makeFilterValue').parent().css('border-color', '#00095B')
+      $('#makeFilterValue').parent().css('border-width', '2px')
     }
     else if (this.make === '') {
-      $('#makeFilterValue').parent().css('background-color', 'black')
+      $('#makeFilterValue').parent().css('border-color', 'black')
+      $('#makeFilterValue').parent().css('border-width', '1px')
     }
 
     if (this.model !== '') {
-      $('#modelFilterValue').parent().css('background-color', '#00095B')
+      $('#modelFilterValue').parent().css('border-color', '#00095B')
+      $('#modelFilterValue').parent().css('border-width', '2px')
     }
     else if (this.model === '') {
-      $('#modelFilterValue').parent().css('background-color', 'black')
+      $('#modelFilterValue').parent().css('border-color', 'black')
+      $('#modelFilterValue').parent().css('border-width', '1px')
     }
   }
 
@@ -210,7 +233,7 @@ class Filter {
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
     // let session = 'https://ford.minisisinc.com/SCRIPTS/MWIMAIN.DLL/133636002'
-    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
   getClusterValue(exp) {
@@ -263,20 +286,7 @@ class Filter {
       }, 10);
     });
 
-    $(".colorFilter").on("click", function (e) {
-      $(".colorFilter").each(function (e) {
-        $(this).removeClass("selectedColorFilter");
-      });
-      let color = $(this).data("color");
-      if (filter.color !== color) {
-        $(this).addClass("selectedColorFilter");
-        filter.color = color;
-      } else {
-        filter.resetColor();
-      }
-      filter.updateHiddenKeywordValue();
-
-    });
+  
 
 
   }
@@ -301,6 +311,7 @@ class Filter {
       $(this).removeClass("selectedColorFilter");
     });
     $('input[type=checkbox]').prop('checked', false);
+    this.updateDropdownUI();
 
   }
 
