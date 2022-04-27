@@ -11,12 +11,60 @@
   <button id="test-toggle">Test</button>
 
   <!-- Start of Search results body -->
-  <div class="summary-body ">
+  <div class="summary-body">
     <!-- Start of filter Drawer-->
-    <div class="left"></div>
+    <div class="left">
+      <h1 class="text-[35px]">Filter</h1>
+      <hr />
+      <div>
+        <div class="flex justify-between h-[60px] pt-[15px]">
+          <div><p>Support</p></div>
+
+          <div class="expandFilter">
+            <span class="material-icons"> expand_more </span>
+          </div>
+        </div>
+
+        <div
+          class="w-full h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse"
+        >
+          <div>
+            <input
+              id="something"
+              type="checkbox"
+              class="w-[16px] h-[16px] border-[#6E6E6E]"
+            />
+            <label for="something" class="mb-[8px]">Ford Support US</label>
+            <span id="count">(12)</span>
+          </div>
+         
+
+       
+        </div>
+      </div>
+      <hr />
+      <div>
+        <div class="flex justify-between h-[60px] pt-[15px]">
+          <div><p>Support</p></div>
+
+          <div class="expandFilter">
+            <span class="material-icons"> expand_more </span>
+          </div>
+        </div>
+
+        <div
+          class="w-full h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse"
+        >
+          <p class="mb-[8px]">Ford Support US</p>
+          <p class="mb-[8px]">Lincoln Support US</p>
+          <p class="mb-[8px]">Recalls</p>
+          <p class="mb-[8px]">FordPass</p>
+        </div>
+      </div>
+    </div>
     <!-- End of filter Drawer-->
     <div
-      class="right  h-auto min-h-[400px] bg-white px-[15px] sm:px-[100px] grid grid-cols-6 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px] gap-y-[25px]"
+      class="right h-auto min-h-[400px] bg-white px-[15px] sm:px-[100px] grid grid-cols-6 justify-items-stretch pt-[40px] pb-[80px] gap-x-[25px] gap-y-[25px]"
     >
       <!-- Start of Records -->
       <div
@@ -271,8 +319,7 @@
 
 <!-- include virtual="[FORD_INCLUDE]html/footer.html"-->
 <script>
- $("#test-toggle").click(function() {
-  $('.left').toggleClass('filter-open ')
-    
-});
+  $("#test-toggle").click(function () {
+    $(".left").toggleClass("filter-open ");
+  });
 </script>

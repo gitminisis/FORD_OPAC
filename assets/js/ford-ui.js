@@ -82,6 +82,12 @@ $(document).ready(function () {
   })
 
 
+  $('.expandFilter').on('click', function () {
+    let collapseSection = $(this).parent().parent().find('.filterCollapse')
+
+    collapseSection.toggleClass('openFilterCollapse')
+  })
+
   // Black Box Mobile Expand 
 
 

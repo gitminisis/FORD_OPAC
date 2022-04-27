@@ -20,6 +20,15 @@ class MediaAsset {
   }
 }
 
+class AlsoLike extends FeatureRecord {
+  fetchData(){
+    console.log('Also Like Fetch')
+  }
+
+  init(){
+    this.fetchData();
+  }
+}
 class Detail extends Report {
   constructor() {
     super();
@@ -202,6 +211,7 @@ class Detail extends Report {
     this.initDetailAssets();
     this.setMediaView();
     this.initDownloadSection();
+    new AlsoLike().init();
     new PDFRequest().init();
   }
 }
