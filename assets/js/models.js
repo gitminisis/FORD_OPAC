@@ -56,7 +56,7 @@ class Report {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: `mcheckbox_${SISN}=${SISN}-DESCRIPTION_OPAC3`
         }).then(function (r) {
-            console.log(r);
+            updateBookmarkCount();
             new MessageModal(`Record SISN#${SISN} has been added to collection`).open()
         })
 
@@ -64,12 +64,12 @@ class Report {
     }
     deleteBookmark(SISN) {
         let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
-        return fetch(`${url}?DELETEORDER&COOKIE=BOOKMARKNOMSG=[FORD_INCLUDE]html/362.htm`, {
+        return fetch(`${url}?DELETEORDER&COOKIE=BOOKMARK&NOMSG=[FORD_INCLUDE]html/362.htm`, {
             method: 'post',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: `mcheckbox_1=${SISN}`
         }).then(function (r) {
-           
+            updateBookmarkCount();
             new MessageModal(`Record SISN#${SISN} has been removed from collection`).open()
         })
 
@@ -77,14 +77,15 @@ class Report {
     }
 
     deleteMultipleBookmark(SISN_array) {
+        console.log(SISN_array)
         let data = SISN_array.map((e, i) => `mcheckbox_${i + 1}=${e}`).join('&');
         let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
-        return fetch(`${url}?DELETEORDER&COOKIE=BOOKMARKNOMSG=[FORD_INCLUDE]html/362.htm`, {
+        return fetch(`${url}?DELETEORDER&COOKIE=BOOKMARK&NOMSG=[FORD_INCLUDE]html/362.htm`, {
             method: 'post',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: data
         }).then(function (r) {
-          
+            updateBookmarkCount();
             new MessageModal(`Collection has been cleared`).open()
         })
     }
