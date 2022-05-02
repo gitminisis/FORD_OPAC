@@ -43,6 +43,10 @@ $(document).ready(function () {
         $('.collection-downloadAll').on('click', function () {
             downloader.downloadBlobArray();
         })
+
+        $('.collection-downloadAll').on('click', function () {
+            downloader.downloadBlobArray();
+        })
     }
 });
 

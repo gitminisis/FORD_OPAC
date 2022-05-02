@@ -94,6 +94,10 @@ function randomSlice(array, n) {
     let selected = shuffled.slice(0, n);
     return selected;
 }
+
+function getRecordPermalink(refd, report) {
+    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
+}
 class MediaDownloader {
 
     constructor() {
