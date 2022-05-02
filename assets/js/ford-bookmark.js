@@ -6,7 +6,7 @@ $(document).ready(function () {
         const downloader = new MediaDownloader();
         let mediaURLArrays = [];
         for (let i = 0; i < document.getElementsByClassName('a_media_low_res').length; i++) {
-            mediaURLArrays.push(document.getElementsByClassName('a_media_low_res')[i.innerText.trim()])
+            mediaURLArrays.push(document.getElementsByClassName('a_media_low_res')[i].innerText.trim())
         }
 
         downloader.initAssetBlobArray(mediaURLArrays);
@@ -27,15 +27,21 @@ $(document).ready(function () {
             let recordDOM = $(this).parent().parent().parent();
 
             let SISN = recordDOM.find('.hiddenRecordSISN').text();
-            summary.deleteBookmark(SISN);
+            bookmark.deleteBookmark(SISN);
         })
 
 
         $('.collection-removeAll').on("click", function () {
-            let recordDOM = $(this).parent().parent().parent();
 
-            let SISN = recordDOM.find('.hiddenRecordSISN').text();
-            summary.deleteBookmark(SISN);
+            let SISN_array = [];
+            $('.hiddenRecordSISN').each(function () {
+                SISN_array.push($(this).text())
+            })
+            bookmark.deleteMultipleBookmark(SISN_array);
+        })
+
+        $('.collection-downloadAll').on('click', function () {
+            downloader.downloadBlobArray();
         })
 
         $('.collection-downloadAll').on('click', function () {

@@ -3,6 +3,12 @@
     "tailwindcss": "^3.0.22"
   },
   "scripts": {
-    "start": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/index.css --watch"
+    "start": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/index.css --watch",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   }
 }

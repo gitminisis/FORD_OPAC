@@ -59,9 +59,7 @@ class LatestArchive extends FeatureRecord {
 
 }
 
-function getRecordPermalink(refd, report) {
-    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
-}
+
 
 class TrendingNow extends FeatureRecord {
 

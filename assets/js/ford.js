@@ -66,8 +66,10 @@ function updateBookmarkCount() {
     let url = `${SESSID}?SHOWORDERLIST&COOKIE=BOOKMARK&NEW=Y`
     $.ajax(url).done(function (res) {
 
-        res = new DOMParser().parseFromString(res, "text/xml");
-        let hiddenRecordCount = res.querySelector('.hiddenTotalRecord');
+        res = new DOMParser().parseFromString(res, "text/html");
+       
+        let hiddenRecordCount = res.querySelector('#hiddenTotalRecord');
+      
         if (hiddenRecordCount && Number.parseInt(hiddenRecordCount.innerText)) {
             let count = Number.parseInt(hiddenRecordCount.innerText)
             $('#collectionCount').addClass('showCollectionCount');
@@ -91,6 +93,10 @@ function randomSlice(array, n) {
     // Get sub-array of first n elements after shuffled
     let selected = shuffled.slice(0, n);
     return selected;
+}
+
+function getRecordPermalink(refd, report) {
+    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
 }
 class MediaDownloader {
 
@@ -184,7 +190,7 @@ class MediaDownloader {
         this.assetBlobArray.map((object, index) => {
             let { fileBlob, fileName } = object;
             let imgData = new File([fileBlob], fileName);
-            console.log(imgData)
+           
             zip.file(fileName, imgData, {
                 base64: true
             });
@@ -256,7 +262,7 @@ class Carousel {
     init() {
 
         let carousel = this;
-        console.log(this);
+      
         document.querySelector(".next-slide").addEventListener("click", function () {
             carousel.changeSlide();
         });
@@ -346,7 +352,7 @@ class PDFRequest {
     submit() {
         let emailInput = $('#requestEmailInput').val();
         let nameInput = $('#requestNameInput').val();
-        console.log(emailInput, nameInput);
+     
         if (!this.validateEmail(emailInput)) {
 
             new MessageModal('Invalid Email Address !').open();
@@ -432,7 +438,7 @@ class SummaryFilter {
             return "Make"
         else if (name === "A_MEDIA_MODEL")
             return "Model"
-        else if (name === "A_MEDIA_Year")
+        else if (name === "A_MEDIA_YEAR")
             return "Year"
         else if (name === "A_MEDIA_COLOR")
             return "Color"
@@ -442,7 +448,7 @@ class SummaryFilter {
 
         $('.expandFilter').on('click', function () {
             let collapseSection = $(this).parent().parent().find('.filterCollapse')
-
+            console.log('collapse dropwodn')
             collapseSection.toggleClass('openFilterCollapse')
         })
     }
