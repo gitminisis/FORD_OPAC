@@ -1757,6 +1757,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 10px;
 }
 
+.pl-\[5px\] {
+  padding-left: 5px;
+}
+
+.pt-\[3px\] {
+  padding-top: 3px;
+}
+
 .text-left {
   text-align: left;
 }

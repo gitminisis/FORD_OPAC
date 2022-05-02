@@ -72,12 +72,12 @@ function updateBookmarkCount() {
       
         if (hiddenRecordCount && Number.parseInt(hiddenRecordCount.innerText)) {
             let count = Number.parseInt(hiddenRecordCount.innerText)
-            $('#collectionCount').addClass('showCollectionCount');
-            $('#collectionCount').text(count)
+            $('.collectionCount').addClass('showCollectionCount');
+            $('.collectionCount').text(count)
         }
         else {
-            $('#collectionCount').removeClass('showCollectionCount');
-            $('#collectionCount').text('')
+            $('.collectionCount').removeClass('showCollectionCount');
+            $('.collectionCount').text('')
         }
     })
 }
