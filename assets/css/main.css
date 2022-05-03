@@ -488,7 +488,7 @@
   cursor: pointer;
 }
 
-.trendingNowLink {
+.trendingNowLink, .alsoLikeLink {
   color:transparent;
 }
 /* 

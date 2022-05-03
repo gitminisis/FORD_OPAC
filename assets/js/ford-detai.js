@@ -5,7 +5,7 @@ $(document).ready(function () {
     const detail = new Detail();
     detail.init();
 
-   
+
   }
 });
 class MediaAsset {
@@ -31,6 +31,12 @@ class AlsoLike extends FeatureRecord {
 
     // dom.find('.latestArchiveThumb').removeClass('bg-black')
     dom.css('background-image', `url('${mediaThumb}')`)
+
+    $('.alsoLike').hover(function () {
+      $(this).find('.alsoLikeLink').css('color', 'white')
+    }, function () {
+      $(this).find('.alsoLikeLink').css('color', 'transparent')
+    })
   }
 
   setButtonLinkUI() {

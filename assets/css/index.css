@@ -2557,7 +2557,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
-.trendingNowLink {
+.trendingNowLink, .alsoLikeLink {
   color:transparent;
 }
 
