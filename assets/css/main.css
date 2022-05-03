@@ -487,3 +487,11 @@
 .latestArchive {
   cursor: pointer;
 }
+
+.trendingNowLink {
+  color:transparent;
+}
+/* 
+.trendingNowLink:hover{
+  color:white;
+} */

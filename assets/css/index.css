@@ -953,8 +953,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 80px;
 }
 
-.h-8 {
-  height: 2rem;
+.h-\[3rem\] {
+  height: 3rem;
 }
 
 .h-\[10px\] {
@@ -987,14 +987,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[360px\] {
   height: 360px;
-}
-
-.h-\[\] {
-  height: ;
-}
-
-.h-\[3rem\] {
-  height: 3rem;
 }
 
 .max-h-\[300px\] {
@@ -2564,6 +2556,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .latestArchive {
   cursor: pointer;
 }
+
+.trendingNowLink {
+  color:transparent;
+}
+
+/* 
+.trendingNowLink:hover{
+  color:white;
+} */
 
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {
   --tw-text-opacity: 1;

@@ -67,6 +67,8 @@ class TrendingNow extends FeatureRecord {
         let { dom, title } = this;
 
         dom.find('.trendingNowTitle').text(title)
+
+
     }
 
 
@@ -76,6 +78,12 @@ class TrendingNow extends FeatureRecord {
 
         // dom.find('.latestArchiveThumb').removeClass('bg-black')
         dom.css('background-image', `url('${mediaThumb}')`)
+        $('.trendingNow').hover(function () {
+            $(this).find('.trendingNowLink').css('color', 'white')
+        }, function () {
+            $(this).find('.trendingNowLink').css('color', 'transparent')
+        })
+
     }
 
     setButtonLinkUI() {

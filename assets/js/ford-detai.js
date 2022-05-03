@@ -5,11 +5,7 @@ $(document).ready(function () {
     const detail = new Detail();
     detail.init();
 
-    $('#copy-link').on('click', function () {
-      let sisn = $('#hidden_sisn_detail').text();
-      let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
-      copyToClipboard(url);
-    })
+   
   }
 });
 class MediaAsset {
@@ -148,29 +144,35 @@ class Detail extends Report {
       downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Image <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
 
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> PDF <span class="material-icons items-center"> download </span> </button><a id="requestPDF" class="cursor-pointer">I need an accessible PDF</a>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
         let requestModal = new PDFRequest();
+        $("#requestPDF").text('I need an accessible PDF')
         $("#requestPDF").on('click', function () {
           requestModal.openModal();
         })
 
       }
       if (mediaType === 'Moving Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Moving Image <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
 
 
       }
       if (mediaType === 'Audio') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex"> Audio <span class="material-icons items-center"> download </span> </button>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>>')
 
 
       }
       this.setDownloadButtonHandler(downloader);
+      $('#copy-link').on('click', function () {
+        let sisn = $('#hidden_sisn_detail').text();
+        let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
+        copyToClipboard(url);
+      })
     }
   }
   setDownloadButtonHandler(downloader) {
