@@ -181,14 +181,10 @@
 
 
       <div class="sm:self-center footerSocialLink">
-        <a href="https://twitter.com/Ford"><i class="fa-brands fa-twitter-square"></i></a>
-        <a href="https://www.linkedin.com/company/ford-motor-company"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://www.facebook.com/ford
-
-        "><i class="fa-brands fa-facebook-square"></i></a>
-        <a href="https://www.instagram.com/accounts/login/?next=/ford/
-
-        "><i class="fa-brands fa-instagram-square"></i></a>
+        <a href="https://twitter.com/Ford" aria-label="Twitter Link"><i class="fa-brands fa-twitter-square"></i></a>
+        <a href="https://www.linkedin.com/company/ford-motor-company" aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/ford" aria-label="Ford Link"><i class="fa-brands fa-facebook-square"></i></a>
+        <a href="https://www.instagram.com/accounts/login/?next=/ford/" aria-label="Instagram Link"><i class="fa-brands fa-instagram-square"></i></a>
       </div>
 
     </div>
@@ -223,7 +219,7 @@
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
     <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[700px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-      role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      role="dialog" aria-modal="true" >
       <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
         <i class="fa-solid fa-x"></i>
       </div>
@@ -301,7 +297,7 @@
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
     <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-      role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      role="dialog" aria-modal="true" >
       <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
         <i class="fa-solid fa-x"></i>
       </div>
@@ -356,8 +352,8 @@
           <span class="text-[11px] leading-[16px] tracking-[1px]">Rate this page</span>
 
           <div class="flex flex-col">
-            <div class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-              <p>Information</p>
+            <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <legend>Information</legend>
 
               <div class="grid grid-cols-1 text-center">
                 <div class="col-span-1 flex justify-evenly w-full space-x-[12px]">
@@ -375,10 +371,10 @@
                   <label class="text-[9px] w-[12.8px]" for="info5">++</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-              <p>Visual Appeal</p>
+            <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <legend>Visual Appeal</legend>
 
               <div class="grid grid-cols-1 text-center">
                 <div class="col-span-1 flex justify-evenly w-full space-x-[12px]">
@@ -396,10 +392,10 @@
                   <label class="text-[9px] w-[12.8px]" for="visual5">++</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-              <p>Ease of Use</p>
+            <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <legend>Ease of Use</legend>
 
               <div class="grid grid-cols-1 text-center">
                 <div class="col-span-1 flex justify-evenly w-full space-x-[12px]">
@@ -417,10 +413,10 @@
                   <label class="text-[9px] w-[12.8px]" for="ease5">++</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="flex justify-between items-center mt-[15px]">
-              <p>Overall</p>
+            <fieldset class="flex justify-between items-center mt-[15px]">
+              <legend>Overall</legend>
 
               <div class="grid grid-cols-1 text-center">
                 <div class="col-span-1 flex justify-evenly w-full space-x-[12px]">
@@ -438,11 +434,12 @@
                   <label class="text-[9px] w-[12.8px]" for="overall5">++</label>
                 </div>
               </div>
-            </div>
+            </fieldset>
           </div>
         </div>
 
         <div class="col-span-2 sm:col-span-1 row-span-2 order-2 sm:order-3 relative">
+          <label hidden for="surveyComment">Survey Comment</label>
           <textarea id="surveyComment" placeholder="Your comment here" maxlength="1000" class="border-[1px] border-solid border-[#6E6E6E] w-full resize-none min-h-[120px] h-full p-[5px]"></textarea>
           <p class="text-right text-[9px] text-[#4D4D4D]">1000 characters</p>
         </div>
@@ -477,7 +474,7 @@
     <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
 
     <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-      role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      role="dialog" aria-modal="true" >
       <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer filterCloseButton">
         <i class="fa-solid fa-x"></i>
       </div>
