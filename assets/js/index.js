@@ -1,7 +1,7 @@
 window.$ = require('jquery');
 require('./lightgallery.min.js');
 
-require('./jszip.min.js');
+
 require('./slide.min.js');
 
 require('./ford-ui.js');

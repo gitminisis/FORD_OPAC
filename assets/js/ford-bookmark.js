@@ -26,18 +26,14 @@ $(document).ready(function () {
         $(".deleteBookmarkRecord").on("click", function () {
             let recordDOM = $(this).parent().parent().parent();
 
-            let SISN = recordDOM.find('.hiddenRecordSISN').text();
+            let SISN = recordDOM.find('.hiddenRecordSISN').find('input').val();
             bookmark.deleteBookmark(SISN);
         })
 
 
         $('.collection-removeAll').on("click", function () {
 
-            let SISN_array = [];
-            $('.hiddenRecordSISN').each(function () {
-                SISN_array.push($(this).text())
-            })
-            bookmark.deleteMultipleBookmark(SISN_array);
+            bookmark.deleteAllBookmark();
         })
 
         $('.collection-downloadAll').on('click', function () {

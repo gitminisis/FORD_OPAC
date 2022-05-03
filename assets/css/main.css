@@ -240,6 +240,11 @@
 .recordHeading {
   cursor: pointer;
 }
+
+.downloadRecord .material-icons,
+.bookmarkRecord .material-icons,
+.deleteBookmarkRecord .material-icons
+{font-size: 35px}
 .downloadRecord:hover,
 .bookmarkRecord:hover,
 .deleteBookmarkRecord:hover {
@@ -477,4 +482,8 @@
 
 #blackbox a, #blackbox_mobile a {
   display:block;
+}
+
+.latestArchive {
+  cursor: pointer;
 }

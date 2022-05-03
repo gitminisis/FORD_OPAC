@@ -3,9 +3,17 @@ $(document).ready(function () {
     const summary = new Summary();
     const downloader = new MediaDownloader();
     summary.init();
+
+    
     $(".recordHeading").on("click", function () {
       window.location.href = summary.getRecordURL($(this));
     });
+    $(".record_thumbnail").on("click", function () {
+      window.location.href = summary.getRecordURL($(this).parent());
+    }).children().click(function(e) {
+      return false;
+    });;
+    
 
 
     $(".downloadRecord").on("click", function () {
@@ -205,6 +213,9 @@ class Summary extends Report {
     new Tooltip($('.gridSwitchButton'), 'Grid View').init()
     new Tooltip($('.listSwitchButton'), 'List View').init()
     new Tooltip($('.filterToggle'), 'Filter').init()
+    new Tooltip($('.bookmarkRecord'), 'Bookmark Record').init()
+    new Tooltip($('.downloadRecord'), 'Download Assets').init()
+    new Tooltip($('.deleteBookmarkRecord'), 'Remove Record').init()
   }
   init() {
     this.setTotalRecord();

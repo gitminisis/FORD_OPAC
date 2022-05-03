@@ -837,10 +837,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 29px;
 }
 
-.mr-\[15px\] {
-  margin-right: 15px;
-}
-
 .ml-\[12px\] {
   margin-left: 12px;
 }
@@ -985,8 +981,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 890px;
 }
 
-.h-\[600px\] {
-  height: 600px;
+.h-\[500px\] {
+  height: 500px;
 }
 
 .h-\[360px\] {
@@ -1433,11 +1429,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(151 151 151 / var(--tw-border-opacity));
 }
 
-.border-white {
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
 .border-b-\[\#243C5A\] {
   --tw-border-opacity: 1;
   border-bottom-color: rgb(36 60 90 / var(--tw-border-opacity));
@@ -1517,11 +1508,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(178 38 39 / var(--tw-bg-opacity));
 }
 
-.bg-silver {
-  --tw-bg-opacity: 1;
-  background-color: rgb(197 206 212 / var(--tw-bg-opacity));
-}
-
 .bg-yellow {
   --tw-bg-opacity: 1;
   background-color: rgb(247 255 13 / var(--tw-bg-opacity));
@@ -1556,15 +1542,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .bg-homeBanner {
-  background-image: url('../images/homepage-image.jpg');
+  background-image: url('../images/banner.jpg');
 }
 
 .bg-homeInnovation {
-  background-image: url('../images/innovation.jpeg');
+  background-image: url('../images/subsection.jpg');
 }
 
 .bg-norecord {
-  background-image: url('../images/norecord.jpeg');
+  background-image: url('../images/noresult.jpg');
 }
 
 .bg-cover {
@@ -1749,20 +1735,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 10px;
 }
 
-.pt-\[2px\] {
-  padding-top: 2px;
-}
-
-.pl-\[10px\] {
-  padding-left: 10px;
-}
-
 .pl-\[5px\] {
   padding-left: 5px;
 }
 
 .pt-\[3px\] {
   padding-top: 3px;
+}
+
+.pl-\[10px\] {
+  padding-left: 10px;
 }
 
 .text-left {
@@ -1859,10 +1841,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 32px;
 }
 
-.\!text-\[12px\] {
-  font-size: 12px !important;
-}
-
 .font-medium {
   font-weight: 500;
 }
@@ -1933,10 +1911,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-\[23px\] {
   line-height: 23px;
-}
-
-.leading-\[48px\] {
-  line-height: 48px;
 }
 
 .leading-\[39px\] {
@@ -2305,6 +2279,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.downloadRecord .material-icons,
+.bookmarkRecord .material-icons,
+.deleteBookmarkRecord .material-icons
+{
+  font-size: 35px
+}
+
 .downloadRecord:hover,
 .bookmarkRecord:hover,
 .deleteBookmarkRecord:hover {
@@ -2572,6 +2553,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display:block;
 }
 
+.latestArchive {
+  cursor: pointer;
+}
+
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {
   --tw-text-opacity: 1;
   color: rgb(221 218 218 / var(--tw-text-opacity));
@@ -2660,10 +2645,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     right: 30px;
   }
 
-  .sm\:bottom-10 {
-    bottom: 2.5rem;
-  }
-
   .sm\:order-1 {
     order: 1;
   }
@@ -2743,10 +2724,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 10px;
   }
 
-  .sm\:mt-\[80px\] {
-    margin-top: 80px;
-  }
-
   .sm\:block {
     display: block;
   }
@@ -2793,10 +2770,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:h-full {
     height: 100%;
-  }
-
-  .sm\:h-\[650px\] {
-    height: 650px;
   }
 
   .sm\:w-\[50\%\] {
@@ -2889,11 +2862,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     overflow: hidden;
   }
 
-  .sm\:border-\[\#00142E\] {
-    --tw-border-opacity: 1;
-    border-color: rgb(0 20 46 / var(--tw-border-opacity));
-  }
-
   .sm\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -2902,11 +2870,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:bg-\[\#6E6E6E\] {
     --tw-bg-opacity: 1;
     background-color: rgb(110 110 110 / var(--tw-bg-opacity));
-  }
-
-  .sm\:bg-\[\#00142E\] {
-    --tw-bg-opacity: 1;
-    background-color: rgb(0 20 46 / var(--tw-bg-opacity));
   }
 
   .sm\:p-\[30px\] {
@@ -2991,8 +2954,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 54px;
   }
 
-  .sm\:text-\[50px\] {
-    font-size: 50px;
+  .sm\:text-\[40px\] {
+    font-size: 40px;
   }
 
   .sm\:leading-\[24px\] {
@@ -3003,8 +2966,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 15px;
   }
 
-  .sm\:leading-\[59px\] {
-    line-height: 59px;
+  .sm\:leading-\[45px\] {
+    line-height: 45px;
   }
 
   .sm\:tracking-\[0\.53px\] {

@@ -98,6 +98,11 @@ function randomSlice(array, n) {
 function getRecordPermalink(refd, report) {
     return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
 }
+
+function removeWhiteSpace(string) {
+    return string.replace(/(\r\n|\n|\r)/gm, "");
+  }
+  
 class MediaDownloader {
 
     constructor() {
@@ -500,7 +505,7 @@ class SummaryFilter {
         });
 
         if (sessionStorage.getItem('openFilter') === null) {
-            sessionStorage.setItem('openFilter', 'false')
+            sessionStorage.setItem('openFilter', 'true')
         }
         if (sessionStorage.getItem('openFilter') === 'true') {
             $('.left').addClass('filter-open')
