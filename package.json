@@ -5,7 +5,8 @@
   },
   "scripts": {
     "start": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/index.css --watch",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "build": "npx tailwindcss -i ./assets/css/main.css -o ./assets/css/index.css && webpack"
   },
   "dependencies": {
     "jquery": "^3.6.0",
