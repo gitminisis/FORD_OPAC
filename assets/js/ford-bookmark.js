@@ -40,9 +40,15 @@ $(document).ready(function () {
             downloader.downloadBlobArray();
         })
 
-        $('.collection-downloadAll').on('click', function () {
-            downloader.downloadBlobArray();
-        })
+     
+
+        $(".record_cover").on("click", function () {
+
+
+            window.location.href = bookmark.getRecordURL($(this).parent().parent());
+          }).children().click(function (e) {
+            return false;
+          });;
     }
 });
 

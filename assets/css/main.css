@@ -171,7 +171,7 @@
 
 .selectedColorFilter {
   border: 2px solid white;
-  outline: 1px solid black;
+  outline: 2px solid black;
 }
 
 /* End of Color Filter */
@@ -210,7 +210,7 @@
 }
 
 .openFilterCollapse {
-  max-height: 3000px !important;
+  max-height: 5000px !important;
   opacity: 1;
 }
 /* End of Blackbox Collapse */
@@ -263,7 +263,7 @@
   cursor: pointer;
 }
 #download-detail-assets {
-  width: 150px;
+  width: fit-content;
 }
 /* Detail Page */
 
@@ -495,3 +495,7 @@
 .trendingNowLink:hover{
   color:white;
 } */
+
+.loadingAssets{
+ cursor: not-allowed !important;
+}

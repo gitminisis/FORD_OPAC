@@ -150,12 +150,12 @@ class Detail extends Report {
       downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
 
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
         let requestModal = new PDFRequest();
         $("#requestPDF").text('I need an accessible PDF')
         $("#requestPDF").on('click', function () {
@@ -164,12 +164,12 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Moving Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
 
 
       }
       if (mediaType === 'Audio') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>>')
 
 
       }
@@ -199,7 +199,7 @@ class Detail extends Report {
     else if (assets.length === 1) {
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
-        detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /> </div>`)
+        detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} alt="Detail Record Image Thumbnail" /> </div>`)
         detail.initLightgallery(false);
       }
       else if (mediaType === 'Textual') {

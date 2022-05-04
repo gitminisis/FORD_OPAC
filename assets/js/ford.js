@@ -67,9 +67,9 @@ function updateBookmarkCount() {
     $.ajax(url).done(function (res) {
 
         res = new DOMParser().parseFromString(res, "text/html");
-       
+
         let hiddenRecordCount = res.querySelector('#hiddenTotalRecord');
-      
+
         if (hiddenRecordCount && Number.parseInt(hiddenRecordCount.innerText)) {
             let count = Number.parseInt(hiddenRecordCount.innerText)
             $('.collectionCount').addClass('showCollectionCount');
@@ -101,8 +101,8 @@ function getRecordPermalink(refd, report) {
 
 function removeWhiteSpace(string) {
     return string.replace(/(\r\n|\n|\r)/gm, "");
-  }
-  
+}
+
 class MediaDownloader {
 
     constructor() {
@@ -157,6 +157,9 @@ class MediaDownloader {
 
 
     initAssetBlobArray = URLarray => {
+        $('.loadingAssets').click(false);
+        $(".loadingAssets").prop('disabled', true);
+        new Tooltip($('.loadingAssets'), "Loading Assets ...").init()
         URLarray.map(async (url, index) => {
             axios({
                 url: url, //your url
@@ -179,6 +182,12 @@ class MediaDownloader {
                     this.assetBlobArray.push({
                         fileBlob, fileName
                     })
+
+                    console.log('finished download')
+                    $(".loadingAssets").prop('disabled', false);
+
+                    new Tooltip($('.loadingAssets'), "Download Assets").init()
+                    $('.loadingAssets').removeClass('loadingAssets')
                 })
                 .catch(error => {
                     // onError(error, errorHandler);
@@ -195,7 +204,7 @@ class MediaDownloader {
         this.assetBlobArray.map((object, index) => {
             let { fileBlob, fileName } = object;
             let imgData = new File([fileBlob], fileName);
-           
+
             zip.file(fileName, imgData, {
                 base64: true
             });
@@ -267,7 +276,7 @@ class Carousel {
     init() {
 
         let carousel = this;
-      
+
         document.querySelector(".next-slide").addEventListener("click", function () {
             carousel.changeSlide();
         });
@@ -357,7 +366,7 @@ class PDFRequest {
     submit() {
         let emailInput = $('#requestEmailInput').val();
         let nameInput = $('#requestNameInput').val();
-     
+
         if (!this.validateEmail(emailInput)) {
 
             new MessageModal('Invalid Email Address !').open();
@@ -447,6 +456,8 @@ class SummaryFilter {
             return "Year"
         else if (name === "A_MEDIA_COLOR")
             return "Color"
+        else if (name === "A_MEDIA_TYPE")
+            return "Asset Type"
     }
 
     initDropdown() {
@@ -468,7 +479,7 @@ class SummaryFilter {
         filter.filterJSON = filterJSON;
         filterJSON.map(item => {
             let { item_group } = item;
-            $('.left').append(`<hr /> <div id=${item._title} > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
+            $('.left').append(`<hr /> <form id=${item._title}> <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </form>`)
             $(`#${item._title}`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}Filter" ></div>`)
             item_group.map((group, index) => {
 
