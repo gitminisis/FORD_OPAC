@@ -1,30 +1,44 @@
 $(document).ready(function () {
   if (document.getElementById("summary")) {
     const summary = new Summary();
+    const downloader = new MediaDownloader();
     summary.init();
+    new FilterModal().init();
+
+
+    $(".recordHeading").on("click", function () {
+      window.location.href = summary.getRecordURL($(this));
+    });
+    $(".record_cover").on("click", function () {
+      window.location.href = summary.getRecordURL($(this).parent().parent());
+    }).children().click(function (e) {
+      return false;
+    });;
+
+
+
+    $(".downloadRecord").on("click", function () {
+      let recordDOM = $(this).parent().parent().parent();
+
+      let accessURL = summary.getAccessURL(recordDOM);
+      downloader.downloadSingleAsset(accessURL);
+    })
+
+    $(".bookmarkRecord").on("click", function () {
+      let recordDOM = $(this).parent().parent().parent();
+
+      let SISN = recordDOM.find('.hiddenRecordSISN').text();
+      summary.addBookmark(SISN);
+    })
   }
 
-  $(".recordHeading").on("click", function () {
-    console.log(summary.getRecordURL($(this)));
-    window.location.href = summary.getRecordURL($(this));
-  });
+
 });
 
-class Summary {
+class Summary extends Report {
 
-  /**
-   * Find hiddenTotalRecord DOM and 
-   * set the value to innerText
-   *
-   * @memberof Summary
-   */
-  setTotalRecord() {
-    let hiddenTotalRecord = document.getElementById("hiddenTotalRecord");
-    if (hiddenTotalRecord) {
-      $("#totalRecord").text(hiddenTotalRecord.innerText);
-    }
-  }
-  
+
+
   /**
    * Add href to grid/list toggle button
    *
@@ -69,7 +83,7 @@ class Summary {
       window.location = $(this).find("a").attr("href");
     });
   }
-  
+
   /**
    * Check if the current summary report is Grid
    *
@@ -142,11 +156,10 @@ class Summary {
 
       paginationObject.pages.map((page) => {
         appendHTMLString += `
-        <a class="flex self-center justify-center w-[20px] sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${
-          page.current
+        <a class="flex self-center justify-center w-[20px] sm:w-[40px] cursor-pointer hover:bg-[#243C5A] hover:text-white  ${page.current
             ? '  border-b-[3px] border-solid border-b-[#243C5A]" '
             : '"'
-        } href=${page.pageLink}>
+          } href=${page.pageLink}>
            ${page.pageNumber}
         </a>
  
@@ -164,13 +177,185 @@ class Summary {
     }
   }
 
-  getRecordURL(recordDOM) {
-    return removeWhiteSpace(recordDOM.find(".hiddenRecordURL").text());
+
+
+  bookmarkRecord(bookmarkButtonDOM) {
+    let containerDiv = bookmarkButtonDOM.parent().parent().parent();
   }
 
+  getThumbnailURL(recordDOM) {
+    let span = recordDOM.find('.hidden_fields').find('.a_media_thumb')
+    return span.length > 0 ? span.eq(0).text().trim().replace(/\n/g, '') : null
+  }
+
+  setRecordThumbnail() {
+    let summary = this;
+    $('.record').each(function () {
+      let url = summary.getThumbnailURL($(this));
+      let record_thumbnail = $(this).find('.record_thumbnail')
+
+      if (url !== null) {
+        record_thumbnail.removeClass('bg-cover')
+        record_thumbnail.addClass('bg-contain bg-center bg-no-repeat')
+        record_thumbnail.css("background-image", `url('${url}')`);
+      }
+      // If No Digital Asset put placeholder
+      else {
+        record_thumbnail.addClass('bg-test bg-center')
+      }
+    })
+  }
+  initSummaryFilter() {
+    let filter = new SummaryFilter();
+    filter.init();
+  }
+
+  setButtonTooltip() {
+    new Tooltip($('.gridSwitchButton'), 'Grid View').init()
+    new Tooltip($('.listSwitchButton'), 'List View').init()
+    new Tooltip($('.filterToggle'), 'Filter').init()
+    new Tooltip($('.bookmarkRecord'), 'Bookmark Record').init()
+    new Tooltip($('.downloadRecord'), 'Download Assets').init()
+    new Tooltip($('.deleteBookmarkRecord'), 'Remove Record').init()
+  }
   init() {
     this.setTotalRecord();
     this.setGridListToggle();
     this.createPagination();
+    this.setRecordThumbnail();
+    this.initSummaryFilter();
+    this.setButtonTooltip();
+
+  }
+}
+
+
+class FilterModal {
+  constructor() {
+    this.backTop = false;
+  }
+  openModal() {
+    $('#filterModal').fadeIn(400);
+    if ($('#backTop').hasClass('show')) {
+      $('#backTop').removeClass('show');
+      this.backTop = true;
+    }
+  }
+
+  closeModal() {
+    $('#filterModal').fadeOut(200);
+    if (this.backTop) {
+      $('#backTop').addClass('show');
+      this.backTop = false;
+    }
+
+  }
+
+  getJSONFilter() {
+    let filter_xml = document.getElementById('filter_xml')
+    let filter = this;
+    if (filter_xml) {
+      let x2js = new X2JS({
+        arrayAccessFormPaths: [
+          'xml.filter'
+          , 'xml.filter.item_group'
+        ]
+      });
+      let jsonObj = x2js.xml2json(filter_xml);
+      filter = jsonObj.filter
+      return filter
+    }
+    return null;
+  }
+  getFilterName(name) {
+    if (name === "A_MEDIA_MAKE")
+      return "Make"
+    else if (name === "A_MEDIA_MODEL")
+      return "Model"
+    else if (name === "A_MEDIA_YEAR")
+      return "Year"
+    else if (name === "A_MEDIA_COLOR")
+      return "Color"
+    else if (name === "A_MEDIA_TYPE")
+      return "Asset Type"
+  }
+
+  initDropdown() {
+
+    $('.expandMobileFilter').on('click', function () {
+      let collapseSection = $(this).parent().parent().find('.filterCollapse')
+      console.log(collapseSection)
+      collapseSection.toggleClass('openFilterCollapse')
+    })
+  }
+
+  renderUI() {
+    $('.filterModalBody').append('<h1 class="text-[35px]">Filter</h1>');
+    let filterJSON = this.getJSONFilter();
+    let filter = this;
+    if (filterJSON === undefined) {
+      return;
+    }
+    filter.filterJSON = filterJSON;
+    filterJSON.map(item => {
+      let { item_group } = item;
+      $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
+      $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
+      item_group.map((group, index) => {
+
+        if (group.item_selected !== undefined) {
+          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
+
+
+        } else if (group.item_selected === undefined) {
+          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]"  ${group.item_link.item_selected === 'Y' ? 'checked' : ''}   /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link.__text}</span> </div>`)
+
+        }
+        $(`.${item._title}FilterItem`).on('click', function () {
+          window.location.href = $(this).find(`.${item._title}FilterItemLink`).text()
+        })
+      })
+    })
+    this.initDropdown();
+  }
+  init() {
+    let modal = this;
+    $('.filterModalButton').on('click', function (e) {
+      modal.openModal();
+    })
+
+
+    $('.filterCloseButton').on('click', function (e) {
+      modal.closeModal();
+    })
+
+    $(document).on('keyup', function (e) {
+      if (e.key == "Escape") {
+        modal.closeModal();
+      }
+    });
+    // Hide dropdown menu on click outside
+    $('#filterModal').on('click', function (e) {
+      modal.closeModal();
+
+    });
+
+    $('#filterModal .modalBody').on('click', function (e) {
+      e.stopPropagation();
+    });
+
+
+    $(".filterModalButton").click(function () {
+      if (modal.filterJSON === null) {
+        new MessageModal('No current filter for this search').open()
+      }
+      else {
+        modal.openModal();
+      }
+    });
+
+
+    this.renderUI();
+
   }
 }

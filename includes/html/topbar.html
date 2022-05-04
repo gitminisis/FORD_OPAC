@@ -5,41 +5,50 @@
   >
     <div class="flex justify-center align-middle items-center">
       <a href="/" class="flex justify-center align-middle items-center"
-        ><img
-          class="w-18 h-8 mx-1"
-          src="https://www.carlogos.org/car-logos/ford-logo-2017.png"
-        />
+        ><img alt="Ford Heritage Vault Logo" class="h-[3rem] mx-1" src="/assets/images/logo.png" />
 
-        <span
+        <!-- <span
           class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
         ></span>
+
         <span
           class="ml-[10px] text-[16px] sm:text-[20px] text-medium leading-[21px] tracking-[0.42px] sm:tracking-[0.53px] text-[#243C5A]"
           >Ford Heritage Vault</span
-        >
+        > -->
       </a>
     </div>
 
     <div
-      class="flex w-20 sm:w-40 space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]"
+      class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]"
     >
       <button
         class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton"
       >
-        <span class="">Filter</span>
+        <span class="">Advanced Search</span>
         <span class="material-icons px-2">tune</span>
       </button>
 
-      <button class="space-4 items-center hidden sm:inline-flex h-[60px]">
-        <span class="">Collection</span>
-        <span class="material-icons px-2">shopping_bag</span>
-      </button>
+      <a href="^SESSID^?SHOWORDERLIST&COOKIE=BOOKMARK&NEW=Y">
+        <button class="space-4 items-center hidden sm:inline-flex h-[60px]">
+          <span class="">Collection</span>
+          <div class="relative">
+            <span class="material-icons px-2">shopping_bag</span>
+            <span class="collectionCount"></span>
+          </div>
+        </button>
+      </a>
 
       <div class="inline-flex space-2 items-center sm:hidden filterButton">
         <span class="material-icons px-2">tune</span>
       </div>
       <div class="inline-flex items-center sm:hidden">
-        <span class="material-icons px-2">shopping_bag</span>
+        <a href="^SESSID^?SHOWORDERLIST&COOKIE=BOOKMARK&NEW=Y">
+         
+          <div class="relative">
+            <span class="material-icons px-2">shopping_bag</span>
+            <span class="collectionCount pl-[5px] pt-[3px]"></span>
+          </div>
+        </a>
       </div>
     </div>
   </nav>

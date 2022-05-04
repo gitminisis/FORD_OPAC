@@ -1,8 +1,9 @@
 <section
   id="banner"
-  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-cover bg-black p-[20px] pt-10px sm:pt-[35px]"
+  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative"
 >
-  <div class="w-full sm:w-[600px]">
+  <div class="bannerShadow"></div>
+  <div class="w-full sm:w-[600px] z-[2]">
     <h1
       class="text-center text-[36px] text-white leading-[43px] tracking-normal hidden sm:block"
     >
@@ -10,21 +11,19 @@
     </h1>
     <form
       method="POST"
-      action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC&ERRMSG=[FORD_INCLUDE]/no-record.html"
+      action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&ERRMSG=[FORD_INCLUDE]/html/no-record.html"
     >
       <div
-        class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5"
+        class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] "
       >
         <div class="relative w-full rounded inline-flex items-center">
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
-            <span class="material-icons text-[20px] text-[#DDDADA]">
-              search
-            </span>
+            <span class="material-icons text-[20px]"> search </span>
           </span>
           <input
             type="search"
             name="KEYWORD_CL"
-            class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px]"
+            class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
             placeholder="What are you looking for?"
             aria-label="What are you looking for?"
             autofocus
@@ -35,7 +34,7 @@
           class="flex justify-center sm:ml-8 sm:mt-0 mt-[30px] inline-flex items-center"
         >
           <button
-            class="bg-white rounded-[20px] hover:drop-shadow-xl duration-300 w-[120px] h-[40px] text-[#243C5A] text-[18px]"
+            class="bg-white rounded-[20px] hover:shadow-lg hover:shadow-[#243C5A] duration-300 w-[120px] h-[40px] text-[#243C5A] text-[18px] box-border"
           >
             Search
           </button>
