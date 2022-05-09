@@ -159,7 +159,8 @@ class MediaDownloader {
     initAssetBlobArray = URLarray => {
         $('.loadingAssets').click(false);
         // $(".loadingAssets").prop('disabled', true);
-        new Tooltip($('.loadingAssets'), "Loading Assets ...").init()
+        let loadingAsset = new Tooltip($('.loadingAssets'), "Loading Assets ...");
+        loadingAsset.init();
         URLarray.map(async (url, index) => {
             axios({
                 url: url, //your url
@@ -185,7 +186,7 @@ class MediaDownloader {
 
                     console.log('finished download')
                     $(".loadingAssets").prop('disabled', false);
-
+                    loadingAsset.destroy();
                    
                     $('.loadingAssets').removeClass('loadingAssets')
                 })
@@ -319,11 +320,15 @@ class Tooltip {
 
     }
 
+    destroy(){
+        this.DOM.find('.tooltip').remove()
+        this.DOM.removeClass('relative group');
+    }
 
     init() {
         this.DOM.addClass('relative group');
         this.DOM.append(`<div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
-        <div class="w-3 h-3 -mb-2 rotate-45 bg-black"></div>
+        <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
         <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">${this.text}</span>
     </div>`)
     }
