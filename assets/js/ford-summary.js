@@ -214,9 +214,9 @@ class Summary extends Report {
     new Tooltip($('.gridSwitchButton'), 'Grid View').init()
     new Tooltip($('.listSwitchButton'), 'List View').init()
     new Tooltip($('.filterToggle'), 'Filter').init()
-    new Tooltip($('.bookmarkRecord'), 'Bookmark Record').init()
-    new Tooltip($('.downloadRecord'), 'Download Assets').init()
-    new Tooltip($('.deleteBookmarkRecord'), 'Remove Record').init()
+    new Tooltip($('.bookmarkRecord'), 'Add to Collection').init()
+    new Tooltip($('.downloadRecord'), 'Download Asset').init()
+
   }
   init() {
     this.setTotalRecord();
@@ -290,6 +290,7 @@ class FilterModal {
   }
 
   renderUI() {
+    let x2js = new X2JS();
     $('.filterModalBody').append('<h1 class="text-[35px]">Filter</h1>');
     let filterJSON = this.getJSONFilter();
     let filter = this;
@@ -297,11 +298,17 @@ class FilterModal {
       return;
     }
     filter.filterJSON = filterJSON;
-    filterJSON.map(item => {
+    x2js.asArray(filterJSON).map(item => {
       let { item_group } = item;
       $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
       $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
-      item_group.map((group, index) => {
+      x2js.asArray(item_group).map((group, index) => {
+        if (group.item_value === 'Image') {
+          group.item_value = "JPEG"
+        }
+        if (group.item_value === 'Textual') {
+          group.item_value = "PDF"
+        }
 
         if (group.item_selected !== undefined) {
           $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)

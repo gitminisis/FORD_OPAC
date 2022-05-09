@@ -40,15 +40,15 @@ $(document).ready(function () {
             downloader.downloadBlobArray();
         })
 
-     
+
 
         $(".record_cover").on("click", function () {
 
 
             window.location.href = bookmark.getRecordURL($(this).parent().parent());
-          }).children().click(function (e) {
+        }).children().click(function (e) {
             return false;
-          });;
+        });;
     }
 });
 
@@ -61,5 +61,7 @@ class Bookmark extends Report {
     init() {
         this.setTotalRecord();
         this.setRecordThumbnail();
+        new Tooltip($('.downloadRecord'), 'Download Asset').init()
+        new Tooltip($('.deleteBookmarkRecord'), 'Remove Record').init()
     }
 }
