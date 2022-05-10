@@ -187,7 +187,7 @@ class MediaDownloader {
                     console.log('finished download')
                     $(".loadingAssets").prop('disabled', false);
                     loadingAsset.destroy();
-                   
+
                     $('.loadingAssets').removeClass('loadingAssets')
                 })
                 .catch(error => {
@@ -320,7 +320,7 @@ class Tooltip {
 
     }
 
-    destroy(){
+    destroy() {
         this.DOM.find('.tooltip').remove()
         this.DOM.removeClass('relative group');
     }
@@ -447,7 +447,7 @@ class SummaryFilter {
                 ]
             });
             let jsonObj = x2js.xml2json(filter_xml);
-          
+
             filter = jsonObj.filter
             return filter
         }
@@ -489,13 +489,13 @@ class SummaryFilter {
             $('.left').append(`<hr /> <form id=${item._title}> <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </form>`)
             $(`#${item._title}`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}Filter" ></div>`)
             x2js.asArray(item_group).map((group, index) => {
-                if(group.item_value === 'Image'){
-                    group.item_value="JPEG"
+                if (group.item_value === 'Image') {
+                    group.item_value = "JPEG"
                 }
-                if(group.item_value === 'Textual'){
-                    group.item_value="PDF"
+                if (group.item_value === 'Textual') {
+                    group.item_value = "PDF"
                 }
-                
+
                 if (group.item_selected !== undefined) {
                     $(`.${item._title}Filter`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 
@@ -532,13 +532,59 @@ class SummaryFilter {
             sessionStorage.setItem('openFilter', 'true')
         }
         // if (sessionStorage.getItem('openFilter') === 'true') {
-            $('.left').addClass('filter-open')
-            $('.right').addClass('right-side')
+        $('.left').addClass('filter-open')
+        $('.right').addClass('right-side')
         // }
         // else {
         //     $('.left').removeClass('filter-open')
         //     $('.right').removeClass('right-side')
         // }
         this.renderUI();
+    }
+}
+
+
+const timeOutInMinutes = 45;//this indicates the SESSION duration
+const alertTimeInMinutes = 1;//indicates how many minutes before expiration the alert should be shown
+
+let timeOutInMilliSeconds = timeOutInMinutes * 60 * 1000;
+let alerTimeInMilliSeconds = alertTimeInMinutes * 60 * 1000;
+let alertStartTime = timeOutInMilliSeconds - alertTimeInMinutes;
+let seconds = alertTimeInMinutes * 60;
+
+class SessionTimer {
+    constructor() {
+
+        this.timer = null;
+
+    }
+
+    extendSession() {
+        clearInterval();
+        clearTimeout(this.timer);
+        $.ajax({
+            type: "GET",
+            url: getCookie("HOME_SESSID") + "?noaction",
+            success: function (data) {
+                location.reload();
+            }
+        });
+    }
+
+    incrementSeconds() {
+        var x = setInterval(function () {
+            if (seconds > 0) {
+                seconds -= 1;
+                
+            } else {
+                clearInterval(x);
+
+                window.location = "/index.html"
+            }
+        }, 1000)
+    }
+
+    init() {
+        this.timer = setTimeout(this.incrementSeconds, alertStartTime);
     }
 }
