@@ -131,7 +131,7 @@ class Detail extends Report {
     }
   }
   initColorTooltip() {
-    $(".detailColor ").each(function (e) {
+    $(".detailColor").each(function (e) {
       new Tooltip($(this), $(this).next().text()).init()
     });
   }
@@ -150,12 +150,12 @@ class Detail extends Report {
       downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
       if (mediaType === 'Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
 
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
         let requestModal = new PDFRequest();
         $("#requestPDF").text('I need an accessible PDF')
         $("#requestPDF").on('click', function () {
@@ -164,23 +164,29 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Moving Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
 
 
       }
       if (mediaType === 'Audio') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer">Copy Link<span class="material-icons items-center"> share </span></p>>')
+        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
 
 
       }
       this.setDownloadButtonHandler(downloader);
+      let sisn = $('#hidden_sisn_detail').text();
       $('#copy-link').on('click', function () {
-        let sisn = $('#hidden_sisn_detail').text();
+
         let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
         copyToClipboard(url);
       })
+
+      $('#addBookmarkDetail').on('click', function () {
+        detail.addBookmark(sisn);
+      })
     }
   }
+
   setDownloadButtonHandler(downloader) {
     $('#download-detail-assets').on('click', function () {
       downloader.downloadBlobArray();
@@ -301,6 +307,28 @@ class Detail extends Report {
       $(this).find('a').attr('href', `${href}&REPORT=${report}`)
     })
   }
+  initRecordNavigation() {
+    let prev = document.querySelector('#prevRecord a')
+    let next = document.querySelector('#nextRecord a')
+    if (prev) {
+      let prev_link = removeWhiteSpace(prev.getAttribute('href'));
+      $('#detailRecordNavigation').append(`
+      <div class="flex">
+        <a href=${prev_link} class="flex"><span class="material-icons items-center"> arrow_back_ios </span>Prev</a>
+      </div>`)
+    }
+    else {
+      $("#detailRecordNavigation").removeClass('justify-between').addClass('justify-end')
+    }
+    
+    if (next) {
+      let next_link = removeWhiteSpace(next.getAttribute('href'));
+      $('#detailRecordNavigation').append(`
+      <div class="flex">
+        <a href=${next_link} class="flex">Next<span class="material-icons items-center"> arrow_forward_ios </span></a>
+      </div>`)
+    }
+  }
   init() {
 
     this.setReturnSummaryURL();
@@ -311,6 +339,7 @@ class Detail extends Report {
     this.initDownloadSection();
     this.setDefaultSubjectSearchReport();
     this.initAlsoLikeRecords();
+    this.initRecordNavigation();
     new PDFRequest().init();
   }
 }

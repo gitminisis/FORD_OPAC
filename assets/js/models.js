@@ -96,7 +96,7 @@ class Report {
         return fetch(`${url}?CLEARORDERLIST&COOKIE=BOOKMARK&NOMSG=[FORD_INCLUDE]html/362.htm`, {
             method: 'get',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-            body: data
+          
         }).then(function (r) {
 
             new MessageModal(`Collection has been cleared`).open()
