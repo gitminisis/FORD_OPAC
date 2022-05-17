@@ -77,19 +77,7 @@ class Report {
 
     }
 
-    // deleteMultipleBookmark(SISN_array) {
-    //     console.log(SISN_array)
-    //     let data = SISN_array.map((e, i) => `mcheckbox_${i + 1}=${e}`).join('&');
-    //     let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
-    //     return fetch(`${url}?DELETEORDER&COOKIE=BOOKMARK&NOMSG=[FORD_INCLUDE]html/362.htm`, {
-    //         method: 'post',
-    //         headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-    //         body: data
-    //     }).then(function (r) {
-    //         updateBookmarkCount();
-    //         new MessageModal(`Collection has been cleared`).open()
-    //     })
-    // }
+
 
     deleteAllBookmark() {
         let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`

@@ -531,14 +531,10 @@ class SummaryFilter {
         if (sessionStorage.getItem('openFilter') === null) {
             sessionStorage.setItem('openFilter', 'true')
         }
-        // if (sessionStorage.getItem('openFilter') === 'true') {
+
         $('.left').addClass('filter-open')
         $('.right').addClass('right-side')
-        // }
-        // else {
-        //     $('.left').removeClass('filter-open')
-        //     $('.right').removeClass('right-side')
-        // }
+
         this.renderUI();
     }
 }
@@ -577,7 +573,6 @@ class SessionTimer {
     constructor() {
 
         this.timer = null;
-        this.sessionTimeoutModal = new SessionTimeoutModal();
     }
 
     extendSession() {
@@ -593,7 +588,8 @@ class SessionTimer {
     }
 
     incrementSeconds() {
-        this.sessionTimeoutModal.openModal();
+        let sessionModal = new SessionTimeoutModal()
+        sessionModal.openModal();
         let timer = this;
         var x = setInterval(function () {
             if (seconds > 0) {
@@ -601,17 +597,17 @@ class SessionTimer {
                 $("#time-out-seconds").html(seconds);
                 $("#continue-session").on('click', function () {
                     timer.extendSession();
-                    this.sessionTimeoutModal.closeModal();
+                    sessionModal.closeModal();
                     seconds = alertTimeInMinutes * 60;
                 })
                 $("#end-session").on('click', function () {
                     clearInterval(x);
-                    timer.sessionTimeoutModal.closeModal();
+                    sessionModal.closeModal();
                     window.location = "/index.html"
                 })
             } else {
                 clearInterval(x);
-                timer.sessionTimeoutModal.closeModal();
+                sessionModal.closeModal();
                 window.location = "/index.html"
             }
         }, 1000)

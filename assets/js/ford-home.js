@@ -10,8 +10,6 @@ $(document).ready(function () {
         TRENDING_NOW_REFD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).init())
     }
 
-
-
 })
 
 
@@ -65,10 +63,7 @@ class TrendingNow extends FeatureRecord {
 
     setTitleUI() {
         let { dom, title } = this;
-
         dom.find('.trendingNowTitle').text(title)
-
-
     }
 
 
@@ -76,7 +71,6 @@ class TrendingNow extends FeatureRecord {
     setThumbnail() {
         let { dom, mediaThumb } = this;
 
-        // dom.find('.latestArchiveThumb').removeClass('bg-black')
         dom.css('background-image', `url('${mediaThumb}')`)
         $('.trendingNow').hover(function () {
             $(this).find('.trendingNowLink').css('color', 'white')
