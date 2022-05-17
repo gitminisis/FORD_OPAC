@@ -41,7 +41,7 @@ class LatestArchive extends FeatureRecord {
         let { dom, refd } = this;
         dom.find('.latestArchiveLink').on('click', function () {
             let url = getRecordPermalink(refd, 'FORD_DETAIL');
-            window.open(url, '_blank')
+            window.location = url
         })
     }
 
@@ -90,7 +90,7 @@ class TrendingNow extends FeatureRecord {
         let { dom, refd } = this;
         dom.on('click', function () {
             let url = getRecordPermalink(refd, 'FORD_DETAIL');
-            window.open(url, '_blank')
+            window.location = url
         })
     }
 

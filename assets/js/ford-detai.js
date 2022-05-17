@@ -43,7 +43,7 @@ class AlsoLike extends FeatureRecord {
     let { dom, refd } = this;
     dom.on('click', function () {
       let url = getRecordPermalink(refd, 'FORD_DETAIL');
-      window.open(url, '_blank')
+      window.location = url
     })
   }
 
@@ -177,7 +177,7 @@ class Detail extends Report {
       let sisn = $('#hidden_sisn_detail').text();
       $('#copy-link').on('click', function () {
 
-        let url = `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn ${sisn}`
+        let url = `/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${sisn}`
         copyToClipboard(url);
       })
 
