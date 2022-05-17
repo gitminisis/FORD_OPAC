@@ -96,7 +96,7 @@ function randomSlice(array, n) {
 }
 
 function getRecordPermalink(refd, report) {
-    return `https://ford.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
+    return `/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?SESSIONSEARCH&exp=REFD ${refd}`
 }
 
 function removeWhiteSpace(string) {
@@ -543,6 +543,27 @@ class SummaryFilter {
     }
 }
 
+class SessionTimeoutModal {
+    constructor() {
+        this.backTop = false;
+    }
+    openModal() {
+        $('#sessionTimeoutModal').fadeIn(400);
+        if ($('#backTop').hasClass('show')) {
+            $('#backTop').removeClass('show');
+            this.backTop = true;
+        }
+    }
+
+    closeModal() {
+        $('#sessionTimeoutModal').fadeOut(200);
+        if (this.backTop) {
+            $('#backTop').addClass('show');
+            this.backTop = false;
+        }
+
+    }
+}
 
 const timeOutInMinutes = 45;//this indicates the SESSION duration
 const alertTimeInMinutes = 1;//indicates how many minutes before expiration the alert should be shown
@@ -556,7 +577,7 @@ class SessionTimer {
     constructor() {
 
         this.timer = null;
-
+        this.sessionTimeoutModal = new SessionTimeoutModal();
     }
 
     extendSession() {
@@ -572,13 +593,25 @@ class SessionTimer {
     }
 
     incrementSeconds() {
+        this.sessionTimeoutModal.openModal();
+        let timer = this;
         var x = setInterval(function () {
             if (seconds > 0) {
                 seconds -= 1;
-                
+                $("#time-out-seconds").html(seconds);
+                $("#continue-session").on('click', function () {
+                    timer.extendSession();
+                    this.sessionTimeoutModal.closeModal();
+                    seconds = alertTimeInMinutes * 60;
+                })
+                $("#end-session").on('click', function () {
+                    clearInterval(x);
+                    timer.sessionTimeoutModal.closeModal();
+                    window.location = "/index.html"
+                })
             } else {
                 clearInterval(x);
-
+                timer.sessionTimeoutModal.closeModal();
                 window.location = "/index.html"
             }
         }, 1000)
@@ -588,3 +621,7 @@ class SessionTimer {
         this.timer = setTimeout(this.incrementSeconds, alertStartTime);
     }
 }
+
+let sessiontimer = new SessionTimer();
+sessiontimer.init();
+

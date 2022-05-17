@@ -953,8 +953,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 80px;
 }
 
-.h-\[4rem\] {
-  height: 4rem;
+.h-\[3rem\] {
+  height: 3rem;
 }
 
 .h-\[2rem\] {
@@ -991,6 +991,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[360px\] {
   height: 360px;
+}
+
+.h-\[2\.5rem\] {
+  height: 2.5rem;
+}
+
+.h-\[1\.8rem\] {
+  height: 1.8rem;
 }
 
 .max-h-\[300px\] {
@@ -1541,6 +1549,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(72 72 72 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#4D4D4D\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(77 77 77 / var(--tw-bg-opacity));
+}
+
 .bg-test {
   background-image: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png');
 }
@@ -1553,12 +1566,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-image: url('../images/banner.jpg');
 }
 
-.bg-homeInnovation {
-  background-image: url('../images/subsection.jpg');
-}
-
 .bg-norecord {
   background-image: url('../images/noresult.jpg');
+}
+
+.bg-homeInnovation {
+  background-image: url('../images/subsection.jpg');
 }
 
 .bg-cover {
@@ -2209,8 +2222,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid black;
 }
 
-.colorFilter{
-  border: 1px solid white;
+.colorFilter,.detailColor {
+  border: 1px solid black;
 }
 
 /* End of Color Filter */
