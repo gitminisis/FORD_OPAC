@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.22 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -554,6 +554,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
+.top-\[0\] {
+  top: 0;
+}
+
 .top-\[10px\] {
   top: 10px;
 }
@@ -620,6 +624,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bottom-\[calc\(4vw\)\] {
   bottom: calc(4vw);
+}
+
+.right-\[0\] {
+  right: 0;
 }
 
 .z-10 {
@@ -765,16 +773,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 8px;
 }
 
-.mt-\[10px\] {
-  margin-top: 10px;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .-mb-2 {
   margin-bottom: -0.5rem;
+}
+
+.mt-\[10px\] {
+  margin-top: 10px;
 }
 
 .mt-\[40px\] {
@@ -921,12 +929,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 80%;
 }
 
-.h-\[300px\] {
-  height: 300px;
-}
-
 .h-3 {
   height: 0.75rem;
+}
+
+.h-\[300px\] {
+  height: 300px;
 }
 
 .h-\[50px\] {
@@ -1049,12 +1057,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 32px;
 }
 
-.w-\[20px\] {
-  width: 20px;
-}
-
 .w-3 {
   width: 0.75rem;
+}
+
+.w-\[20px\] {
+  width: 20px;
 }
 
 .w-\[120px\] {
@@ -2304,13 +2312,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .downloadRecord .material-icons,
 .bookmarkRecord .material-icons,
-.deleteBookmarkRecord .material-icons {
+.deleteBookmarkRecord .material-icons,
+.copyRecord .material-icons {
   font-size: 35px;
 }
 
 .downloadRecord:hover,
 .bookmarkRecord:hover,
-.deleteBookmarkRecord:hover {
+.deleteBookmarkRecord:hover,
+.copyRecord:hover {
   color: #243c5a;
 }
 

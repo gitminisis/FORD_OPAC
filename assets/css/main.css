@@ -251,12 +251,14 @@
 
 .downloadRecord .material-icons,
 .bookmarkRecord .material-icons,
-.deleteBookmarkRecord .material-icons {
+.deleteBookmarkRecord .material-icons,
+.copyRecord .material-icons {
   font-size: 35px;
 }
 .downloadRecord:hover,
 .bookmarkRecord:hover,
-.deleteBookmarkRecord:hover {
+.deleteBookmarkRecord:hover,
+.copyRecord:hover {
   color: #243c5a;
 }
 /* Summary Page */
