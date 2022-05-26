@@ -174,7 +174,8 @@
   outline: 2px solid black;
 }
 
-.colorFilter,.detailColor {
+.colorFilter,
+.detailColor {
   border: 1px solid black;
 }
 
@@ -207,8 +208,8 @@
   padding-bottom: 5px;
   opacity: 0;
 }
-#blackbox a:hover{ 
-  text-decoration: underline; 
+#blackbox a:hover {
+  text-decoration: underline;
 }
 
 .openBlackBoxCollapse {
@@ -250,8 +251,9 @@
 
 .downloadRecord .material-icons,
 .bookmarkRecord .material-icons,
-.deleteBookmarkRecord .material-icons
-{font-size: 35px}
+.deleteBookmarkRecord .material-icons {
+  font-size: 35px;
+}
 .downloadRecord:hover,
 .bookmarkRecord:hover,
 .deleteBookmarkRecord:hover {
@@ -330,6 +332,10 @@
 /* Footer */
 .footerSocialLink {
   font-size: 30px;
+}
+
+#fordLinks a:hover {
+  text-decoration: underline;
 }
 /* Footer */
 
@@ -439,9 +445,9 @@
 }
 .left {
   width: 0;
-  height:800px;
+  height: 800px;
   max-height: 800px;
-  overflow-x:scroll;
+  overflow-x: scroll;
   flex-grow: 0;
   transition: all 0.4s ease-out;
   color: black;
@@ -487,26 +493,28 @@
   color: white;
 }
 
-#blackbox a, #blackbox_mobile a {
-  display:block;
+#blackbox a,
+#blackbox_mobile a {
+  display: block;
 }
 
 .latestArchive {
   cursor: pointer;
 }
 
-.trendingNowLink, .alsoLikeLink {
-  color:transparent;
+.trendingNowLink,
+.alsoLikeLink {
+  color: transparent;
 }
 /* 
 .trendingNowLink:hover{
   color:white;
 } */
 
-.loadingAssets{
- cursor: not-allowed !important;
+.loadingAssets {
+  cursor: not-allowed !important;
 }
 
-.record_thumbnail{
+.record_thumbnail {
   cursor: pointer;
 }

@@ -255,6 +255,7 @@ class Filter {
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
+      $(`#${id}FilterList`).append("<li></li>")
       $(`#${id}FilterList`).append(optionArrayList.join(''));
       this.initUIHandler()
     })
@@ -272,6 +273,7 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
       data-color="${el}"></span>`)
+     
       $(`#${id}Filter`).append(optionArrayList.join(''));
       this.initUIHandler();
     })
