@@ -590,21 +590,28 @@ class SessionTimer {
     incrementSeconds() {
         let sessionModal = new SessionTimeoutModal()
         sessionModal.openModal();
-        let timer = this;
+        let sessionTimer = this;
+        $("#continue-session").on('click', function () {
+            clearInterval();
+            clearTimeout(sessionTimer.timer);
+            $.ajax({
+                type: "GET",
+                url: getCookie("HOME_SESSID") + "?noaction",
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        })
+        $("#end-session").on('click', function () {
+            clearInterval(x);
+            sessionModal.closeModal();
+            window.location = "/index.html"
+        })
         var x = setInterval(function () {
             if (seconds > 0) {
                 seconds -= 1;
                 $("#time-out-seconds").html(seconds);
-                $("#continue-session").on('click', function () {
-                    timer.extendSession();
-                    sessionModal.closeModal();
-                    seconds = alertTimeInMinutes * 60;
-                })
-                $("#end-session").on('click', function () {
-                    clearInterval(x);
-                    sessionModal.closeModal();
-                    window.location = "/index.html"
-                })
+              
             } else {
                 clearInterval(x);
                 sessionModal.closeModal();

@@ -207,6 +207,9 @@
   padding-bottom: 5px;
   opacity: 0;
 }
+#blackbox a:hover{ 
+  text-decoration: underline; 
+}
 
 .openBlackBoxCollapse {
   max-height: 300px !important;

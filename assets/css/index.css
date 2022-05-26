@@ -953,12 +953,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 80px;
 }
 
-.h-\[1\.8rem\] {
-  height: 1.8rem;
-}
-
-.h-\[2rem\] {
-  height: 2rem;
+.h-\[35px\] {
+  height: 35px;
 }
 
 .h-\[10px\] {
@@ -1536,6 +1532,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(23 0 244 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#f4f4f4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 244 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#484848\] {
   --tw-bg-opacity: 1;
   background-color: rgb(72 72 72 / var(--tw-bg-opacity));
@@ -1670,6 +1671,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-\[7px\] {
   padding-top: 7px;
   padding-bottom: 7px;
+}
+
+.py-\[30px\] {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .px-4 {
@@ -1908,6 +1914,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-\[32px\] {
   line-height: 32px;
+}
+
+.leading-\[18px\] {
+  line-height: 18px;
 }
 
 .leading-\[38px\] {
@@ -2251,6 +2261,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0;
   padding-bottom: 5px;
   opacity: 0;
+}
+
+#blackbox a:hover{
+  text-decoration: underline;
 }
 
 .openBlackBoxCollapse {
@@ -3029,6 +3043,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   .md\:col-span-12 {
     grid-column: span 12 / span 12;
   }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3042,6 +3060,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:grid-cols-10 {
     grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 }
 
