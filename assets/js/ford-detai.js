@@ -230,7 +230,7 @@ class Detail extends Report {
         $('.downloadRecord').on('click', function () {
           detail.downloader.downloadBlobArray();
         })
-        new Tooltip($('.imageThumbnail'), 'Click to open').init()
+        // new Tooltip($('.imageThumbnail'), 'Click to open').init()
       }
       else if (mediaType === 'Textual') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a> </div>`)

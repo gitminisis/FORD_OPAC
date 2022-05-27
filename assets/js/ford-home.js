@@ -33,6 +33,7 @@ class LatestArchive extends FeatureRecord {
         let { dom, mediaThumb } = this;
 
         dom.find('.latestArchiveThumb').removeClass('bg-black')
+        dom.find('.latestArchiveThumb').removeClass('linear-background')
         dom.find('.latestArchiveThumb').css('background-image', `url('${mediaThumb}')`)
     }
     setButtonLinkUI() {

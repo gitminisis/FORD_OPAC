@@ -554,6 +554,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
+.right-\[0\] {
+  right: 0;
+}
+
 .top-\[0\] {
   top: 0;
 }
@@ -624,10 +628,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bottom-\[calc\(4vw\)\] {
   bottom: calc(4vw);
-}
-
-.right-\[0\] {
-  right: 0;
 }
 
 .z-10 {
@@ -2612,6 +2612,44 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .record_thumbnail {
   cursor: pointer;
+}
+
+@-webkit-keyframes placeHolderShimmer{
+  0%{
+    background-position: -468px 0
+  }
+
+  100%{
+    background-position: 468px 0
+  }
+}
+
+@keyframes placeHolderShimmer{
+  0%{
+    background-position: -468px 0
+  }
+
+  100%{
+    background-position: 468px 0
+  }
+}
+
+.linear-background {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1000px 104px;
+  position: relative;
+  overflow: hidden;
 }
 
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {

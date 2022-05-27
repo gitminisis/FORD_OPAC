@@ -6,7 +6,7 @@ $(document).ready(function () {
       $(this).removeClass("selectedColorFilter");
     });
     let color = $(this).data("color");
-  
+
     if (filter.color !== color) {
       $(this).addClass("selectedColorFilter");
       filter.color = color;
@@ -95,7 +95,14 @@ $(document).ready(function () {
   })
 
   $('#advanced-submit').on('click', function () {
-    $('#advancedSearchForm').submit();
+    if (filter.isEmpty()) {
+      let toast = new MessageModal('Please input a keyword for the search')
+      toast.open();
+    }
+
+    else {
+      $('#advancedSearchForm').submit();
+    }
     // if (filter.keyword.trim() === '') {
     //   let toast = new MessageModal('Please input a keyword for the search')
     //   toast.open();
@@ -116,7 +123,9 @@ class Filter {
     this.assetType = [];
     this.keyword = "";
   }
-
+  isEmpty() {
+    return this.year === '' && this.make === '' && this.model === '' && this.color === '' && this.assetType.length === 0 && this.keyword === '';
+  }
   resetAll() {
     this.year = "";
     this.make = "";
@@ -153,13 +162,19 @@ class Filter {
 
   selectFilterValue(filterOptionDOM) {
     let value = filterOptionDOM.text();
+
     let filterText = filterOptionDOM
       .parent()
       .parent()
       .parent()
       .find(".filterText");
-
     let filter = filterText.data("filter").toLowerCase();
+    if (value === 'None') {
+      filterText.text(filterText.data("filter"));
+      this[filter] = '';
+      return;
+    }
+
     filterText.text(value);
     this[filter] = value;
   }
@@ -199,7 +214,7 @@ class Filter {
 
 
   updateDropdownUI() {
-  
+
     if (this.year !== '') {
       $('#yearFilterValue').parent().css('border-color', '#00095B')
       $('#yearFilterValue').parent().css('border-width', '2px')
@@ -232,7 +247,7 @@ class Filter {
 
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
-   
+
     return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
   }
 
@@ -255,7 +270,7 @@ class Filter {
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
-      $(`#${id}FilterList`).append("<li></li>")
+      $(`#${id}FilterList`).append("<li>None</li>")
       $(`#${id}FilterList`).append(optionArrayList.join(''));
       this.initUIHandler()
     })
@@ -273,7 +288,7 @@ class Filter {
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
       data-color="${el}"></span>`)
-     
+
       $(`#${id}Filter`).append(optionArrayList.join(''));
       this.initUIHandler();
     })
@@ -288,7 +303,7 @@ class Filter {
       }, 10);
     });
 
-  
+
 
 
   }
