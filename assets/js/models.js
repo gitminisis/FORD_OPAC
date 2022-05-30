@@ -49,15 +49,58 @@ class Report {
         let span = recordDOM.find('.hidden_fields').find('.a_media_low_res')
         return span.length > 0 ? span.text().trim().replace(/\n/g, '') : null
     }
-    addBookmark(SISN) {
+    setButtonTooltip() {
+        new Tooltip($('.gridSwitchButton'), 'Grid View').init()
+        new Tooltip($('.listSwitchButton'), 'List View').init()
+        new Tooltip($('.filterToggle'), 'Filter').init()
+        new Tooltip($('.bookmarkRecord'), 'Add to Collection').init()
+        new Tooltip($('.downloadRecord'), 'Download Asset').init();
+        new Tooltip($('.checkedRecord'), 'Added to Collection').init()
+    }
+
+    setCheckedRecord() {
+        $('.record').each(function () {
+
+            let isBookmarked = $(this).find('.isBookmarked');
+
+            // console.log($(this), isBookmarked.length)
+            if (isBookmarked.length === 1) {
+                let bookmarkRecordBtn = $(this).find('.bookmarkRecord');
+                bookmarkRecordBtn.removeClass('bookmarkRecord').addClass('checkedRecord');
+                bookmarkRecordBtn.find('.material-icons').text('done')
+                new Tooltip($('.checkedRecord'), 'Added to Collection').init()
+            }
+        })
+    }
+
+    bookmarkToChecked(bookmarkRecordBtn) {
+        bookmarkRecordBtn.removeClass('bookmarkRecord').addClass('checkedRecord');
+        bookmarkRecordBtn.find('.material-icons').text('done')
+        new Tooltip($('.checkedRecord'), 'Added to Collection').init()
+    }
+
+    addBookmark(SISN, recordDOM) {
         let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
+        let report = this;
         return fetch(`${url}?ADDSELECTION&COOKIE=BOOKMARK`, {
             method: 'post',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: `mcheckbox_${SISN}=${SISN}-DESCRIPTION_OPAC3`
         }).then(function (r) {
             updateBookmarkCount();
-            new MessageModal(`Record SISN#${SISN} has been added to collection`).open()
+            new MessageModal(`Record SISN#${SISN} has been added to collection`).open();
+            if (document.querySelectorAll('#detail').length === 1) {
+                $("#addBookmarkDetail").remove();
+                let bookmarkRecordBtn = $('.bookmarkRecord');
+                report.bookmarkToChecked(bookmarkRecordBtn)
+            }
+            else {
+                console.log(recordDOM)
+                let bookmarkRecordBtn = recordDOM.find('.bookmarkRecord');
+                report.bookmarkToChecked(bookmarkRecordBtn)
+            }
+
+
         })
 
 
@@ -84,7 +127,7 @@ class Report {
         return fetch(`${url}?CLEARORDERLIST&COOKIE=BOOKMARK&NOMSG=[FORD_INCLUDE]html/362.htm`, {
             method: 'get',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          
+
         }).then(function (r) {
 
             new MessageModal(`Collection has been cleared`).open()

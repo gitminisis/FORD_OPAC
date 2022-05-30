@@ -28,7 +28,7 @@ $(document).ready(function () {
       let recordDOM = $(this).parent().parent().parent();
 
       let SISN = recordDOM.find('.hiddenRecordSISN').text();
-      summary.addBookmark(SISN);
+      summary.addBookmark(SISN,recordDOM );
     })
   }
 
@@ -210,20 +210,16 @@ class Summary extends Report {
     filter.init();
   }
 
-  setButtonTooltip() {
-    new Tooltip($('.gridSwitchButton'), 'Grid View').init()
-    new Tooltip($('.listSwitchButton'), 'List View').init()
-    new Tooltip($('.filterToggle'), 'Filter').init()
-    new Tooltip($('.bookmarkRecord'), 'Add to Collection').init()
-    new Tooltip($('.downloadRecord'), 'Download Asset').init()
 
-  }
+
+ 
   init() {
     this.setTotalRecord();
     this.setGridListToggle();
     this.createPagination();
     this.setRecordThumbnail();
     this.initSummaryFilter();
+    this.setCheckedRecord();
     this.setButtonTooltip();
 
   }
@@ -284,7 +280,7 @@ class FilterModal {
 
     $('.expandMobileFilter').on('click', function () {
       let collapseSection = $(this).parent().parent().find('.filterCollapse')
-      console.log(collapseSection)
+
       collapseSection.toggleClass('openFilterCollapse')
     })
   }

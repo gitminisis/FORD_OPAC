@@ -3,6 +3,8 @@ $(document).ready(function () {
    
 })
 
+const BASE_URL = "https://fordheritagevault.com"
+
 /**
  * Return the cookie value
  *
@@ -185,7 +187,7 @@ class MediaDownloader {
                         fileBlob, fileName
                     })
 
-                    console.log('finished download')
+                  
                     $(".loadingAssets").prop('disabled', false);
                     loadingAsset.destroy();
 
@@ -471,7 +473,7 @@ class SummaryFilter {
 
         $('.expandFilter').on('click', function () {
             let collapseSection = $(this).parent().parent().find('.filterCollapse')
-            console.log('collapse dropwodn')
+         
             collapseSection.toggleClass('openFilterCollapse')
         })
     }

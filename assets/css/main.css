@@ -33,6 +33,13 @@
   top: 0;
   z-index: 1;
 }
+.bannerClickLayer{
+  position: absolute;
+  z-index: 99;
+  bottom:0;
+  height:calc(100% - 300px);
+  width:100%;
+}
 
 /* Banner Shadow */
 
@@ -252,13 +259,16 @@
 .downloadRecord .material-icons,
 .bookmarkRecord .material-icons,
 .deleteBookmarkRecord .material-icons,
-.copyRecord .material-icons {
+.copyRecord .material-icons,
+.checkedRecord .material-icons {
   font-size: 35px;
 }
 .downloadRecord:hover,
 .bookmarkRecord:hover,
 .deleteBookmarkRecord:hover,
-.copyRecord:hover {
+.copyRecord:hover,
+
+ {
   color: #243c5a;
 }
 /* Summary Page */
@@ -541,4 +551,12 @@
   
   position: relative;
   overflow: hidden;
+}
+
+.item{
+  border: 2px solid;
+}
+
+#detail_media{
+ margin-bottom: 30px;
 }

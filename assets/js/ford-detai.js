@@ -1,5 +1,7 @@
+const isBookmarked = document.querySelectorAll('.isBookmarked').length !== 0;
 $(document).ready(function () {
   let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Textual</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> </div>'
+
   if (document.getElementById("detail")) {
     // $('body').append(imageTest)
     const detail = new Detail();
@@ -82,6 +84,10 @@ class Detail extends Report {
       $("#returnSummary").prev().empty();
       $("#returnSummary").empty();
     }
+
+    $('.mobileSummaryReturn').on('click', function () {
+      window.location = url;
+    })
   }
 
   initLightgallery(multi = true) {
@@ -139,7 +145,7 @@ class Detail extends Report {
 
   initColorClick() {
     $(".detailColor").on('click', function () {
-      let url = $(this).parent().find('.colorDetailLink').find('a').attr('href');
+      let url = $(this).parent().find('.colorDetailLink').find('a').attr('href') + '&REPORT=FORD_SUMMARY';
       window.location = url;
     })
   }
@@ -157,13 +163,17 @@ class Detail extends Report {
       let URLarray = assets.map(e => e.mediaLowRes);
       this.downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
+
+      let downloadSectionString = (type) => {
+        return `<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download ${type} <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
+      }
       if (mediaType === 'Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
+        downloadSectionDOM.append(downloadSectionString('Image'))
 
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download PDF <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
+        downloadSectionDOM.append(downloadSectionString('PDF'))
         let requestModal = new PDFRequest();
         $("#requestPDF").text('I need an accessible PDF')
         $("#requestPDF").on('click', function () {
@@ -172,12 +182,12 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Moving Image') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Moving Image <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
+        downloadSectionDOM.append(downloadSectionString('Moving Image'))
 
 
       }
       if (mediaType === 'Audio') {
-        downloadSectionDOM.append('<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download Audio <span class="material-icons items-center"> download </span> </button <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p><p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>')
+        downloadSectionDOM.append(downloadSectionString('Audio'))
 
 
       }
@@ -185,7 +195,7 @@ class Detail extends Report {
       let sisn = $('#hidden_sisn_detail').text();
       $('#copy-link').on('click', function () {
 
-        let url = `https://fordheritagevault.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${sisn}`
+        let url = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${sisn}`
         copyToClipboard(url);
       })
 
@@ -212,28 +222,34 @@ class Detail extends Report {
     // If there is only on asset
     else if (assets.length === 1) {
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
+      let imageBackgroundString = `
+      <div class="h-[50vw] min-h-[270px] max-h-[350px] w-full record_thumbnail bg-contain bg-center bg-no-repeat "  style="background-image: url('${mediaThumb}');"> 
+        <div class="w-full h-full text-right pt-[10px] pr-[20px] text-[rgb(0,0,0,0)] hover:text-[#F2F2F2] hover:bg-[rgb(0,0,0,0.4)] record_cover relative"> 
+          <button class="absolute top-[50%] left-[50%] translate-x-[-50%]  translate-y-[-50%] text-2xl item  p-[12px] " data-src=${mediaLowRes} src=${mediaThumb}>Click to open </button>
+
+          ${!isBookmarked ? ' <button class="bookmarkRecord relative group"> <span class="material-icons"> shopping_bag </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Add to Collection</span> </div></button>' : '<button class="checkedRecord relative group"> <span class="material-icons"> done </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Added to Collection</span> </div></button>'}
+
+          <button class="downloadRecord relative group"> <span class="material-icons"> download </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Download Asset</span> </div></button> 
+
+          <button class="copyRecord relative group"> <span class="material-icons"> share </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Copy Link</span> </div></button> 
+        </div> 
+      </div>`;
+
+
+
+      let imageSrcString = `<div ><div class="relative "><span class="imageThumbnail"><img class="h-[80%] mx-[auto] item "  data-src=${mediaLowRes} src=${mediaThumb} alt="Detail Record Image Thumbnail" /></span> 
+      <div class="right-[0] absolute top-[0] text-right pt-[10px] text-[rgb(0,0,0,0)] hover:text-[#F2F2F2] hover:bg-[rgb(0,0,0,0.4)] record_cover"> <button class="bookmarkRecord relative group"> <span class="material-icons"> shopping_bag </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Add to Collection</span> </div></button> <button class="downloadRecord relative group"> <span class="material-icons"> download </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Download Asset</span> </div></button>  <button class="copyRecord relative group"> <span class="material-icons">  share  </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Copy Link</span> </div></button></div>
+      </div> </div>`
       if (mediaType === 'Image') {
-        detailMediaDOM.append(`<div ><div class="relative "><span class="imageThumbnail"><img class="h-[80%] mx-[auto] item "  data-src=${mediaLowRes} src=${mediaThumb} alt="Detail Record Image Thumbnail" /></span> 
-        <div class="right-[0] absolute top-[0] text-right pt-[10px] text-[rgb(0,0,0,0)] hover:text-[#F2F2F2] hover:bg-[rgb(0,0,0,0.4)] record_cover"> <button class="bookmarkRecord relative group"> <span class="material-icons"> shopping_bag </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Add to Collection</span> </div></button> <button class="downloadRecord relative group"> <span class="material-icons"> download </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Download Asset</span> </div></button>  <button class="copyRecord relative group"> <span class="material-icons">  share  </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Copy Link</span> </div></button></div>
-        </div> </div>`)
+        detailMediaDOM.append(imageBackgroundString)
         detail.initLightgallery(false);
-        let sisn = $('#hidden_sisn_detail').text();
-        $('.copyRecord').on('click', function () {
 
-          let url = `https://fordheritagevault.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${sisn}`
-          copyToClipboard(url);
-        })
-
-        $('.bookmarkRecord').on('click', function () {
-          detail.addBookmark(sisn);
-        })
-        $('.downloadRecord').on('click', function () {
-          detail.downloader.downloadBlobArray();
-        })
-        // new Tooltip($('.imageThumbnail'), 'Click to open').init()
       }
       else if (mediaType === 'Textual') {
-        detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a> </div>`)
+        detailMediaDOM.append(imageBackgroundString)
+        $('.item').on('click', function () {
+          window.open(mediaLowRes, '_blank')
+        })
       }
       else if (mediaType === 'Audio') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
@@ -248,6 +264,24 @@ class Detail extends Report {
       `)
 
       }
+
+      /**
+       * Download/Bookmark/Copy handler section
+       */
+
+      let sisn = $('#hidden_sisn_detail').text();
+      $('.copyRecord').on('click', function () {
+
+        let url = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${sisn}`
+        copyToClipboard(url);
+      })
+
+      $('.bookmarkRecord').on('click', function () {
+        detail.addBookmark(sisn);
+      })
+      $('.downloadRecord').on('click', function () {
+        detail.downloader.downloadBlobArray();
+      })
 
     }
     else {
@@ -274,7 +308,7 @@ class Detail extends Report {
   getRecordSubject() {
     let subjects = []
     $('.detailSubject').each(function () {
-      subjects.push($(this).find('a').text());
+      subjects.push($(this).find('a').text().replace(/\n/g, ' '));
     })
     return subjects;
   }
@@ -314,7 +348,7 @@ class Detail extends Report {
             ]
           })
           let JSONObj = x2js.xml2json(reportDOM);
-          console.log(JSONObj)
+
           let randomRecords = randomSlice(JSONObj.item, numberOfRecords).map(e => e.item_refd)
           randomRecords.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).init())
 
@@ -331,6 +365,14 @@ class Detail extends Report {
       $(this).find('a').attr('href', `${href}&REPORT=${report}`)
     })
   }
+
+  setDefaultYearSearchReport(report = 'FORD_SUMMARY') {
+    $('.detailYear').each(function () {
+      let href = $(this).find('a').attr('href')
+      $(this).find('a').attr('href', `${href}&REPORT=${report}`)
+    })
+  }
+
   initRecordNavigation() {
     let prev = document.querySelector('#prevRecord a')
     let next = document.querySelector('#nextRecord a')
@@ -363,6 +405,7 @@ class Detail extends Report {
     this.setMediaView();
     this.initDownloadSection();
     this.setDefaultSubjectSearchReport();
+    this.setDefaultYearSearchReport();
     this.initAlsoLikeRecords();
     this.initRecordNavigation();
     new PDFRequest().init();
