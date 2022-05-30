@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.22 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -554,8 +554,24 @@ Ensure the default browser behavior of the `hidden` attribute.
   bottom: 0px;
 }
 
+.top-\[50\%\] {
+  top: 50%;
+}
+
+.left-\[50\%\] {
+  left: 50%;
+}
+
 .top-\[10px\] {
   top: 10px;
+}
+
+.right-\[0\] {
+  right: 0;
+}
+
+.top-\[0\] {
+  top: 0;
 }
 
 .right-0 {
@@ -718,6 +734,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 50px;
 }
 
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+}
+
 .my-\[90px\] {
   margin-top: 90px;
   margin-bottom: 90px;
@@ -731,11 +752,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .my-\[16px\] {
   margin-top: 16px;
   margin-bottom: 16px;
-}
-
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
 }
 
 .mx-\[10px\] {
@@ -765,16 +781,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 8px;
 }
 
-.mt-\[10px\] {
-  margin-top: 10px;
-}
-
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .-mb-2 {
   margin-bottom: -0.5rem;
+}
+
+.mt-\[10px\] {
+  margin-top: 10px;
 }
 
 .mt-\[40px\] {
@@ -797,12 +813,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 20px;
 }
 
-.mt-\[20px\] {
-  margin-top: 20px;
-}
-
 .mt-\[15px\] {
   margin-top: 15px;
+}
+
+.mt-\[20px\] {
+  margin-top: 20px;
 }
 
 .mb-\[40px\] {
@@ -917,16 +933,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 32px;
 }
 
+.h-\[50vw\] {
+  height: 50vw;
+}
+
+.h-3 {
+  height: 0.75rem;
+}
+
 .h-\[80\%\] {
   height: 80%;
 }
 
 .h-\[300px\] {
   height: 300px;
-}
-
-.h-3 {
-  height: 0.75rem;
 }
 
 .h-\[50px\] {
@@ -945,16 +965,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 170px;
 }
 
+.h-\[35px\] {
+  height: 35px;
+}
+
 .h-\[75px\] {
   height: 75px;
 }
 
 .h-\[80px\] {
   height: 80px;
-}
-
-.h-\[3rem\] {
-  height: 3rem;
 }
 
 .h-\[10px\] {
@@ -981,8 +1001,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 890px;
 }
 
-.h-\[500px\] {
-  height: 500px;
+.h-\[450px\] {
+  height: 450px;
 }
 
 .h-\[360px\] {
@@ -1049,12 +1069,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 32px;
 }
 
-.w-\[20px\] {
-  width: 20px;
-}
-
 .w-3 {
   width: 0.75rem;
+}
+
+.w-\[20px\] {
+  width: 20px;
 }
 
 .w-\[120px\] {
@@ -1115,6 +1135,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .flex-auto {
   flex: 1 1 auto;
+}
+
+.basis-\[100\%\] {
+  flex-basis: 100%;
+}
+
+.translate-x-\[-50\%\] {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-y-\[-50\%\] {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .rotate-45 {
@@ -1528,13 +1562,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(23 0 244 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#f4f4f4\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(244 244 244 / var(--tw-bg-opacity));
+}
+
 .bg-\[\#484848\] {
   --tw-bg-opacity: 1;
   background-color: rgb(72 72 72 / var(--tw-bg-opacity));
 }
 
+.bg-\[\#4D4D4D\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(77 77 77 / var(--tw-bg-opacity));
+}
+
 .bg-test {
   background-image: url('https://storage.googleapis.com/proudcity/mebanenc/uploads/2021/03/placeholder-image.png');
+}
+
+.bg-homeInnovation {
+  background-image: url('../images/subsection.jpg');
 }
 
 .bg-multi {
@@ -1543,10 +1591,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-homeBanner {
   background-image: url('../images/banner.jpg');
-}
-
-.bg-homeInnovation {
-  background-image: url('../images/subsection.jpg');
 }
 
 .bg-norecord {
@@ -1575,6 +1619,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .p-\[15px\] {
   padding: 15px;
+}
+
+.p-\[12px\] {
+  padding: 12px;
 }
 
 .p-2 {
@@ -1783,6 +1831,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 35px;
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1835,10 +1888,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[34px\] {
   font-size: 34px;
-}
-
-.text-\[32px\] {
-  font-size: 32px;
 }
 
 .font-medium {
@@ -1899,6 +1948,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .leading-\[32px\] {
   line-height: 32px;
+}
+
+.leading-\[18px\] {
+  line-height: 18px;
 }
 
 .leading-\[38px\] {
@@ -2065,6 +2118,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 1;
 }
 
+.bannerClickLayer{
+  position: absolute;
+  z-index: 3;
+  bottom:0;
+  height:calc(100% - 300px);
+  width:100%;
+}
+
 /* Banner Shadow */
 
 /** Innovation Section */
@@ -2205,6 +2266,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid black;
 }
 
+.colorFilter,
+.detailColor {
+  border: 1px solid black;
+}
+
 /* End of Color Filter */
 
 /* Filter Collapse */
@@ -2238,6 +2304,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0;
   padding-bottom: 5px;
   opacity: 0;
+}
+
+#blackbox a:hover {
+  text-decoration: underline;
 }
 
 .openBlackBoxCollapse {
@@ -2281,14 +2351,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .downloadRecord .material-icons,
 .bookmarkRecord .material-icons,
-.deleteBookmarkRecord .material-icons
-{
-  font-size: 35px
+.deleteBookmarkRecord .material-icons,
+.copyRecord .material-icons,
+.checkedRecord .material-icons {
+  font-size: 35px;
 }
 
 .downloadRecord:hover,
 .bookmarkRecord:hover,
-.deleteBookmarkRecord:hover {
+.deleteBookmarkRecord:hover,
+.copyRecord:hover,
+
+ {
   color: #243c5a;
 }
 
@@ -2380,6 +2454,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .footerSocialLink {
   font-size: 30px;
+}
+
+#fordLinks a:hover {
+  text-decoration: underline;
 }
 
 /* Footer */
@@ -2499,9 +2577,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .left {
   width: 0;
-  height:800px;
+  height: 800px;
   max-height: 800px;
-  overflow-x:scroll;
+  overflow-x: scroll;
   flex-grow: 0;
   transition: all 0.4s ease-out;
   color: black;
@@ -2551,16 +2629,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: white;
 }
 
-#blackbox a, #blackbox_mobile a {
-  display:block;
+#blackbox a,
+#blackbox_mobile a {
+  display: block;
 }
 
 .latestArchive {
   cursor: pointer;
 }
 
-.trendingNowLink, .alsoLikeLink {
-  color:transparent;
+.trendingNowLink,
+.alsoLikeLink {
+  color: transparent;
 }
 
 /* 
@@ -2568,8 +2648,78 @@ Ensure the default browser behavior of the `hidden` attribute.
   color:white;
 } */
 
-.loadingAssets{
+.loadingAssets {
   cursor: not-allowed !important;
+}
+
+.record_thumbnail {
+  cursor: pointer;
+}
+
+@-webkit-keyframes placeHolderShimmer{
+  0%{
+    background-position: -468px 0
+  }
+
+  100%{
+    background-position: 468px 0
+  }
+}
+
+@keyframes placeHolderShimmer{
+  0%{
+    background-position: -468px 0
+  }
+
+  100%{
+    background-position: 468px 0
+  }
+}
+
+.linear-background {
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: placeHolderShimmer;
+          animation-name: placeHolderShimmer;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 1000px 104px;
+  position: relative;
+  overflow: hidden;
+}
+
+.item{
+  border: 2px solid;
+}
+
+#detail_media{
+  margin-bottom: 30px;
+}
+
+/* The progress container (grey background) */
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: #ccc;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+/* The progress bar (scroll indicator) */
+
+.progress-bar {
+  height: 6px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,20,46,1) 35%, rgba(0,212,255,1) 100%);
+  width: 0%;
 }
 
 .placeholder\:text-\[\#DDDADA\]::-moz-placeholder {
@@ -2604,6 +2754,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.hover\:underline:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }
 
 .hover\:shadow-lg:hover {
@@ -2920,9 +3075,9 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 60px;
   }
 
-  .sm\:py-\[50px\] {
-    padding-top: 50px;
-    padding-bottom: 50px;
+  .sm\:py-\[30px\] {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .sm\:pt-\[35px\] {
@@ -2969,8 +3124,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 54px;
   }
 
-  .sm\:text-\[40px\] {
-    font-size: 40px;
+  .sm\:text-\[36px\] {
+    font-size: 36px;
   }
 
   .sm\:leading-\[24px\] {
@@ -3019,12 +3174,24 @@ Ensure the default browser behavior of the `hidden` attribute.
     grid-column: span 2 / span 2;
   }
 
+  .lg\:col-span-5 {
+    grid-column: span 5 / span 5;
+  }
+
+  .lg\:col-span-7 {
+    grid-column: span 7 / span 7;
+  }
+
   .lg\:w-2\/3 {
     width: 66.666667%;
   }
 
   .lg\:grid-cols-10 {
     grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+
+  .lg\:flex-row {
+    flex-direction: row;
   }
 }
 

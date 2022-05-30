@@ -1,16 +1,18 @@
 <section
   id="banner"
-  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative"
+  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative cursor-pointer home"
 >
   <div class="bannerShadow"></div>
-  <div class="w-full sm:w-[600px] z-[2]">
+  <div class="bannerClickLayer"></div>
+  <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
     <h1
-      class="text-center text-[36px] text-white leading-[43px] tracking-normal hidden sm:block"
+      class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block"
     >
       Hop in the Driver's Seat
     </h1>
     <form
       method="POST"
+      id="searchForm"
       action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&ERRMSG=[FORD_INCLUDE]/html/no-record.html"
     >
       <div

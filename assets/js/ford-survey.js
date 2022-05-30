@@ -80,7 +80,7 @@ class Survey {
         let dropdown = dropdownText.data("dropdown").toLowerCase();
         dropdownText.text(value);
         this[dropdown] = value;
-        console.log(this);
+      
     }
 
     openDrowdown(dropdownDOM) {
@@ -106,7 +106,7 @@ class Survey {
     }
 
     updateSurveyComment(value) {
-        console.log(value);
+      
         this.comment = value;
     }
 
