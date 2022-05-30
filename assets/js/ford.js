@@ -1,10 +1,25 @@
 $(document).ready(function () {
     updateBookmarkCount();
-   
+
 })
 
 const BASE_URL = "https://fordheritagevault.com"
 
+
+/**
+ * Set the title and icon of the site in other pages
+ * @param {string} title 
+ */
+function setSiteTitleAndIcon(title) {
+    document.title = title;
+    var link = document.querySelector("link[rel~='icon']");
+
+    link = document.createElement('link');
+    link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
+
+    link.href = `${BASE_URL}/assets/favicon.ico`;
+}
 /**
  * Return the cookie value
  *
@@ -187,7 +202,7 @@ class MediaDownloader {
                         fileBlob, fileName
                     })
 
-                  
+
                     $(".loadingAssets").prop('disabled', false);
                     loadingAsset.destroy();
 
@@ -382,8 +397,8 @@ class PDFRequest {
 
         let modal = this;
         let SESSID = getCookie("HOME_SESSID");
-        let subject = 'I need an accessible PDF';
-        let body = `Accessible PDF Request \n\n Email Address: ${emailInput} \nFull Name: ${nameInput} \n\n Record Information:\n\nTitle: ${this.title}\n REFD: ${this.refd}`
+        let subject = 'I need an accessible Brochure';
+        let body = `Accessible Brochure Request \n\n Email Address: ${emailInput} \nFull Name: ${nameInput} \n\n Record Information:\n\nTitle: ${this.title}\n REFD: ${this.refd}`
         let receiver = 'archives@ford.com'
         let sender = 'noreply@minisisinc.com';
         let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
@@ -473,7 +488,7 @@ class SummaryFilter {
 
         $('.expandFilter').on('click', function () {
             let collapseSection = $(this).parent().parent().find('.filterCollapse')
-         
+
             collapseSection.toggleClass('openFilterCollapse')
         })
     }
@@ -493,10 +508,10 @@ class SummaryFilter {
             $(`#${item._title}`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}Filter" ></div>`)
             x2js.asArray(item_group).map((group, index) => {
                 if (group.item_value === 'Image') {
-                    group.item_value = "JPEG"
+                    group.item_value = "Images"
                 }
                 if (group.item_value === 'Textual') {
-                    group.item_value = "PDF"
+                    group.item_value = "Brochures"
                 }
 
                 if (group.item_selected !== undefined) {
@@ -594,6 +609,10 @@ class SessionTimer {
         let sessionModal = new SessionTimeoutModal()
         sessionModal.openModal();
         let sessionTimer = this;
+        var title = 'Ford Heritage Vault';
+        var intv = window.setInterval(function () {
+            document.title = document.title === 'Session Renew - Ford Heritage Vault' ? title : 'Session Renew - Ford Heritage Vault';
+        }, 1000);
         $("#continue-session").on('click', function () {
             clearInterval();
             clearTimeout(sessionTimer.timer);
@@ -614,7 +633,7 @@ class SessionTimer {
             if (seconds > 0) {
                 seconds -= 1;
                 $("#time-out-seconds").html(seconds);
-              
+
             } else {
                 clearInterval(x);
                 sessionModal.closeModal();

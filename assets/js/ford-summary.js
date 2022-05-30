@@ -1,5 +1,6 @@
 $(document).ready(function () {
   if (document.getElementById("summary")) {
+    setSiteTitleAndIcon("Search Result - Hop in the Driver's Seat | Ford Heritage Vault")
     const summary = new Summary();
     const downloader = new MediaDownloader();
     summary.init();
@@ -300,10 +301,10 @@ class FilterModal {
       $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
       x2js.asArray(item_group).map((group, index) => {
         if (group.item_value === 'Image') {
-          group.item_value = "JPEG"
+          group.item_value = "Images"
         }
         if (group.item_value === 'Textual') {
-          group.item_value = "PDF"
+          group.item_value = "Brochures"
         }
 
         if (group.item_selected !== undefined) {

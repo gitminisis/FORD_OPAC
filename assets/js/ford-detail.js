@@ -1,9 +1,9 @@
 const isBookmarked = document.querySelectorAll('.isBookmarked').length !== 0;
 $(document).ready(function () {
   let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Textual</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> </div>'
-
+ 
   if (document.getElementById("detail")) {
-    // $('body').append(imageTest)
+    setSiteTitleAndIcon("Detail Record - Hop in the Driver's Seat | Ford Heritage Vault")
     const detail = new Detail();
     detail.init();
 
@@ -173,9 +173,9 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append(downloadSectionString('PDF'))
+        downloadSectionDOM.append(downloadSectionString('Brochure'))
         let requestModal = new PDFRequest();
-        $("#requestPDF").text('I need an accessible PDF')
+        $("#requestPDF").text('I need an accessible Brochure')
         $("#requestPDF").on('click', function () {
           requestModal.openModal();
         })

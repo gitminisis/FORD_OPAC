@@ -25,6 +25,10 @@ $(document).ready(function () {
 
   // Toggle the collpase filter
   $(".filterButton").on("click", function () {
+    if (document.getElementsByClassName('noSessionBanner').length !== 0) {
+      new MessageModal('Please click the button to start a new session.').open();
+      return;
+    }
     $("#filterCollapse").toggleClass("open-collapse");
     setTimeout(function () {
       if ($("#filterCollapse").hasClass("open-collapse")) {

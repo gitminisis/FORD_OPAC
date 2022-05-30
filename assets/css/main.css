@@ -35,7 +35,7 @@
 }
 .bannerClickLayer{
   position: absolute;
-  z-index: 99;
+  z-index: 3;
   bottom:0;
   height:calc(100% - 300px);
   width:100%;
@@ -559,4 +559,23 @@
 
 #detail_media{
  margin-bottom: 30px;
+}
+
+
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 6px;
+  background: #ccc;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 6px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,20,46,1) 35%, rgba(0,212,255,1) 100%);
+  width: 0%;
 }

@@ -99,11 +99,7 @@ class Report {
                 let bookmarkRecordBtn = recordDOM.find('.bookmarkRecord');
                 report.bookmarkToChecked(bookmarkRecordBtn)
             }
-
-
         })
-
-
     }
     deleteBookmark(SISN) {
         let url = `${document.getElementById('hiddenBookmarkURL').innerText.trim()}`
@@ -132,12 +128,8 @@ class Report {
 
             new MessageModal(`Collection has been cleared`).open()
             setTimeout(function () { window.location = '/' }, 800)
-
         })
     }
-
-
-
 }
 
 
