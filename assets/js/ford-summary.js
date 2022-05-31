@@ -288,7 +288,7 @@ class FilterModal {
 
   renderUI() {
     let x2js = new X2JS();
-    $('.filterModalBody').append('<h1 class="text-[35px]">Filter</h1>');
+    $('.filterModalBody').append('<h1 class="text-[25px]">Filter</h1>');
     let filterJSON = this.getJSONFilter();
     let filter = this;
     if (filterJSON === undefined) {
@@ -297,7 +297,7 @@ class FilterModal {
     filter.filterJSON = filterJSON;
     x2js.asArray(filterJSON).map(item => {
       let { item_group } = item;
-      $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
+      $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[30px] pt-[10px] "> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
       $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
       x2js.asArray(item_group).map((group, index) => {
         if (group.item_value === 'Image') {

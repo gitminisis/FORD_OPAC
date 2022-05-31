@@ -495,7 +495,7 @@ class SummaryFilter {
 
     renderUI() {
         let x2js = new X2JS();
-        $('.left').append('<h1 class="text-[35px]">Filter</h1>');
+        $('.left').append('<h1 class="text-[25px]">Filter</h1>');
         let filterJSON = this.getJSONFilter();
         let filter = this;
         if (filterJSON === undefined) {
@@ -504,7 +504,7 @@ class SummaryFilter {
         filter.filterJSON = filterJSON;
         x2js.asArray(filterJSON).map(item => {
             let { item_group } = item;
-            $('.left').append(`<hr /> <form id=${item._title}> <div class="flex justify-between h-[60px] pt-[15px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </form>`)
+            $('.left').append(`<hr /> <form id=${item._title}> <div class="flex justify-between h-[30px] pt-[10px] pb-[20px]"> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </form>`)
             $(`#${item._title}`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}Filter" ></div>`)
             x2js.asArray(item_group).map((group, index) => {
                 if (group.item_value === 'Image') {
