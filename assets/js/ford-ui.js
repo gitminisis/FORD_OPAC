@@ -10,7 +10,7 @@ $(document).ready(function () {
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - window.innerHeight;
     var scrolled = (winScroll / height) * 100;
-    console.log(winScroll, height)
+
     document.getElementById("myBar").style.width = scrolled + "%";
     if ($(window).scrollTop() > 300) {
       backTopBtn.addClass("show");
