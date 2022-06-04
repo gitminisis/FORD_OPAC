@@ -1,6 +1,6 @@
 $(document).ready(function () {
   let filter = new Filter();
-  filter.init();
+  let isLoaded = false;
   $(".colorFilter").on("click", function (e) {
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
@@ -30,6 +30,10 @@ $(document).ready(function () {
       return;
     }
     $("#filterCollapse").toggleClass("open-collapse");
+    if (!isLoaded) {
+      filter.init();
+      isLoaded = true;
+    }
     setTimeout(function () {
       if ($("#filterCollapse").hasClass("open-collapse")) {
         $("#advancedSearchInput").focus();
@@ -107,14 +111,7 @@ $(document).ready(function () {
     else {
       $('#advancedSearchForm').submit();
     }
-    // if (filter.keyword.trim() === '') {
-    //   let toast = new MessageModal('Please input a keyword for the search')
-    //   toast.open();
-    // }
-    // else {
-    //   sessionStorage.setItem('filter', JSON.stringify(filter.getFilterJSON))
-    //   $('#advancedSearchForm').submit();
-    // }
+
   })
 });
 

@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     if (document.getElementById("bookmark")) {
+        setSiteTitleAndIcon("Collections - Hop in the Driver's Seat | Ford Heritage Vault")
         let bookmark = new Bookmark();
         bookmark.init();
         const downloader = new MediaDownloader();

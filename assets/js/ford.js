@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    let sessionid = document.getElementById('sessionid');
+    if (sessionid) {
+        sessionid = sessionid.innerText.trim();
+
+        $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
+    }
     updateBookmarkCount();
 
 })
@@ -100,8 +106,15 @@ function updateBookmarkCount() {
     })
 }
 
-function getSummaryXMLURL(exp, report = "FORD_SUMMARY_XML") {
-    return `/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/${report}?sessionsearch&exp=${exp}`
+function getSummaryXMLURL(exp, report = "FORD_SUMMARY_XML", database = "DESCRIPTION_OPAC3") {
+
+    if (document.getElementById('sessionid')) {
+        let sessionid = document.getElementById('sessionid').innerText.trim();
+        let url = `${sessionid}?SEARCH&SIMPLE_EXP=Y&EXP=${exp}&DATABASE=${database}&REPORT=${report}`
+        return url;
+    }
+    return `/scripts/mwimain.dll/144/${database}/${report}?sessionsearch&exp=${exp}`
+
 }
 
 function randomSlice(array, n) {

@@ -1,7 +1,7 @@
 const isBookmarked = document.querySelectorAll('.isBookmarked').length !== 0;
 $(document).ready(function () {
   let imageTest = '<div class="hidden_fields" hidden=""> <span class="a_media_type">Textual</span><span class="a_media_low_res"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/access</span><span class="a_media_thumb"> https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uui d/666d78d0afd2487eac7eac3478ce5fa3/thumbnail</span> </div>'
- 
+
   if (document.getElementById("detail")) {
     setSiteTitleAndIcon("Detail Record - Hop in the Driver's Seat | Ford Heritage Vault")
     const detail = new Detail();
@@ -47,6 +47,15 @@ class AlsoLike extends FeatureRecord {
       let url = getRecordPermalink(refd, 'FORD_DETAIL');
       window.location = url
     })
+  }
+  initUIManual(object) {
+    let { mediaThumb, refd, title } = object;
+    this.mediaThumb = mediaThumb;
+    this.refd = refd;
+    this.title = title;
+    this.setThumbnail();
+    this.setTitleUI();
+    this.setButtonLinkUI();
   }
 
   init() {
@@ -336,7 +345,7 @@ class Detail extends Report {
     try {
       if (subjects.length > 0) {
         let mainSubject = subjects[0];
-        let url = getSummaryXMLURL(`SUBJECT "${mainSubject}"`);
+        let url = getSummaryXMLURL(`SUBJECT "${mainSubject}"`, "FORD_SUMMARY_XML", "DESCRIPTION_OPAC4");
         detail.fetchSubjectRecords(url).then(res => {
           let dom = new DOMParser().parseFromString(res, 'text/html')
           let reportDOM = dom.querySelector('report');
@@ -348,9 +357,16 @@ class Detail extends Report {
             ]
           })
           let JSONObj = x2js.xml2json(reportDOM);
-
-          let randomRecords = randomSlice(JSONObj.item, numberOfRecords).map(e => e.item_refd)
-          randomRecords.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).init())
+          console.log(JSONObj)
+          let records = JSONObj.item.map(e=>{
+            return {
+              mediaThumb:e.item_thumb,
+              refd:e.item_refd,
+              title:e.item_title
+            }
+          })
+  
+          records.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).initUIManual(e))
 
         })
 
