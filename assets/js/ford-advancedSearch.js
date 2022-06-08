@@ -57,6 +57,8 @@ $(document).ready(function () {
   });
 
   $(".filterDropdown ul li").on("click", function () {
+   
+  
     filter.selectFilterValue($(this));
     setTimeout(function () {
       filter.closeAllFilter();
@@ -109,6 +111,7 @@ $(document).ready(function () {
     }
 
     else {
+
       $('#advancedSearchForm').submit();
     }
 
@@ -192,10 +195,10 @@ class Filter {
 
   generateSearchExpression() {
     let searchExpression = '';
-    let yearExp = this.year.trim() === '' ? '' : `${FIELD_NAME.year} ${this.year}`;
-    let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} ${this.make}`;
-    let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} ${this.model}`;
-    let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} ${this.color}`;
+    let yearExp = this.year.trim() === '' ? '' : `${FIELD_NAME.year} "${this.year}"`;
+    let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} "${this.make}"`;
+    let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} "${this.model}"`;
+    let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} "${this.color}"`;
     let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType}${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
 
