@@ -73,14 +73,9 @@ $(document).ready(function () {
             window.location = url
         })
 
-        $('.bannerClickLayer').not('#searchForm').on('click', function (e) {
-            e.stopPropagation()
 
-            let refd = 'AR-2008-8.1.2.2427';
-            let url = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20${refd}`
-            window.location = url
-        })
 
+         
 
     }
 
