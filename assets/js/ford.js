@@ -1,10 +1,10 @@
 $(document).ready(function () {
     let sessionid = document.getElementById('sessionid');
-    if (sessionid) {
-        sessionid = sessionid.innerText.trim();
+    // if (sessionid) {
+    //     sessionid = sessionid.innerText.trim();
 
-        $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
-    }
+    //     $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
+    // }
     updateBookmarkCount();
 
 })
