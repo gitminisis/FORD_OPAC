@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     //     $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
     // }
-    updateBookmarkCount();
+    // updateBookmarkCount();
 
 })
 
