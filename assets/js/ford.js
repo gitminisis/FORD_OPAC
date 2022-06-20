@@ -593,7 +593,7 @@ class SessionTimeoutModal {
     }
 }
 
-const timeOutInMinutes = 500/60;//this indicates the SESSION duration
+const timeOutInMinutes = 500;//this indicates the SESSION duration
 const alertTimeInMinutes = 1;//indicates how many minutes before expiration the alert should be shown
 
 let timeOutInMilliSeconds = timeOutInMinutes * 60 * 1000;
