@@ -1,11 +1,10 @@
 $(document).ready(function () {
-    let sessionid = document.getElementById('sessionid');
-    if (sessionid) {
-        sessionid = sessionid.innerText.trim();
-
-        $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
-    }
-    updateBookmarkCount();
+    // let sessionid = document.getElementById('sessionid');
+    // if (sessionid) {
+    //     sessionid = sessionid.innerText.trim();
+    //     $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
+    // }
+    // updateBookmarkCount();
 
 })
 
@@ -86,7 +85,7 @@ function copyToClipboard(str) {
 };
 
 function updateBookmarkCount() {
-    let SESSID = getCookie("HOME_SESSID");
+    let SESSID = document.getElementById('sessionid').innerText.trim();
     let url = `${SESSID}?SHOWORDERLIST&COOKIE=BOOKMARK&NEW=Y`
     $.ajax(url).done(function (res) {
 
@@ -409,7 +408,7 @@ class PDFRequest {
         }
 
         let modal = this;
-        let SESSID = getCookie("HOME_SESSID");
+        let SESSID = document.getElementById('sessionid').innerText.trim();
         let subject = 'I need an accessible Brochure';
         let body = `Accessible Brochure Request \n\n Email Address: ${emailInput} \nFull Name: ${nameInput} \n\n Record Information:\n\nTitle: ${this.title}\n REFD: ${this.refd}`
         let receiver = 'archives@ford.com'
@@ -523,10 +522,12 @@ class SummaryFilter {
                 if (group.item_value === 'Image') {
                     group.item_value = "Images"
                 }
+                
+
                 if (group.item_value === 'Textual') {
                     group.item_value = "Brochures"
                 }
-
+                group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
                 if (group.item_selected !== undefined) {
                     $(`.${item._title}Filter`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 
@@ -592,7 +593,7 @@ class SessionTimeoutModal {
     }
 }
 
-const timeOutInMinutes = 45;//this indicates the SESSION duration
+const timeOutInMinutes = 500;//this indicates the SESSION duration
 const alertTimeInMinutes = 1;//indicates how many minutes before expiration the alert should be shown
 
 let timeOutInMilliSeconds = timeOutInMinutes * 60 * 1000;
@@ -611,7 +612,7 @@ class SessionTimer {
         clearTimeout(this.timer);
         $.ajax({
             type: "GET",
-            url: getCookie("HOME_SESSID") + "?noaction",
+            url: document.getElementById('sessionid').innerText.trim() + "?noaction",
             success: function (data) {
                 location.reload();
             }
@@ -631,7 +632,7 @@ class SessionTimer {
             clearTimeout(sessionTimer.timer);
             $.ajax({
                 type: "GET",
-                url: getCookie("HOME_SESSID") + "?noaction",
+                url: document.getElementById('sessionid').innerText.trim() + "?noaction",
                 success: function (data) {
                     location.reload();
                 }

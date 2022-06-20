@@ -1,5 +1,16 @@
 node_modules/
 package-lock.json
 scripts/
+scripts2/
+scripts3/
+scripts4/
+scripts5/
+scripts6/
+scripts7/
+scripts8/
+scripts9/
+scripts10/
+scripts11/
 Legacy FORD OPAC/
 web.config
+*.dll

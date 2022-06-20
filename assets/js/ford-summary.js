@@ -297,6 +297,7 @@ class FilterModal {
     filter.filterJSON = filterJSON;
     x2js.asArray(filterJSON).map(item => {
       let { item_group } = item;
+  
       $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[30px] pt-[10px] "> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
       $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
       x2js.asArray(item_group).map((group, index) => {
@@ -306,7 +307,7 @@ class FilterModal {
         if (group.item_value === 'Textual') {
           group.item_value = "Brochures"
         }
-
+        group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
         if (group.item_selected !== undefined) {
           $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 
