@@ -1,10 +1,10 @@
 $(document).ready(function () {
-    let sessionid = document.getElementById('sessionid');
-    if (sessionid) {
-        sessionid = sessionid.innerText.trim();
-        $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
-    }
-    updateBookmarkCount();
+    // let sessionid = document.getElementById('sessionid');
+    // if (sessionid) {
+    //     sessionid = sessionid.innerText.trim();
+    //     $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
+    // }
+    // updateBookmarkCount();
 
 })
 
@@ -522,10 +522,12 @@ class SummaryFilter {
                 if (group.item_value === 'Image') {
                     group.item_value = "Images"
                 }
+                
+
                 if (group.item_value === 'Textual') {
                     group.item_value = "Brochures"
                 }
-
+                group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
                 if (group.item_selected !== undefined) {
                     $(`.${item._title}Filter`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 
@@ -591,7 +593,7 @@ class SessionTimeoutModal {
     }
 }
 
-const timeOutInMinutes = 45;//this indicates the SESSION duration
+const timeOutInMinutes = 500/60;//this indicates the SESSION duration
 const alertTimeInMinutes = 1;//indicates how many minutes before expiration the alert should be shown
 
 let timeOutInMilliSeconds = timeOutInMinutes * 60 * 1000;
