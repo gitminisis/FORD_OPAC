@@ -87,7 +87,7 @@ class Report {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: `mcheckbox_${SISN}=${SISN}-DESCRIPTION_OPAC3`
         }).then(function (r) {
-            // updateBookmarkCount();
+            updateBookmarkCount();
             new MessageModal(`Record SISN#${SISN} has been added to collection`).open();
             if (document.querySelectorAll('#detail').length === 1) {
                 $("#addBookmarkDetail").remove();
@@ -108,7 +108,7 @@ class Report {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
             body: `mcheckbox_1=${SISN}`
         }).then(function (r) {
-            // updateBookmarkCount();
+            updateBookmarkCount();
             new MessageModal(`Record SISN#${SISN} has been removed from collection`).open();
             setTimeout(function () { location.reload() }, 800)
         })
@@ -127,7 +127,7 @@ class Report {
         }).then(function (r) {
 
             new MessageModal(`Collection has been cleared`).open()
-            setTimeout(function () { window.location = '/' }, 800)
+            setTimeout(function () { window.location = '/index2.html' }, 800)
         })
     }
 }
