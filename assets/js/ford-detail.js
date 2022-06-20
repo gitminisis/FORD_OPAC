@@ -105,7 +105,8 @@ class Detail extends Report {
     }
     else {
       lightGallery(document.querySelector('#detail_media:not(.bookmark)'), {
-        selector: '.item'
+        selector: '.item',
+        download: false
       });
     }
 
