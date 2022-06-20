@@ -522,12 +522,20 @@ class SummaryFilter {
                 if (group.item_value === 'Image') {
                     group.item_value = "Images"
                 }
-                
+
 
                 if (group.item_value === 'Textual') {
                     group.item_value = "Brochures"
                 }
-                group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
+
+                if (typeof group.item_link === 'string') {
+                    group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
+                }
+                else {
+                    group.item_selected = group.item_link.item_selected;
+                    group.item_link = group.item_link.__text.trim() + '&DATABASE=DESCRIPTION_OPAC3'
+                }
+
                 if (group.item_selected !== undefined) {
                     $(`.${item._title}Filter`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 

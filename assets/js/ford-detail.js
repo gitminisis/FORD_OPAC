@@ -105,7 +105,8 @@ class Detail extends Report {
     }
     else {
       lightGallery(document.querySelector('#detail_media:not(.bookmark)'), {
-        selector: '.item'
+        selector: '.item',
+        download: false
       });
     }
 
@@ -170,6 +171,7 @@ class Detail extends Report {
     }
     else {
       let URLarray = assets.map(e => e.mediaLowRes);
+
       this.downloader.initAssetBlobArray(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
 
@@ -214,9 +216,11 @@ class Detail extends Report {
     }
   }
 
-  setDownloadButtonHandler(downloader) {
+  setDownloadButtonHandler(downloader, url) {
     $('#download-detail-assets').on('click', function () {
+
       downloader.downloadBlobArray();
+
     })
   }
   setMediaView() {
@@ -358,14 +362,14 @@ class Detail extends Report {
           })
           let JSONObj = x2js.xml2json(reportDOM);
           console.log(JSONObj)
-          let records = JSONObj.item.map(e=>{
+          let records = JSONObj.item.map(e => {
             return {
-              mediaThumb:e.item_thumb,
-              refd:e.item_refd,
-              title:e.item_title
+              mediaThumb: e.item_thumb,
+              refd: e.item_refd,
+              title: e.item_title
             }
           })
-  
+
           records.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).initUIManual(e))
 
         })
