@@ -4,27 +4,26 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/be7ad9f32ef9456e86a0c43471cbc49e/thumbnail",
-                refd: "AR-96-212010.5423",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5d6a92a3be0e46a29be05e21b3069564/thumbnail",
+                refd: "AR-2008-8.1.1.693",
                 scope: undefined,
-                title: "1965 Ford Family of Cars brochure"
+                title: "1956 Lincoln Continental Mark II"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4ffb5c5b0466424f98b7171ce5abb2a3/thumbnail",
-                refd: "AR-2008-8.1.4.555",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fc55c64b08864fde82e97e7163565262/thumbnail",
+                refd: "AR-65-90.1249.7",
                 scope: undefined,
-                title: "1960 Ford F-100 Custom Cab pickup truck front neg C1007-003"
+                title: "The Lincoln Salon Number"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ce85063a12a84d818e201d67a778cb5b/thumbnail",
-                refd: "AR-2008-8.1.2.2049",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e7f537a9d8d34f319bfeb5bd5d9fafca/thumbnail",
+                refd: "AR-2008-8.1.1.924",
                 scope: undefined,
-                title: "1969 Ford Mustang Boss 302 aerial view in studio  neg CN5503-357",
+                title: "1961 Lincoln Continental coach doors Convertible",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
 
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
-
         const TRENDING_NOW_RECORD = [
             {
                 mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fc55c64b08864fde82e97e7163565262/thumbnail",
