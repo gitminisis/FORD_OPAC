@@ -172,11 +172,11 @@ class Detail extends Report {
     else {
       let URLarray = assets.map(e => e.mediaLowRes);
 
-      this.downloader.initAssetBlobArray(URLarray)
+      this.downloader.setArrayURL(URLarray)
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
 
       let downloadSectionString = (type) => {
-        return `<button id="download-detail-assets" class="flex loadingAssets basis-[100%]">Download ${type} <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
+        return `<button id="download-detail-assets" class="flex  basis-[100%]">Download ${type} <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
       }
       if (mediaType === 'Image') {
         downloadSectionDOM.append(downloadSectionString('Image'))
@@ -186,7 +186,7 @@ class Detail extends Report {
       if (mediaType === 'Textual') {
         downloadSectionDOM.append(downloadSectionString('Brochure'))
         let requestModal = new PDFRequest();
-        $("#requestPDF").text('I need an accessible Brochure')
+        $("#requestPDF").text('I use a screen reader, or other adaptive technology, and need accessibility features added to this brochure')
         $("#requestPDF").on('click', function () {
           requestModal.openModal();
         })
@@ -202,7 +202,7 @@ class Detail extends Report {
 
 
       }
-      this.setDownloadButtonHandler(this.downloader);
+      this.setDownloadButtonHandler(this.downloader, mediaLowRes);
       let sisn = $('#hidden_sisn_detail').text();
       $('#copy-link').on('click', function () {
 
@@ -219,7 +219,7 @@ class Detail extends Report {
   setDownloadButtonHandler(downloader, url) {
     $('#download-detail-assets').on('click', function () {
 
-      downloader.downloadBlobArray();
+      downloader.downloadSingleAsset(url);
 
     })
   }
@@ -293,7 +293,8 @@ class Detail extends Report {
         detail.addBookmark(sisn);
       })
       $('.downloadRecord').on('click', function () {
-        detail.downloader.downloadBlobArray();
+        let url = document.querySelector('.a_media_low_res').innerText.trim();
+        detail.downloader.downloadSingleAsset(url);
       })
 
     }

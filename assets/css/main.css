@@ -261,7 +261,7 @@
 }
 
 .openFilterCollapse {
-  max-height: calc((100vh-300px)/5) !important;
+  max-height: calc(20vh - 60px) !important;
   opacity: 1;
   overflow-y: scroll;
 }
@@ -685,3 +685,7 @@
   width: 0%;
 }
 
+
+.latestArchiveTitle {
+  text-align: center;
+}

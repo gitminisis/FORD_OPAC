@@ -5,11 +5,11 @@ $(document).ready(function () {
     //     $(".homepageURL").attr('href', `${sessionid}?GET&FILE=[FORD_ROOT]home.html`)
     // }
     // updateBookmarkCount();
+    $('.loadingAssets').removeClass('loadingAssets')
 
 })
 
 const BASE_URL = "https://fordheritagevault.com"
-
 
 /**
  * Set the title and icon of the site in other pages
@@ -137,6 +137,11 @@ class MediaDownloader {
 
     constructor() {
         this.assetBlobArray = [];
+        this.arrayURL = [];
+    }
+
+    setArrayURL = (arrayURL) => {
+        this.arrayURL = arrayURL;
     }
 
     /**
@@ -154,37 +159,75 @@ class MediaDownloader {
             responseType: "arraybuffer", // important
         })
             .then(async function (response) {
-
-                let url;
-                if (window.webkitURL) {
-                    url = window.webkitURL.createObjectURL(new Blob([response.data]));
-                } else if (window.URL && window.URL.createObjectURL) {
-                    url = window.URL.createObjectURL(new Blob([response.data]));
-                }
-                const link = document.createElement("a");
+                const url = window.URL.createObjectURL(new Blob([response.data]));
+                const fileName = response.headers["content-disposition"].split("=")[1]
+                const link = document.createElement('a');
                 link.href = url;
+                link.setAttribute('download', fileName); //or any other extension
+                document.body.appendChild(link);
+                link.click();
+                toast.close();
 
-                const fileName = response.headers["content-disposition"].split("=")[1];
-
-                const fileBlob = await fetch(downloadURL).then((res) => res.blob());
-
-                const fileData = new File([fileBlob], fileName);
-
-                let zip = new JSZip();
-
-                zip.file(fileName, fileData);
-
-                zip.generateAsync({ type: "blob" }).then(function (content) {
-                    toast.close();
-                    saveAs(content, `DigitalAssets_${getTimestamp()}.zip`);
-                });
             })
             .catch((error) => {
+                console.log(error);
                 // onError(error, errorHandler);
             });
     }
+    fetchBlob = async (array) => {
+        let toast = new MessageModal('Your files are being processed ...', 99999)
+        toast.open()
+        return axios.all(array.map(url => axios({
+            url: url,
+            method: "GET",
+            responseType: "blob",
+            onDownloadProgress: (progressEvent) => {
+                let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total); // you can use this to show user percentage of file downloaded
+            }
+        })))
+            .then(axios.spread((...res) => {
+                toast.close();
+                return res;
+            })).catch(err => console.log(err));
+    }
+    /**
+     * Download Multiple Assets in 1 call
+     * @param {array of string} arrayURL 
+     */
+    downloadMultiAssets = async () => {
+        // No selected digital asssets
+        if (this.arrayURL.length === 0) {
+            return;
+        }
+        let res = await this.fetchBlob(this.arrayURL);
+        let zip = new JSZip();
 
+        res.map((response, index) => {
+            let fileName = response.headers["content-disposition"].split(
+                "="
+            )[1];
+            let fileBlob = new Blob([response.data]);
+            let imgData = new File([fileBlob], fileName);
+            zip.file(fileName, imgData, {
+                base64: true
+            });
+        });
 
+        zip.generateAsync({ type: "blob" }).then(function (content) {
+            let time = new Date().toLocaleTimeString("en-US", {
+                hour12: false,
+                hour: "numeric",
+                minute: "numeric"
+            });
+
+            let date = new Date().toLocaleDateString("en-US");
+
+            let timestamp = date + time;
+
+            saveAs(content, `DigitalAssets_${timestamp}.zip`);
+        });
+
+    }
 
     initAssetBlobArray = URLarray => {
         $('.loadingAssets').click(false);
@@ -409,7 +452,7 @@ class PDFRequest {
 
         let modal = this;
         let SESSID = document.getElementById('sessionid').innerText.trim();
-        let subject = 'I need an accessible Brochure';
+        let subject = 'I use a screen reader, or other adaptive technology, and need accessibility features added to this brochure';
         let body = `Accessible Brochure Request \n\n Email Address: ${emailInput} \nFull Name: ${nameInput} \n\n Record Information:\n\nTitle: ${this.title}\n REFD: ${this.refd}`
         let receiver = 'archives@ford.com'
         let sender = 'noreply@minisisinc.com';

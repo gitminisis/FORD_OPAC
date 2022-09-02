@@ -10,8 +10,8 @@ $(document).ready(function () {
             mediaURLArrays.push(document.getElementsByClassName('a_media_low_res')[i].innerText.trim())
         }
 
-        downloader.initAssetBlobArray(mediaURLArrays);
-
+        // downloader.initAssetBlobArray(mediaURLArrays);
+        downloader.setArrayURL(mediaURLArrays)
         $(".recordHeading").on("click", function () {
             window.location.href = bookmark.getRecordURL($(this));
         });
@@ -38,7 +38,7 @@ $(document).ready(function () {
         })
 
         $('.collection-downloadAll').on('click', function () {
-            downloader.downloadBlobArray();
+            downloader.downloadMultiAssets();
         })
 
 

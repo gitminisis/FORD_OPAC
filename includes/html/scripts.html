@@ -1,6 +1,7 @@
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/fontawesome.js"></script>
 <script type="text/javascript" src="/assets/js/toastify.js"></script>
+
 <script src="/assets/js/aos.js"></script>
 <script> AOS.init({ once: true, duration: 800, });</script>
 <script src="/assets/js/axios.min.js"></script>
@@ -10,6 +11,9 @@
 <script src="/assets/js/ford.js"></script>
 <script src="/assets/js/models.js"></script>
 <script src="/dist/js/bundle.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+
+</script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9XMX0CPDRY"></script>
 <script>
@@ -18,5 +22,39 @@
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
   gtag('config', 'G-9XMX0CPDRY');
+
+</script>
+<script>
+
+  /**
+   * Callback function for Captcha
+   * @param {} response 
+   */
+  let keyV2 = '6Lc_AckhAAAAADOJBr6WdChtixBDsBEhcBzo_mp1'
+  let verifyCallback = function (response) {
+    $('#survey-submit').attr('hidden', false)
+  };
+
+  /**
+   * Hide Submit button after verification expires
+   * @param {} response 
+   */
+  let expireCallback = function () {
+    $('#survey-submit').attr('hidden', true)
+  }
+
+  /**
+   * Captcha button render
+   */
+  let onloadCallback = function () {
+
+    grecaptcha.render('captchaDiv', {
+      'sitekey': keyV2,
+      'callback': verifyCallback,
+      'expired-callback': expireCallback,
+      'theme': 'light'
+    });
+  };
+
 
 </script>
