@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Ford OPAC - Instance Status</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+      // parameter values
+      const  maxInstances = 8;
+
+      var html_code_array = [];
+      var error_found = false;
+
+      // extract an instance of status report
+      function getInstanceStatus ( instance, username, userpassword )
+      {
+        var result_string = '<div><hr/><h2>Instance #' + instance + ' status</h2><hr/>';
+        var scripts_folder = (instance == 1) ? '/scripts' : '/scripts' + instance;
+        var url = '.' + scripts_folder + '/mwimain.dll?SYSTEMCTRL';
+        error_found = false;
+
+        // prepare formdata
+        var formdata = new FormData();
+        formdata.append ( 'USERNAME', username );
+        formdata.append ( 'USERPASSWORD', userpassword );
+        formdata.append ( 'SHOWREP', 'X' );
+        formdata.append ( 'DBLANG', '0' );
+
+        // call request handler to get instance status
+        $.ajax({
+          async: false,
+          type: "POST",
+          dataType: "html",
+          url: url,
+          data: formdata,
+          processData: false,
+          contentType: false,
+          cache: false,
+          success: function (data) {
+            if ( data != null && data != "" ) {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(data, "text/html");
+
+              var status_body_id = 'status_body';
+
+              if ( doc.getElementById('MWI-error') != null ) {
+                result_string = data;
+                error_found = true;
+              }
+              else if ( doc.getElementById(status_body_id) != null ) {
+                result_string = result_string + doc.getElementById(status_body_id).innerHTML;
+               }
+            }
+          },
+          error: function (xhr, status, error) {
+          }
+        });
+
+        result_stirng = result_string + '</div>';
+
+        return result_string;
+      }
+
+      // retrieve and concatenate status reports
+      function retrieveStatus ( username, userpassword, result )
+      {
+        var instance;
+
+        // get instance status
+        for ( instance = 1 ; instance <= maxInstances && !error_found ; instance++ ) {
+          html_code_array[instance-1] = getInstanceStatus ( instance, username, userpassword );
+        }
+
+        if ( error_found ) {
+          result.append ( html_code_array[0] );
+        }
+        else {
+          // concatenate instance status
+          for ( instance = 1 ; instance <= maxInstances ; instance++ ) {
+            result.append ( html_code_array[instance-1] );
+          }
+        }
+      }
+
+      // create overall status report
+      function createStatusTab()
+      {
+        error_found = false;
+
+        var username = $('#username').val();
+        if ( typeof username == 'undefined' ) {
+          username = '';
+        }
+        var userpassword = $('#userpassword').val();
+        if ( typeof userpassword == 'undefined' ) {
+          userpassword = '';
+        }
+
+        if ( username == '' ) {
+          alert ( "User name has not been entered." );
+        }
+        else {
+          var result = $('#result');
+          if ( result.length > 0 ) {
+            result.empty();
+
+            // give up CPU for refreshing form
+            setTimeout (retrieveStatus, 1000, username, userpassword, result );
+          }
+        }
+      }
+    </script>
+</head>
+<body>
+    <h1>Ford - Instance Status</h1>
+    <form method="post" action="#">
+        <p>
+            <label for="USERNAME">Username:</label>
+            <input type="text" id="username">
+            &nbsp;&nbsp;&nbsp;
+            <label for="PASSWORD">Password:</label>
+            <input type="password" id="userpassword">
+        </p>
+
+
+        <p>
+            <input type="button" value="Get Status" onclick="createStatusTab();">
+            <input type="reset" value="Clear">
+        </p>
+    <form>
+
+    <div id="result">
+    </div>
+</body>
+</html>
