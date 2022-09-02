@@ -11,6 +11,41 @@ $(document).ready(function () {
 
 const BASE_URL = "https://fordheritagevault.com"
 
+/**
+ * Callback function for Captcha
+ * @param {} response 
+ */
+let keyV2 = '6Lc_AckhAAAAADOJBr6WdChtixBDsBEhcBzo_mp1'
+let verifyCallback = function (response) {
+
+    $.post('https://www.google.com/recaptcha/api/siteverify', { secret: keyV2, response: response }).done((res) => {
+        if (res.success) {
+            $('#survey-submit').attr('hidden', false)
+        }
+    });
+};
+
+/**
+ * Hide Submit button after verification expires
+ * @param {} response 
+ */
+let expireCallback = function () {
+    $('#survey-submit').attr('hidden', true)
+}
+
+/**
+ * Captcha button render
+ */
+let onloadCallback = function () {
+
+    grecaptcha.render('captchaDiv', {
+        'sitekey': keyV2,
+        'callback': verifyCallback,
+        'expired-callback': expireCallback,
+        'theme': 'light'
+    });
+};
+
 
 /**
  * Set the title and icon of the site in other pages

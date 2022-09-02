@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fc55c64b08864fde82e97e7163565262/thumbnail",
-                refd: "AR-65-90.1249.7",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ec2fc1e46de944099d03c52977791935/thumbnail",
+                refd: "AR-2008-8.1.1.63",
                 scope: undefined,
-                title: "The Lincoln Salon Number",
+                title: "1935 Lincoln Brunn Convertible Sedan",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b9716086375f4181bf848da6bb478fce/thumbnail",
-                refd: "AR-2008-8.1.2.2447",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8b9480a786434e0abbf41b427d338bf5/thumbnail",
+                refd: "AR-2008-8.1.1.173",
                 scope: undefined,
-                title: "1965 Ford Mustang fastback neg CN2605-010B",
+                title: "1946 Lincoln four door sedan",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/87bfaafe15764000ae5d4e8082e40df2/thumbnail",
-                refd: "AR-96-212010.5443",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d5bd99cc9d0a4bb5927c496477ca9ee5/thumbnail",
+                refd: "AR-2008-8.1.1.103",
                 scope: undefined,
-                title: "1966 Ford Trucks and All Purpose Vehicles brochure",
+                title: "1939 Lincoln Zephyr Continental Cabriolet Special for Edsel Ford",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/57bff0fd72de49e9a0f20dee8c874f57/thumbnail",
-                refd: "AR-2008-8.1.2.4143",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9417d66bb8fa40ab9c6105dac9df0caa/thumbnail",
+                refd: "AR-2008-8.1.1.401",
                 scope: undefined,
-                title: "1946 Ford Super Deluxe station wagon scenic neg C123",
+                title: "1948 Lincoln Continental Cabriolet tudor V12 engine",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5d466a607e6a4c358a02ff0fdd06b5e2/thumbnail",
-                refd: "AR-2008-8.1.7.257",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d1983736a09a49ddac2c627839ebec3c/thumbnail",
+                refd: "AR-2008-8.1.1.946",
                 scope: undefined,
-                title: "1974 Ford Bronco neg CN7411-084",
+                title: "1962 Lincoln Continental coach door convertible",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b395d87a704448b39da932fc16595a15/thumbnail",
-                refd: "AR-96-212010.6325",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/39b63e6e331d443c86fc327d1e77ab52/thumbnail",
+                refd: "AR-2008-8.1.1.80",
                 scope: undefined,
-                title: "1978  Ford Econoline Van and RV Cutaway brochure",
+                title: "1937 Lincoln Brunn Convertible Victoria",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4072540f81804e8b859941c3747a37c5/thumbnail",
-                refd: "AR-96-212010.5592",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1c92223463574feba566c506131b60a5/thumbnail",
+                refd: "AR-2008-8.1.1.719",
                 scope: undefined,
-                title: "1948 Ford F-Series Trucks brochure",
+                title: "1956 Lincoln Premiere four-door sedan",
             }
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))
