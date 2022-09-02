@@ -1,29 +1,6 @@
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/fontawesome.js"></script>
 <script type="text/javascript" src="/assets/js/toastify.js"></script>
-
-<script src="/assets/js/aos.js"></script>
-<script> AOS.init({ once: true, duration: 800, });</script>
-<script src="/assets/js/axios.min.js"></script>
-<script src="/assets/js/FileSaver.min.js"></script>
-<script src="/assets/js/jszip.min.js"></script>
-<script src="/assets/js/xml2json.min.js"></script>
-<script src="/assets/js/ford.js"></script>
-<script src="/assets/js/models.js"></script>
-<script src="/dist/js/bundle.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
-
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9XMX0CPDRY"></script>
-<script>
-
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'G-9XMX0CPDRY');
-
-</script>
 <script>
 
   /**
@@ -46,7 +23,7 @@
   /**
    * Captcha button render
    */
-  let onloadCallback = function () {
+  var onloadCallback = function () {
 
     grecaptcha.render('captchaDiv', {
       'sitekey': keyV2,
@@ -56,5 +33,26 @@
     });
   };
 
-  onloadCallback();
+</script>
+<script src="/assets/js/aos.js"></script>
+<script> AOS.init({ once: true, duration: 800, });</script>
+<script src="/assets/js/axios.min.js"></script>
+<script src="/assets/js/FileSaver.min.js"></script>
+<script src="/assets/js/jszip.min.js"></script>
+<script src="/assets/js/xml2json.min.js"></script>
+<script src="/assets/js/ford.js"></script>
+<script src="/assets/js/models.js"></script>
+<script src="/dist/js/bundle.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
+
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9XMX0CPDRY"></script>
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-9XMX0CPDRY');
+
 </script>
