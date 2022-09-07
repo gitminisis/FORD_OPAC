@@ -2,6 +2,60 @@
 <script src="/assets/js/fontawesome.js"></script>
 <script type="text/javascript" src="/assets/js/toastify.js"></script>
 
+<script>
+
+  /**
+   * Callback function for Captcha
+   * @param {} response 
+   */
+  let keyV2 = '6Lc_AckhAAAAADOJBr6WdChtixBDsBEhcBzo_mp1'
+  let verifyCallback = function (response) {
+    $('#survey-submit').attr('hidden', false)
+  };
+
+  /**
+   * Hide Submit button after verification expires
+   * @param {} response 
+   */
+  let expireCallback = function () {
+    $('#survey-submit').attr('hidden', true)
+  }
+
+  let verifyReqCallback = function (response) {
+    $('#request-submit').attr('hidden', false)
+  };
+
+  /**
+   * Hide Submit button after verification expires
+   * @param {} response 
+   */
+  let expireReqCallback = function () {
+    $('#request-submit').attr('hidden', true)
+  }
+
+  /**
+   * Captcha button render
+   */
+  var onloadCallback = function () {
+
+    grecaptcha.render('captchaDiv', {
+      'sitekey': keyV2,
+      'callback': verifyCallback,
+      'expired-callback': expireCallback,
+      'theme': 'light'
+    });
+
+    grecaptcha.render('captchaReqDiv', {
+      'sitekey': keyV2,
+      'callback': verifyReqCallback,
+      'expired-callback': expireReqCallback,
+      'theme': 'light'
+    });
+
+  };
+
+</script>
+
 <script src="/assets/js/aos.js"></script>
 <script> AOS.init({ once: true, duration: 800, });</script>
 <script src="/assets/js/axios.min.js"></script>

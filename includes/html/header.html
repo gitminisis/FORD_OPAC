@@ -30,39 +30,8 @@
       top.location = self.location;
     }
   </script>
-  <script>
 
-    /**
-     * Callback function for Captcha
-     * @param {} response 
-     */
-    let keyV2 = '6Lc_AckhAAAAADOJBr6WdChtixBDsBEhcBzo_mp1'
-    let verifyCallback = function (response) {
-      $('#survey-submit').attr('hidden', false)
-    };
-  
-    /**
-     * Hide Submit button after verification expires
-     * @param {} response 
-     */
-    let expireCallback = function () {
-      $('#survey-submit').attr('hidden', true)
-    }
-  
-    /**
-     * Captcha button render
-     */
-    let onloadCallback = function () {
-  
-      grecaptcha.render('captchaDiv', {
-        'sitekey': keyV2,
-        'callback': verifyCallback,
-        'expired-callback': expireCallback,
-        'theme': 'light'
-      });
-    };
-  
-  </script>
+
   <title>Hop in the Driver's Seat | Ford Heritage Vault</title>
 </head>
 <span id="sessionid" hidden>^SESSID^</span>
