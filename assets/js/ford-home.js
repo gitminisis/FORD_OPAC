@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5d6a92a3be0e46a29be05e21b3069564/thumbnail",
-                refd: "AR-2008-8.1.1.693",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9e18a485aa8d4d7f915d4b819e3d0c71/thumbnail",
+                refd: "AR-2008-8.1.2.2331",
                 scope: undefined,
-                title: "1956 Lincoln Continental Mark II"
+                title: "1968 Ford Mustang Shelby GT 500 convertible"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fc55c64b08864fde82e97e7163565262/thumbnail",
-                refd: "AR-65-90.1249.7",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e765bb6435654080b832db36bd54d48d/thumbnail",
+                refd: "AR-2008-8.1.4.1778",
                 scope: undefined,
-                title: "The Lincoln Salon Number"
+                title: "2002 Ford Mustang GT Premium convertible"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e7f537a9d8d34f319bfeb5bd5d9fafca/thumbnail",
-                refd: "AR-2008-8.1.1.924",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bcc317f1ba344c599abdf65271c4b86c/thumbnail",
+                refd: "AR-2001-77-13208.9.1.9",
                 scope: undefined,
-                title: "1961 Lincoln Continental coach doors Convertible",
+                title: "1976 Ford Mustang II two-door",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ec2fc1e46de944099d03c52977791935/thumbnail",
-                refd: "AR-2008-8.1.1.63",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a00f822647b24cc1956a2a371d6d3f71/thumbnail",
+                refd: "AR-2008-8.1.4.3298",
                 scope: undefined,
-                title: "1935 Lincoln Brunn Convertible Sedan",
+                title: "1971 Ford Mustang Mach 1 fastback",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8b9480a786434e0abbf41b427d338bf5/thumbnail",
-                refd: "AR-2008-8.1.1.173",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e02169d73e294cb4810891b50b0e5aaa/thumbnail",
+                refd: "AR-2008-8.1.4.3022",
                 scope: undefined,
-                title: "1946 Lincoln four door sedan",
+                title: "1991 Ford Mustang GT",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d5bd99cc9d0a4bb5927c496477ca9ee5/thumbnail",
-                refd: "AR-2008-8.1.1.103",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/c17c756c7d534dbe8a4fc1e3a9f0e676/thumbnail",
+                refd: "AR-2008-8.34.90",
                 scope: undefined,
-                title: "1939 Lincoln Zephyr Continental Cabriolet Special for Edsel Ford",
+                title: "1967 Mustang Shelby GT500",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9417d66bb8fa40ab9c6105dac9df0caa/thumbnail",
-                refd: "AR-2008-8.1.1.401",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/78564f6fefa2474694ecde7370b0eff2/thumbnail",
+                refd: "AR-2008-8.1.2.2426",
                 scope: undefined,
-                title: "1948 Lincoln Continental Cabriolet tudor V12 engine",
+                title: "1965 Ford Mustang convertible",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d1983736a09a49ddac2c627839ebec3c/thumbnail",
-                refd: "AR-2008-8.1.1.946",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/85696d4479624ad08ee2dfae90cc34f9/thumbnail",
+                refd: "AR-2008-8.1.2.2491",
                 scope: undefined,
-                title: "1962 Lincoln Continental coach door convertible",
+                title: "1966 Ford Mustang convertible in Tahoe Turquiose",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/39b63e6e331d443c86fc327d1e77ab52/thumbnail",
-                refd: "AR-2008-8.1.1.80",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3c43612687e4478489ffc1001ff57cb5/thumbnail",
+                refd: "AR-2008-8.1.2.2293",
                 scope: undefined,
-                title: "1937 Lincoln Brunn Convertible Victoria",
+                title: "1968 Ford Mustang GT fastback",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1c92223463574feba566c506131b60a5/thumbnail",
-                refd: "AR-2008-8.1.1.719",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b32e1f0ab59940858e777cd8123d6d90/thumbnail",
+                refd: "AR-2008-8.1.2.2074",
                 scope: undefined,
-                title: "1956 Lincoln Premiere four-door sedan",
+                title: "1969 Ford Mustang Boss 429",
             }
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))
