@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9e18a485aa8d4d7f915d4b819e3d0c71/thumbnail",
-                refd: "AR-2008-8.1.2.2331",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/6df1a07fac494427bb419be1bfc5cabb/thumbnail",
+                refd: "AR-2008-8.1.11.280",
                 scope: undefined,
-                title: "1968 Ford Mustang Shelby GT 500 convertible"
+                title: "1982 Mercury Capri RS with Sunroof"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e765bb6435654080b832db36bd54d48d/thumbnail",
-                refd: "AR-2008-8.1.4.1778",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/96ee16a90a2c4c5388ea36fb1d458c52/thumbnail",
+                refd: "AR-2008-8.1.11.458",
                 scope: undefined,
-                title: "2002 Ford Mustang GT Premium convertible"
+                title: "1970 Mercury Cyclone GT Hardtop"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bcc317f1ba344c599abdf65271c4b86c/thumbnail",
-                refd: "AR-2001-77-13208.9.1.9",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/dd158e58113a428aa4e71c7c9691f1e8/thumbnail",
+                refd: "AR-2008-8.1.11.944",
                 scope: undefined,
-                title: "1976 Ford Mustang II two-door",
+                title: "1957 Mercury Monterey Convertible Low Angle",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
