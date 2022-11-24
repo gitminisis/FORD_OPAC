@@ -3,10 +3,13 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Ford Heritage Vault spans Ford Motor Company's production history from 1903 to 2003. Tour the vault and create a collection of photographs and brochures to download and share!">
+  <meta name="description"
+    content="The Ford Heritage Vault spans Ford Motor Company's production history from 1903 to 2003. Tour the vault and create a collection of photographs and brochures to download and share!">
   <meta name="keywords" content="Ford, Ford Heritage Vault, Ford cars, Archive, Collections">
   <link rel="icon" href="/assets/favicon.ico" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,6 +36,7 @@
     }
   </script>
   <title>Hop in the Driver's Seat | Ford Heritage Vault</title>
+
 </head>
 <span id="sessionid" hidden>^sessid^</span>
 
@@ -83,7 +87,7 @@
   <div id="filterCollapse" class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4] ">
     <div class="col-span-12">
       <div class="w-full lg:w-2/3 text-[#9C9C9C]">
-        <form id="advancedSearchForm" class="relative flex items-center" method="POST" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+        <form id="advancedSearchForm" class="relative flex items-center" method="POST" action="https://fordheritagevault.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3&rid=ford_adv">
           <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus="" aria-label="What Are You Looking For?" class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]">
           <input name="BO1" value="AND" hidden="" aria-label="Hidden AND Operator">
           <input name="KEYWORD" id="hiddenKeywordInput" hidden="" aria-label="Hidden advanced search expression">
@@ -211,12 +215,12 @@
   <div class="bannerShadow"></div>
 
   <div class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline"><a
-    class="bannerLinkRecord"  href="https://ford2.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.2.2427">AR-2008-8.1.2.2427</a></div>
+    class="bannerLinkRecord"  href="https://fordheritagevault.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.2.2427">AR-2008-8.1.2.2427</a></div>
   <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
     <h1 class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block">
       Hop in the Driver's Seat
     </h1>
-    <form method="POST" id="searchForm" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+    <form method="POST" id="searchForm" action="https://fordheritagevault.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3&rid=ford_simple">
       <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
         <div class="relative w-full rounded inline-flex items-center">
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
@@ -328,8 +332,7 @@
     <h2
       class="text-[34px] sm:text-[36px]  text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px]" data-aos="fade-up"
     >
-      Trending Now
-    </h2>
+    Lights! Camera! Action! These Mustang models made it big in Hollywood   </h2>
     <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
       <div
         class="col-auto sm:col-span-3 h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
