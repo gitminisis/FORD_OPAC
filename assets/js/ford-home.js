@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/6df1a07fac494427bb419be1bfc5cabb/thumbnail",
-                refd: "AR-2008-8.1.11.280",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/83c68990d30e4bd38011b9eb5fb4a750/thumbnail",
+                refd: "AR-2000-213654.143.119.2",
                 scope: undefined,
-                title: "1982 Mercury Capri RS with Sunroof"
+                title: "1975 Ford Cortina MK III GT 2.0 in scenic field with trees"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/96ee16a90a2c4c5388ea36fb1d458c52/thumbnail",
-                refd: "AR-2008-8.1.11.458",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bc888afcc6774994892d96c7ce457bf5/thumbnail",
+                refd: "AR-2000-213654.112.88.4",
                 scope: undefined,
-                title: "1970 Mercury Cyclone GT Hardtop"
+                title: "1967 Ford Transit Mark I 17 Counterweight LCX Van in studio front view"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/dd158e58113a428aa4e71c7c9691f1e8/thumbnail",
-                refd: "AR-2008-8.1.11.944",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/68fa30efb4e54bee8bc670ae58badac6/thumbnail",
+                refd: "AR-2000-213654.111.44.1",
                 scope: undefined,
-                title: "1957 Mercury Monterey Convertible Low Angle",
+                title: "1970 Escort Mexico Mark I night shot in studio",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,43 +26,43 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a00f822647b24cc1956a2a371d6d3f71/thumbnail",
-                refd: "AR-2008-8.1.4.3298",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/888e911de81542e5b9f8975fc74fa46d/thumbnail",
+                refd: "AR-2000-213654.143.194.2",
                 scope: undefined,
-                title: "1971 Ford Mustang Mach 1 fastback",
+                title: "1954 Ford Prefect 100E front closeup with scenic trees",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e02169d73e294cb4810891b50b0e5aaa/thumbnail",
-                refd: "AR-2008-8.1.4.3022",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/aead13857c4d4505a066f4fbd952ee50/thumbnail",
+                refd: "AR-2008-8.1.2.5368",
                 scope: undefined,
-                title: "1991 Ford Mustang GT",
+                title: "1960 Ford Anglia 105F two-door sedan in studio",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/c17c756c7d534dbe8a4fc1e3a9f0e676/thumbnail",
-                refd: "AR-2008-8.34.90",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4b89cd330c0c4b179ad0e595d6449273/thumbnail",
+                refd: "AR-2000-213654.127.60.6",
                 scope: undefined,
-                title: "1967 Mustang Shelby GT500",
+                title: "1982 Ford Escort Mark III RS 1600i on scenic road with sunset",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/78564f6fefa2474694ecde7370b0eff2/thumbnail",
-                refd: "AR-2008-8.1.2.2426",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ab3dd07cb7a2463f8b19b6697bdaf8c4/thumbnail",
+                refd: "AR-2000-213654.110.23.3",
                 scope: undefined,
-                title: "1965 Ford Mustang convertible",
+                title: "1987 Ford Fiesta Mark II XR2 in front of scenic brick house",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/85696d4479624ad08ee2dfae90cc34f9/thumbnail",
-                refd: "AR-2008-8.1.2.2491",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f67d0662d1a943d8a85e820999edb8c5/thumbnail",
+                refd: "AR-2000-213654.144.153.15",
                 scope: undefined,
-                title: "1966 Ford Mustang convertible in Tahoe Turquiose",
+                title: "2001 Ford Focus RS Mark I in front of scenic building",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3c43612687e4478489ffc1001ff57cb5/thumbnail",
-                refd: "AR-2008-8.1.2.2293",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/6922009a23aa4a8d94d8d26dd4fbb366/thumbnail",
+                refd: "AR-2008-8.1.2.5546",
                 scope: undefined,
-                title: "1968 Ford Mustang GT fastback",
+                title: "1953 Ford Prefect 100E four-door at Stock neg",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b32e1f0ab59940858e777cd8123d6d90/thumbnail",
-                refd: "AR-2008-8.1.2.2074",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/28383ea8c97f4114b9e14c189488313c/thumbnail",
+                refd: "AR-2000-213654.112.69.1",
                 scope: undefined,
-                title: "1969 Ford Mustang Boss 429",
-            }
+                title: "1964 Ford Transit Mark I 15 Counterweight Van 400 E in studio with red backdrop",
+            },
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))
 
@@ -74,7 +74,7 @@ $(document).ready(function () {
 
 
 
-         
+
 
     }
 
