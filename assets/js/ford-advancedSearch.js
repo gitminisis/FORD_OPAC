@@ -41,29 +41,61 @@ $(document).ready(function () {
     }, 300);
   });
 
-  // Expand filter on click
-  $(".filterSelect").on("click", function () {
-    // let expand = $(this).find($(".expand"));
-    let dropdown = $(this).find($(".filterDropdown"));
 
-    if (dropdown.hasClass("hideDropdown")) {
-      filter.openFilter($(this));
-    }
-    else {
-      filter.closeAllFilter();
-    }
-    filter.updateHiddenKeywordValue();
+
+  // Expand filter on focus
+  $(".filterSelect input").focus(function () {
+
+    // let expand = $(this).find($(".expand"));
+    // let dropdown = $(this).find($(".filterDropdown"));
+
+    filter.openFilter($(this).parent());
+    $(document).keyup(function (e) {
+      if (e.key === "Escape") { // escape key maps to keycode `27`
+        filter.closeAllFilter();
+        $(this).val('')
+      }
+    });
+
+
+
+  }).focusout(function () {
+    filter.closeAllFilter();
+    // let filterType = $(this).data("filter").toLowerCase()
+
+    // $(this).val('')
+    // filter.resetFilterValue(filterType)
 
   });
 
+
+  $(".filterSelect input").on('input', function (e) {
+    let val = $(this).val();
+
+    let dropdownList = $(this).parent().find($(".filterDropdown li")).toArray();
+
+    let newDropdownList = dropdownList.map(e => {
+      e.style.display = 'block'
+      if (e.innerText.toLowerCase().indexOf(val.toLowerCase()) !== 0) {
+        e.style.display = 'none'
+      }
+      return e;
+    });
+    $(this).parent().find($(".filterDropdown ul")).empty();
+    $(this).parent().find($(".filterDropdown ul")).append(newDropdownList)
+    filter.setDropdownListHandler();
+    // console.log(newDropdownList)
+  })
+
+
   $(".filterDropdown ul li").on("click", function () {
-   
-  
+
     filter.selectFilterValue($(this));
     setTimeout(function () {
       filter.closeAllFilter();
     }, 10);
   });
+
 
   // When clicking out of the filter, option is closed
   $(document).mouseup(function (e) {
@@ -144,6 +176,17 @@ class Filter {
   }
 
 
+  setDropdownListHandler() {
+    let filter = this;
+    $(".filterDropdown ul li").on("click", function () {
+
+      filter.selectFilterValue($(this));
+      setTimeout(function () {
+        filter.closeAllFilter();
+      }, 10);
+    });
+  }
+
   addAssetType(t) {
     this.assetType.push(t);
   }
@@ -153,15 +196,16 @@ class Filter {
   }
 
   openFilter(filterDOM) {
-    let expand = filterDOM.find($(".expand"));
     let dropdown = filterDOM.find($(".filterDropdown"));
-    expand.text(
-      dropdown.hasClass("hideDropdown") ? "expand_less" : "expand_more"
-    );
+
     this.closeAllFilter(filterDOM);
     setTimeout(function () {
       dropdown.toggleClass("hideDropdown");
     }, 100);
+  }
+
+  resetFilterValue(filterType) {
+    this[filterType] = '';
   }
 
   selectFilterValue(filterOptionDOM) {
@@ -171,16 +215,18 @@ class Filter {
       .parent()
       .parent()
       .parent()
-      .find(".filterText");
+      .find("input");
     let filter = filterText.data("filter").toLowerCase();
-    if (value === 'None') {
-      filterText.text(filterText.data("filter"));
+    if (value === '' || value === 'None') {
+      filterText.val(filterText.data("filter"));
       this[filter] = '';
+      this.updateHiddenKeywordValue();
       return;
     }
 
-    filterText.text(value);
+    filterText.val(value);
     this[filter] = value;
+    this.updateHiddenKeywordValue();
   }
 
   closeAllFilter(excl) {
@@ -325,9 +371,7 @@ class Filter {
   resetUI() {
     this.resetAll();
     $("#advancedSearchInput").val('');
-    $('#yearFilterValue').text('Year')
-    $('#makeFilterValue').text('Make')
-    $('#modelFilterValue').text('Model')
+    $(".filterText").val('');
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
@@ -344,9 +388,9 @@ class Filter {
 
   init() {
     const filterList = ['year', 'make', 'model'];
-    filterList.map(filter => {
-      this.setClusterDropdown(filter, FIELD_NAME[filter])
-    })
+    // filterList.map(filter => {
+    //   this.setClusterDropdown(filter, FIELD_NAME[filter])
+    // })
     // this.setColorFilter('color', FIELD_NAME.color);
     this.initTooltip();
     this.initUIHandler();
