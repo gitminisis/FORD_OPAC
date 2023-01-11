@@ -1,5 +1,5 @@
 config:
-  target: "https://fordheritagevault.com/"
+  target: "https://ford2.minisisinc.com/"
   http:
     timeout: 15
   phases:
