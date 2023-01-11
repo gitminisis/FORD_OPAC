@@ -14,3 +14,4 @@ scripts11/
 Legacy FORD OPAC/
 web.config
 *.dll
+dist/
