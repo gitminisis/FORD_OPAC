@@ -60,7 +60,7 @@ $(document).ready(function () {
 
 
   }).focusout(function () {
-    filter.closeAllFilter();
+    // filter.closeAllFilter();
     // let filterType = $(this).data("filter").toLowerCase()
 
     // $(this).val('')
@@ -75,7 +75,7 @@ $(document).ready(function () {
     let dropdownList = $(this).parent().find($(".filterDropdown li")).toArray();
 
     let newDropdownList = dropdownList.map(e => {
-      e.style.display = 'block'
+      e.style.display = 'list-item'
       if (e.innerText.toLowerCase().indexOf(val.toLowerCase()) !== 0) {
         e.style.display = 'none'
       }
@@ -84,12 +84,12 @@ $(document).ready(function () {
     $(this).parent().find($(".filterDropdown ul")).empty();
     $(this).parent().find($(".filterDropdown ul")).append(newDropdownList)
     filter.setDropdownListHandler();
-    // console.log(newDropdownList)
   })
 
 
-  $(".filterDropdown ul li").on("click", function () {
 
+  
+  $(".filterDropdown li").on("click", function () {
     filter.selectFilterValue($(this));
     setTimeout(function () {
       filter.closeAllFilter();
@@ -197,12 +197,12 @@ class Filter {
 
   openFilter(filterDOM) {
     let dropdown = filterDOM.find($(".filterDropdown"));
-
     this.closeAllFilter(filterDOM);
     setTimeout(function () {
       dropdown.toggleClass("hideDropdown");
     }, 100);
   }
+
 
   resetFilterValue(filterType) {
     this[filterType] = '';
@@ -375,6 +375,7 @@ class Filter {
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
+    $('.filterDropdown li').css('display','list-item')
     $('input[type=checkbox]').prop('checked', false);
     this.updateDropdownUI();
 
