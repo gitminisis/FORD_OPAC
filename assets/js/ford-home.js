@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/83c68990d30e4bd38011b9eb5fb4a750/thumbnail",
-                refd: "AR-2000-213654.143.119.2",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4db99c8162d04ef281162369bfc4b4e7/thumbnail",
+                refd: "AR-2001-86-102180.1.4.2",
                 scope: undefined,
-                title: "1975 Ford Cortina MK III GT 2.0 in scenic field with trees"
+                title: "1982 Ford F-100 F-250 F-350"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bc888afcc6774994892d96c7ce457bf5/thumbnail",
-                refd: "AR-2000-213654.112.88.4",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8daa0015379a49658361f46047e87c2b/thumbnail",
+                refd: "AR-96-212010.5592",
                 scope: undefined,
-                title: "1967 Ford Transit Mark I 17 Counterweight LCX Van in studio front view"
+                title: "1948 Ford F-Series Trucks brochure"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/68fa30efb4e54bee8bc670ae58badac6/thumbnail",
-                refd: "AR-2000-213654.111.44.1",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bb4a67f0057f4fae8652076e758673e8/thumbnail",
+                refd: "AR-2008-8.1.4.453",
                 scope: undefined,
-                title: "1970 Escort Mexico Mark I night shot in studio",
+                title: "1951 Ford F-1 on Dearborn Test Track neg C364-1",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/888e911de81542e5b9f8975fc74fa46d/thumbnail",
-                refd: "AR-2000-213654.143.194.2",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d0f58bc192a44c08702f9475bb1c4e9/thumbnail",
+                refd: "AR-2008-8.1.4.670",
                 scope: undefined,
-                title: "1954 Ford Prefect 100E front closeup with scenic trees",
+                title: "1978 Ford F-150 Ranger pickup truck neg CN19511-321",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/aead13857c4d4505a066f4fbd952ee50/thumbnail",
-                refd: "AR-2008-8.1.2.5368",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b547cfbbfae44265813af0188e5d77cb/thumbnail",
+                refd: "AR-2008-8.1.4.764",
                 scope: undefined,
-                title: "1960 Ford Anglia 105F two-door sedan in studio",
+                title: "1994 Ford F150 XLT flareside neg CN309007-363",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4b89cd330c0c4b179ad0e595d6449273/thumbnail",
-                refd: "AR-2000-213654.127.60.6",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b41bff725e3545abb2d7c7bc2b488e23/thumbnail",
+                refd: "AR-2008-8.1.4.566",
                 scope: undefined,
-                title: "1982 Ford Escort Mark III RS 1600i on scenic road with sunset",
+                title: "1961 Ford F-100 Styleside pickup truck neg C1048-16",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ab3dd07cb7a2463f8b19b6697bdaf8c4/thumbnail",
-                refd: "AR-2000-213654.110.23.3",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d0a0bef1ad1d4d9889055a50ff5d0ce0/thumbnail",
+                refd: "AR-2008-8.1.4.549",
                 scope: undefined,
-                title: "1987 Ford Fiesta Mark II XR2 in front of scenic brick house",
+                title: "1959 Ford F-100 Styleside pickup truck neg C909-0",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f67d0662d1a943d8a85e820999edb8c5/thumbnail",
-                refd: "AR-2000-213654.144.153.15",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/91b8d40d47d54b39a5892adb660a324b/thumbnail",
+                refd: "AR-2008-8.1.4.576",
                 scope: undefined,
-                title: "2001 Ford Focus RS Mark I in front of scenic building",
+                title: "1963 Ford F-250 4x4 pickup truck neg C1092-007",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/6922009a23aa4a8d94d8d26dd4fbb366/thumbnail",
-                refd: "AR-2008-8.1.2.5546",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4ffb5c5b0466424f98b7171ce5abb2a3/thumbnail",
+                refd: "AR-2008-8.1.4.555",
                 scope: undefined,
-                title: "1953 Ford Prefect 100E four-door at Stock neg",
+                title: "1960 Ford F-100 Custom Cab pickup truck front neg C1007-003",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/28383ea8c97f4114b9e14c189488313c/thumbnail",
-                refd: "AR-2000-213654.112.69.1",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d2d067266a54ea0975aa73690d3585d/thumbnail",
+                refd: "AR-2001-94-208806.23.7.1",
                 scope: undefined,
-                title: "1964 Ford Transit Mark I 15 Counterweight Van 400 E in studio with red backdrop",
+                title: "1991 Ford F-150 F-250 F-350",
             },
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))

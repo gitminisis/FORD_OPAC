@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 })
 
-const BASE_URL = "https://ford2.minisisinc.com"
+const BASE_URL = "https://fordheritagevault.com"
 
 /**
  * Set the title and icon of the site in other pages

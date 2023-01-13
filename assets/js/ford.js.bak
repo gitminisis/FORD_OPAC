@@ -8,8 +8,8 @@ $(document).ready(function () {
 
 })
 
-//const BASE_URL = "https://ford2.minisisinc.com"
-const BASE_URL = "https://ford2.minisisinc.com"
+//const BASE_URL = "https://fordheritagevault.com"
+const BASE_URL = "https://fordheritagevault.com"
 
 
 /**
