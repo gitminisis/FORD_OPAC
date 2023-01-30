@@ -322,7 +322,7 @@ class FilterModal {
     else if (name === "A_MEDIA_MODEL")
       return "Model"
     else if (name === "A_MEDIA_YEAR")
-      return "Year"
+      return "Ford Year"
     else if (name === "A_MEDIA_COLOR")
       return "Color"
     else if (name === "A_MEDIA_TYPE")

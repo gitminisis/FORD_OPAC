@@ -88,7 +88,7 @@ $(document).ready(function () {
 
 
 
-  
+
   $(".filterDropdown li").on("click", function () {
     filter.selectFilterValue($(this));
     setTimeout(function () {
@@ -150,25 +150,37 @@ $(document).ready(function () {
   })
 });
 
+const filterList = ['year', 'make', 'model', "place", "design", "publication"];
+
 class Filter {
   constructor() {
     this.year = "";
     this.make = "";
     this.model = "";
     this.color = "";
+    this.place = "";
+    this.design = "";
+    this.publication = "";
     this.assetType = [];
     this.keyword = "";
+
   }
   isEmpty() {
-    return this.year === '' && this.make === '' && this.model === '' && this.color === '' && this.assetType.length === 0 && this.keyword === '';
+    for (let key in this) {
+      if (this.assetType.length !== 0) {
+        return false;
+      }
+      if (key !== "assetType" && this[key] !== "") {
+        return false;
+      }
+    }
+    return true;
   }
+
   resetAll() {
-    this.year = "";
-    this.make = "";
-    this.model = "";
-    this.color = "";
-    this.assetType = [];
-    this.keyword = "";
+    for (let key in this) {
+      this[key] = key === "assetType" ? [] : ""
+    }
   }
 
   resetColor() {
@@ -179,7 +191,6 @@ class Filter {
   setDropdownListHandler() {
     let filter = this;
     $(".filterDropdown ul li").on("click", function () {
-
       filter.selectFilterValue($(this));
       setTimeout(function () {
         filter.closeAllFilter();
@@ -217,16 +228,16 @@ class Filter {
       .parent()
       .find("input");
     let filter = filterText.data("filter").toLowerCase();
+    this.updateHiddenKeywordValue();
+
     if (value === '' || value === 'None') {
       filterText.val(filterText.data("filter"));
       this[filter] = '';
-      this.updateHiddenKeywordValue();
       return;
     }
 
     filterText.val(value);
     this[filter] = value;
-    this.updateHiddenKeywordValue();
   }
 
   closeAllFilter(excl) {
@@ -241,15 +252,18 @@ class Filter {
 
   generateSearchExpression() {
     let searchExpression = '';
-    let yearExp = this.year.trim() === '' ? '' : `${FIELD_NAME.year} "${this.year}"`;
-    let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} "${this.make}"`;
-    let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} "${this.model}"`;
+    let arrayExpression = [];
+    filterList.map(filter => {
+      arrayExpression.push(this[filter].trim() === '' ? '' : `${FIELD_NAME[filter]} "${this[filter]}"`)
+    })
+
     let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} "${this.color}"`;
+
     let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType}${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
+    arrayExpression.push(colorExp, assetExp);
 
-
-    searchExpression = [yearExp, makeExp, modelExp, colorExp, assetExp].filter(e => e !== '').join(' AND ')
+    searchExpression = arrayExpression.filter(e => e !== '').join(' AND ')
     return searchExpression.trim();
   }
 
@@ -259,39 +273,12 @@ class Filter {
     let value = this.generateSearchExpression();
     this.setFilterSessionStorage();
     $('#hiddenKeywordInput').val(value);
-    this.updateDropdownUI();
+    // this.updateDropdownUI();
   }
 
 
   updateDropdownUI() {
 
-    if (this.year !== '') {
-      $('#yearFilterValue').parent().css('border-color', '#00095B')
-      $('#yearFilterValue').parent().css('border-width', '2px')
-    }
-    else if (this.year === '') {
-      $('#yearFilterValue').parent().css('border-color', 'black')
-      $('#yearFilterValue').parent().css('border-width', '1px')
-    }
-
-
-    if (this.make !== '') {
-      $('#makeFilterValue').parent().css('border-color', '#00095B')
-      $('#makeFilterValue').parent().css('border-width', '2px')
-    }
-    else if (this.make === '') {
-      $('#makeFilterValue').parent().css('border-color', 'black')
-      $('#makeFilterValue').parent().css('border-width', '1px')
-    }
-
-    if (this.model !== '') {
-      $('#modelFilterValue').parent().css('border-color', '#00095B')
-      $('#modelFilterValue').parent().css('border-width', '2px')
-    }
-    else if (this.model === '') {
-      $('#modelFilterValue').parent().css('border-color', 'black')
-      $('#modelFilterValue').parent().css('border-width', '1px')
-    }
   }
 
 
@@ -320,29 +307,13 @@ class Filter {
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
-      $(`#${id}FilterList`).append("<li>None</li>")
+      $(`#${id}FilterList`).append("<li></li>")
       $(`#${id}FilterList`).append(optionArrayList.join(''));
       this.initUIHandler()
     })
   }
 
-  setColorFilter(id, exp) {
-    let url = this.getClusterUrl(exp);
-    $.get(url).then(response => {
-      let x2js = new X2JS({
-        arrayAccessFormPaths: [
-          "cluster.index_list.option"
-        ]
-      });
-      var jsonObj = x2js.xml_str2json(response);
-      let optionArray = jsonObj.cluster.index_list.option;
-      let optionArrayList = optionArray.map(el => `<span class="w-[32px] h-[32px] bg-${el} rounded-full inline-block colorFilter"
-      data-color="${el}"></span>`)
 
-      $(`#${id}Filter`).append(optionArrayList.join(''));
-      this.initUIHandler();
-    })
-  }
 
   initUIHandler() {
     let filter = this;
@@ -353,15 +324,12 @@ class Filter {
       }, 10);
     });
 
-
-
-
   }
 
   getFilterJSON() {
 
-    let { keyword, year, make, model, color, assetType } = this;
-    return { keyword, year, make, model, color, assetType };
+    let { keyword, year, make, model, color, assetType, place, design, publication } = this;
+    return { keyword, year, make, model, color, assetType, place, design, publication };
   }
 
   setFilterSessionStorage() {
@@ -375,9 +343,8 @@ class Filter {
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
-    $('.filterDropdown li').css('display','list-item')
+    $('.filterDropdown li').css('display', 'list-item')
     $('input[type=checkbox]').prop('checked', false);
-    this.updateDropdownUI();
 
   }
 
@@ -388,11 +355,11 @@ class Filter {
   }
 
   init() {
-    const filterList = ['year', 'make', 'model'];
-    // filterList.map(filter => {
-    //   this.setClusterDropdown(filter, FIELD_NAME[filter])
-    // })
-    // this.setColorFilter('color', FIELD_NAME.color);
+
+    filterList.map(filter => {
+      this.setClusterDropdown(filter, FIELD_NAME[filter])
+    })
+
     this.initTooltip();
     this.initUIHandler();
     this.setFilterSessionStorage();
@@ -406,5 +373,8 @@ const FIELD_NAME = {
   model: "A_MEDIA_MODEL",
   color: "A_MEDIA_COLOR",
   assetType: "A_MEDIA_TYPE ",
-  keyword: "KEYWORD_CL"
+  keyword: "KEYWORD_CL",
+  place: "LEVEL_DESC",
+  design: "DESC_TYPE",
+  publication: "SUBJECT"
 }
