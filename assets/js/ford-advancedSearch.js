@@ -294,7 +294,7 @@ class Filter {
   getClusterUrl(exp) {
     let session = $("#sessionid").text().trim();
 
-    return `${session}/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}`;
+    return `/scripts/mwimain.dll/FIRST?INDEXLIST&KEYNAME=${exp}&DATABASE=DESCRIPTION_OPAC3&form=[FORD_INCLUDE]html/cluster.html&TITLE=Browse%20${exp}&APPLICATION=DESCRIPTION_OPAC3&LANGUAGE=144`;
   }
 
   getClusterValue(exp) {
