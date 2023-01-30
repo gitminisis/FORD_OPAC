@@ -1,32 +1,42 @@
 <!-- Start of Grid/List Toggle -->
-<div
-  class="w-full h-auto bg-white px-[15px] lg:px-[100px] hidden lg:flex flex-col pt-[40px]"
->
+<div class="w-full h-auto bg-white px-[15px] lg:px-[100px] hidden lg:flex flex-col pt-[40px]">
   <div class="grid justify-items-end">
     <div class="flex justify-evenly">
       <div class="">
-        <button
-          class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center gridSwitchButton"
-        >
+        <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center gridSwitchButton">
           <a href="#"> <span class="material-icons"> apps </span></a>
         </button>
       </div>
 
       <div class="">
-        <button
-          class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center listSwitchButton"
-        >
+        <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center listSwitchButton">
           <a href="#"> <span class="material-icons"> menu </span></a>
         </button>
       </div>
 
       <div class="">
-        <button
-          class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center filterToggle"
-        >
+        <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center filterToggle">
           <a href="#"> <span class="material-icons"> tune </span></a>
         </button>
       </div>
+    </div>
+  </div>
+
+  <div class="grid justify-items-end">
+    <div class="py-2">
+
+      <div class="dropdown inline-block relative">
+        <button
+          class="border-[#243c5a] border text-gray-700  py-2 px-4  inline-flex items-center w-[180px] flex justify-between">
+          <span class="mr-1" id="currentReportOption"></span>
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu absolute hidden border-[#243c5a] border w-[180px] sortOptions z-[99999]">
+        </ul>
+      </div>
+
     </div>
   </div>
 </div>

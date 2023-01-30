@@ -122,7 +122,7 @@
 
 .filterDropdown,
 .surveyDropdown {
-  max-height: 250px;
+  max-height: 270px;
   visibility: visible;
   transition: all 0.17s ease-in;
 }
@@ -719,4 +719,27 @@
 .filterDropdown li:hover {
   font-weight: bold;
   text-decoration: underline;
+}
+
+
+#totalRecord {
+  font-size: 1.5rem;
+}
+
+#searchStatement {
+  font-size: 1.2rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.sortList {
+  overflow-wrap: anywhere;
+  background: white;
+}
+
+.sortList:hover {
+  background-color: #243c5a;
+  color: white;
 }

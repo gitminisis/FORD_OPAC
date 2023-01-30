@@ -20,10 +20,19 @@ $(document).ready(function () {
 
     $(".downloadRecord").on("click", function () {
       let recordDOM = $(this).parent().parent().parent();
-
       let accessURL = summary.getAccessURL(recordDOM);
       downloader.downloadSingleAsset(accessURL);
     })
+
+    $(".copyRecord").on("click", function () {
+      let recordDOM = $(this).parent().parent().parent();
+      let SISN = recordDOM.find('.hiddenRecordSISN').text();
+      let url = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${SISN}`
+      debugger;
+      copyToClipboard(url);
+    })
+
+
 
     $(".bookmarkRecord").on("click", function () {
       let recordDOM = $(this).parent().parent().parent();
@@ -211,17 +220,60 @@ class Summary extends Report {
     filter.init();
   }
 
+  setSortOptions() {
+    const SORT_REPORTS_NAME = {
+      "FORD_SUMMARY": {
+        full: 'Default',
+        short: "Default"
+      },
+      "FORD_SORT_YEAR_ASC": {
+        full: "Year Ascending",
+        short: "Year Asc."
+      },
+      "FORD_SORT_YEAR_DSC": {
+        full: "Year Descending",
+        short: "Year Dsc."
+      },
+      "FORD_SORT_TITLE_ASC": {
+        full: "Title Ascending",
+        short: "Title Asc."
+      },
+      "FORD_SORT_TITLE_DSC": {
+        full: "Title Descending",
+        short: "Title Dsc."
+      },
+    }
+    let sortReports = document.getElementById('sortReports')
+    let x2js = new X2JS({
+      arrayAccessFormPaths: [
 
+      ]
+    })
+    let curReportName = $("#currentReport").text().trim()
+    if(curReportName === ''){
+      curReportName = "FORD_SUMMARY"
+    }
+    let currentReport = SORT_REPORTS_NAME[curReportName].short
+
+    let json = x2js.xml2json(sortReports);
+    console.log(json)
+    let options = json.span;
+    let htmlOptions = options.map(el => `<li ><a href=${el.__text.replace(/\n/gi, "")} class="flex justify-between sortList py-2 px-4 block " href="#">${SORT_REPORTS_NAME[el["_data-sort"]].short}${curReportName === el["_data-sort"] ? '<span class="material-icons">done</span>' : ""}</a></li>`)
+    $('.sortOptions').append(htmlOptions)
+    $('#currentReportOption').text(currentReport)
+  }
 
 
   init() {
     this.setTotalRecord();
+    this.setSearchStatement();
     this.setGridListToggle();
     this.createPagination();
     this.setRecordThumbnail();
     this.initSummaryFilter();
     this.setCheckedRecord();
     this.setButtonTooltip();
+    this.setSortOptions();
 
   }
 }
