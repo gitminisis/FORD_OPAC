@@ -150,7 +150,6 @@ $(document).ready(function () {
   })
 });
 
-const filterList = ['year', 'make', 'model', "place", "design", "publication"];
 
 class Filter {
   constructor() {
@@ -228,6 +227,15 @@ class Filter {
       .parent()
       .find("input");
     let filter = filterText.data("filter").toLowerCase();
+    debugger
+    if (NON_MODEL_SEARCH.indexOf(filter) !== -1) {
+      let otherNonModel = [...NON_MODEL_SEARCH].filter(e => e !== filter)
+      otherNonModel.map(e => {
+        let inputText = $(`#${e}FilterList`).parent().parent().find('input')
+        inputText.attr('disabled', true)
+        inputText.css('background','#d6d6d6')
+      })
+    }
     this.updateHiddenKeywordValue();
 
     if (value === '' || value === 'None') {
@@ -235,6 +243,7 @@ class Filter {
       this[filter] = '';
       return;
     }
+
 
     filterText.val(value);
     this[filter] = value;
@@ -340,6 +349,8 @@ class Filter {
     this.resetAll();
     $("#advancedSearchInput").val('');
     $(".filterText").val('');
+    $(".filterText").attr('disabled',false);
+    $(".filterText").css('background','transparent');
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
@@ -378,3 +389,6 @@ const FIELD_NAME = {
   design: "DESC_TYPE",
   publication: "SUBJECT"
 }
+const filterList = ['year', 'make', 'model', "place", "design", "publication"];
+
+const NON_MODEL_SEARCH = ['place', 'design', 'publication']
