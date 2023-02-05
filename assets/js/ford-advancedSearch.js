@@ -24,7 +24,7 @@ $(document).ready(function () {
   // Request Modal section
 
   // Toggle the collpase filter
-  $(".filterButton").on("click", function () {
+  function toggleFilterButton() {
     if (document.getElementsByClassName('noSessionBanner').length !== 0) {
       new MessageModal('Please click the button to start a new session.').open();
       return;
@@ -39,8 +39,13 @@ $(document).ready(function () {
         $("#advancedSearchInput").focus();
       }
     }, 300);
+  }
+  $(".filterButton").on("click", function () {
+    toggleFilterButton();
   });
-
+  $(".filterButtonMobile").on("click", function () {
+    toggleFilterButton();
+  });
 
 
   // Expand filter on focus
@@ -136,17 +141,18 @@ $(document).ready(function () {
     filter.resetUI();
   })
 
-  $('#advanced-submit').on('click', function () {
+
+
+
+  $('#advancedSearchForm').on('submit', function (e) {
     if (filter.isEmpty()) {
+      e.preventDefault();
       let toast = new MessageModal('Please input a keyword for the search')
       toast.open();
     }
-
-    else {
-
-      $('#advancedSearchForm').submit();
-    }
-
+  })
+  $('#advanced-submit').on('click', function () {
+    $('#advancedSearchForm').submit();
   })
 });
 
@@ -233,20 +239,22 @@ class Filter {
       otherNonModel.map(e => {
         let inputText = $(`#${e}FilterList`).parent().parent().find('input')
         inputText.attr('disabled', true)
-        inputText.css('background','#d6d6d6')
+        inputText.css('background', '#d6d6d6')
       })
     }
-    this.updateHiddenKeywordValue();
+
 
     if (value === '' || value === 'None') {
       filterText.val(filterText.data("filter"));
       this[filter] = '';
+      this.updateHiddenKeywordValue();
       return;
     }
 
 
     filterText.val(value);
     this[filter] = value;
+    this.updateHiddenKeywordValue();
   }
 
   closeAllFilter(excl) {
@@ -268,7 +276,7 @@ class Filter {
 
     let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} "${this.color}"`;
 
-    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType}${a}`).join(' OR ').trim()
+    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
     arrayExpression.push(colorExp, assetExp);
 
@@ -279,8 +287,10 @@ class Filter {
   updateHiddenKeywordValue() {
     let keyword = $('#advancedSearchInput').val();
     this.keyword = keyword;
+    debugger;
     let value = this.generateSearchExpression();
     this.setFilterSessionStorage();
+    debugger;
     $('#hiddenKeywordInput').val(value);
     // this.updateDropdownUI();
   }
@@ -349,8 +359,8 @@ class Filter {
     this.resetAll();
     $("#advancedSearchInput").val('');
     $(".filterText").val('');
-    $(".filterText").attr('disabled',false);
-    $(".filterText").css('background','transparent');
+    $(".filterText").attr('disabled', false);
+    $(".filterText").css('background', 'transparent');
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
@@ -383,11 +393,11 @@ const FIELD_NAME = {
   make: "A_MEDIA_MAKE",
   model: "A_MEDIA_MODEL",
   color: "A_MEDIA_COLOR",
-  assetType: "A_MEDIA_TYPE ",
+  assetType: "A_MEDIA_TYPE",
   keyword: "KEYWORD_CL",
-  place: "LEVEL_DESC",
-  design: "DESC_TYPE",
-  publication: "SUBJECT"
+  place: "FORD_PLACE",
+  design: "FORD_DSGN_CNCPT",
+  publication: "FORD_PUBLICATNS"
 }
 const filterList = ['year', 'make', 'model', "place", "design", "publication"];
 

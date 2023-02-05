@@ -96,7 +96,6 @@ class Report {
                 report.bookmarkToChecked(bookmarkRecordBtn)
             }
             else {
-                console.log(recordDOM)
                 let bookmarkRecordBtn = recordDOM.find('.bookmarkRecord');
                 report.bookmarkToChecked(bookmarkRecordBtn)
             }
