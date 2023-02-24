@@ -184,8 +184,11 @@ class Detail extends Report {
 
 
       }
-      if (mediaType === 'Textual' && (!document.getElementById('a_media_img_type') || document.getElementById('a_media_img_type').text().toLowerCase() === 'no')) {
+      if (mediaType === 'Textual') {
         downloadSectionDOM.append(downloadSectionString('Brochure'))
+        if ((document.getElementById('a_media_img_type') && document.getElementById('a_media_img_type').innerText.toLowerCase() === 'Yes')) {
+          return;
+        }
         let requestModal = new PDFRequest();
         $("#requestPDF").text(BOOKMARK_TEXT)
         $("#requestPDF").on('click', function () {

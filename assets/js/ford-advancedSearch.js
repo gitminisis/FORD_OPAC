@@ -235,6 +235,14 @@ class Filter {
     let filter = filterText.data("filter").toLowerCase();
     debugger
     if (NON_MODEL_SEARCH.indexOf(filter) !== -1) {
+      let otherNonModel = [...filterList].filter(e => e !== filter)
+      otherNonModel.map(e => {
+        let inputText = $(`#${e}FilterList`).parent().parent().find('input')
+        inputText.attr('disabled', true)
+        inputText.css('background', '#d6d6d6')
+      })
+    }
+    else {
       let otherNonModel = [...NON_MODEL_SEARCH].filter(e => e !== filter)
       otherNonModel.map(e => {
         let inputText = $(`#${e}FilterList`).parent().parent().find('input')
