@@ -1,10 +1,7 @@
 <!-- Start of Top Bar -->
 <div
-  class="w-full h-24 bg-[#F4F4F4] flex flex-row justify-between place-items-center px-[15px] lg:px-[100px]"
->
-  <div
-    class="ford-breadcrumb text-[18px] font-medium leading-[59px] hidden lg:block text-[#6C6C6C]"
-  >
+  class="w-full h-[auto] bg-[#F4F4F4] flex flex-row justify-between place-items-center px-[15px] py-[20px] lg:px-[100px]">
+  <div class="ford-breadcrumb text-[18px] font-medium leading-[59px] hidden lg:block text-[#6C6C6C]">
     <a href="/" class="homepageURL">Home Search</a>
     <span>></span>
     <span class="text-[#243C5A]" id="">Result</span>
@@ -12,7 +9,7 @@
 
   <div class="font-medium text-[#243C5A]">
     <p>
-      <span id="totalRecord" ></span>
+      <span id="totalRecord"></span>
       <span class="text-[#6C6C6C]">Results</span>
       <span class="text-[#243C5A]" id="searchStatement"></span>
     </p>
@@ -20,28 +17,38 @@
 
   <div class="flex lg:hidden justify-evenly">
     <div class="">
-      <button
-        class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center gridSwitchButton"
-      >
+      <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center gridSwitchButton">
         <a href="#"> <span class="material-icons"> apps </span></a>
       </button>
     </div>
 
     <div class="">
-      <button
-        class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center listSwitchButton"
-      >
+      <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center listSwitchButton">
         <a href="#"> <span class="material-icons"> menu </span></a>
       </button>
     </div>
 
     <div class="">
-      <button
-        class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center filterModalButton"
-      >
+      <button class="h-[40px] w-[60px] border-[1px] border-solid text-[14px] grid content-center filterModalButton">
         <a href="#"> <span class="material-icons"> tune </span></a>
       </button>
     </div>
   </div>
+</div>
+
+<div class="py-2 flex lg:hidden px-[15px] justify-end">
+
+  <div class="dropdown inline-block relative">
+    <button
+      class="border-[#243c5a] border text-gray-700  py-2 px-2  inline-flex items-center w-[180px] flex justify-between">
+      <span class="mr-1 currentReportOption"></span>
+      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+      </svg>
+    </button>
+    <ul class="dropdown-menu absolute hidden border-[#243c5a] border w-[180px] sortOptions z-[99999]">
+    </ul>
+  </div>
+
 </div>
 <!-- End of Top Bar -->

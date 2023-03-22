@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4db99c8162d04ef281162369bfc4b4e7/thumbnail",
-                refd: "AR-2001-86-102180.1.4.2",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f3d18bec07d5460f8bbcc9920cd60539/thumbnail",
+                refd: "AR-2001-94-208806.26.4.3",
                 scope: undefined,
-                title: "1982 Ford F-100 F-250 F-350"
+                title: "1994 Ford Mustang two-door"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8daa0015379a49658361f46047e87c2b/thumbnail",
-                refd: "AR-96-212010.5592",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fcfe49f855094f7dbeabf6db51dfe4a1/thumbnail",
+                refd: "AR-2008-8.1.2.6455",
                 scope: undefined,
-                title: "1948 Ford F-Series Trucks brochure"
+                title: "1975 Ford Granada four-door CN9002-012"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bb4a67f0057f4fae8652076e758673e8/thumbnail",
-                refd: "AR-2008-8.1.4.453",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/09f8dbe6b1924ae2b816c3bb4476de10/thumbnail",
+                refd: "AR-2008-8.1.2.9585",
                 scope: undefined,
-                title: "1951 Ford F-1 on Dearborn Test Track neg C364-1",
+                title: "2000 Ford F-150 scenic neg CN331011-298",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d0f58bc192a44c08702f9475bb1c4e9/thumbnail",
-                refd: "AR-2008-8.1.4.670",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1a6ed43430174e29b8e42414da9c0a9d/thumbnail",
+                refd: "AR-2008-8.1.2.7237",
                 scope: undefined,
-                title: "1978 Ford F-150 Ranger pickup truck neg CN19511-321",
+                title: "1999 Ford Windstar SEL neg CN329010-103",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b547cfbbfae44265813af0188e5d77cb/thumbnail",
-                refd: "AR-2008-8.1.4.764",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/39380b66872247908096273fc7587c34/thumbnail",
+                refd: "AR-96-212010.7760",
                 scope: undefined,
-                title: "1994 Ford F150 XLT flareside neg CN309007-363",
+                title: "c 1991 Ford Ecostar Electric Van concept brochure",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b41bff725e3545abb2d7c7bc2b488e23/thumbnail",
-                refd: "AR-2008-8.1.4.566",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d4fdc9fec167453eb38c5dce38379cee/thumbnail",
+                refd: "AR-2008-8.1.11.493",
                 scope: undefined,
-                title: "1961 Ford F-100 Styleside pickup truck neg C1048-16",
+                title: "1975 Mercury Monarch with blurred scenic background Neg CN9010-103",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d0a0bef1ad1d4d9889055a50ff5d0ce0/thumbnail",
-                refd: "AR-2008-8.1.4.549",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/932b3377c19b43ec9349df994884a5a9/thumbnail",
+                refd: "AR-96-212010.3368",
                 scope: undefined,
-                title: "1959 Ford F-100 Styleside pickup truck neg C909-0",
+                title: "1977 Lincoln Continental Mark V brochure",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/91b8d40d47d54b39a5892adb660a324b/thumbnail",
-                refd: "AR-2008-8.1.4.576",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3c7e8e46fb214808bde6a6c70df461ce/thumbnail",
+                refd: "AR-2008-8.1.1.1184",
                 scope: undefined,
-                title: "1963 Ford F-250 4x4 pickup truck neg C1092-007",
+                title: "1999 Lincoln Navigator neg CN329024-123",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4ffb5c5b0466424f98b7171ce5abb2a3/thumbnail",
-                refd: "AR-2008-8.1.4.555",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/53c270faa5f54bf5abbfc9034d8e9ee4/thumbnail",
+                refd: "AR-96-212010.3768",
                 scope: undefined,
-                title: "1960 Ford F-100 Custom Cab pickup truck front neg C1007-003",
+                title: "2011 Ford Edge brochure",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d2d067266a54ea0975aa73690d3585d/thumbnail",
-                refd: "AR-2001-94-208806.23.7.1",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b7ee9429ec56460ebad91345907cc8b0/thumbnail",
+                refd: "AR-2001-94-208806.25.1.2",
                 scope: undefined,
-                title: "1991 Ford F-150 F-250 F-350",
+                title: "1993 Ford Probe two-door",
             },
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))

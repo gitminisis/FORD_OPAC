@@ -122,6 +122,7 @@ class Survey {
 
         let survey = this;
         let SESSID = document.getElementById('sessionid').innerText.trim();
+        SESSID = SESSID === '^sessid^' ? '/script/mwimain.dll' : SESSID
         let subject = survey.subject;
         let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`
         let receiver = 'archives@ford.com'
@@ -173,6 +174,11 @@ class Survey {
         $('#surveyButton').on('click', function (e) {
             survey.openModal();
         })
+
+        $('.contactUs').on('click', function (e) {
+            survey.openModal();
+        })
+
 
 
         $('.surveyCloseButton').on('click', function (e) {

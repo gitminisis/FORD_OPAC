@@ -163,7 +163,6 @@ class Detail extends Report {
   initDownloadSection() {
 
     let detail = this;
-
     let downloadSectionDOM = $("#download-section");
     let { assets } = this;
     if (assets.length === 0) {
@@ -186,7 +185,7 @@ class Detail extends Report {
       }
       if (mediaType === 'Textual') {
         downloadSectionDOM.append(downloadSectionString('Brochure'))
-        if ((document.getElementById('a_media_img_type') && document.getElementById('a_media_img_type').innerText.toLowerCase() === 'Yes')) {
+        if ((document.getElementById('a_media_img_type') && document.getElementById('a_media_img_type').innerText.toLowerCase() === 'yes')) {
           return;
         }
         let requestModal = new PDFRequest();

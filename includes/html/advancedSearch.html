@@ -60,51 +60,6 @@
     </div>
   </div>
   <!-- End of Model -->
-  <!-- Start of Places -->
-  <div class="col-span-6 md:col-span-6 xl:col-span-2 xl:col-start-1">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Places</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Place" placeholder="Places" />
-
-
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="placeFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Places -->
-
-
-
- 
-  <!-- Start of Designs -->
-  <div class="col-span-6 md:col-span-6 xl:col-span-3 ">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Designs/Concepts</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Design" placeholder="Designs/Concepts" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="designFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Designs -->
-   <!-- Start of Publications -->
-   <div class="col-span-12 md:col-span-12 xl:col-span-3 ">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Publication" placeholder="Publications" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="publicationFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Publications -->
 
   <div class="col-span-12 md:col-span-12 xl:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
@@ -125,6 +80,50 @@
         data-color="yellow"></span>
     </div>
   </div>
+
+  <!-- Start of Publications -->
+  <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
+
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Publication" placeholder="Publications" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="publicationFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Publications -->
+
+  <!-- Start of Designs -->
+  <div class="col-span-12 md:col-span-6 xl:col-span-3 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Designs/Concepts</span>
+
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Design" placeholder="Designs/Concepts" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="designFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Designs -->
+
+  <!-- Start of Places -->
+  <div class="col-span-12 md:col-span-12 xl:col-span-7 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Places</span>
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Place" placeholder="Places" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="placeFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Places -->
+
+
+
   <div class="col-span-12 md:col-span-12 xl:col-span-4 xl:col-start-1">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
 
@@ -140,14 +139,14 @@
         <input type="checkbox" data-asset="Textual" id="documentAssetType"
           class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
 
-        <label class="" for="documentAssetType">Brochures </label>
+        <label class="" for="documentAssetType">Documents</label>
       </div>
     </div>
   </div>
 
   <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
     <div>
-      <button class="color-[#00095B] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
+      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
         Reset
       </button>
     </div>

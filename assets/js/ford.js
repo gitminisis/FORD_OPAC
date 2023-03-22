@@ -568,7 +568,7 @@ class SummaryFilter {
 
 
                 if (group.item_value === 'Textual') {
-                    group.item_value = "Brochures"
+                    group.item_value = "Documents"
                 }
 
                 if (typeof group.item_link === 'string') {

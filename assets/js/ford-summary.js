@@ -250,17 +250,17 @@ class Summary extends Report {
       ]
     })
     let curReportName = $("#currentReport").text().trim()
-    if(curReportName === ''){
+    if (curReportName === '') {
       curReportName = "FORD_SUMMARY"
     }
-    let currentReport = SORT_REPORTS_NAME[curReportName].short
+    let currentReport = SORT_REPORTS_NAME[curReportName].full
 
     let json = x2js.xml2json(sortReports);
     console.log(json)
     let options = json.span;
-    let htmlOptions = options.map(el => `<li ><a href=${el.__text.replace(/\n/gi, "")} class="flex justify-between sortList py-2 px-4 block " href="#">${SORT_REPORTS_NAME[el["_data-sort"]].short}${curReportName === el["_data-sort"] ? '<span class="material-icons">done</span>' : ""}</a></li>`)
+    let htmlOptions = options.map(el => `<li ><a href=${el.__text.replace(/\n/gi, "")} class="flex justify-between sortList py-2 px-2 block " href="#">${SORT_REPORTS_NAME[el["_data-sort"]].full}${curReportName === el["_data-sort"] ? '<span class="material-icons">done</span>' : ""}</a></li>`)
     $('.sortOptions').append(htmlOptions)
-    $('#currentReportOption').text(currentReport)
+    $('.currentReportOption').text(currentReport)
   }
 
 
@@ -322,7 +322,7 @@ class FilterModal {
     else if (name === "A_MEDIA_MODEL")
       return "Model"
     else if (name === "A_MEDIA_YEAR")
-      return "Ford Year"
+      return "Model Year"
     else if (name === "A_MEDIA_COLOR")
       return "Color"
     else if (name === "A_MEDIA_TYPE")
@@ -357,7 +357,7 @@ class FilterModal {
           group.item_value = "Images"
         }
         if (group.item_value === 'Textual') {
-          group.item_value = "Brochures"
+          group.item_value = "Documents"
         }
 
 

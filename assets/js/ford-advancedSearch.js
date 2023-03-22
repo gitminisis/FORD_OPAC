@@ -2,14 +2,18 @@ $(document).ready(function () {
   let filter = new Filter();
   let isLoaded = false;
   $(".colorFilter").on("click", function (e) {
+    if (filter.isNonModelSelected) {
+      let toast = new MessageModal('Color selections are not active when Place, Publication or Design/Concept is selected')
+      toast.open();
+      return;
+    }
     $(".colorFilter").each(function (e) {
       $(this).removeClass("selectedColorFilter");
     });
     let color = $(this).data("color");
-
     if (filter.color !== color) {
       $(this).addClass("selectedColorFilter");
-      filter.color = color;
+      filter.setColor(color);
     } else {
       filter.resetColor();
     }
@@ -51,8 +55,7 @@ $(document).ready(function () {
   // Expand filter on focus
   $(".filterSelect input").focus(function () {
 
-    // let expand = $(this).find($(".expand"));
-    // let dropdown = $(this).find($(".filterDropdown"));
+
 
     filter.openFilter($(this).parent());
     $(document).keyup(function (e) {
@@ -65,11 +68,7 @@ $(document).ready(function () {
 
 
   }).focusout(function () {
-    // filter.closeAllFilter();
-    // let filterType = $(this).data("filter").toLowerCase()
 
-    // $(this).val('')
-    // filter.resetFilterValue(filterType)
 
   });
 
@@ -168,7 +167,16 @@ class Filter {
     this.publication = "";
     this.assetType = [];
     this.keyword = "";
+    this.isNonModelSelected = false;
 
+  }
+  setColor(color) {
+    this.color = color;
+    [...NON_MODEL_SEARCH].map(e => {
+      let inputText = $(`#${e}FilterList`).parent().parent().find('input')
+      inputText.attr('disabled', true)
+      inputText.css('background', '#d6d6d6')
+    })
   }
   isEmpty() {
     for (let key in this) {
@@ -190,6 +198,14 @@ class Filter {
 
   resetColor() {
     this.color = '';
+
+    for (let i = 0; i < MODEL_SEARCH.length; i++) {
+      if (this[MODEL_SEARCH[i]] !== '') {
+        return;
+      }
+    }
+    this.resetUI();
+
   }
 
 
@@ -233,9 +249,10 @@ class Filter {
       .parent()
       .find("input");
     let filter = filterText.data("filter").toLowerCase();
-    debugger
     if (NON_MODEL_SEARCH.indexOf(filter) !== -1) {
       let otherNonModel = [...filterList].filter(e => e !== filter)
+      this.isNonModelSelected = true;
+
       otherNonModel.map(e => {
         let inputText = $(`#${e}FilterList`).parent().parent().find('input')
         inputText.attr('disabled', true)
@@ -264,7 +281,9 @@ class Filter {
     this[filter] = value;
     this.updateHiddenKeywordValue();
   }
-
+  disableColorOptions() {
+    $('.colorFilter').unbind('click')
+  }
   closeAllFilter(excl) {
     let dropdown = $(".filterDropdown");
     dropdown.each(function () {
@@ -295,10 +314,8 @@ class Filter {
   updateHiddenKeywordValue() {
     let keyword = $('#advancedSearchInput').val();
     this.keyword = keyword;
-    debugger;
     let value = this.generateSearchExpression();
     this.setFilterSessionStorage();
-    debugger;
     $('#hiddenKeywordInput').val(value);
     // this.updateDropdownUI();
   }
@@ -325,6 +342,7 @@ class Filter {
 
   setClusterDropdown(id, exp) {
     let url = this.getClusterUrl(exp);
+    $(`#${id}FilterList`).append('<li style="pointer-events:none;">Loading...</li>')
     $.get(url).then(response => {
       let x2js = new X2JS({
         arrayAccessFormPaths: [
@@ -334,6 +352,7 @@ class Filter {
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
       let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
+      $(`#${id}FilterList`).empty();
       $(`#${id}FilterList`).append("<li></li>")
       $(`#${id}FilterList`).append(optionArrayList.join(''));
       this.initUIHandler()
@@ -374,7 +393,7 @@ class Filter {
     });
     $('.filterDropdown li').css('display', 'list-item')
     $('input[type=checkbox]').prop('checked', false);
-
+    this.isNonModelSelected = false;
   }
 
   initTooltip() {
@@ -384,7 +403,6 @@ class Filter {
   }
 
   init() {
-
     filterList.map(filter => {
       this.setClusterDropdown(filter, FIELD_NAME[filter])
     })
@@ -410,3 +428,4 @@ const FIELD_NAME = {
 const filterList = ['year', 'make', 'model', "place", "design", "publication"];
 
 const NON_MODEL_SEARCH = ['place', 'design', 'publication']
+const MODEL_SEARCH = ['year', 'make', 'model',]
