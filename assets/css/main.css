@@ -743,3 +743,11 @@
   background-color: #243c5a;
   color: white;
 }
+
+.contactUs {
+  cursor: pointer;
+}
+
+.contactUs:hover {
+  text-decoration: underline;
+}
