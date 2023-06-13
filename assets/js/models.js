@@ -56,6 +56,7 @@ class Report {
         new Tooltip($('.bookmarkRecord'), 'Add to Collection').init()
         new Tooltip($('.downloadRecord'), 'Download Asset').init();
         new Tooltip($('.checkedRecord'), 'Added to Collection').init()
+        new Tooltip($('.copyRecord'), 'Copy Link').init()
     }
 
     setCheckedRecord() {
@@ -95,7 +96,6 @@ class Report {
                 report.bookmarkToChecked(bookmarkRecordBtn)
             }
             else {
-                console.log(recordDOM)
                 let bookmarkRecordBtn = recordDOM.find('.bookmarkRecord');
                 report.bookmarkToChecked(bookmarkRecordBtn)
             }
@@ -130,6 +130,16 @@ class Report {
             new MessageModal(`Collection has been cleared`).open()
             setTimeout(function () { window.location = '/index.html' }, 800)
         })
+    }
+
+    setSearchStatement (){
+        let hiddenSearchStatement = document.querySelector(".search_statement");
+        if (hiddenSearchStatement) {
+            $("#searchStatement").prev().text('Results for')
+            $("#searchStatement").text(` ${hiddenSearchStatement.innerText}`);
+        }
+      
+        
     }
 }
 

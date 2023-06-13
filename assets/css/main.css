@@ -720,3 +720,34 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+
+#totalRecord {
+  font-size: 1.5rem;
+}
+
+#searchStatement {
+  font-size: 1.2rem;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.sortList {
+  overflow-wrap: anywhere;
+  background: white;
+}
+
+.sortList:hover {
+  background-color: #243c5a;
+  color: white;
+}
+
+.contactUs {
+  cursor: pointer;
+}
+
+.contactUs:hover {
+  text-decoration: underline;
+}

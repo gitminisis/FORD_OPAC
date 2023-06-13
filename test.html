@@ -3,9 +3,12 @@
 <html lang="en">
 
 <head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Expires" content="Fri, 18 Jul 2014 1:00:00 GMT" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="The Ford Heritage Vault spans Ford Motor Company's production history from 1903 to 2003. Tour the vault and create a collection of photographs and brochures to download and share!">
+  <meta name="description"
+    content="The Ford Heritage Vault spans Ford Motor Company's production history from 1903 to 2003. Tour the vault and create a collection of photographs and brochures to download and share!">
   <meta name="keywords" content="Ford, Ford Heritage Vault, Ford cars, Archive, Collections">
   <link rel="icon" href="/assets/favicon.ico" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -32,8 +35,9 @@
     }
   </script>
   <title>Hop in the Driver's Seat | Ford Heritage Vault</title>
+
 </head>
-<span id="sessionid" hidden>https://FORD.MINISISINC.COM/SCRIPTS/MWIMAIN.DLL/124393053</span>
+<span id="sessionid" hidden>^sessid^</span>
 
 <body>
   <div class="progress-container">
@@ -47,8 +51,8 @@
 <div id="header relative">
   <nav class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl">
     <div class="flex justify-center align-middle items-center">
-      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo" class="h-[35px] mx-1" src="/assets/images/ford-logo.png" /><img
-          alt="Ford Heritage Vault Logo" class="h-[35px] mx-1" src="/assets/images/logo.png" />
+      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo" class="h-[30px] mx-1" src="/assets/images/ford-logo.png" /><img
+          alt="Ford Heritage Vault Logo" class="h-[30px] mx-1" src="/assets/images/logo.png" />
 
         <!-- <span
           class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
@@ -61,7 +65,7 @@
       </a>
     </div>
 
-    <div class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]">
+    <div class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-end align-middle text-[#243C5A]">
       <button class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton">
         <span class="">Advanced Search</span>
         <span class="material-icons px-2">tune</span>
@@ -70,207 +74,168 @@
     
 
       <div class="inline-flex space-2 items-center sm:hidden filterButton">
-        <span class="material-icons px-2">tune</span>
+        <span class="text-center text-xs">Advanced Search</span>
       </div>
      
     </div>
   </nav>
 
   <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
-  <!-- Start of Filter Collapse -->
+<!-- Start of Filter Collapse -->
 
-<div
-  id="filterCollapse"
-  class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]"
->
+<div id="filterCollapse"
+  class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]">
   <div class="col-span-12">
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
-      <form
-        id="advancedSearchForm"
-        class="relative flex items-center"
-        method="POST"
-        action="https://FORD.MINISISINC.COM/SCRIPTS/MWIMAIN.DLL/124393053/1/1?SEARCH&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html"
-      >
-        <input
-          name="KEYWORD_CL"
-          id="advancedSearchInput"
-          placeholder="What Are You Looking For?"
-          autofocus
+      <form id="advancedSearchForm" class="relative flex items-center" method="POST"
+        action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+        <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
           aria-label="What Are You Looking For?"
-          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]"
-        />
+          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
         <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
-        <input
-          name="KEYWORD"
-          id="hiddenKeywordInput"
-          hidden
-          aria-label="Hidden advanced search expression"
-        />
+        <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
         <span class="material-icons absolute right-0 font-[14px]">
           search
         </span>
       </form>
     </div>
   </div>
-  <div class="col-span-4 md:col-span-4 xl:col-span-2">
+
+  <!-- Start of Year  -->
+  <div class="col-span-5 md:col-span-5 xl:col-span-2">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Year</span>
 
-    <div
-      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-    >
-      <span
-        class="self-center filterText"
-        data-filter="Year"
-        id="yearFilterValue"
-        >Year</span
-      >
-      <span class="material-icons self-center expand"> expand_more </span>
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Year" placeholder="Year" />
+
 
       <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]"
-      >
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
         <ul id="yearFilterList"></ul>
       </div>
     </div>
   </div>
-  <div class="col-span-8 md:col-span-8 xl:col-span-3">
+  <!-- End of Year -->
+
+  <!-- Start of Make -->
+  <div class="col-span-7 md:col-span-7 xl:col-span-3 ">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
-
-    <div
-      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-    >
-      <span
-        class="self-center filterText"
-        data-filter="Make"
-        id="makeFilterValue"
-        >Make</span
-      >
-      <span class="material-icons self-center expand"> expand_more </span>
-
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Make" placeholder="Make" />
       <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
-      >
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
         <ul id="makeFilterList"></ul>
       </div>
     </div>
   </div>
-  <div class="col-span-12 md:col-span-12 xl:col-span-3">
+  <!-- End of Make -->
+  <!-- Start of Model -->
+  <div class="col-span-12 md:col-span-12 xl:col-span-3 ">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
 
-    <div
-      class="fmc-select relative h-[50px] select-none filterSelect flex justify-between"
-    >
-      <span
-        class="self-center filterText"
-        data-filter="Model"
-        id="modelFilterValue"
-        >Model</span
-      >
-      <span class="material-icons self-center expand"> expand_more </span>
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Model" placeholder="Model" />
 
       <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]"
-      >
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
         <ul id="modelFilterList"></ul>
       </div>
     </div>
   </div>
+  <!-- End of Model -->
+
   <div class="col-span-12 md:col-span-12 xl:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-    <div
-      class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
-      id="colorFilter"
-    >
-      <span
-        class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter"
-        data-color="black"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter"
-        data-color="blue"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter"
-        data-color="brown"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter"
-        data-color="green"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter"
-        data-color="grey"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter"
-        data-color="multi"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter"
-        data-color="orange"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter"
-        data-color="purple"
-      >
-      </span
-      ><span
-        class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
-        data-color="red"
-      >
-      </span
-      ><span
-        class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
-        data-color="white"
-      ></span
-      ><span
-        class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
-        data-color="yellow"
-      ></span>
+    <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
+      id="colorFilter">
+      <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
+        class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span
+        class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter" data-color="brown"></span><span
+        class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter" data-color="green"></span><span
+        class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter" data-color="grey"></span><span
+        class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span><span
+        class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter" data-color="orange"></span><span
+        class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter" data-color="purple">
+      </span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
+        data-color="red">
+      </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
+        data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
+        data-color="yellow"></span>
     </div>
   </div>
-  <div class="col-span-12 md:col-span-12 xl:col-span-4">
+
+  <!-- Start of Publications -->
+  <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
+
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Publication" placeholder="Publications" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="publicationFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Publications -->
+
+  <!-- Start of Designs -->
+  <div class="col-span-12 md:col-span-6 xl:col-span-3 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Designs/Concepts</span>
+
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Design" placeholder="Designs/Concepts" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="designFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Designs -->
+
+  <!-- Start of Places -->
+  <div class="col-span-12 md:col-span-12 xl:col-span-7 xl:col-start-1">
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Places</span>
+    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+      <input class="filterText" data-filter="Place" placeholder="Places" />
+      <div
+        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+        <ul id="placeFilterList"></ul>
+      </div>
+    </div>
+  </div>
+  <!-- End of Places -->
+
+
+
+  <div class="col-span-12 md:col-span-12 xl:col-span-4 xl:col-start-1">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
 
     <div class="grid grid-cols-3 sm:grid-cols-4">
       <div class="col-span-1 flex space-x-[10px] items-center">
-        <input
-          type="checkbox"
-          data-asset="Image"
-          id="imageAssetType"
-          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
-        />
+        <input type="checkbox" data-asset="Image" id="imageAssetType"
+          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
 
         <label class="" for="imageAssetType">Images</label>
       </div>
-    
-      <div class="col-span-1 flex space-x-[10px] items-center">
-        <input
-          type="checkbox"
-          data-asset="Textual"
-          id="documentAssetType"
-          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter"
-        />
 
-        <label class="" for="documentAssetType">Brochures </label>
+      <div class="col-span-1 flex space-x-[10px] items-center">
+        <input type="checkbox" data-asset="Textual" id="documentAssetType"
+          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+
+        <label class="" for="documentAssetType">Documents</label>
       </div>
     </div>
   </div>
 
   <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
     <div>
-      <button
-        class="color-[#00095B] py-[5px] hover:drop-shadow-xl"
-        id="advanced-reset"
-      >
+      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
         Reset
       </button>
     </div>
     <div>
-      <button
-        class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
-        id="advanced-submit"
-      >
+      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
+        id="advanced-submit">
         Search
       </button>
     </div>
@@ -286,12 +251,12 @@
   <div class="bannerShadow"></div>
 
   <div class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline"><a
-    class="bannerLinkRecord"  href="https://FORD.MINISISINC.COM/SCRIPTS/MWIMAIN.DLL/124393053?SEARCH&DATABASE=DESCRIPTION_OPAC3&EXP=REFD%20AR-2008-8.1.2.2427">AR-2008-8.1.2.2427</a></div>
+    class="bannerLinkRecord"  href="https://fordheritagevault.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.2.2427">AR-2008-8.1.2.2427</a></div>
   <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
     <h1 class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block">
       Hop in the Driver's Seat
     </h1>
-    <form method="POST" id="searchForm" action="https://FORD.MINISISINC.COM/SCRIPTS/MWIMAIN.DLL/124393053/1/1?SEARCH&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&ERRMSG=[FORD_INCLUDE]/html/no-record.html">
+    <form method="POST" id="searchForm" action="https://fordheritagevault.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
       <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
         <div class="relative w-full rounded inline-flex items-center">
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
@@ -326,10 +291,10 @@
       </p> -->
 
       <h2 class="text-white sm:text-[#243C5A] text-[35px] sm:text-[36px]  leading-[40px] sm:leading-[45px] mt-[29px] sm:mt-[16px]">
-        Remember your first car? Or your parents' station wagon or pickup?
+        100 years' worth of amazing products!
       </h2>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px]">
-        Chances are you have fond memories of a Ford-built vehicle from your past. Take a trip down memory lane through the Ford Heritage Vault, our comprehensive collection offers more than 5,000 curated photographs and product brochures from Ford and Lincoln vehicles. Enjoy the ride! 
+       Chances are you have fond memories of a Ford-built vehicle from your past. Take a trip down memory lane through the Ford Heritage Vault, our comprehensive collection offers nearly 10,000 curated photographs and product brochures from 1903 to 2003 Ford, Lincoln, Mercury, and Edsel vehicles. Enjoy the ride!
       </p>
     </div>
   </div>
@@ -400,11 +365,12 @@
 
 <!-- Start of Trending Section -->
 <section id="trending">
-    <h2
-      class="text-[34px] sm:text-[36px]  text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px]" data-aos="fade-up"
-    >
-      Trending Now
-    </h2>
+  <div class="  text-center ">
+
+
+    <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px] aos-init aos-animate" data-aos="fade-up">  
+      Celebrating Women's History Month with products designed or engineered by women </h2>
+  </div>
     <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
       <div
         class="col-auto sm:col-span-3 h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
@@ -530,10 +496,10 @@
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px] "> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://corporate.ford.com/contact.html"> Ford Motor Company </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="/"> Ford Heritage Vault </a>
+                    href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px] contactUs"
+                    > Ford Heritage Vault </p>
             </div>
         </div>
         <div class="w-1/4 flex justify-center">
@@ -568,13 +534,13 @@
         <div>
             <div class="flex justify-between h-[60px] pt-[15px]">
                 <div>
-                    <p>Contact</p>
+                    <p class="">Contact Us</p>
                 </div>
                 <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
             </div>
             <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://corporate.ford.com/contact.html">Ford
                     Motor Company</a> <a class="mb-[8px]" href="https://shareholder.ford.com/investors/overview/default.aspx">Investor
-                    <a class="mb-[8px]" href="/">Ford Heritage Vault</a> </div>
+                    <p class="mb-[8px] contactUs" >Ford Heritage Vault</p> </div>
         </div>
         <div>
             <div class="flex justify-between h-[60px] pt-[15px]">
@@ -601,11 +567,8 @@
         </div>
     </div> <!-- BlackBox -->
     <!-- Contact Us -->
-    <div id="contactus" class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
-        <div class="flex space-x-[15px]" id="surveyButton"> <span class="self-center text-center px-[10px] py-[7px] bg-[#1700F4] rounded-full"><i
-                    class="material-icons">mode_comment</i></span>
-            <p class="text-[16px] text-[#F4F4F4] leading-[19px] self-center cursor-pointer"> Share your thoughts about
-                fordheritagevault.com </p>
+    <div id="" class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
+        <div class="flex space-x-[15px]" id="surveyButton"> 
         </div>
         <div class="flex flex-col sm:flex-row justify-around sm:space-x-[30px]">
             <div class="sm:self-center">
@@ -621,7 +584,7 @@
     <!-- Ford Links -->
     <div id="fordLinks" class="bg-[#f4f4f4] text-center text-[#4D4D4D] py-[50px] px-[15px] sm:px-[100px]">
         <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex"
-                href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo" class="h-[35px] mx-1"
+                href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo" class="h-[30px] mx-1"
                     src="/assets/images/ford-logo.png"> &copy;
                 2023 The Ford Motor Company </p>
         </div>
@@ -680,8 +643,7 @@
             </div>
             <div class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
                 <div class="col-span-4 sm:col-span-4">
-                    <h2 class="text-[16px] leading-[18px] tracking-[1px]">We are making files more accessible as they
-                        are requested. Your request helps us to make our site more accessible for all users.</h2>
+                    <h2 class="text-[16px] leading-[18px] tracking-[1px]">Please submit this request if you use a screen reader, or other adaptive technology, and need accessibility features added to this brochure.</h2>
                 </div>
                 <div class="col-span-4 sm:col-span-4 order-1"> <span class="text-[11px] leading-[16px] tracking-[1px]">Email
                         Address</span>

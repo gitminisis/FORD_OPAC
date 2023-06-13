@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3555b003c3874a708be30b58d1936f65/thumbnail",
-                refd: "AR-2008-8.1.10.5358",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f3d18bec07d5460f8bbcc9920cd60539/thumbnail",
+                refd: "AR-2001-94-208806.26.4.3",
                 scope: undefined,
-                title: "1999 Ford Courier inside of domed building neg CN329038-012"
+                title: "1994 Ford Mustang two-door"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ede837efbfb64cf6a7d131bfc76da4a9/thumbnail",
-                refd: "AR-96-212010.6768",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fcfe49f855094f7dbeabf6db51dfe4a1/thumbnail",
+                refd: "AR-2008-8.1.2.6455",
                 scope: undefined,
-                title: "1969 Ford Cortina Mark 2 brochure in Danish"
+                title: "1975 Ford Granada four-door CN9002-012"
             }, {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ce943f693a7e45eca709573b481b099c/thumbnail",
-                refd: "AR-2008-8.1.10.5636",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/09f8dbe6b1924ae2b816c3bb4476de10/thumbnail",
+                refd: "AR-2008-8.1.2.9585",
                 scope: undefined,
-                title: "1960 Ford XK Falcon with Ford cargo containers",
+                title: "2000 Ford F-150 scenic neg CN331011-298",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f4dda70ce67d418e8cae0045aed7ac49/thumbnail",
-                refd: "AR-2000-213654.157.158.2",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1a6ed43430174e29b8e42414da9c0a9d/thumbnail",
+                refd: "AR-2008-8.1.2.7237",
                 scope: undefined,
-                title: "1992 Ford Mondeo Mark I on road in front of scenic building in Paris CN UK 1992-714-1-002",
+                title: "1999 Ford Windstar SEL neg CN329010-103",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/08da21a0231c41d5958f8abd7587d558/thumbnail",
-                refd: "AR-96-212010.6814",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/39380b66872247908096273fc7587c34/thumbnail",
+                refd: "AR-96-212010.7760",
                 scope: undefined,
-                title: "c 1951 Ford 3.5 Ton trucks brochure in German",
+                title: "c 1991 Ford Ecostar Electric Van concept brochure",
             }, {
-                mediaThumb: "https://fordingestapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/53e6522480244b7e98fd71ab1a1a1eaf/thumbnail",
-                refd: "AR-2002-213709.1068.260",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d4fdc9fec167453eb38c5dce38379cee/thumbnail",
+                refd: "AR-2008-8.1.11.493",
                 scope: undefined,
-                title: "c 1998 Ford Spectron in scenic forest AR-2002-213709",
+                title: "1975 Mercury Monarch with blurred scenic background Neg CN9010-103",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/619d8a80d99940b9854902640a7c1d51/thumbnail",
-                refd: "AR-96-212010.3826",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/932b3377c19b43ec9349df994884a5a9/thumbnail",
+                refd: "AR-96-212010.3368",
                 scope: undefined,
-                title: "11984 Ford Telstar brochure in Japanese",
+                title: "1977 Lincoln Continental Mark V brochure",
             }, {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/54793a50bba24cf08728affa29a9b13e/thumbnail",
-                refd: "AR-96-212010.3921",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3c7e8e46fb214808bde6a6c70df461ce/thumbnail",
+                refd: "AR-2008-8.1.1.1184",
                 scope: undefined,
-                title: "1989 Mercury Grand Marquis brochure in Arabic",
+                title: "1999 Lincoln Navigator neg CN329024-123",
             }, {
-                mediaThumb: "https://fordingestapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fbae04e61f554dee85083c76a78bd2ad/thumbnail",
-                refd: "AR-2002-213709.1068.264",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/53c270faa5f54bf5abbfc9034d8e9ee4/thumbnail",
+                refd: "AR-96-212010.3768",
                 scope: undefined,
-                title: "1998 Ford Thai Ranger in front of scenic building AR-2002-213709",
+                title: "2011 Ford Edge brochure",
             }, {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1c0d99480eef41449b1d8d5728dd704c/thumbnail",
-                refd: "AR-2008-8.1.2.5690",
+                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b7ee9429ec56460ebad91345907cc8b0/thumbnail",
+                refd: "AR-2001-94-208806.25.1.2",
                 scope: undefined,
-                title: "1960 Ford Taunus P2 Kombi station wagon in studio neg C1037-15",
+                title: "1993 Ford Probe two-door",
             },
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))
