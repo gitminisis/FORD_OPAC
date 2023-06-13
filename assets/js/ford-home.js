@@ -4,21 +4,21 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4db99c8162d04ef281162369bfc4b4e7/thumbnail",
-                refd: "AR-2001-86-102180.1.4.2",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/3555b003c3874a708be30b58d1936f65/thumbnail",
+                refd: "AR-2008-8.1.10.5358",
                 scope: undefined,
-                title: "1982 Ford F-100 F-250 F-350"
+                title: "1999 Ford Courier inside of domed building neg CN329038-012"
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8daa0015379a49658361f46047e87c2b/thumbnail",
-                refd: "AR-96-212010.5592",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ede837efbfb64cf6a7d131bfc76da4a9/thumbnail",
+                refd: "AR-96-212010.6768",
                 scope: undefined,
-                title: "1948 Ford F-Series Trucks brochure"
+                title: "1969 Ford Cortina Mark 2 brochure in Danish"
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bb4a67f0057f4fae8652076e758673e8/thumbnail",
-                refd: "AR-2008-8.1.4.453",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ce943f693a7e45eca709573b481b099c/thumbnail",
+                refd: "AR-2008-8.1.10.5636",
                 scope: undefined,
-                title: "1951 Ford F-1 on Dearborn Test Track neg C364-1",
+                title: "1960 Ford XK Falcon with Ford cargo containers",
             }
         ]
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -26,42 +26,42 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d0f58bc192a44c08702f9475bb1c4e9/thumbnail",
-                refd: "AR-2008-8.1.4.670",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f4dda70ce67d418e8cae0045aed7ac49/thumbnail",
+                refd: "AR-2000-213654.157.158.2",
                 scope: undefined,
-                title: "1978 Ford F-150 Ranger pickup truck neg CN19511-321",
+                title: "1992 Ford Mondeo Mark I on road in front of scenic building in Paris CN UK 1992-714-1-002",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b547cfbbfae44265813af0188e5d77cb/thumbnail",
-                refd: "AR-2008-8.1.4.764",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/08da21a0231c41d5958f8abd7587d558/thumbnail",
+                refd: "AR-96-212010.6814",
                 scope: undefined,
-                title: "1994 Ford F150 XLT flareside neg CN309007-363",
+                title: "c 1951 Ford 3.5 Ton trucks brochure in German",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b41bff725e3545abb2d7c7bc2b488e23/thumbnail",
-                refd: "AR-2008-8.1.4.566",
+                mediaThumb: "https://fordingestapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/53e6522480244b7e98fd71ab1a1a1eaf/thumbnail",
+                refd: "AR-2002-213709.1068.260",
                 scope: undefined,
-                title: "1961 Ford F-100 Styleside pickup truck neg C1048-16",
+                title: "c 1998 Ford Spectron in scenic forest AR-2002-213709",
             },
             {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/d0a0bef1ad1d4d9889055a50ff5d0ce0/thumbnail",
-                refd: "AR-2008-8.1.4.549",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/619d8a80d99940b9854902640a7c1d51/thumbnail",
+                refd: "AR-96-212010.3826",
                 scope: undefined,
-                title: "1959 Ford F-100 Styleside pickup truck neg C909-0",
+                title: "11984 Ford Telstar brochure in Japanese",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/91b8d40d47d54b39a5892adb660a324b/thumbnail",
-                refd: "AR-2008-8.1.4.576",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/54793a50bba24cf08728affa29a9b13e/thumbnail",
+                refd: "AR-96-212010.3921",
                 scope: undefined,
-                title: "1963 Ford F-250 4x4 pickup truck neg C1092-007",
+                title: "1989 Mercury Grand Marquis brochure in Arabic",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4ffb5c5b0466424f98b7171ce5abb2a3/thumbnail",
-                refd: "AR-2008-8.1.4.555",
+                mediaThumb: "https://fordingestapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fbae04e61f554dee85083c76a78bd2ad/thumbnail",
+                refd: "AR-2002-213709.1068.264",
                 scope: undefined,
-                title: "1960 Ford F-100 Custom Cab pickup truck front neg C1007-003",
+                title: "1998 Ford Thai Ranger in front of scenic building AR-2002-213709",
             }, {
-                mediaThumb: "https://titanapi.minisisinc.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0d2d067266a54ea0975aa73690d3585d/thumbnail",
-                refd: "AR-2001-94-208806.23.7.1",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1c0d99480eef41449b1d8d5728dd704c/thumbnail",
+                refd: "AR-2008-8.1.2.5690",
                 scope: undefined,
-                title: "1991 Ford F-150 F-250 F-350",
+                title: "1960 Ford Taunus P2 Kombi station wagon in studio neg C1037-15",
             },
         ]
         TRENDING_NOW_RECORD.map((e, i) => new TrendingNow(e, $('.trendingNow').eq(i)).initUIManual(e))

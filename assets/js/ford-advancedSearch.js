@@ -136,17 +136,17 @@ $(document).ready(function () {
     filter.resetUI();
   })
 
-  $('#advanced-submit').on('click', function () {
+
+
+  $('#advancedSearchForm').on('submit', function (e) {
     if (filter.isEmpty()) {
+      e.preventDefault();
       let toast = new MessageModal('Please input a keyword for the search')
       toast.open();
     }
-
-    else {
-
-      $('#advancedSearchForm').submit();
-    }
-
+  })
+  $('#advanced-submit').on('click', function () {
+    $('#advancedSearchForm').submit();
   })
 });
 
@@ -245,7 +245,7 @@ class Filter {
     let makeExp = this.make.trim() === '' ? '' : `${FIELD_NAME.make} "${this.make}"`;
     let modelExp = this.model.trim() === '' ? '' : `${FIELD_NAME.model} "${this.model}"`;
     let colorExp = this.color.trim() === '' ? '' : `${FIELD_NAME.color} "${this.color}"`;
-    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType}${a}`).join(' OR ').trim()
+    let assetExpVal = this.assetType.map(a => `${FIELD_NAME.assetType} ${a}`).join(' OR ').trim()
     let assetExp = assetExpVal === '' ? '' : '(' + assetExpVal + ')';
 
 
