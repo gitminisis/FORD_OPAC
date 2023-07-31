@@ -143,6 +143,7 @@ $(document).ready(function () {
 
 
   $('#advancedSearchForm').on('submit', function (e) {
+    debugger;
     if (filter.isEmpty()) {
       e.preventDefault();
       let toast = new MessageModal('Please input a keyword for the search')
@@ -182,7 +183,7 @@ class Filter {
       if (this.assetType.length !== 0) {
         return false;
       }
-      if (key !== "assetType" && this[key] !== "") {
+      if (key !== "assetType" && key !== "isNonModelSelected" && this[key] !== "") {
         return false;
       }
     }
