@@ -109,7 +109,7 @@ function getSummaryXMLURL(exp, report = "FORD_SUMMARY_XML", database = "DESCRIPT
 
     if (document.getElementById('sessionid')) {
         let sessionid = document.getElementById('sessionid').innerText.trim();
-        let url = `${sessionid}?SEARCH&SIMPLE_EXP=Y&EXP=${exp}&DATABASE=${database}&REPORT=${report}`
+        let url = `${sessionid}?SEARCH&SIMPLE_EXP=Y&AUX_SESSID=FORD_SHARED&EXP=${exp}&DATABASE=${database}&REPORT=${report}`
         return url;
     }
     return `/scripts/mwimain.dll/144/${database}/${report}?sessionsearch&exp=${exp}`

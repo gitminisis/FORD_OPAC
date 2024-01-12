@@ -256,9 +256,8 @@ class Summary extends Report {
     let currentReport = SORT_REPORTS_NAME[curReportName].full
 
     let json = x2js.xml2json(sortReports);
-    console.log(json)
     let options = json.span;
-    let htmlOptions = options.map(el => `<li ><a href=${el.__text.replace(/\n/gi, "")} class="flex justify-between sortList py-2 px-2 block " href="#">${SORT_REPORTS_NAME[el["_data-sort"]].full}${curReportName === el["_data-sort"] ? '<span class="material-icons">done</span>' : ""}</a></li>`)
+    let htmlOptions = options.map(el => `<li ><a href=${el.__text.replace(/\n/gi, "")} class="flex justify-between sortList py-2 px-2 block ">${SORT_REPORTS_NAME[el["_data-sort"]].full}${curReportName === el["_data-sort"] ? '<span class="material-icons">done</span>' : ""}</a></li>`)
     $('.sortOptions').append(htmlOptions)
     $('.currentReportOption').text(currentReport)
   }

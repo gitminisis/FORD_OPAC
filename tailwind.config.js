@@ -40,7 +40,7 @@ module.exports = {
           "primary-blue": "#243c5a",
           blue: "#00095B",
           brown: "#77401C",
-          green: "#0E331F",
+          green: "#518150",
           grey: "#757575",
           orange: "#E66926",
           red: "#B22627",
