@@ -90,6 +90,8 @@
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
       <form id="advancedSearchForm" class="relative flex items-center" method="POST"
         action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+        <input name="$RANKING" value="Y" type="hidden">
+<input name="MULTISEARCH" value="M-S" type="hidden">
         <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
           aria-label="What Are You Looking For?"
           class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
@@ -263,6 +265,8 @@
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
             <span class="material-icons text-[20px]"> search </span>
           </span>
+          <input name="$RANKING" value="Y" type="hidden">
+<input name="MULTISEARCH" value="M-S" type="hidden">
           <input required type="search" name="KEYWORD_CL" class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
             placeholder="What are you looking for?" aria-label="What are you looking for?" autofocus />
         </div>
