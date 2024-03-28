@@ -90,13 +90,12 @@
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
       <form id="advancedSearchForm" class="relative flex items-center" method="POST"
         action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
-        <input name="$RANKING" value="Y" type="hidden">
-<input name="MULTISEARCH" value="M-S" type="hidden">
         <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
           aria-label="What Are You Looking For?"
           class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
         <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
         <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
+        <input type="hidden" name="$RANKING" value="Y" />   <!-- RL-20230829 -->
         <span class="material-icons absolute right-0 font-[14px]">
           search
         </span>
@@ -168,7 +167,7 @@
   </div>
 
   <!-- Start of Publications -->
-  <!-- <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
+  <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
 
     <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
@@ -178,7 +177,7 @@
         <ul id="publicationFilterList"></ul>
       </div>
     </div>
-  </div> -->
+  </div>
   <!-- End of Publications -->
 
   <!-- Start of Designs -->
@@ -254,19 +253,18 @@
   <div class="bannerShadow"></div>
 
   <div class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline"><a
-    class="bannerLinkRecord"  href="https://fordheritagevault.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.8.676">AR-2008-8.1.8.676</a></div>
+    class="bannerLinkRecord"  href="https://ford2.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.8.676">AR-2008-8.1.8.676</a></div>
   <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
     <h1 class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block">
       Hop in the Driver's Seat
     </h1>
-    <form method="POST" id="searchForm" action="https://fordheritagevault.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+    <form method="POST" id="searchForm" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
       <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
         <div class="relative w-full rounded inline-flex items-center">
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
             <span class="material-icons text-[20px]"> search </span>
           </span>
-          <input name="$RANKING" value="Y" type="hidden">
-<input name="MULTISEARCH" value="M-S" type="hidden">
+          <input name="F01" value="M-S" type="hidden" />  <!-- RL-20230829 -->
           <input required type="search" name="KEYWORD_CL" class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
             placeholder="What are you looking for?" aria-label="What are you looking for?" autofocus />
         </div>
@@ -277,6 +275,13 @@
           </button>
         </div>
       </div>
+      <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 " style="display: none;">
+        <label style="color:white;">Ranking:</label>
+        <select name="$RANKING">
+          <option value="Y" selected>Enable</option>
+          <option value="N">Disable</option>
+        </select>
+      </div>   <!-- RL-20230829 -->
     </form>
   </div>
 </section>
@@ -299,7 +304,7 @@
         Curated heritage materials! 
       </h2>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px]">
-        Take a trip down memory lane through the Ford Heritage Vault, our comprehensive global collection offers over 15,000 brochures and photographs. You can peruse our 1903 to 2003 Ford, Lincoln, Mercury, and Edsel products, locations from around the world, and now we’ve added images and press releases detailing nearly 100 years’ worth of concept cars! Enjoy the ride! 
+        Take a trip down memory lane through the Ford Heritage Vault, our comprehensive global collection offers over 15,000 brochures and photographs. You can peruse our 1903 to 2003 Ford, Lincoln, Mercury, and Edsel products, locations from around the world, images and press releases detailing nearly 100 years’ worth of concept cars. Now we have added over 300 issues of the Ford Times publication! Enjoy the ride!
       </p>
     </div>
   </div>
@@ -495,13 +500,13 @@
     <div id="blackbox" class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex">
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Media </a>
             </div>
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px] "> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px] "> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://corporate.ford.com/contact.html"> Ford Motor Company </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px] contactUs"
                     > Ford Heritage Vault </p>
@@ -509,7 +514,7 @@
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Support </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Support </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/support/"> Ford Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.lincoln.com/support/"> Lincoln Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/support/recalls/"> Recalls </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
@@ -518,7 +523,7 @@
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Shop </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Shop </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/"> Ford US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.lincoln.com/"> Lincoln US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://corporate.ford.com/operations/locations/global-links.html"> Global Sites </a>
