@@ -5,12 +5,14 @@
   <div class="col-span-12">
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
       <form id="advancedSearchForm" class="relative flex items-center" method="POST"
-        action="^search^&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+        action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+        <input name="F01" value="M-S" type="hidden" />  <!-- RL-20240829 -->
         <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
           aria-label="What Are You Looking For?"
           class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
         <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
         <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
+        <input type="hidden" name="$RANKING" value="Y" />   <!-- RL-20240829 -->
         <span class="material-icons absolute right-0 font-[14px]">
           search
         </span>
@@ -20,10 +22,10 @@
 
   <!-- Start of Year  -->
   <div class="col-span-5 md:col-span-5 xl:col-span-2">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Year</span>
+    <span class="text-[11px] leading-[16px] tracking-[1px]">Model Year</span>
 
     <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Year" placeholder="Year" />
+      <input class="filterText" data-filter="Year" placeholder="Model Year" />
 
 
       <div

@@ -7,6 +7,9 @@ $(document).ready(function () {
     // updateBookmarkCount();
     $('.loadingAssets').removeClass('loadingAssets')
 
+
+
+
 })
 
 const BASE_URL = "https://ford2.minisisinc.com"
@@ -133,6 +136,28 @@ function removeWhiteSpace(string) {
     return string.replace(/(\r\n|\n|\r)/gm, "");
 }
 
+// reGister downloaded item
+// RL-20240829
+function registerDownoad(download_url)
+{
+  let sessionid = document.getElementById('sessionid').innerText.trim();
+  let myUrl = sessionid + "?registerdownload&download=" + download_url;
+  console.log ("**** " + myUrl);
+  $.ajax({
+    async: true,
+    type: "GET",
+    dataType: "xml",
+    url: myUrl,
+    timeout: 600000,
+    success: function (data) {
+    console.log ("Registration OK");
+    },
+    error: function (xhr, status, error) {
+    console.log ("Registration Error");
+    }
+  });
+}
+
 class MediaDownloader {
 
     constructor() {
@@ -152,7 +177,8 @@ class MediaDownloader {
      */
     downloadSingleAsset = (downloadURL) => {
         let toast = new MessageModal('Your files are being processed ...', 99999)
-        toast.open()
+        toast.open();
+        registerDownoad(downloadURL); // RL-20240829
         axios({
             url: downloadURL, //your url
             method: "GET",
@@ -198,6 +224,10 @@ class MediaDownloader {
         // No selected digital asssets
         if (this.arrayURL.length === 0) {
             return;
+        }
+        // reigster downloaded items // RL-20240829
+        for ( var i = 0 ; i < this.arrayURL.length ; i++ ) {
+          registerDownoad(this.arrayURL[i]); // RL-20240829
         }
         let res = await this.fetchBlob(this.arrayURL);
         let zip = new JSZip();

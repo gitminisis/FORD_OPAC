@@ -1,12 +1,11 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-validate" />
   <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="Expires" content="0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
@@ -17,26 +16,16 @@
   <link href="/assets/css/index.css" rel="stylesheet" />
 
   <link type="text/css" rel="stylesheet" href="/assets/css/lightgallery.min.css" />
-  <!-- 
+<!--
   <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.4.0/css/lightgallery.min.css" /> -->
 
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
-  <style>
-    #banner-section {
-      background: rgb(11,11,11,0.5);
-    padding-top: 20px;
-    height: 300px;
-    }
 
-    #banner-text{
-      font-size: 22px;
-    }
-  </style>
   <style id="antiClickjack">
     body {
-      display: none !important;
-    }
-  </style>
+        display: none !important;
+      }
+    </style>
 
   <script type="text/javascript">
     if (self === top) {
@@ -49,6 +38,7 @@
   <title>Hop in the Driver's Seat | Ford Heritage Vault</title>
 
 </head>
+<span id="sessionid" hidden>^sessid^</span>
 
 <body>
   <div class="progress-container">
@@ -62,9 +52,8 @@
 <div id="header relative">
   <nav class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl">
     <div class="flex justify-center align-middle items-center">
-      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo"
-          class="h-[30px] mx-1" src="/assets/images/ford-logo.png" /><img alt="Ford Heritage Vault Logo"
-          class="h-[30px] mx-1" src="/assets/images/logo.png" />
+      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo" class="h-[35px] mx-1" src="/assets/images/ford-logo.png" /><img
+          alt="Ford Heritage Vault Logo" class="h-[35px] mx-1" src="/assets/images/logo.png" />
 
         <!-- <span
           class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
@@ -77,29 +66,177 @@
       </a>
     </div>
 
+    <div class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]">
+      <button class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton">
+        <span class="">Advanced Search</span>
+        <span class="material-icons px-2">tune</span>
+      </button>
 
+
+
+      <div class="inline-flex space-2 items-center sm:hidden filterButton">
+        <span class="material-icons px-2">tune</span>
+      </div>
+
+    </div>
   </nav>
 
   <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
+  <!-- Start of Filter Collapse -->
 
+  <div id="filterCollapse" class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4] ">
+    <div class="col-span-12">
+      <div class="w-full lg:w-2/3 text-[#9C9C9C]">
+        <form id="advancedSearchForm" class="relative flex items-center" method="POST" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+          <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus="" aria-label="What Are You Looking For?" class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]">
+          <input name="BO1" value="AND" hidden="" aria-label="Hidden AND Operator">
+          <input name="KEYWORD" id="hiddenKeywordInput" hidden="" aria-label="Hidden advanced search expression">
+          <span class="material-icons absolute right-0 font-[14px]">
+            search
+          </span>
+        </form>
+      </div>
+    </div>
+    <div class="col-span-4 md:col-span-4 xl:col-span-2">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Model Year</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <span class="self-center filterText" data-filter="Year" id="yearFilterValue">Year</span>
+        <span class="material-icons self-center expand"> expand_more </span>
+
+        <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+          <ul id="yearFilterList"><li>None</li><li>1896</li><li>1898</li><li>1901</li><li>1903</li><li>1905</li><li>1906</li><li>1907</li><li>1908</li><li>1909</li><li>1910</li><li>1911</li><li>1912</li><li>1914</li><li>1915</li><li>1916</li><li>1917</li><li>1918</li><li>1919</li><li>1920</li><li>1921</li><li>1922</li><li>1923</li><li>1924</li><li>1925</li><li>1926</li><li>1927</li><li>1928</li><li>1929</li><li>1930</li><li>1931</li><li>1932</li><li>1933</li><li>1934</li><li>1935</li><li>1936</li><li>1937</li><li>1938</li><li>1939</li><li>1940</li><li>1941</li><li>1942</li><li>1943</li><li>1944</li><li>1945</li><li>1946</li><li>1947</li><li>1948</li><li>1949</li><li>1950</li><li>1951</li><li>1952</li><li>1953</li><li>1954</li><li>1955</li><li>1956</li><li>1957</li><li>1958</li><li>1959</li><li>1960</li><li>1961</li><li>1962</li><li>1963</li><li>1964</li><li>1965</li><li>1966</li><li>1967</li><li>1968</li><li>1969</li><li>1970</li><li>1970 1/2</li><li>1971</li><li>1972</li><li>1973</li><li>1974</li><li>1975</li><li>1976</li><li>1977</li><li>1978</li><li>1979</li><li>1980</li><li>1981</li><li>1982</li><li>1983</li><li>1984</li><li>1985</li><li>1986</li><li>1987</li><li>1988</li><li>1988 1/2</li><li>1989</li><li>1990</li><li>1991</li><li>1992</li><li>1993</li><li>1994</li><li>1995</li><li>1996</li><li>1997</li><li>1998</li><li>1999</li><li>2000</li><li>2001</li><li>2002</li><li>2003</li><li>2004</li><li>2005</li><li>2006</li><li>2007</li><li>2008</li><li>2009</li><li>2010</li><li>2011</li><li>2012</li><li>2013</li><li>2014</li><li>2015</li><li>2016</li><li>2017</li><li>2018</li><li>2019</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-8 md:col-span-8 xl:col-span-3">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <span class="self-center filterText" data-filter="Make" id="makeFilterValue">Make</span>
+        <span class="material-icons self-center expand"> expand_more </span>
+
+        <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+          <ul id="makeFilterList"><li>None</li><li>Edsel</li><li>Ford</li><li>Frontenac</li><li>Lincoln</li><li>Mercury</li><li>Merkur</li><li>Meteor</li><li>Monarch</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-12 xl:col-span-3">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <span class="self-center filterText" data-filter="Model" id="modelFilterValue">Model</span>
+        <span class="material-icons self-center expand"> expand_more </span>
+
+        <div class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+          <ul id="modelFilterList"><li>None</li><li>A-Series</li><li>Aeromax</li><li>Aerostar</li><li>Anglia</li><li>Aspire</li><li>Aviator</li><li>B-Series</li><li>Bantam</li><li>Bermuda</li><li>Blackwood</li><li>Bobcat</li><li>Bronco</li><li>Bronco II</li><li>bus</li><li>C-Max</li><li>C-Series</li><li>Capri</li><li>Capri II</li><li>Cargo</li><li>Citation</li><li>CL-Series</li><li>Club Wagon</li><li>Colony Park</li><li>Colony Park (Mercury)</li><li>Comet</li><li>Commuter</li><li>Consul</li><li>Continental</li><li>Continental Mark II</li><li>Continental Mark III</li><li>Continental Mark IV</li><li>Continental Mark V</li><li>Continental Mark VI</li><li>Continental Mark VII</li><li>Continental Mark VIII</li><li>Contour</li><li>Corcel</li><li>Corsair</li><li>Cortina</li><li>Cosmopolitan</li><li>Cougar</li><li>Cougar XR-7</li><li>Country Sedan</li><li>Country Squire</li><li>Courier</li><li>Courier Sedan Delivery</li><li>Crestline</li><li>Crown Victoria</li><li>custom</li><li>Custom 300</li><li>Custom 500</li><li>Customline</li><li>Cyclone</li><li>D-Series</li><li>Del Ray</li><li>Deluxe</li><li>E-Series</li><li>Econoline</li><li>Econovan</li><li>Edge</li><li>Eight</li><li>Elite</li><li>Escape</li><li>Escort</li><li>Excursion</li><li>EXP</li><li>Expedition</li><li>Explorer</li><li>Explorer Sport</li><li>Explorer Sport Trac</li><li>F-1</li><li>F-100</li><li>F-150</li><li>F-2</li><li>F-250</li><li>F-3</li><li>F-300</li><li>F-350</li><li>F-4</li><li>F-450</li><li>F-5</li><li>F-500</li><li>F-550</li><li>F-6</li><li>F-600</li><li>F-650</li><li>F-7</li><li>F-700</li><li>F-750</li><li>F-8</li><li>F-800</li><li>F-900</li><li>F-950</li><li>F-Series</li><li>Fairlane</li><li>Fairlane 500</li><li>Fairlane 500 XL</li><li>Fairlane Ranchero</li><li>Fairmont</li><li>Fairmont Futura</li><li>Falcon</li><li>Falcon Futura</li><li>Falcon Ranchero</li><li>Festiva</li><li>Fiera</li><li>Fiesta</li><li>Five Hundred</li><li>Flex</li><li>Focus</li><li>Ford</li><li>Ford XL</li><li>Freestar</li><li>Freestyle</li><li>Fusion</li><li>Futura</li><li>Galaxie</li><li>Galaxie 500</li><li>Galaxie 500 XL</li><li>Galaxy</li><li>Gran Torino</li><li>Granada</li><li>Grand Marquis</li><li>GT</li><li>GT 40</li><li>H-Series</li><li>heavy duty truck</li><li>Ka</li><li>L-Series</li><li>Laser</li><li>LCF</li><li>LeMoyne</li><li>Liata</li><li>Lido</li><li>Lincoln</li><li>LN-Series</li><li>LN7</li><li>LS</li><li>LT-Series</li><li>LTD</li><li>LTD Brougham</li><li>LTD Crown Victoria</li><li>LTD II</li><li>LTD Landau</li><li>LTL-Series</li><li>Lucerne</li><li>Lynx</li><li>M-Series</li><li>Mainline</li><li>Marauder</li><li>Mariner</li><li>Mark LT</li><li>Marquis</li><li>Maverick</li><li>Mercury</li><li>Mercury Eight</li><li>Meteor</li><li>Milan</li><li>MKS</li><li>MKX</li><li>MKZ</li><li>Model A</li><li>Model AA</li><li>Model B</li><li>Model C</li><li>Model F</li><li>Model K</li><li>Model L</li><li>Model N</li><li>Model R</li><li>Model S</li><li>Model T</li><li>Model TT</li><li>Monarch</li><li>Mondeo</li><li>Montcalm</li><li>Montclair</li><li>Montego</li><li>Monterey</li><li>Mountaineer</li><li>Mustang</li><li>Mustang Boss 302</li><li>Mustang Boss 351</li><li>Mustang Boss 429</li><li>Mustang Bullitt</li><li>Mustang Cobra</li><li>Mustang Cobra SVT</li><li>Mustang GT350</li><li>Mustang GT500 KR</li><li>Mustang II</li><li>Mustang II Cobra II</li><li>Mustang II King Cobra</li><li>Mustang Mach 1</li><li>Mustang Shelby</li><li>Mustang Shelby Cobra</li><li>Mustang Shelby GT350</li><li>Mustang Shelby GT500</li><li>Mustang SVO</li><li>Mystique</li><li>N-Series</li><li>Navigator</li><li>Niagara</li><li>Orion</li><li>P-Series</li><li>Pacer</li><li>Park Lane</li><li>Parklane (Park Lane)</li><li>Pilot</li><li>Pinto</li><li>Prefect</li><li>Premiere</li><li>Probe</li><li>Puma</li><li>R-Series</li><li>Raider</li><li>Ranch Wagon</li><li>Ranchero</li><li>Ranger</li><li>Richelieu</li><li>Rideau</li><li>Roundup</li><li>RS200</li><li>Sable</li><li>Sceptre</li><li>Scorpio</li><li>Sierra</li><li>Spectron</li><li>Sport Trac</li><li>Squire</li><li>Starliner</li><li>Sunliner</li><li>Super Deluxe</li><li>T-Series</li><li>T5</li><li>Taunus</li><li>Taurus</li><li>Telstar</li><li>Tempo</li><li>Thames</li><li>Thunderbird</li><li>Topaz</li><li>Torino</li><li>Town Car</li><li>Tracer</li><li>Trader</li><li>Transit</li><li>Transit Connect</li><li>Turnpike Cruiser</li><li>U-50 (4x4)</li><li>Versailles</li><li>Victoria</li><li>Villager</li><li>Vivid</li><li>Voyager</li><li>W-Series</li><li>Windstar</li><li>XR4Ti</li><li>Zephyr</li><li>Zodiac</li><li>ZX2</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-12 xl:col-span-4">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
+      <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]" id="colorFilter">
+        <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter relative group" data-color="black"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">black</span>
+      </div></span><span class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter relative group" data-color="blue"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">blue</span>
+      </div></span><span class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter relative group" data-color="brown"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">brown</span>
+      </div></span><span class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter relative group" data-color="green"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">green</span>
+      </div></span><span class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter relative group" data-color="grey"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">grey</span>
+      </div></span><span class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter relative group" data-color="multi"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">multi</span>
+      </div></span><span class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter relative group" data-color="orange"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">orange</span>
+      </div></span><span class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter relative group" data-color="purple">
+        <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">purple</span>
+      </div></span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group" data-color="red">
+        <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">red</span>
+      </div></span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter relative group" data-color="white"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">white</span>
+      </div></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter relative group" data-color="yellow"><div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex">
+          <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div>
+          <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">yellow</span>
+      </div></span>
+      </div>
+    </div>
+    <div class="col-span-12 md:col-span-12 xl:col-span-4">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
+
+      <div class="grid grid-cols-3 sm:grid-cols-4">
+        <div class="col-span-1 flex space-x-[10px] items-center">
+          <input type="checkbox" data-asset="Image" id="imageAssetType" class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter">
+
+          <label class="" for="imageAssetType">Images</label>
+        </div>
+
+        <div class="col-span-1 flex space-x-[10px] items-center">
+          <input type="checkbox" data-asset="Textual" id="documentAssetType" class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter">
+
+          <label class="" for="documentAssetType">Brochures </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
+      <div>
+        <button class="color-[#00095B] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
+          Reset
+        </button>
+      </div>
+      <div>
+        <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-submit">
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+<!-- End of Filter Collapse -->
 
 </div>
 <!--End of header-->
 
-<section id="banner"
-  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover  bg-norecord p-[20px] pt-10px sm:pt-[35px] relative cursor-pointer home">
+<section id="banner" class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative cursor-pointer home">
   <div class="bannerShadow"></div>
 
-  <!-- <div
-    class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline">
-    <a class="bannerLinkRecord"
-      href="https://ford2.minisisinc.com/SCRIPTS/MWIMAIN.DLL/148329003?SEARCH&DATABASE=DESCRIPTION_OPAC3&EXP=REFD%20AR-2008-8.1.8.676">AR-2008-8.1.8.676</a>
-  </div> -->
-  <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down" id="banner-section">
-    <h1 class="text-center  text-white leading-[43px] tracking-normal sm:block" id="banner-text">
-       Like our classic vehicles, the Ford Heritage Vault needs regular attention to keep running at top speed. Come back soon to search new content and updated features!
-  </h1>
-   
+  <div class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline"><a
+    class="bannerLinkRecord"  href="https://ford2.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.8.676">AR-2008-8.1.8.676</a></div>
+  <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
+    <h1 class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block">
+      Hop in the Driver's Seat
+    </h1>
+    <form method="POST" id="searchForm" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+      <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
+        <div class="relative w-full rounded inline-flex items-center">
+          <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
+            <span class="material-icons text-[20px]"> search </span>
+          </span>
+          <input required type="search" name="KEYWORD_CL" class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
+            placeholder="What are you looking for?" aria-label="What are you looking for?" autofocus />
+        </div>
+
+        <div class="flex justify-center sm:ml-8 sm:mt-0 mt-[30px] inline-flex items-center">
+          <button class="bg-white rounded-[20px] hover:shadow-lg hover:shadow-[#243C5A] duration-300 w-[120px] h-[40px] text-[#243C5A] text-[18px] box-border">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -112,25 +249,16 @@
   <div class="w-full sm:w-1/2 sm:pt-[40px] mb-[50px] h-1/2 sm:h-full px-[15px] py-[50px] sm:bg-white innovationShadowLayer">
     <div class="sm:max-w-[600px]" data-aos="fade-left">
       <!-- <p>
-       
+
         <span class="ml-[13px] font-bold text-[16px] text-white sm:text-[#243C5A] leading-[23px]">
           Remember your first car? Or your parents' station wagon or pickup?</span>
       </p> -->
 
       <h2 class="text-white sm:text-[#243C5A] text-[35px] sm:text-[36px]  leading-[40px] sm:leading-[45px] mt-[29px] sm:mt-[16px]">
-        Curated heritage materials! 
+        Remember your first car? Or your parents' station wagon or pickup?
       </h2>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px]">
-        Take a trip down memory lane through the Ford Heritage Vault, our comprehensive global collection offers over 14,000 brochures and photographs. You can peruse our 1903 to 2003 Ford, Lincoln, Mercury, and Edsel products, locations from around the world, and now we’ve added nearly 100 years’ worth of concept cars! Enjoy the ride!
-						 
-				   
-					
-																																	
-										   
-		   
-																							
-																	 
-																					
+        Chances are you have fond memories of a Ford-built vehicle from your past. Take a trip down memory lane through the Ford Heritage Vault, our comprehensive collection offers more than 5,000 curated photographs and product brochures from Ford and Lincoln vehicles. Enjoy the ride!
       </p>
     </div>
   </div>
@@ -163,7 +291,6 @@
 
       <h3 class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline"></h3>
 
-																												   
       <p class="text-[#4D4D4D] text-[16px] leading-[24px] mt-[25px] sm:mt-[10px] latestArchiveScope"></p>
 
 
@@ -205,7 +332,7 @@
     <h2
       class="text-[34px] sm:text-[36px]  text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px]" data-aos="fade-up"
     >
-    Enjoy some beautiful products from across the pond, Ford's UK market   </h2>
+    Lights! Camera! Action! These Mustang models made it big in Hollywood   </h2>
     <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
       <div
         class="col-auto sm:col-span-3 h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
@@ -219,9 +346,8 @@
             <span class="material-icons"> arrow_forward_ios </span>
           </div>
         </div>
-																								 
       </div>
-  
+
       <div
         class="col-auto sm:col-span-3 bg-black h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
@@ -234,14 +360,11 @@
             <span class="material-icons"> arrow_forward_ios </span>
           </div>
         </div>
-																								 
       </div>
-  
+
       <div
         class="col-auto sm:col-span-4 sm:row-span-2 bg-black h-[300px] sm:h-[40vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
-																	 
-		  
         <div class="absolute h-full w-full trendingShadowLayer"></div>
         <div
           class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px] cursor-pointer trendingNowLink"
@@ -251,9 +374,8 @@
             <span class="material-icons"> arrow_forward_ios </span>
           </div>
         </div>
-																								 
       </div>
-  
+
       <div
         class="col-auto sm:col-span-2 bg-black h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
@@ -267,7 +389,7 @@
           </div>
         </div>
       </div>
-  
+
       <div
         class="hidden sm:block col-span-4 bg-black h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
@@ -280,17 +402,12 @@
             <span class="material-icons"> arrow_forward_ios </span>
           </div>
         </div>
-																								 
       </div>
-  
+
       <div
         class="hidden sm:block col-span-4 bg-white h-[30vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
         <div class="absolute h-full w-full trendingShadowLayer"></div>
-							  
-		  
-						  
-					 
         <div
           class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px] cursor-pointer trendingNowLink"
         >
@@ -300,16 +417,11 @@
           </div>
         </div>
       </div>
-  
+
       <div
         class="hidden sm:block col-span-6 bg-[#243C5A] h-[30vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
         <div class="absolute h-full w-full trendingShadowLayer"></div>
-																									 
-																 
-		  
-							
-					 
         <div
           class="absolute bottom-[5px] flex justify-between w-full px-[15px] mb-[15px] cursor-pointer trendingNowLink"
         >
@@ -340,21 +452,21 @@
     <div id="blackbox" class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex">
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Media </a>
             </div>
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px] "> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://corporate.ford.com/contact.html"> Ford Motor Company </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px] contactUs"
-                    > Ford Heritage Vault </p>
+                    href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                    href="/"> Ford Heritage Vault </a>
             </div>
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Support </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Support </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/support/"> Ford Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.lincoln.com/support/"> Lincoln Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/support/recalls/"> Recalls </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
@@ -363,7 +475,7 @@
         </div>
         <div class="w-1/4 flex justify-center">
             <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Shop </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+                <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Shop </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.ford.com/"> Ford US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://www.lincoln.com/"> Lincoln US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
                     href="https://corporate.ford.com/operations/locations/global-links.html"> Global Sites </a>
@@ -384,13 +496,13 @@
         <div>
             <div class="flex justify-between h-[60px] pt-[15px]">
                 <div>
-                    <p class="">Contact Us</p>
+                    <p>Contact</p>
                 </div>
                 <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
             </div>
             <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://corporate.ford.com/contact.html">Ford
                     Motor Company</a> <a class="mb-[8px]" href="https://shareholder.ford.com/investors/overview/default.aspx">Investor
-                    <p class="mb-[8px] contactUs" >Ford Heritage Vault</p> </div>
+                    <a class="mb-[8px]" href="/">Ford Heritage Vault</a> </div>
         </div>
         <div>
             <div class="flex justify-between h-[60px] pt-[15px]">
@@ -417,8 +529,8 @@
         </div>
     </div> <!-- BlackBox -->
     <!-- Contact Us -->
-    <div id="" class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
-        <div class="flex space-x-[15px]" id="surveyButton"> 
+    <div id="contactus" class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
+        <div class="flex space-x-[15px]" id="surveyButton">
         </div>
         <div class="flex flex-col sm:flex-row justify-around sm:space-x-[30px]">
             <div class="sm:self-center">
@@ -434,7 +546,7 @@
     <!-- Ford Links -->
     <div id="fordLinks" class="bg-[#f4f4f4] text-center text-[#4D4D4D] py-[50px] px-[15px] sm:px-[100px]">
         <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex"
-                href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo" class="h-[30px] mx-1"
+                href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo" class="h-[35px] mx-1"
                     src="/assets/images/ford-logo.png"> &copy;
                 2024 The Ford Motor Company </p>
         </div>
@@ -447,24 +559,18 @@
                 target="_blank">Ford Social Rules of the Road </a> </div>
         <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Social-Security-Number-Privacy-Statement-081109.pdf "
                 target="_blank">SSN Privacy (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/global-modern-slavery-and-human-trafficking-transparency-statement.pdf"
-																																							   
                 target="_blank">Global Modern Slavery Statement (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Form-SD-and-CMR-for-Year-Ended-December-31-2020-Certification-Copy.pdf"
-																																							   
                 target="_blank">Conflict Minerals (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Pay-Transparency-Policy-Statement-2017.pdf"
-																																   
                 target="_blank">Pay Transparency (view PDF) </a> </div>
     </div> <!-- Ford Links -->
 </section><!-- End of Footer Section --><a id="backTop" class="material-icons">keyboard_arrow_up</a><!-- Survey Model -->
-					 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b70c494a34.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script> AOS.init({ once: true, duration: 800, });</script>
-																			  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-																						
 <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/assets/js/jszip.min.js"></script>
@@ -655,7 +761,7 @@
                     </div>
                 </div>
                 <div class="col-span-2 sm:col-span-1 row-span-2 order-2 sm:order-3 relative"> <label hidden for="surveyComment">Survey
-                        Comment</label> <textarea id="surveyComment" placeholder="Your comment here. If a response is required please provide an email address" maxlength="1000"
+                        Comment</label> <textarea id="surveyComment" placeholder="Your comment here" maxlength="1000"
                         class="border-[1px] border-solid border-[#6E6E6E] w-full resize-none min-h-[120px] h-full p-[5px]"></textarea>
                     <p class="text-right text-[9px] text-[#4D4D4D]">1000 characters</p>
                 </div>

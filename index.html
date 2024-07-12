@@ -1,11 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="expires" content="0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
@@ -16,16 +12,17 @@
   <link href="/assets/css/index.css" rel="stylesheet" />
 
   <link type="text/css" rel="stylesheet" href="/assets/css/lightgallery.min.css" />
-<!-- 
+  <!-- 
   <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.4.0/css/lightgallery.min.css" /> -->
 
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style id="antiClickjack">
     body {
-        display: none !important;
-      }
-    </style>
+      display: none !important;
+    }
+  </style>
 
   <script type="text/javascript">
     if (self === top) {
@@ -36,7 +33,6 @@
     }
   </script>
   <title>Hop in the Driver's Seat | Ford Heritage Vault</title>
-
 </head>
 <span id="sessionid" hidden>^sessid^</span>
 
@@ -52,8 +48,9 @@
 <div id="header relative">
   <nav class="flex justify-between px-[15px] sm:px-[100px] py-[15px] bg-white h-[80px] drop-shadow-4xl">
     <div class="flex justify-center align-middle items-center">
-      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo" class="h-[30px] mx-1" src="/assets/images/ford-logo.png" /><img
-          alt="Ford Heritage Vault Logo" class="h-[30px] mx-1" src="/assets/images/logo.png" />
+      <a href="/" class="homepageURL flex justify-center align-middle items-center"><img alt="Ford Logo"
+          class="h-[35px] mx-1" src="/assets/images/ford-logo.png" /><img alt="Ford Heritage Vault Logo"
+          class="h-[35px] mx-1" src="/assets/images/logo.png" />
 
         <!-- <span
           class="h-[24px] w-[1px] border-[1.2px] border-solid border-[#00142E] box-border bg-[#00142E]"
@@ -66,209 +63,221 @@
       </a>
     </div>
 
-    <div class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-end align-middle text-[#243C5A]">
+    <div class="flex w-20 sm:w-[20rem] space-x-2 sm:space-x-4 justify-around align-middle text-[#243C5A]">
       <button class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton">
         <span class="">Advanced Search</span>
         <span class="material-icons px-2">tune</span>
       </button>
 
-    
+
 
       <div class="inline-flex space-2 items-center sm:hidden filterButton">
-        <span class="text-center text-xs">Advanced Search</span>
+        <span class="material-icons px-2">tune</span>
       </div>
-     
+
     </div>
   </nav>
 
   <div id="headerShadow" class="w-full h-[10px] absolute top-[70px]"></div>
-<!-- Start of Filter Collapse -->
+  <!-- Start of Filter Collapse -->
 
-<div id="filterCollapse"
-  class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]">
-  <div class="col-span-12">
-    <div class="w-full lg:w-2/3 text-[#9C9C9C]">
-      <form id="advancedSearchForm" class="relative flex items-center" method="POST"
-        action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
-        <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
-          aria-label="What Are You Looking For?"
-          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
-        <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
-        <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
-        <span class="material-icons absolute right-0 font-[14px]">
-          search
-        </span>
-      </form>
+  <div id="filterCollapse"
+    class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]">
+    <div class="col-span-12">
+      <div class="w-full lg:w-2/3 text-[#9C9C9C]">
+        <form id="advancedSearchForm" class="relative flex items-center" method="POST"
+          action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+          <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
+            aria-label="What Are You Looking For?"
+            class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
+          <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
+          <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
+          <span class="material-icons absolute right-0 font-[14px]">
+            search
+          </span>
+        </form>
+      </div>
+    </div>
+
+    <!-- Start of Year  -->
+    <div class="col-span-5 md:col-span-5 xl:col-span-2">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Model Year</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <input class="filterText" data-filter="Year" placeholder="Model Year" />
+
+
+        <div
+          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+          <ul id="yearFilterList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- End of Year -->
+
+    <!-- Start of Make -->
+    <div class="col-span-7 md:col-span-7 xl:col-span-3 ">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <input class="filterText" data-filter="Make" placeholder="Make" />
+        <div
+          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+          <ul id="makeFilterList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- End of Make -->
+    <!-- Start of Model -->
+    <div class="col-span-12 md:col-span-12 xl:col-span-3 ">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <input class="filterText" data-filter="Model" placeholder="Model" />
+
+        <div
+          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+          <ul id="modelFilterList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- End of Model -->
+
+    <div class="col-span-12 md:col-span-12 xl:col-span-4">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
+      <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
+        id="colorFilter">
+        <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
+          class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span
+          class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter" data-color="brown"></span><span
+          class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter" data-color="green"></span><span
+          class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter" data-color="grey"></span><span
+          class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span><span
+          class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter" data-color="orange"></span><span
+          class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter" data-color="purple">
+        </span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
+          data-color="red">
+        </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
+          data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
+          data-color="yellow"></span>
+      </div>
+    </div>
+
+    <!-- Start of Publications -->
+    <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
+
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <input class="filterText" data-filter="Publication" placeholder="Publications" />
+        <div
+          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+          <ul id="publicationFilterList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- End of Publications -->
+
+    <!-- Start of Designs -->
+    <!-- <div class="col-span-12 md:col-span-6 xl:col-span-3 xl:col-start-1">
+  <span class="text-[11px] leading-[16px] tracking-[1px]">Designs/Concepts</span>
+
+  <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+    <input class="filterText" data-filter="Design" placeholder="Designs/Concepts" />
+    <div
+      class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+      <ul id="designFilterList"></ul>
     </div>
   </div>
+</div> -->
+    <!-- End of Designs -->
 
-  <!-- Start of Year  -->
-  <div class="col-span-5 md:col-span-5 xl:col-span-2">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Year</span>
+    <!-- Start of Places -->
+    <div class="col-span-12 md:col-span-12 xl:col-span-7 xl:col-start-1">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Places</span>
+      <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
+        <input class="filterText" data-filter="Place" placeholder="Places" />
+        <div
+          class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+          <ul id="placeFilterList"></ul>
+        </div>
+      </div>
+    </div>
+    <!-- End of Places -->
 
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Year" placeholder="Year" />
 
 
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="yearFilterList"></ul>
+    <div class="col-span-12 md:col-span-12 xl:col-span-4 xl:col-start-1">
+      <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
+
+      <div class="grid grid-cols-3 sm:grid-cols-4">
+        <div class="col-span-1 flex space-x-[10px] items-center">
+          <input type="checkbox" data-asset="Image" id="imageAssetType"
+            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+
+          <label class="" for="imageAssetType">Images</label>
+        </div>
+
+        <div class="col-span-1 flex space-x-[10px] items-center">
+          <input type="checkbox" data-asset="Textual" id="documentAssetType"
+            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
+
+          <label class="" for="documentAssetType">Documents</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
+      <div>
+        <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
+          id="advanced-reset">
+          Reset
+        </button>
+      </div>
+      <div>
+        <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
+          id="advanced-submit">
+          Search
+        </button>
       </div>
     </div>
   </div>
-  <!-- End of Year -->
 
-  <!-- Start of Make -->
-  <div class="col-span-7 md:col-span-7 xl:col-span-3 ">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Make</span>
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Make" placeholder="Make" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
-        <ul id="makeFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Make -->
-  <!-- Start of Model -->
-  <div class="col-span-12 md:col-span-12 xl:col-span-3 ">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Model</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Model" placeholder="Model" />
-
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
-        <ul id="modelFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Model -->
-
-  <div class="col-span-12 md:col-span-12 xl:col-span-4">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-    <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
-      id="colorFilter">
-      <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
-        class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span
-        class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter" data-color="brown"></span><span
-        class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter" data-color="green"></span><span
-        class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter" data-color="grey"></span><span
-        class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span><span
-        class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter" data-color="orange"></span><span
-        class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter" data-color="purple">
-      </span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
-        data-color="red">
-      </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
-        data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
-        data-color="yellow"></span>
-    </div>
-  </div>
-
-  <!-- Start of Publications -->
-  <div class="col-span-12 md:col-span-6 xl:col-span-2 xl:col-start-1 xl:col-start-1">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Publications</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Publication" placeholder="Publications" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="publicationFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Publications -->
-
-  <!-- Start of Designs -->
-  <div class="col-span-12 md:col-span-6 xl:col-span-3 xl:col-start-1">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Designs/Concepts</span>
-
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Design" placeholder="Designs/Concepts" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="designFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Designs -->
-
-  <!-- Start of Places -->
-  <div class="col-span-12 md:col-span-12 xl:col-span-7 xl:col-start-1">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Places</span>
-    <div class="fmc-select relative h-[50px] select-none filterSelect flex justify-between">
-      <input class="filterText" data-filter="Place" placeholder="Places" />
-      <div
-        class="filterDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-        <ul id="placeFilterList"></ul>
-      </div>
-    </div>
-  </div>
-  <!-- End of Places -->
-
-
-
-  <div class="col-span-12 md:col-span-12 xl:col-span-4 xl:col-start-1">
-    <span class="text-[11px] leading-[16px] tracking-[1px]">Asset Type</span>
-
-    <div class="grid grid-cols-3 sm:grid-cols-4">
-      <div class="col-span-1 flex space-x-[10px] items-center">
-        <input type="checkbox" data-asset="Image" id="imageAssetType"
-          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
-
-        <label class="" for="imageAssetType">Images</label>
-      </div>
-
-      <div class="col-span-1 flex space-x-[10px] items-center">
-        <input type="checkbox" data-asset="Textual" id="documentAssetType"
-          class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
-
-        <label class="" for="documentAssetType">Documents</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
-    <div>
-      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
-        Reset
-      </button>
-    </div>
-    <div>
-      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
-        id="advanced-submit">
-        Search
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- End of Filter Collapse -->
+  <!-- End of Filter Collapse -->
 
 </div>
 <!--End of header-->
 
-<section id="banner" class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative cursor-pointer home">
+<section id="banner"
+  class="flex justify-center h-[calc(100vh-80px)] bg-no-repeat bg-center bg-cover bg-homeBanner p-[20px] pt-10px sm:pt-[35px] relative cursor-pointer home">
   <div class="bannerShadow"></div>
 
-  <div class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline"><a
-    class="bannerLinkRecord"  href="https://ford2.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.2.2427">AR-2008-8.1.2.2427</a></div>
+  <div
+    class="z-[99]  absolute bottom-[0] sm:right-[0] bg-[rgb(60,60,60,0.3)] px-[5px] py-[4px] text-white hover:bg-black hover:underline">
+    <a class="bannerLinkRecord"
+      href="https://ford2.minisisinc.com/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20AR-2008-8.1.8.676">AR-2008-8.1.8.676</a>
+  </div>
   <div class="w-full sm:w-[600px] z-[2]" data-aos="fade-down">
     <h1 class="text-center text-[36px] text-white leading-[43px] tracking-normal sm:block">
       Hop in the Driver's Seat
     </h1>
-    <form method="POST" id="searchForm" action="https://ford2.minisisinc.com/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
-      <div class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
+    <form method="POST" id="searchForm"
+      action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
+      <div
+        class="flex flex-col sm:flex-row justify-center mt-[70px] sm:mt-[25px] space-x-0 sm:space-x-5 text-[#DDDADA] ">
         <div class="relative w-full rounded inline-flex items-center">
           <span class="absolute inset-y-0 left-[5px] flex items-center pl-2">
             <span class="material-icons text-[20px]"> search </span>
           </span>
-          <input required type="search" name="KEYWORD_CL" class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
+          <input required type="search" name="KEYWORD_CL"
+            class="form-control h-auto relative flex-auto min-w-0 block pl-[40px] py-1.5 text-base font-normal text-[#DDDADA] bg-transparent border-2 border-solid border-[#DDDADA] rounded transition ease-in-out m-0 focus:border-[#DDDADA] focus:outline-none focus:text-[#DDDADA] text-[18px] placeholder:text-[#DDDADA]"
             placeholder="What are you looking for?" aria-label="What are you looking for?" autofocus />
+          <input type="hidden" name="$RANKING" value="Y" /> <!-- RL-20240829 -->
+
+
         </div>
 
         <div class="flex justify-center sm:ml-8 sm:mt-0 mt-[30px] inline-flex items-center">
-          <button class="bg-white rounded-[20px] hover:shadow-lg hover:shadow-[#243C5A] duration-300 w-[120px] h-[40px] text-[#243C5A] text-[18px] box-border">
+          <button
+            class="bg-white rounded-[20px] hover:shadow-lg hover:shadow-[#243C5A] duration-300 w-[120px] h-[40px] text-[#243C5A] text-[18px] box-border">
             Search
           </button>
         </div>
@@ -280,10 +289,13 @@
 <!-- Start of History of Innovation Section -->
 <section id="history" class="grid sm:flex items-stretch bg-white h-screen sm:h-[400px] innovationColorLayer">
   <div class="w-1/2 h-full hidden sm:block" data-aos="fade-right">
-    <div class="w-4/5 h-[calc(22vw)] border-[1px] border-solid border-[#979797] bg-homeInnovation relative left-[calc(8vw)] bottom-[calc(4vw)] bg-cover bg-center bg-no-repeat cursor-pointer"></div>
+    <div
+      class="w-4/5 h-[calc(22vw)] border-[1px] border-solid border-[#979797] bg-homeInnovation relative left-[calc(8vw)] bottom-[calc(4vw)] bg-cover bg-center bg-no-repeat cursor-pointer">
+    </div>
   </div>
 
-  <div class="w-full sm:w-1/2 sm:pt-[40px] mb-[50px] h-1/2 sm:h-full px-[15px] py-[50px] sm:bg-white innovationShadowLayer">
+  <div
+    class="w-full sm:w-1/2 sm:pt-[40px] mb-[50px] h-1/2 sm:h-full px-[15px] py-[50px] sm:bg-white innovationShadowLayer">
     <div class="sm:max-w-[600px]" data-aos="fade-left">
       <!-- <p>
        
@@ -291,11 +303,14 @@
           Remember your first car? Or your parents' station wagon or pickup?</span>
       </p> -->
 
-      <h2 class="text-white sm:text-[#243C5A] text-[35px] sm:text-[36px]  leading-[40px] sm:leading-[45px] mt-[29px] sm:mt-[16px]">
-        100 years' worth of amazing products!
+      <h2
+        class="text-white sm:text-[#243C5A] text-[35px] sm:text-[36px]  leading-[40px] sm:leading-[45px] mt-[29px] sm:mt-[16px]">
+        Remember your first car? Or your parents' station wagon or pickup?
       </h2>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px]">
-       Chances are you have fond memories of a Ford-built vehicle from your past. Take a trip down memory lane through the Ford Heritage Vault, our comprehensive collection offers nearly 10,000 curated photographs and product brochures from 1903 to 2003 Ford, Lincoln, Mercury, and Edsel vehicles. Enjoy the ride!
+        Chances are you have fond memories of a Ford-built vehicle from your past. Take a trip down memory lane through
+        the Ford Heritage Vault, our comprehensive collection offers more than 5,000 curated photographs and product
+        brochures from Ford and Lincoln vehicles. Enjoy the ride!
       </p>
     </div>
   </div>
@@ -307,26 +322,22 @@
 <!-- End of History of Innovation Section -->
 
 <!-- Start of Archive Section -->
-<section id="archive" class="flex flex-col justify-center bg-[#F2F2F2] h-[890px] px-[15px] py-[22px] sm:px-[60px] sm:py-[30px]" >
-  <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px]" data-aos="fade-up">
+<section id="archive"
+  class="flex flex-col justify-center bg-[#F2F2F2] h-[890px] px-[15px] py-[22px] sm:px-[60px] sm:py-[30px]">
+  <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px]"
+    data-aos="fade-up">
     The Latest from the Archive
   </h2>
 
   <div class="flex flex-col sm:flex-row items-center mt-[50px] space-x-0 sm:space-x-[30px]">
     <div class="latestArchive w-full h-[450px]  sm:block relative">
-      <div class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background"></div>
+      <div
+        class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background">
+      </div>
 
-      <h3 class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline "></h3>
-
-      <p class="text-[#4D4D4D] text-[16px] leading-[24px] mt-[25px] sm:mt-[10px] latestArchiveScope"></p>
-
-
-    </div>
-
-    <div class="latestArchive w-full h-[450px]  hidden sm:block relative">
-      <div class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background"></div>
-
-      <h3 class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline"></h3>
+      <h3
+        class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline ">
+      </h3>
 
       <p class="text-[#4D4D4D] text-[16px] leading-[24px] mt-[25px] sm:mt-[10px] latestArchiveScope"></p>
 
@@ -334,9 +345,27 @@
     </div>
 
     <div class="latestArchive w-full h-[450px]  hidden sm:block relative">
-      <div class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background"></div>
+      <div
+        class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background">
+      </div>
 
-      <h3 class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline"></h3>
+      <h3
+        class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline">
+      </h3>
+
+      <p class="text-[#4D4D4D] text-[16px] leading-[24px] mt-[25px] sm:mt-[10px] latestArchiveScope"></p>
+
+
+    </div>
+
+    <div class="latestArchive w-full h-[450px]  hidden sm:block relative">
+      <div
+        class="w-full h-[360px] bg-[#F2F2F2] latestArchiveThumb bg-contain bg-no-repeat bg-center latestArchiveLink linear-background">
+      </div>
+
+      <h3
+        class="text-[#4D4D4D] text-[16px] leading-[39px] font-normal  mt-[10px] latestArchiveTitle cursor-pointer hover:underline">
+      </h3>
 
       <p class="text-[#4D4D4D] text-[16px] leading-[24px] mt-[25px] sm:mt-[10px] latestArchiveScope"></p>
 
@@ -351,7 +380,8 @@
           arrow_back_ios
         </span>
       </button>
-      <p class="text-center inline-flex items-center text-[16px] leading-[24px] text-[#4D4D4D] tracking-[1px] w-[50px] pl-[10px]">
+      <p
+        class="text-center inline-flex items-center text-[16px] leading-[24px] text-[#4D4D4D] tracking-[1px] w-[50px] pl-[10px]">
         <span id="currentLatestArchive">1</span>/<span id="lengthLatestArchive">3</span>
       </p>
       <button class="w-[40px] h-[40px] text-white rounded-md bg-[#243C5A] inline-flex items-center">
@@ -366,13 +396,12 @@
 
 <!-- Start of Trending Section -->
 <section id="trending">
-  <div class="  text-center ">
-
-
-    <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px] aos-init aos-animate" data-aos="fade-up">  
-      Celebrating Women's History Month with products designed or engineered by women </h2>
-  </div>
-    <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
+  <h2
+    class="text-[34px] sm:text-[36px]  text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px]"
+    data-aos="fade-up">
+    Trending Now
+  </h2>
+  <!-- <div class="grid grid-cols-1 sm:grid-cols-10 bg-white">
       <div
         class="col-auto sm:col-span-3 h-[300px] sm:h-[20vw] relative text-white bg-center bg-cover bg-no-repeat trendingNow"
       >
@@ -470,147 +499,184 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End of Trending Section -->
+    </div> -->
+
+
+
+  <div class="slide-wrapper">
+
+  </div>
+
+</section>
+<!-- End of Trending Section -->
+
+
 
 
 <!-- Start of Footer Section -->
 <section id="footer">
-    <!-- License -->
-    <div id="license" class="bg-[#00142E] text-center text-white py-[50px] px-[8px] sm:px-[200px]">
-        <p class="text-[16px] sm:text-[18px] font-medium leading-[21px]"> Please read carefully </p>
-        <p class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] text-[#9C9C9C]"> Multimedia
-            License Agreement | Images, video and audio from this Web site are provided for the purpose of editorial
-            use only. <br /> You must contact archives@ford.com to obtain approval for advertising, marketing or other
-            commercial users. </p>
-        <p class="mt-[40px] text-[16px] text-[#9C9C9C] leading-[24px]"> &copy;
-           2023 The Ford Motor Company. All Rights Reserved. </p>
-    </div> <!-- License -->
-    <!-- BlackBox -->
-    <div id="blackbox" class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex">
-        <div class="w-1/4 flex justify-center">
-            <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Media </a>
-            </div>
-        </div>
-        <div class="w-1/4 flex justify-center">
-            <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px] "> Contact Us </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://corporate.ford.com/contact.html"> Ford Motor Company </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <p class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px] contactUs"
-                    > Ford Heritage Vault </p>
-            </div>
-        </div>
-        <div class="w-1/4 flex justify-center">
-            <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Support </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.ford.com/support/"> Ford Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.lincoln.com/support/"> Lincoln Support US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.ford.com/support/recalls/"> Recalls </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.ford.com/support/category/fordpass/"> FordPass </a>
-            </div>
-        </div>
-        <div class="w-1/4 flex justify-center">
-            <div>
-                <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Shop </h3> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.ford.com/"> Ford US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://www.lincoln.com/"> Lincoln US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-                    href="https://corporate.ford.com/operations/locations/global-links.html"> Global Sites </a>
-            </div>
-        </div>
+  <!-- License -->
+  <div id="license" class="bg-[#00142E] text-center text-white py-[50px] px-[8px] sm:px-[200px]">
+    <p class="text-[16px] sm:text-[18px] font-medium leading-[21px]"> Please read carefully </p>
+    <p class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] text-[#9C9C9C]"> Multimedia
+      License Agreement | Images, video and audio from this Web site are provided for the purpose of editorial
+      use only. <br /> You must contact archives@ford.com to obtain approval for advertising, marketing or other
+      commercial users. </p>
+    <p class="mt-[40px] text-[16px] text-[#9C9C9C] leading-[24px]"> &copy;
+      2024 The Ford Motor Company. All Rights Reserved. </p>
+  </div> <!-- License -->
+  <!-- BlackBox -->
+  <div id="blackbox"
+    class="flex justify-items-center flex-col sm:flex-row h-[350px] w-full bg-black text-white pt-[80px] py-[100px] hidden sm:flex">
+    <div class="w-1/4 flex justify-center">
+      <div>
+        <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+          href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Media </a>
+      </div>
     </div>
-    <div id="blackbox_mobile" class="flex sm:hidden flex-col bg-black h-auto text-[#F4F4F4] text-[18px] divide-y divide-[#F4F4F4] px-[15px] py-[40px]">
+    <div class="w-1/4 flex justify-center">
+      <div>
+        <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Contact Us </h3> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="https://corporate.ford.com/contact.html">
+          Ford Motor Company </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+          href="https://shareholder.ford.com/investors/overview/default.aspx"> Investors </a> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="/"> Ford Heritage Vault </a>
+      </div>
+    </div>
+    <div class="w-1/4 flex justify-center">
+      <div>
+        <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Support </h3> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="https://www.ford.com/support/"> Ford Support
+          US </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+          href="https://www.lincoln.com/support/"> Lincoln Support US </a> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="https://www.ford.com/support/recalls/">
+          Recalls </a> <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+          href="https://www.ford.com/support/category/fordpass/"> FordPass </a>
+      </div>
+    </div>
+    <div class="w-1/4 flex justify-center">
+      <div>
+        <h3 class="text-[18px] leading-[21px] text-[#F4F4F4] mb-[25px]"> Shop </h3> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="https://www.ford.com/"> Ford US </a> <a
+          class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]" href="https://www.lincoln.com/"> Lincoln US </a>
+        <a class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
+          href="https://corporate.ford.com/operations/locations/global-links.html"> Global Sites </a>
+      </div>
+    </div>
+  </div>
+  <div id="blackbox_mobile"
+    class="flex sm:hidden flex-col bg-black h-auto text-[#F4F4F4] text-[18px] divide-y divide-[#F4F4F4] px-[15px] py-[40px]">
+    <div>
+      <div class="flex justify-between h-[60px] pt-[15px]">
         <div>
-            <div class="flex justify-between h-[60px] pt-[15px]">
-                <div>
-                    <p>Ford Press</p>
-                </div>
-                <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
-            </div>
-            <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://media.ford.com/content/fordmedia/fna/us/en.html">
-                    Media </a> </div>
+          <p>Ford Press</p>
         </div>
+        <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
+      </div>
+      <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]"
+          href="https://media.ford.com/content/fordmedia/fna/us/en.html">
+          Media </a> </div>
+    </div>
+    <div>
+      <div class="flex justify-between h-[60px] pt-[15px]">
         <div>
-            <div class="flex justify-between h-[60px] pt-[15px]">
-                <div>
-                    <p class="">Contact Us</p>
-                </div>
-                <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
-            </div>
-            <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://corporate.ford.com/contact.html">Ford
-                    Motor Company</a> <a class="mb-[8px]" href="https://shareholder.ford.com/investors/overview/default.aspx">Investor
-                    <p class="mb-[8px] contactUs" >Ford Heritage Vault</p> </div>
+          <p>Contact</p>
         </div>
+        <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
+      </div>
+      <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]"
+          href="https://corporate.ford.com/contact.html">Ford
+          Motor Company</a> <a class="mb-[8px]"
+          href="https://shareholder.ford.com/investors/overview/default.aspx">Investor
+          <a class="mb-[8px]" href="/">Ford Heritage Vault</a> </div>
+    </div>
+    <div>
+      <div class="flex justify-between h-[60px] pt-[15px]">
         <div>
-            <div class="flex justify-between h-[60px] pt-[15px]">
-                <div>
-                    <p>Support</p>
-                </div>
-                <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
-            </div>
-            <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://www.ford.com/support/">Ford
-                    Support US</a> <a class="mb-[8px]" href="https://www.ford.com/support/">Lincoln Support US</a> <a
-                    class="mb-[8px]" href="https://www.ford.com/support/recalls/">Recalls</a> <a class="mb-[8px]" href="https://www.ford.com/support/category/fordpass/">FordPass</a>
-            </div>
+          <p>Support</p>
         </div>
+        <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
+      </div>
+      <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]"
+          href="https://www.ford.com/support/">Ford
+          Support US</a> <a class="mb-[8px]" href="https://www.ford.com/support/">Lincoln Support US</a> <a
+          class="mb-[8px]" href="https://www.ford.com/support/recalls/">Recalls</a> <a class="mb-[8px]"
+          href="https://www.ford.com/support/category/fordpass/">FordPass</a>
+      </div>
+    </div>
+    <div>
+      <div class="flex justify-between h-[60px] pt-[15px]">
         <div>
-            <div class="flex justify-between h-[60px] pt-[15px]">
-                <div>
-                    <p>Shop</p>
-                </div>
-                <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
-            </div>
-            <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]" href="https://www.ford.com/">Ford
-                    US</a> <a class="mb-[8px]" href="https://www.lincoln.com/">Lincoln US<a> <a class="mb-[8px]" href="https://corporate.ford.com/operations/locations/global-links.html">Global
-                            Sites</a> </div>
+          <p>Shop</p>
         </div>
-    </div> <!-- BlackBox -->
-    <!-- Contact Us -->
-    <div id="" class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
-        <div class="flex space-x-[15px]" id="surveyButton"> 
-        </div>
-        <div class="flex flex-col sm:flex-row justify-around sm:space-x-[30px]">
-            <div class="sm:self-center">
-                <p class="text-[16px] text-[#F4F4F4] leading-[19px]"> Connect with us </p>
-            </div>
-            <div class="sm:self-center footerSocialLink"> <a href="https://twitter.com/Ford" aria-label="Twitter Link"><i
-                        class="fa-brands fa-twitter-square"></i></a> <a href="https://www.linkedin.com/company/ford-motor-company"
-                    aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin"></i></a> <a href="https://www.facebook.com/ford"
-                    aria-label="Ford Link"><i class="fa-brands fa-facebook-square"></i></a> <a href="https://www.instagram.com/accounts/login/?next=/ford/"
-                    aria-label="Instagram Link"><i class="fa-brands fa-instagram-square"></i></a> </div>
-        </div>
-    </div> <!-- Contact Us -->
-    <!-- Ford Links -->
-    <div id="fordLinks" class="bg-[#f4f4f4] text-center text-[#4D4D4D] py-[50px] px-[15px] sm:px-[100px]">
-        <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex"
-                href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo" class="h-[30px] mx-1"
-                    src="/assets/images/ford-logo.png"> &copy;
-                2023 The Ford Motor Company </p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a href="https://www.ford.com/help/contact/#accessibility"
-                target="_blank">Accessibility</a> <a href="https://www.ford.com/help/privacy/" target="_blank">Privacy
-                Policy</a> <a href="https://corporate.ford.com/#cookie-settings" target="_blank">Cookie Settings </a>
-            <a href="https://www.ford.com/help/privacy/#caPrivacy" target="_blank">Your CA Privacy Rights </a> <a href="https://www.ford.com/help/terms/ "
-                target="_blank">Terms and Conditions </a> <a href="https://corporate.ford.com/about/ford-open-source.html"
-                target="_blank">Open Source Notices </a> <a href="https://corporate.ford.com/about/ford-social-rules-of-the-road.html"
-                target="_blank">Ford Social Rules of the Road </a> </div>
-        <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Social-Security-Number-Privacy-Statement-081109.pdf "
-                target="_blank">SSN Privacy (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/global-modern-slavery-and-human-trafficking-transparency-statement.pdf"
-                target="_blank">Global Modern Slavery Statement (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Form-SD-and-CMR-for-Year-Ended-December-31-2020-Certification-Copy.pdf"
-                target="_blank">Conflict Minerals (view PDF) </a> <a href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Pay-Transparency-Policy-Statement-2017.pdf"
-                target="_blank">Pay Transparency (view PDF) </a> </div>
-    </div> <!-- Ford Links -->
-</section><!-- End of Footer Section --><a id="backTop" class="material-icons">keyboard_arrow_up</a><!-- Survey Model -->
+        <div class="expandBlackboxButton"><span class="material-icons"> expand_more </span></div>
+      </div>
+      <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]"
+          href="https://www.ford.com/">Ford
+          US</a> <a class="mb-[8px]" href="https://www.lincoln.com/">Lincoln US<a> <a class="mb-[8px]"
+              href="https://corporate.ford.com/operations/locations/global-links.html">Global
+              Sites</a> </div>
+    </div>
+  </div> <!-- BlackBox -->
+  <!-- Contact Us -->
+  <div id="contactus"
+    class="h-[170px] sm:h-[80px] bg-[#00095B] text-white flex flex-col sm:flex-row justify-evenly sm:justify-between py-[25px] px-[15px] sm:px-[100px] space-y-[25px] sm:space-y-0">
+    <div class="flex space-x-[15px]" id="surveyButton">
+    </div>
+    <div class="flex flex-col sm:flex-row justify-around sm:space-x-[30px]">
+      <div class="sm:self-center">
+        <p class="text-[16px] text-[#F4F4F4] leading-[19px]"> Connect with us </p>
+      </div>
+      <div class="sm:self-center footerSocialLink"> <a href="https://twitter.com/Ford" aria-label="Twitter Link"><i
+            class="fa-brands fa-twitter-square"></i></a> <a href="https://www.linkedin.com/company/ford-motor-company"
+          aria-label="LinkedIn Link"><i class="fa-brands fa-linkedin"></i></a> <a href="https://www.facebook.com/ford"
+          aria-label="Ford Link"><i class="fa-brands fa-facebook-square"></i></a> <a
+          href="https://www.instagram.com/accounts/login/?next=/ford/" aria-label="Instagram Link"><i
+            class="fa-brands fa-instagram-square"></i></a> </div>
+    </div>
+  </div> <!-- Contact Us -->
+  <!-- Ford Links -->
+  <div id="fordLinks" class="bg-[#f4f4f4] text-center text-[#4D4D4D] py-[50px] px-[15px] sm:px-[100px]">
+    <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a
+        class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex"
+        href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo"
+          class="h-[35px] mx-1" src="/assets/images/ford-logo.png"> &copy;
+        2024 The Ford Motor Company </p>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a
+        href="https://www.ford.com/help/contact/#accessibility" target="_blank">Accessibility</a> <a
+        href="https://www.ford.com/help/privacy/" target="_blank">Privacy
+        Policy</a> <a href="https://corporate.ford.com/#cookie-settings" target="_blank">Cookie Settings </a>
+      <a href="https://www.ford.com/help/privacy/#caPrivacy" target="_blank">Your CA Privacy Rights </a> <a
+        href="https://www.ford.com/help/terms/ " target="_blank">Terms and Conditions </a> <a
+        href="https://corporate.ford.com/about/ford-open-source.html" target="_blank">Open Source Notices </a> <a
+        href="https://corporate.ford.com/about/ford-social-rules-of-the-road.html" target="_blank">Ford Social Rules of
+        the Road </a>
+    </div>
+    <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a
+        href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Social-Security-Number-Privacy-Statement-081109.pdf "
+        target="_blank">SSN Privacy (view PDF) </a> <a
+        href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/global-modern-slavery-and-human-trafficking-transparency-statement.pdf"
+        target="_blank">Global Modern Slavery Statement (view PDF) </a> <a
+        href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Form-SD-and-CMR-for-Year-Ended-December-31-2020-Certification-Copy.pdf"
+        target="_blank">Conflict Minerals (view PDF) </a> <a
+        href="https://corporate.ford.com/content/dam/corporate/us/en-us/documents/legal/Pay-Transparency-Policy-Statement-2017.pdf"
+        target="_blank">Pay Transparency (view PDF) </a> </div>
+  </div> <!-- Ford Links -->
+</section><!-- End of Footer Section --><a id="backTop"
+  class="material-icons">keyboard_arrow_up</a><!-- Survey Model -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/b70c494a34.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script> AOS.init({ once: true, duration: 800, });</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+  integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+  integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/assets/js/jszip.min.js"></script>
 <script src="/assets/js/xml2json.min.js"></script>
@@ -618,249 +684,290 @@
 <script src="/assets/js/models.js"></script>
 <script src="/dist/js/bundle.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-R5N0G849XK"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JEV43S2FV5"></script>
 <script>
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
-  gtag('config', 'G-R5N0G849XK');
+  gtag('config', 'G-JEV43S2FV5');
 
 </script>
 <!-- Request PDF Modal -->
 <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden fordModal" id="requestPDFModal">
-    <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
-        <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
-        </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-        <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[700px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-            role="dialog" aria-modal="true">
-            <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
-                <i class="fa-solid fa-x"></i> </div>
-            <div class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-                <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
-                <div class="absolute right-[30px] cursor-pointer modalCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
-                </div>
-            </div>
-            <div class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
-                <div class="col-span-4 sm:col-span-4">
-                    <h2 class="text-[16px] leading-[18px] tracking-[1px]">Please submit this request if you use a screen reader, or other adaptive technology, and need accessibility features added to this brochure.</h2>
-                </div>
-                <div class="col-span-4 sm:col-span-4 order-1"> <span class="text-[11px] leading-[16px] tracking-[1px]">Email
-                        Address</span>
-                    <div class="fmc-select relative h-[50px] select-none requestEmail flex justify-between"> <input id="requestEmailInput"
-                            placeholder="Email Address" autofocus="" aria-label="Email Address" class="w-full focus:outline-none focus:text-black bg-transparent">
-                    </div>
-                </div>
-                <div class="col-span-4 sm:col-span-4 order-2"> <span class="text-[11px] leading-[16px] tracking-[1px]">Full
-                        Name</span>
-                    <div class="fmc-select relative h-[50px] select-none requestName flex justify-between"> <input id="requestNameInput"
-                            placeholder="Full Name" autofocus="" aria-label="Full Name" class="w-full focus:outline-none focus:text-black bg-transparent ">
-                    </div>
-                </div>
-                <div class="col-span-4 sm:col-span-4 row-span-3 order-3 "> <span class="text-[16px] leading-[16px] tracking-[1px] ">Record
-                        Information</span>
-                    <div class="flex flex-col">
-                        <div class="flex justify-between items-center pb-[10px] mt-[15px]">
-                            <p><strong>Title</strong>: <span id="requestTitle"></span> </p>
-                        </div>
-                        <div class="flex justify-between items-center pb-[10px] mt-[15px]">
-                            <p><strong>REFD</strong>: <span id="requestREFD"></span> </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-4 sm:col-span-4"> <a class="hover:underline " href="https://www.ford.com/help/privacy/"
-                        target="_blank">Privacy Policy</a> </div>
-                <div class="col-span-2 order-5 mt-[15px] mb-[40px] sm:mb-[30px]">
-                    <div class="text-right"> <button id="request-submit" class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
-                            Submit </button> </div>
-                </div>
-            </div>
+  <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
+    </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+    <div
+      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[700px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
+      role="dialog" aria-modal="true">
+      <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
+        <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
+        <div class="absolute right-[30px] cursor-pointer modalCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
         </div>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
+        <div class="col-span-4 sm:col-span-4">
+          <h2 class="text-[16px] leading-[18px] tracking-[1px]">Please submit this request if you use a screen reader,
+            or other adaptive technology, and need accessibility features added to this brochure.</h2>
+        </div>
+        <div class="col-span-4 sm:col-span-4 order-1"> <span class="text-[11px] leading-[16px] tracking-[1px]">Email
+            Address</span>
+          <div class="fmc-select relative h-[50px] select-none requestEmail flex justify-between"> <input
+              id="requestEmailInput" placeholder="Email Address" autofocus="" aria-label="Email Address"
+              class="w-full focus:outline-none focus:text-black bg-transparent">
+          </div>
+        </div>
+        <div class="col-span-4 sm:col-span-4 order-2"> <span class="text-[11px] leading-[16px] tracking-[1px]">Full
+            Name</span>
+          <div class="fmc-select relative h-[50px] select-none requestName flex justify-between"> <input
+              id="requestNameInput" placeholder="Full Name" autofocus="" aria-label="Full Name"
+              class="w-full focus:outline-none focus:text-black bg-transparent ">
+          </div>
+        </div>
+        <div class="col-span-4 sm:col-span-4 row-span-3 order-3 "> <span
+            class="text-[16px] leading-[16px] tracking-[1px] ">Record
+            Information</span>
+          <div class="flex flex-col">
+            <div class="flex justify-between items-center pb-[10px] mt-[15px]">
+              <p><strong>Title</strong>: <span id="requestTitle"></span> </p>
+            </div>
+            <div class="flex justify-between items-center pb-[10px] mt-[15px]">
+              <p><strong>REFD</strong>: <span id="requestREFD"></span> </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-4 sm:col-span-4"> <a class="hover:underline " href="https://www.ford.com/help/privacy/"
+            target="_blank">Privacy Policy</a> </div>
+        <div class="col-span-2 order-5 mt-[15px] mb-[40px] sm:mb-[30px]">
+          <div class="text-right"> <button id="request-submit"
+              class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
+              Submit </button> </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div><!-- Request PDF Modal -->
 <!-- Survey Modal -->
 <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden fordModal" id="surveyModal">
-    <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
-        <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
-        </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-        <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-            role="dialog" aria-modal="true">
-            <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
-                <i class="fa-solid fa-x"></i> </div>
-            <div class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-                <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
-                <div class="absolute right-[30px] cursor-pointer surveyCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
-                </div>
-            </div>
-            <div class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
-                <div class="col-span-2 sm:col-span-1 text-[18px]">
-                    <p>What are you looking for?</p>
-                </div>
-                <div class="col-span-2 sm:col-span-1">
-                    <div class="fmc-select relative h-[50px] select-none surveySelect flex justify-between"> <span
-                            class="self-center surveyText" data-dropdown="subject">Please Select</span> <span class="material-icons self-center expand">
-                            expand_more </span>
-                        <div class="surveyDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
-                            <ul class=" ">
-                                <li>Archival product images</li>
-                                <li>Archival product brochures</li>
-                                <li>General archival information</li>
-                                <li>Other</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-2 sm:col-span-2">
-                    <hr class="divider" />
-                </div>
-                <div class="col-span-2 sm:col-span-1 order-1"> <span class="text-[11px] leading-[16px] tracking-[1px]">Comments</span>
-                    <div class="fmc-select relative h-[50px] select-none surveySelect flex justify-between"> <span
-                            class="self-center surveyText" data-dropdown="topic">Choose a topic for your comments</span>
-                        <span class="material-icons self-center expand"> expand_more </span>
-                        <div class="surveyDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
-                            <ul>
-                                <li>Suggestion for this page</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-2 sm:col-span-1 row-span-3 order-3 sm:order-2"> <span class="text-[11px] leading-[16px] tracking-[1px]">Rate
-                        this page</span>
-                    <div class="flex flex-col">
-                        <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-                            <div>
-                                <legend>Information</legend>
-                            </div>
-                            <div class="grid grid-cols-1 text-center">
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio"
-                                        id="info1" name="information" value="--" /> <input type="radio" id="info2" name="information"
-                                        value="-" /> <input type="radio" id="info3" name="information" value="-+" />
-                                    <input type="radio" id="info4" name="information" value="+" /> <input type="radio"
-                                        id="info5" name="information" value="++" /> </div>
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
-                                        for="info1">--</label> <label class="text-[9px] w-[12.8px]" for="info2">-</label>
-                                    <label class="text-[9px] w-[12.8px]" for="info3">-+</label> <label class="text-[9px] w-[12.8px]"
-                                        for="info4">+</label> <label class="text-[9px] w-[12.8px]" for="info5">++</label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-                            <div>
-                                <legend>Visual Appeal</legend>
-                            </div>
-                            <div class="grid grid-cols-1 text-center">
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio"
-                                        id="visual1" name="visual" value="--" /> <input type="radio" id="visual2" name="visual"
-                                        value="-" /> <input type="radio" id="visual3" name="visual" value="-+" />
-                                    <input type="radio" id="visual4" name="visual" value="+" /> <input type="radio" id="visual5"
-                                        name="visual" value="++" /> </div>
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
-                                        for="visual1">--</label> <label class="text-[9px] w-[12.8px]" for="visual2">-</label>
-                                    <label class="text-[9px] w-[12.8px]" for="visual3">-+</label> <label class="text-[9px] w-[12.8px]"
-                                        for="visual4">+</label> <label class="text-[9px] w-[12.8px]" for="visual5">++</label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
-                            <div>
-                                <legend>Ease of Use</legend>
-                            </div>
-                            <div class="grid grid-cols-1 text-center">
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio"
-                                        id="ease1" name="easeOfUse" value="--" /> <input type="radio" id="ease2" name="easeOfUse"
-                                        value="-" /> <input type="radio" id="ease3" name="easeOfUse" value="-+" />
-                                    <input type="radio" id="ease4" name="easeOfUse" value="+" /> <input type="radio" id="ease5"
-                                        name="easeOfUse" value="++" /> </div>
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
-                                        for="ease1">--</label> <label class="text-[9px] w-[12.8px]" for="ease2">-</label>
-                                    <label class="text-[9px] w-[12.8px]" for="ease3">-+</label> <label class="text-[9px] w-[12.8px]"
-                                        for="ease4">+</label> <label class="text-[9px] w-[12.8px]" for="ease5">++</label>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="flex justify-between items-center mt-[15px]">
-                            <div>
-                                <legend>Overall</legend>
-                            </div>
-                            <div class="grid grid-cols-1 text-center">
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio"
-                                        id="overall1" name="overall" value="--" /> <input type="radio" id="overall2"
-                                        name="overall" value="-" /> <input type="radio" id="overall3" name="overall"
-                                        value="-+" /> <input type="radio" id="overall4" name="overall" value="+" />
-                                    <input type="radio" id="overall5" name="overall" value="++" /> </div>
-                                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
-                                        for="overall1">--</label> <label class="text-[9px] w-[12.8px]" for="overall2">-</label>
-                                    <label class="text-[9px] w-[12.8px]" for="overall3">-+</label> <label class="text-[9px] w-[12.8px]"
-                                        for="overall4">+</label> <label class="text-[9px] w-[12.8px]" for="overall5">++</label>
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-                <div class="col-span-2 sm:col-span-1 row-span-2 order-2 sm:order-3 relative"> <label hidden for="surveyComment">Survey
-                        Comment</label> <textarea id="surveyComment" placeholder="Your comment here" maxlength="1000"
-                        class="border-[1px] border-solid border-[#6E6E6E] w-full resize-none min-h-[120px] h-full p-[5px]"></textarea>
-                    <p class="text-right text-[9px] text-[#4D4D4D]">1000 characters</p>
-                </div>
-                <div class="col-span-2 order-4 mt-[20px] hidden sm:block">
-                    <hr class="divider" />
-                </div>
-                <div class="col-span-2 order-5 mt-[15px] mb-[100px] sm:mb-[30px]">
-                    <div class="text-right"> <button id="survey-submit" class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
-                            Submit </button> </div>
-                </div>
-            </div>
+  <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
+    </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+    <div
+      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
+      role="dialog" aria-modal="true">
+      <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
+        <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
+        <div class="absolute right-[30px] cursor-pointer surveyCloseButton hidden sm:flex"> <i
+            class="fa-solid fa-x"></i>
         </div>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
+        <div class="col-span-2 sm:col-span-1 text-[18px]">
+          <p>What are you looking for?</p>
+        </div>
+        <div class="col-span-2 sm:col-span-1">
+          <div class="fmc-select relative h-[50px] select-none surveySelect flex justify-between"> <span
+              class="self-center surveyText" data-dropdown="subject">Please Select</span> <span
+              class="material-icons self-center expand">
+              expand_more </span>
+            <div
+              class="surveyDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[1] overflow-auto hideDropdown px-[10px]">
+              <ul class=" ">
+                <li>Archival product images</li>
+                <li>Archival product brochures</li>
+                <li>General archival information</li>
+                <li>Other</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-2 sm:col-span-2">
+          <hr class="divider" />
+        </div>
+        <div class="col-span-2 sm:col-span-1 order-1"> <span
+            class="text-[11px] leading-[16px] tracking-[1px]">Comments</span>
+          <div class="fmc-select relative h-[50px] select-none surveySelect flex justify-between"> <span
+              class="self-center surveyText" data-dropdown="topic">Choose a topic for your comments</span>
+            <span class="material-icons self-center expand"> expand_more </span>
+            <div
+              class="surveyDropdown absolute bg-white mx-[0] my-[0] top-[49px] left-[-1px] right-[-1px] border-[1px] border-top-0 border-solid border-[#6E6E6E] z-[99999] overflow-auto hideDropdown px-[10px]">
+              <ul>
+                <li>Suggestion for this page</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-2 sm:col-span-1 row-span-3 order-3 sm:order-2"> <span
+            class="text-[11px] leading-[16px] tracking-[1px]">Rate
+            this page</span>
+          <div class="flex flex-col">
+            <fieldset
+              class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <div>
+                <legend>Information</legend>
+              </div>
+              <div class="grid grid-cols-1 text-center">
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio" id="info1"
+                    name="information" value="--" /> <input type="radio" id="info2" name="information" value="-" />
+                  <input type="radio" id="info3" name="information" value="-+" />
+                  <input type="radio" id="info4" name="information" value="+" /> <input type="radio" id="info5"
+                    name="information" value="++" />
+                </div>
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
+                    for="info1">--</label> <label class="text-[9px] w-[12.8px]" for="info2">-</label>
+                  <label class="text-[9px] w-[12.8px]" for="info3">-+</label> <label class="text-[9px] w-[12.8px]"
+                    for="info4">+</label> <label class="text-[9px] w-[12.8px]" for="info5">++</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset
+              class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <div>
+                <legend>Visual Appeal</legend>
+              </div>
+              <div class="grid grid-cols-1 text-center">
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio" id="visual1"
+                    name="visual" value="--" /> <input type="radio" id="visual2" name="visual" value="-" /> <input
+                    type="radio" id="visual3" name="visual" value="-+" />
+                  <input type="radio" id="visual4" name="visual" value="+" /> <input type="radio" id="visual5"
+                    name="visual" value="++" />
+                </div>
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
+                    for="visual1">--</label> <label class="text-[9px] w-[12.8px]" for="visual2">-</label>
+                  <label class="text-[9px] w-[12.8px]" for="visual3">-+</label> <label class="text-[9px] w-[12.8px]"
+                    for="visual4">+</label> <label class="text-[9px] w-[12.8px]" for="visual5">++</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset
+              class="flex justify-between items-center pb-[10px] border-b-[1px] border-solid border-b-black mt-[15px]">
+              <div>
+                <legend>Ease of Use</legend>
+              </div>
+              <div class="grid grid-cols-1 text-center">
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio" id="ease1"
+                    name="easeOfUse" value="--" /> <input type="radio" id="ease2" name="easeOfUse" value="-" /> <input
+                    type="radio" id="ease3" name="easeOfUse" value="-+" />
+                  <input type="radio" id="ease4" name="easeOfUse" value="+" /> <input type="radio" id="ease5"
+                    name="easeOfUse" value="++" />
+                </div>
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
+                    for="ease1">--</label> <label class="text-[9px] w-[12.8px]" for="ease2">-</label>
+                  <label class="text-[9px] w-[12.8px]" for="ease3">-+</label> <label class="text-[9px] w-[12.8px]"
+                    for="ease4">+</label> <label class="text-[9px] w-[12.8px]" for="ease5">++</label>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="flex justify-between items-center mt-[15px]">
+              <div>
+                <legend>Overall</legend>
+              </div>
+              <div class="grid grid-cols-1 text-center">
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <input type="radio" id="overall1"
+                    name="overall" value="--" /> <input type="radio" id="overall2" name="overall" value="-" /> <input
+                    type="radio" id="overall3" name="overall" value="-+" /> <input type="radio" id="overall4"
+                    name="overall" value="+" />
+                  <input type="radio" id="overall5" name="overall" value="++" />
+                </div>
+                <div class="col-span-1 flex justify-evenly w-full space-x-[12px]"> <label class="text-[9px] w-[12.8px]"
+                    for="overall1">--</label> <label class="text-[9px] w-[12.8px]" for="overall2">-</label>
+                  <label class="text-[9px] w-[12.8px]" for="overall3">-+</label> <label class="text-[9px] w-[12.8px]"
+                    for="overall4">+</label> <label class="text-[9px] w-[12.8px]" for="overall5">++</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="col-span-2 sm:col-span-1 row-span-2 order-2 sm:order-3 relative"> <label hidden
+            for="surveyComment">Survey
+            Comment</label> <textarea id="surveyComment" placeholder="Your comment here. If a response is required please provide an email address" maxlength="1000"
+            class="border-[1px] border-solid border-[#6E6E6E] w-full resize-none min-h-[120px] h-full p-[5px]"></textarea>
+          <p class="text-right text-[9px] text-[#4D4D4D]">1000 characters</p>
+        </div>
+        <div class="col-span-2 order-4 mt-[20px] hidden sm:block">
+          <hr class="divider" />
+        </div>
+        <div class="col-span-2 order-5 mt-[15px] mb-[100px] sm:mb-[30px]">
+          <div class="text-right"> <button id="survey-submit"
+              class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
+              Submit </button> </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div><!-- Survey Modal -->
 <!-- Filter Modal -->
 <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden fordModal" id="filterModal">
-    <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
-        <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
-        </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-        <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-            role="dialog" aria-modal="true">
-            <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer filterCloseButton">
-                <i class="fa-solid fa-x"></i> </div>
-            <div class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-                <h2 class="text-[25px] sm:text-[30px]">Search Result Filter</h2>
-                <div class="absolute right-[30px] cursor-pointer filterCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
-                </div>
-            </div>
-            <div class="filterModalBody px-[30px] sm:px-[80px] w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
-            </div>
+  <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
+    </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+    <div
+      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
+      role="dialog" aria-modal="true">
+      <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer filterCloseButton">
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
+        <h2 class="text-[25px] sm:text-[30px]">Search Result Filter</h2>
+        <div class="absolute right-[30px] cursor-pointer filterCloseButton hidden sm:flex"> <i
+            class="fa-solid fa-x"></i>
         </div>
+      </div>
+      <div
+        class="filterModalBody px-[30px] sm:px-[80px] w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
+      </div>
     </div>
+  </div>
 </div><!-- Filter Modal -->
 <!-- Session Timeout Modal -->
 <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 fordModal hidden" id="sessionTimeoutModal">
-    <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
-        <div class="fixed inset-0 transition-opacity">
-            <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
-        </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
-        <div class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
-            role="dialog" aria-modal="true">
-            <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer sessionTimeoutCloseButton">
-                <i class="fa-solid fa-x"></i> </div>
-            <div class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-                <h2 class="text-[25px] sm:text-[30px]">Session Timeout</h2>
-                <div class="absolute right-[30px] cursor-pointer sessionTimeoutCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
-                </div>
-            </div>
-            <div class="sessionTimeoutModalBody px-[30px] sm:px-[80px] w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
-                <div class="col-span-2 order-5 mt-[15px] mb-[100px] sm:mb-[30px]">
-                    <h3>Your session will expire in <span id="time-out-seconds"></span> seconds. Do you want to extend
-                        the session?</h3>
-                    <div class="text-right mt-[30px]"> <button id="end-session" class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#4D4D4D] hover:drop-shadow-xl">
-                            End Session </button> <button id="continue-session" class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
-                            Continue </button> </div>
-                </div>
-            </div>
+  <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center">
+    <div class="fixed inset-0 transition-opacity">
+      <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
+    </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+    <div
+      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[820px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
+      role="dialog" aria-modal="true">
+      <div
+        class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer sessionTimeoutCloseButton">
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <div
+        class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
+        <h2 class="text-[25px] sm:text-[30px]">Session Timeout</h2>
+        <div class="absolute right-[30px] cursor-pointer sessionTimeoutCloseButton hidden sm:flex"> <i
+            class="fa-solid fa-x"></i>
         </div>
+      </div>
+      <div
+        class="sessionTimeoutModalBody px-[30px] sm:px-[80px] w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
+        <div class="col-span-2 order-5 mt-[15px] mb-[100px] sm:mb-[30px]">
+          <h3>Your session will expire in <span id="time-out-seconds"></span> seconds. Do you want to extend
+            the session?</h3>
+          <div class="text-right mt-[30px]"> <button id="end-session"
+              class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#4D4D4D] hover:drop-shadow-xl">
+              End Session </button> <button id="continue-session"
+              class="h-[40px] w-[120px] rounded-[20px] text-white bg-[#00095B] hover:drop-shadow-xl">
+              Continue </button> </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div><!-- Session Timeout Modal -->
 </body>
 

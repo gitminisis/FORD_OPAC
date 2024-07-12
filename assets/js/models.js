@@ -1,3 +1,29 @@
+  
+const strip_word = [
+ 'KEYWORD_CLUSTER ',
+ 'M-S ',
+ '* ', 
+ 'A_MEDIA_TYPE ',
+ '"',
+ '(',
+ ')',
+ 'A_MEDIA_YEAR ',
+ 'A_MEDIA_MAKE ',
+ 'A_MEDIA_MODEL ',
+ 'A_MEDIA_COLOR '
+];
+
+function strip_string (source_string) {
+  var result = source_string;
+  result = result.replaceAll('\n',' ');   // change \n to space
+  jQuery.each ( strip_word, function (i, val) {
+    result = result.replaceAll(val,'');
+  });
+  
+  return result;
+}      
+
+
 class Report {
     /**
         * Find hiddenTotalRecord DOM and 
@@ -135,8 +161,9 @@ class Report {
     setSearchStatement (){
         let hiddenSearchStatement = document.querySelector(".search_statement");
         if (hiddenSearchStatement) {
-            $("#searchStatement").prev().text('Results for')
-            $("#searchStatement").text(` ${hiddenSearchStatement.innerText}`);
+            var search_statement = strip_string (hiddenSearchStatement.innerText);
+            $("#searchStatement").prev().text('Results for ')
+            $("#searchStatement").text(search_statement);
         }
       
         
