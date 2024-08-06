@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body{
+  overflow-x: hidden;
+}
 @font-face {
   font-family: "Ford Antenna";
   src: url("../fonts/antenna-medium.woff") format("woff");
