@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+body{
+  overflow-x: hidden;
+}
 @font-face {
   font-family: "Ford Antenna";
   src: url("../fonts/antenna-medium.woff") format("woff");
@@ -34,6 +36,10 @@
 
 * {
   font-family: "Ford Antenna";
+}
+
+body {
+  overflow-x: hidden;
 }
 
 #headerShadow {
@@ -752,6 +758,13 @@
   text-decoration: underline;
 }
 
+.swiper-container {
+  width: 100% !important;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+
+}
 
 .slide-wrapper {
   /* width: 800px; */
