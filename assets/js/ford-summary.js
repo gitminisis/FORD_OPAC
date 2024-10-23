@@ -352,6 +352,7 @@ class FilterModal {
       $('.filterModalBody').append(`<hr /> <div class="${item._title}FilterModal" > <div class="flex justify-between h-[30px] pt-[10px] "> <div><p>${filter.getFilterName(item._name)}</p></div> <div class="expandMobileFilter cursor-pointer"> <span class="material-icons"> expand_more </span> </div> </div> </div>`)
       $(`.${item._title}FilterModal`).append(`<div class="w-full mt-[10px] h-auto px-[15px] pb-[30px] filterCollapse collapse openFilterCollapse ${item._title}FilterMobile" ></div>`)
       x2js.asArray(item_group).map((group, index) => {
+        let showCount = true;
         if (group.item_value === 'Image') {
           group.item_value = "Images"
         }
@@ -359,8 +360,11 @@ class FilterModal {
           group.item_value = "Documents"
         }
 
-
-        if (typeof group.item_link === 'string') {
+        if (group.item_value === 'View all...') {
+          group.item_link = group.item_link.match(/ViewXmlAll\("([^"]*XML=Y)"\)/)[1]
+          showCount = false
+        }
+        else if (typeof group.item_link === 'string') {
           group.item_link += '&DATABASE=DESCRIPTION_OPAC3'
         }
         else {
@@ -368,17 +372,18 @@ class FilterModal {
           group.item_link = group.item_link.__text.trim() + '&DATABASE=DESCRIPTION_OPAC3'
         }
 
-        if (group.item_selected !== undefined) {
-          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
+        if (group.item_value === 'View all...') {
+          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem view-all">  <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
+        }
+        else if (group.item_selected !== undefined) {
+          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]" ${group.item_selected === 'Y' ? 'checked' : ''}  /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> ${showCount ? `<span class="count">(${group.item_frequency})</span>` : ''} <span hidden class="${item._title}FilterItemLink">${group.item_link}</span></div>`)
 
 
         } else if (group.item_selected === undefined) {
-          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]"  ${group.item_link.item_selected === 'Y' ? 'checked' : ''}   /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> <span id="count">(${group.item_frequency})</span> <span hidden class="${item._title}FilterItemLink">${group.item_link.__text}</span> </div>`)
+          $(`.${item._title}FilterMobile`).append(`<div class="cursor-pointer ${item._title}FilterItem "> <input id='${item._title}${index}FilterModal' type="checkbox" class="cursor-pointer w-[16px] h-[16px] border-[#6E6E6E]"  ${group.item_link.item_selected === 'Y' ? 'checked' : ''}   /> <label for='${item._title}${index}FilterModal' class="cursor-pointer mb-[8px]">${group.item_value}</label> ${showCount ? `<span class="count">(${group.item_frequency})</span>` : ''}  <span hidden class="${item._title}FilterItemLink">${group.item_link.__text}</span> </div>`)
 
         }
-        $(`.${item._title}FilterItem`).on('click', function () {
-          window.location.href = $(this).find(`.${item._title}FilterItemLink`).text()
-        })
+      
       })
     })
     this.initDropdown();

@@ -4,73 +4,73 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/84e5b3f79d8e464b8f1b4cd7d7a76db8/thumbnail",
-                refd: "AR-2008-8.1.7.187",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/991e3ff999624cc3b7ba679271866b0b/thumbnail",
+                refd: "AR-65-90.1054.1.39",
                 scope: undefined,
-                title: "1967 Bronco T67-504"
+                title: "Ford Times April 1967 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/227388ece4004a03b6ccc77c5ff479c0/thumbnail",
-                refd: "AR-96-212010.5196",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9af85859ae8842eaa435c71076e25bc8/thumbnail",
+                refd: "AR-65-90.1054.1.496",
                 scope: undefined,
-                title: "1976 Ford Bronco brochure"
+                title: "Ford Times September 1977 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b836fcb77b9b4fa78d5037e904afa76d/thumbnail",
-                refd: "AR-2008-8.1.7.245",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2b7838a77c144840acbe03ad03551296/thumbnail",
+                refd: "AR-65-90.1054.1.334",
                 scope: undefined,
-                title: "1973 Ford Bronco Wagon neg CN6610-302"
+                title: "Ford Times May 1964 (USA)"
             }
         ]
-
+        
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
 
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/73be4b69797c466d9c0569e28afb9508/thumbnail",
-                refd: "AR-2019-22.18.207",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/81dfc90f911946c19796405e0e188029/thumbnail",
+                refd: "AR-65-90.1054.1.50",
                 scope: undefined,
-                title: "Ford Times March-April 1949 (UK)"
+                title: "Ford Times April 1978 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5fb2dcc287be4617ba4fbe117179c851/thumbnail",
-                refd: "AR-65-90.1174.1.17",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bf47b090fb624f3fa0ac4c852672b5fe/thumbnail",
+                refd: "AR-65-90.1333.1.15",
                 scope: undefined,
-                title: "Lincoln-Mercury Times: May-June 1950"
+                title: "The Continental Magazine: Spring 1977"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/4bc4726b99274af1b32ffc490238117c/thumbnail",
-                refd: "AR-65-90.1054.1.540",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2698c5b4273c4bd0b38cd2ca2f439841/thumbnail",
+                refd: "AR-2019-22.18.240",
                 scope: undefined,
-                title: "Ford Times July 1971 (USA)"
+                title: "Ford Times February 1968 (UK)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/73cec45c516b4d618297bbeb6ac5e7fc/thumbnail",
-                refd: "AR-65-90.1054.1.518",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0435d200f59147e28a74636d1c1b3ef8/thumbnail",
+                refd: "AR-2019-22.18.235",
                 scope: undefined,
-                title: "Ford Times July 1949 (USA)"
+                title: "Ford Times December 1967 (UK)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f25a67e0f20746cba18b5f1e0ddc120e/thumbnail",
-                refd: "AR-2019-22.18.242",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2ffdbae0d33f491bbf18428fb82cd4aa/thumbnail",
+                refd: "AR-65-90.1054.1.583",
                 scope: undefined,
-                title: "Ford Times January-February 1962 (UK)"
+                title: "Ford Times June 1964 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f29a7737a49346729cb4c419ca6e72f0/thumbnail",
-                refd: "AR-65-90.1174.1.33",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f9686d9d8cde473eabb0a6fc315bc269/thumbnail",
+                refd: "AR-65-90.1054.1.350",
                 scope: undefined,
-                title: "Lincoln-Mercury Times: September-October 1956"
+                title: "Ford Times May 1981 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/691993f853a343d19b2852dd94362115/thumbnail",
-                refd: "AR-2019-22.18.217",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f8645b2c76754c68a290dc53c2cd0171/thumbnail",
+                refd: "AR-65-90.1054.1.442",
                 scope: undefined,
-                title: "Ford Times November-December 1956 (UK)"
+                title: "Ford Times October 1973 (USA)"
             }
         ]
-
+        
         const swiperSlideTemplate = function (thumbnail, title, url) {
             return `
             <div  class="hover-slide w-[190px] h-[260px]">
@@ -135,11 +135,6 @@ $(document).ready(function () {
         });
 
         setSlidePosition()
-
-
-
-
-     
 
         $('.bg-homeInnovation').on('click', function () {
             let refd = 'AR-2008-8.1.1.3395';
@@ -264,5 +259,3 @@ class TrendingNow extends FeatureRecord {
 
 
 }
-
-
