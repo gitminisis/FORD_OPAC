@@ -4,22 +4,22 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/991e3ff999624cc3b7ba679271866b0b/thumbnail",
-                refd: "AR-65-90.1054.1.39",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ce012d855f324300afe1cfa4467f1668/thumbnail",
+                refd: "AR-65-90.1054.13",
                 scope: undefined,
-                title: "Ford Times April 1967 (USA)"
+                title: "Ford Times: Fly Drive Vacations"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9af85859ae8842eaa435c71076e25bc8/thumbnail",
-                refd: "AR-65-90.1054.1.496",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/764def94ca474f3e9c4433192593dc2a/thumbnail",
+                refd: "AR-65-90.1054.11",
                 scope: undefined,
-                title: "Ford Times September 1977 (USA)"
+                title: "The Ford Times Traveler's Cookbook"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2b7838a77c144840acbe03ad03551296/thumbnail",
-                refd: "AR-65-90.1054.1.334",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e27e7b3a4ea14b9595cfd366b002aa40/thumbnail",
+                refd: "AR-65-90.1054.1.378",
                 scope: undefined,
-                title: "Ford Times May 1964 (USA)"
+                title: "Ford Times November 1959 (USA)"
             }
         ]
         
@@ -28,48 +28,49 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/81dfc90f911946c19796405e0e188029/thumbnail",
-                refd: "AR-65-90.1054.1.50",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e94328bbcc06499c871896b6e15a6a19/thumbnail",
+                refd: "AR-65-90.1054.1.707",
                 scope: undefined,
-                title: "Ford Times April 1978 (USA)"
+                title: "Ford Times November 1991 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/bf47b090fb624f3fa0ac4c852672b5fe/thumbnail",
-                refd: "AR-65-90.1333.1.15",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ba417194c86642a4a61365a55dd74f3e/thumbnail",
+                refd: "AR-65-90.1054.24",
                 scope: undefined,
-                title: "The Continental Magazine: Spring 1977"
+                title: "The Ford Times Guide to Travel in USA"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2698c5b4273c4bd0b38cd2ca2f439841/thumbnail",
-                refd: "AR-2019-22.18.240",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/90450be971844a35a841731582eb2534/thumbnail",
+                refd: "AR-65-90.1054.1.758",
                 scope: undefined,
-                title: "Ford Times February 1968 (UK)"
+                title: "Ford Times March 1984 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0435d200f59147e28a74636d1c1b3ef8/thumbnail",
-                refd: "AR-2019-22.18.235",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1efec9f6f8e14b16980c805a340b47a4/thumbnail",
+                refd: "AR-65-90.1054.1.751",
                 scope: undefined,
-                title: "Ford Times December 1967 (UK)"
+                title: "Ford Times June 1982 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/2ffdbae0d33f491bbf18428fb82cd4aa/thumbnail",
-                refd: "AR-65-90.1054.1.583",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/669e8579e58d452bbebff5e896243577/thumbnail",
+                refd: "AR-65-90.1054.1.743",
                 scope: undefined,
-                title: "Ford Times June 1964 (USA)"
+                title: "Ford Times January 1984 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f9686d9d8cde473eabb0a6fc315bc269/thumbnail",
-                refd: "AR-65-90.1054.1.350",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a4b057b2cad74b9c8fc1b3241dd476bf/thumbnail",
+                refd: "AR-65-90.1054.1.675",
                 scope: undefined,
-                title: "Ford Times May 1981 (USA)"
+                title: "Ford Times January 1990 (USA)"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f8645b2c76754c68a290dc53c2cd0171/thumbnail",
-                refd: "AR-65-90.1054.1.442",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/50db59eedbd947ddbd1e6e8fb974b9fc/thumbnail",
+                refd: "AR-65-90.1054.9",
                 scope: undefined,
-                title: "Ford Times October 1973 (USA)"
+                title: "The New Ford Treasury of Favorite Recipes from Famous Restaurants"
             }
-        ]
+        ];
+        
         
         const swiperSlideTemplate = function (thumbnail, title, url) {
             return `
