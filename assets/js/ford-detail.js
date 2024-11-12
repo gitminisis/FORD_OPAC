@@ -176,7 +176,7 @@ class Detail extends Report {
       let { mediaType, mediaLowRes, mediaThumb } = assets[0];
 
       let downloadSectionString = (type) => {
-        return `<button id="download-detail-assets" class="flex  basis-[100%]">Download ${type} <span class="material-icons items-center"> download </span> </button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
+        return `<button id="download-detail-assets" class="flex  basis-[100%]">Download</button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
       }
       if (mediaType === 'Image') {
         downloadSectionDOM.append(downloadSectionString('Image'))
