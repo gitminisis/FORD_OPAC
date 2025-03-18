@@ -44,6 +44,24 @@
           </button>
         </div>
       </div>
+
+         <!-- Advanced field operation -->
+   <div class="flex flex-wrap gap-6  mt-4 w-full text-white">
+    
+    <!-- <label   class="flex items-center space-x-2">
+        <input  name="FIELD_OP1" value="OR_WORD" type="radio" name="search-type" value="any" class="form-radio text-blue-500">
+        <span>Any of these keywords</span>
+    </label> -->
+    <label class="flex items-center space-x-2">
+        <input name="FIELD_OP1" value="ADJ_WORD" type="radio" name="search-type" value="exact" checked class="form-radio text-blue-500">
+        <span>Exact phrase</span>
+    </label>
+      <label class="flex items-center space-x-2">
+        <input  name="FIELD_OP1" value="AND_WORD" type="radio" name="search-type" value="all"  class="form-radio text-blue-500">
+        <span>All keywords</span>
+    </label>
+  </div>
+  <!-- Advanced field operation -->
     </form>
   </div>
 </section>

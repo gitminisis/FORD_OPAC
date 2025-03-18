@@ -143,7 +143,6 @@ $(document).ready(function () {
 
 
   $('#advancedSearchForm').on('submit', function (e) {
-    debugger;
     if (filter.isEmpty()) {
       e.preventDefault();
       let toast = new MessageModal('Please input a keyword for the search')
@@ -343,7 +342,6 @@ class Filter {
     let url = this.getClusterUrl(exp);
     $(`#${id}FilterList`).append('<li style="pointer-events:none;">Loading...</li>')
     $.get(url).then(response => {
-      debugger
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"
@@ -716,7 +714,7 @@ class Filter {
         </last_page>
         <keyname>FORD_DSGN_CNCPT</keyname>
         <find>
-            <![CDATA[https://FORDHERITAGEVAULT.COM/SCRIPTS5/MWIMAIN.DLL/531052450/FIND?INDEXLIST&FORM=[FORD_INCLUDE]html~2Fcluster.html&TITLE=Browse~20FORD_DSGN_CNCPT&KEYNAME=FORD_DSGN_CNCPT&DATABASE=DESCRIPTION_OPAC3]]>
+            <![CDATA[https://ford2.minisisinc.com/SCRIPTS5/MWIMAIN.DLL/531052450/FIND?INDEXLIST&FORM=[FORD_INCLUDE]html~2Fcluster.html&TITLE=Browse~20FORD_DSGN_CNCPT&KEYNAME=FORD_DSGN_CNCPT&DATABASE=DESCRIPTION_OPAC3]]>
         </find>
     </cluster>`
       }

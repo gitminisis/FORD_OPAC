@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     let survey = new Survey();
     survey.init()
 
@@ -53,6 +52,7 @@ $(document).ready(function () {
 
 
     $('#survey-submit').on('click', function (e) {
+
         survey.submit();
     })
 })
@@ -116,31 +116,60 @@ class Survey {
 
     submit() {
         if (this.topic === '') {
-            new MessageModal('Please select a topic').open()
+            new MessageModal('Please select a topic').open();
             return;
         }
-
+    
         let survey = this;
-        let SESSID = document.getElementById('sessionid').innerText.trim();
-        SESSID = SESSID === '^sessid^' ? '/script/mwimain.dll' : SESSID
+        let SESSID = document.getElementById('sessionid')?.innerText.trim();
+    
+        if (!SESSID || SESSID === '^sessid^') {
+            $.ajax({
+                type: "GET",
+                url: '/scripts/mwimain.dll?logon&application=DESCRIPTION_OPAC3&language=144&file=[FORD_ROOT]home.html',
+                success: function (response) {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(response, 'text/html');
+                    SESSID = doc.getElementById('sessionid')?.innerText.trim();
+    
+                    if (!SESSID) {
+                        new MessageModal('Session ID not found in the response. Please try again later.').open();
+                        return;
+                    }
+    
+                    survey.sendFeedback(SESSID); // Call the feedback function with the retrieved session ID
+                },
+                error: function () {
+                    new MessageModal('Failed to retrieve session ID. Please try again later.').open();
+                }
+            });
+        } else {
+            this.sendFeedback(SESSID); // Call the feedback function directly if SESSID exists
+        }
+    }
+    
+    sendFeedback(SESSID) {
+        let survey = this;
         let subject = survey.subject;
-        let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`
-        let receiver = 'archives@ford.com'
+        let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`;
+        let receiver = 'archives@ford.com';
         let sender = 'noreply@minisisinc.com';
         let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;
+    
         $.ajax({
             type: "POST",
             url: url,
             data: `sender=${sender}&receiver=${receiver}&subject=${subject}&mailbody=${body}`,
-
-        }).done(function (res) {
-            survey.closeModal();
-            let toast = new MessageModal('Your feedback has successfully been sent!')
-            toast.open();
+            success: function () {
+                survey.closeModal();
+                new MessageModal('Your feedback has successfully been sent!').open();
+            },
+            error: function () {
+                new MessageModal('Failed to send feedback. Please try again later.').open();
+            }
         });
-
-
     }
+    
     openModal() {
         $('#surveyModal').fadeIn(400);
         if ($('#backTop').hasClass('show')) {
