@@ -2,66 +2,21 @@
 
 <div id="filterCollapse"
   class="collapse grid grid-cols-12 gap-y-[30px] gap-x-[24px] px-[15px] sm:px-[100px] bg-[#F4F4F4]">
-  <div class="col-span-12 flex">
+  <div class="col-span-12">
     <div class="w-full lg:w-2/3 text-[#9C9C9C]">
-      <form id="advancedSearchForm" class="relative flex-col flex items-center text-black" method="POST"
+      <form id="advancedSearchForm" class="relative flex items-center" method="POST"
         action="/scripts/mwimain.dll?search&SIMPLE_EXP=Y&DATABASE=DESCRIPTION_OPAC3&REPORT=FORD_SUMMARY&ERRMSG=[FORD_INCLUDE]/html/no-record.html&APPLICATION=DESCRIPTION_OPAC3">
-        <div className="w-full flex items-center" style="width:100%">
-          <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
-            aria-label="What Are You Looking For?"
-            class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
-          <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
-          <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
-          <input type="hidden" name="$RANKING" value="Y" /> <!-- RL-20240829 -->
-          <span class="material-icons absolute right-0 font-[14px]">
-            search
-          </span>
-        </div>
-        <!-- Advanced field operation -->
-        <div class="flex flex-wrap gap-6  mt-4 w-full text-black">
-          <label class="flex items-center space-x-2">
-            <input name="FIELD_OP1" value="M-S" type="radio" checked class="form-radio text-blue-500">
-            <span>Multiple search</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input name="FIELD_OP1" value="ADJ_WORD" type="radio" class="form-radio text-blue-500">
-            <span>Exact phrase</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input name="FIELD_OP1" value="AND_WORD" type="radio" class="form-radio text-blue-500">
-            <span>All keywords</span>
-          </label>
-        </div>
-        <!-- Advanced field operation -->
+        <input name="F01" value="M-S" type="hidden" />  <!-- RL-20240829 -->
+        <input name="KEYWORD_CL" id="advancedSearchInput" placeholder="What Are You Looking For?" autofocus
+          aria-label="What Are You Looking For?"
+          class="w-full border-b-[1px] focus:outline-none focus:border-b-black focus:text-black border-b-solid bg-transparent text-[24px] leading-[24px] pb-[12px]" />
+        <input name="BO1" value="AND" hidden aria-label="Hidden AND Operator" />
+        <input name="KEYWORD" id="hiddenKeywordInput" hidden aria-label="Hidden advanced search expression" />
+        <input type="hidden" name="$RANKING" value="Y" />   <!-- RL-20240829 -->
+        <span class="material-icons absolute right-0 font-[14px]">
+          search
+        </span>
       </form>
-    </div>
-    <div class="w-full lg:w-1/3 flex justify-center">
-
-      <a href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
-        class="
-      rounded-[20px] 
-      bg-[#00095B] 
-      text-white 
-      px-[20px] 
-      py-[6px] 
-      transition-all 
-      duration-300 
-      ease-in-out
-      hover:bg-[#0011A0] 
-      hover:scale-102 
-      hover:drop-shadow-xl 
-      hover:shadow-[0_0_15px_rgba(0,9,91,0.5)]
-      active:scale-98
-      focus:outline-none 
-      focus:ring-2 
-      focus:ring-[#00095B] 
-      focus:ring-opacity-50
-      items-center hidden sm:inline-flex  
-      h-min
-    " id="heritage-fleet-button">
-        Click here for Heritage Fleet
-      </a>
-
     </div>
   </div>
 
@@ -193,8 +148,7 @@
 
   <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
     <div>
-      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
-        id="advanced-reset">
+      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
         Reset
       </button>
     </div>

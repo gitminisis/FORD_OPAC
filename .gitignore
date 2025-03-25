@@ -29,3 +29,6 @@ Legacy FORD OPAC/
 web.config
 *.dll
 dist/
+M2A/
+media/
+aspnet_client/
