@@ -4,22 +4,22 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ce012d855f324300afe1cfa4467f1668/thumbnail",
-                refd: "AR-65-90.1054.13",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f8d476614c444376b69cae41aa64898b/thumbnail",
+                refd: "AR-2023-19.5.253",
                 scope: undefined,
-                title: "Ford Times: Fly Drive Vacations"
+                title: "1968 Ford Falcon brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/764def94ca474f3e9c4433192593dc2a/thumbnail",
-                refd: "AR-65-90.1054.11",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ef00e8edde39433d884390a49f298131/thumbnail",
+                refd: "AR-2023-19.6.1.370",
                 scope: undefined,
-                title: "The Ford Times Traveler's Cookbook"
+                title: "1960 Ford XK Falcon Passenger Side Front View FAP-2011-3"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e27e7b3a4ea14b9595cfd366b002aa40/thumbnail",
-                refd: "AR-65-90.1054.1.378",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5cb32c3968ca4b1abcc701de8de87eeb/thumbnail",
+                refd: "AR-2023-19.5.1269",
                 scope: undefined,
-                title: "Ford Times November 1959 (USA)"
+                title: "1986 Ford Falcon Ute brochure FAP-2011-12"
             }
         ]
         
@@ -28,53 +28,54 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e94328bbcc06499c871896b6e15a6a19/thumbnail",
-                refd: "AR-65-90.1054.1.707",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/b101cc5525534678aca388eeb9aa38ff/thumbnail",
+                refd: "AR-2023-19.5.2136",
                 scope: undefined,
-                title: "Ford Times November 1991 (USA)"
+                title: "2000 Ford Falcon UTE brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ba417194c86642a4a61365a55dd74f3e/thumbnail",
-                refd: "AR-65-90.1054.24",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/f6eed983df014b36ac913386f0f74a3f/thumbnail",
+                refd: "AR-2023-19.5.28",
                 scope: undefined,
-                title: "The Ford Times Guide to Travel in USA"
+                title: "1950 Ford DeLuxe brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/90450be971844a35a841731582eb2534/thumbnail",
-                refd: "AR-65-90.1054.1.758",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/c07d3992b9d146b1a89a36f472f9defd/thumbnail",
+                refd: "AR-2023-19.5.1097",
                 scope: undefined,
-                title: "Ford Times March 1984 (USA)"
+                title: "1938 Ford V8 Series brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1efec9f6f8e14b16980c805a340b47a4/thumbnail",
-                refd: "AR-65-90.1054.1.751",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/210c2319cc064f5497407958c2a8cf35/thumbnail",
+                refd: "AR-2023-19.5.305",
                 scope: undefined,
-                title: "Ford Times June 1982 (USA)"
+                title: "1969 Ford SuperRoo Falcon brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/669e8579e58d452bbebff5e896243577/thumbnail",
-                refd: "AR-65-90.1054.1.743",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/677d1c858c2f4d0cb8d30aee778fb1ca/thumbnail",
+                refd: "AR-2023-19.5.1900",
                 scope: undefined,
-                title: "Ford Times January 1984 (USA)"
+                title: "2015 Ford Territory brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a4b057b2cad74b9c8fc1b3241dd476bf/thumbnail",
-                refd: "AR-65-90.1054.1.675",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/efa1e25db0c64ee394571326ec35f7cb/thumbnail",
+                refd: "AR-2023-19.5.427",
                 scope: undefined,
-                title: "Ford Times January 1990 (USA)"
+                title: "1974 Ford Falcon Overnighter brochure FAP-2011-12"
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/50db59eedbd947ddbd1e6e8fb974b9fc/thumbnail",
-                refd: "AR-65-90.1054.9",
+                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1c6253b4bad64e67b013d3dafdc21e99/thumbnail",
+                refd: "AR-2023-19.5.2158",
                 scope: undefined,
-                title: "The New Ford Treasury of Favorite Recipes from Famous Restaurants"
+                title: "2018 Ford Ranger Raptor brochure FAP-2011-12"
             }
         ];
         
         
+        
         const swiperSlideTemplate = function (thumbnail, title, url) {
             return `
-            <div  class="hover-slide w-[190px] h-[260px]">
+            <div  class="hover-slide w-[190px] h-[260px] ">
             <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg trendingNow h-full w-full" >
               <img
                 alt="${title}-thumbnail"
@@ -83,7 +84,7 @@ $(document).ready(function () {
               />
             
               <div class="absolute bottom-0  pt-32  w-full">
-                <div class="p-4 sm:p-6 bg-[rgba(0,0,0,0.5)]">
+                <div class="p-4 sm:p-6 bg-[#00142E]">
             
                   <a class="font-bold text-white text-lg trendingNowLink" href="${url}" >
                     <h3 class="mt-0.5  text-white trendingNowTitle">${title}</h3>
