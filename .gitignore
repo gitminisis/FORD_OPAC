@@ -32,3 +32,5 @@ dist/
 M2A/
 media/
 aspnet_client/
+
+*.pdb
