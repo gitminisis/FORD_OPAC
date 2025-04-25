@@ -143,7 +143,6 @@ $(document).ready(function () {
 
 
   $('#advancedSearchForm').on('submit', function (e) {
-    debugger;
     if (filter.isEmpty()) {
       e.preventDefault();
       let toast = new MessageModal('Please input a keyword for the search')
@@ -343,7 +342,6 @@ class Filter {
     let url = this.getClusterUrl(exp);
     $(`#${id}FilterList`).append('<li style="pointer-events:none;">Loading...</li>')
     $.get(url).then(response => {
-      debugger
       let x2js = new X2JS({
         arrayAccessFormPaths: [
           "cluster.index_list.option"

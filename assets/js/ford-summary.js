@@ -28,7 +28,6 @@ $(document).ready(function () {
       let recordDOM = $(this).parent().parent().parent();
       let SISN = recordDOM.find('.hiddenRecordSISN').text();
       let url = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=sisn%20${SISN}`
-      debugger;
       copyToClipboard(url);
     })
 

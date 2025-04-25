@@ -376,6 +376,73 @@ class Detail extends Report {
 
           records.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).initUIManual(e))
 
+
+          const swiperSlideTemplate = function (thumbnail, title, url) {
+            return `
+            <div  class="hover-slide w-[190px] h-[260px]">
+            <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg trendingNow h-full w-full" >
+              <img
+                alt="${title}-thumbnail"
+                src="${thumbnail}"
+                class="absolute inset-0 w-full object-contain"
+              />
+            
+              <div class="absolute bottom-0  pt-32  w-full">
+                <div class="p-4 sm:p-6 bg-[rgba(0,0,0,0.5)]">
+            
+                  <a class="font-bold text-white text-lg trendingNowLink" href="${url}" >
+                    <h3 class="mt-0.5  text-white trendingNowTitle">${title}</h3>
+                  </a>
+            
+                </div>
+              </div>
+            </article>
+          </div>
+          `
+          }
+
+          let currentHover = 3;
+          const MAX_Z_INDEX = 10;
+          records.map((e, i) => {
+            const url = getRecordPermalink(e.refd, 'FORD_DETAIL');
+            const swiperItem = swiperSlideTemplate(e.mediaThumb, e.title, url)
+            $('.slide-wrapper').append(swiperItem)
+          })
+
+
+          function setSlidePosition() {
+            $('.hover-slide').each(function (index) {
+              var scaleFactor = scale[Math.abs(index - currentHover)]
+              var translateFactor = -1 * width * (1 - scaleFactor);
+              translateFactor = index - currentHover < 0 ? 0 - translateFactor : translateFactor
+
+
+              let opacity = 1 - Math.abs(index - currentHover) / 20
+              $(this).css('z-index', MAX_Z_INDEX - Math.abs(index - currentHover));
+              $(this).css('opacity', opacity);
+              $(this).on('click', function () {
+                window.location.href = `${BASE_URL}/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD%20${TRENDING_NOW_RECORD[index].refd}`
+              })
+
+              // Calculate the translate factor based on the distance from the hovered element
+
+              // Apply the scale and translate transformations
+              $(this).css('transform', 'scale3d(' + scaleFactor + ', ' + scaleFactor + ', 1) translate3d(' + translateFactor + 'px, 0, 0)');
+            });
+
+          }
+
+          const width = 250;
+          const scale = [1, 0.92, 0.86, 0.82, 0.78, 0.75, 0.73]
+          $(".hover-slide").on("mouseover", function () {
+            currentHover = $(this).index();
+
+            setSlidePosition()
+          });
+
+          setSlidePosition()
+
+
         })
 
       }
@@ -436,5 +503,4 @@ class Detail extends Report {
     new PDFRequest().init();
   }
 }
-
 
