@@ -19,12 +19,9 @@
         </div>
         <!-- Advanced field operation -->
         <div class="flex flex-wrap gap-6  mt-4 w-full text-black">
-          <label class="flex items-center space-x-2">
-            <input name="FIELD_OP1" value="M-S" type="radio" checked class="form-radio text-blue-500">
-            <span>Multiple search</span>
-          </label>
-          <label class="flex items-center space-x-2">
-            <input name="FIELD_OP1" value="ADJ_WORD" type="radio" class="form-radio text-blue-500">
+
+          <label class="flex items-center space-x-2 hidden">
+            <input name="FIELD_OP1" value="ADJ_WORD" checked type="radio" class="form-radio text-blue-500">
             <span>Exact phrase</span>
           </label>
           <label class="flex items-center space-x-2">
@@ -35,35 +32,34 @@
         <!-- Advanced field operation -->
       </form>
     </div>
-
-    <!-- <div class="w-full lg:w-1/3 flex justify-center">
+    <div class="w-full lg:w-1/3 flex justify-center">
 
       <a href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
         class="
-      rounded-[20px] 
-      bg-[#00095B] 
-      text-white 
-      px-[20px] 
-      py-[6px] 
-      transition-all 
-      duration-300 
-      ease-in-out
-      hover:bg-[#0011A0] 
-      hover:scale-102 
-      hover:drop-shadow-xl 
-      hover:shadow-[0_0_15px_rgba(0,9,91,0.5)]
-      active:scale-98
-      focus:outline-none 
-      focus:ring-2 
-      focus:ring-[#00095B] 
-      focus:ring-opacity-50
-      items-center hidden sm:inline-flex  
-      h-min
-    " id="heritage-fleet-button">
+  rounded-[20px] 
+  bg-[#00095B] 
+  text-white 
+  px-[20px] 
+  py-[6px] 
+  transition-all 
+  duration-300 
+  ease-in-out
+  hover:bg-[#0011A0] 
+  hover:scale-102 
+  hover:drop-shadow-xl 
+  hover:shadow-[0_0_15px_rgba(0,9,91,0.5)]
+  active:scale-98
+  focus:outline-none 
+  focus:ring-2 
+  focus:ring-[#00095B] 
+  focus:ring-opacity-50
+  items-center hidden sm:inline-flex  
+  h-min
+" id="heritage-fleet-button">
         Click here for Heritage Fleet
       </a>
 
-    </div> -->
+    </div>
   </div>
 
   <!-- Start of Year  -->
@@ -111,21 +107,20 @@
 
   <div class="col-span-12 md:col-span-12 xl:col-span-4">
     <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-    <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
-      id="colorFilter">
+    <div class="grid grid-cols-9 sm:grid-cols-12 justify-items-center h-[50px] gap-0 gap-y-[10px]" id="colorFilter">
       <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
         class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span
         class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter" data-color="brown"></span><span
         class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter" data-color="green"></span><span
+        class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter" data-color="yellow"></span><span
         class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter" data-color="grey"></span><span
-        class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span><span
         class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter" data-color="orange"></span><span
         class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter" data-color="purple">
       </span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
         data-color="red">
       </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
-        data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
-        data-color="yellow"></span>
+        data-color="white"></span><span class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter"
+        data-color="multi"></span>
     </div>
   </div>
 
@@ -194,7 +189,8 @@
 
   <div class="col-span-12 flex justify-end space-x-[40px] mx-[50px] mt-[40px]">
     <div>
-      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl" id="advanced-reset">
+      <button class="rounded-[20px] bg-[#00095B] text-white px-[40px] py-[5px] hover:drop-shadow-xl"
+        id="advanced-reset">
         Reset
       </button>
     </div>

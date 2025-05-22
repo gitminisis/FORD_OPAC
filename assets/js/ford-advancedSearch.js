@@ -347,8 +347,8 @@ class Filter {
           "cluster.index_list.option"
         ]
       })
-      if(id === 'design'){
-        response =`<cluster>
+      if (id === 'design') {
+        response = `<cluster>
         <index_list>
             <option>*ALL CONCEPT VEHICLES</option>
             <option>021C CONCEPT</option>
@@ -753,6 +753,8 @@ class Filter {
 
   resetUI() {
     this.resetAll();
+    $('#advancedSearchForm input[name="FIELD_OP1"][value="ADJ_WORD"]').prop('checked', true);
+    $('#advancedSearchForm input[name="FIELD_OP1"][value="AND_WORD"]').prop('checked', false);
     $("#advancedSearchInput").val('');
     $(".filterText").val('');
     $(".filterText").attr('disabled', false);

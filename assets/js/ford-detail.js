@@ -1,5 +1,5 @@
 const isBookmarked = document.querySelectorAll('.isBookmarked').length !== 0;
-const BOOKMARK_TEXT = 'I use a screen reader, or other adaptive technology, and need accessibility features added to this brochure'
+const BOOKMARK_TEXT = 'I use a screen reader, or other adaptive technology, and need accessibility features added to this document'
 $(document).ready(function () {
 
 
@@ -184,7 +184,7 @@ class Detail extends Report {
 
       }
       if (mediaType === 'Textual') {
-        downloadSectionDOM.append(downloadSectionString('Brochure'))
+        downloadSectionDOM.append(downloadSectionString('Document'))
         if ((document.getElementById('a_media_img_type') && document.getElementById('a_media_img_type').innerText.toLowerCase() === 'yes')) {
           return;
         }

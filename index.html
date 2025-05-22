@@ -68,30 +68,7 @@
 
     <div class="flex w-full space-x-2 sm:space-x-4 justify-end items-center text-[#243C5A]">
 
-      <a href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
-        class="
-          rounded-[20px] 
-          bg-[#00095B] 
-          text-white 
-          px-[20px] 
-          py-[6px] 
-          transition-all 
-          duration-300 
-          ease-in-out
-          hover:bg-[#0011A0] 
-          hover:scale-102 
-          hover:drop-shadow-xl 
-          hover:shadow-[0_0_15px_rgba(0,9,91,0.5)]
-          active:scale-98
-          focus:outline-none 
-          focus:ring-2 
-          focus:ring-[#00095B] 
-          focus:ring-opacity-50
-          items-center hidden sm:inline-flex  
-          h-min
-        " id="heritage-fleet-button">
-        Heritage Fleet
-      </a>
+
       <button class="space-4 items-center hidden sm:inline-flex h-[60px] filterButton">
         <span class="">Advanced Search</span>
         <span class="material-icons px-2">tune</span>
@@ -128,12 +105,9 @@
           </div>
           <!-- Advanced field operation -->
           <div class="flex flex-wrap gap-6  mt-4 w-full text-black">
-            <label class="flex items-center space-x-2">
-              <input name="FIELD_OP1" value="M-S" type="radio" checked class="form-radio text-blue-500">
-              <span>Multiple search</span>
-            </label>
-            <label class="flex items-center space-x-2">
-              <input name="FIELD_OP1" value="ADJ_WORD" type="radio" class="form-radio text-blue-500">
+           
+            <label class="flex items-center space-x-2 hidden">
+              <input name="FIELD_OP1" value="ADJ_WORD" checked type="radio" class="form-radio text-blue-500">
               <span>Exact phrase</span>
             </label>
             <label class="flex items-center space-x-2">
@@ -144,7 +118,7 @@
           <!-- Advanced field operation -->
         </form>
       </div>
-      <!-- <div class="w-full lg:w-1/3 flex justify-center">
+      <div class="w-full lg:w-1/3 flex justify-center">
 
         <a href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
           class="
@@ -171,7 +145,7 @@
           Click here for Heritage Fleet
         </a>
 
-      </div> -->
+      </div>
     </div>
 
     <!-- Start of Year  -->
@@ -219,21 +193,21 @@
 
     <div class="col-span-12 md:col-span-12 xl:col-span-4">
       <span class="text-[11px] leading-[16px] tracking-[1px]">Color</span>
-      <div class="grid grid-cols-9 sm:grid-cols-12 lg:grid-cols-10 justify-items-center h-[50px] gap-0 gap-y-[10px]"
+      <div class="grid grid-cols-9 sm:grid-cols-12 justify-items-center h-[50px] gap-0 gap-y-[10px]"
         id="colorFilter">
         <span class="w-[32px] h-[32px] bg-black rounded-full inline-block colorFilter" data-color="black"></span><span
           class="w-[32px] h-[32px] bg-blue rounded-full inline-block colorFilter" data-color="blue"></span><span
           class="w-[32px] h-[32px] bg-brown rounded-full inline-block colorFilter" data-color="brown"></span><span
-          class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter" data-color="green"></span><span
+          class="w-[32px] h-[32px] bg-green rounded-full inline-block colorFilter"
+          data-color="green"></span><span
+          class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter" data-color="yellow"></span><span
           class="w-[32px] h-[32px] bg-grey rounded-full inline-block colorFilter" data-color="grey"></span><span
-          class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span><span
           class="w-[32px] h-[32px] bg-orange rounded-full inline-block colorFilter" data-color="orange"></span><span
           class="w-[32px] h-[32px] bg-purple rounded-full inline-block colorFilter" data-color="purple">
         </span><span class="w-[32px] h-[32px] bg-red rounded-full inline-block relative colorFilter group"
           data-color="red">
-        </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter"
-          data-color="white"></span><span class="w-[32px] h-[32px] bg-yellow rounded-full inline-block colorFilter"
-          data-color="yellow"></span>
+        </span><span class="w-[32px] h-[32px] bg-white rounded-full inline-block colorFilter" data-color="white"></span><span
+            class="w-[32px] h-[32px] bg-multi rounded-full inline-block colorFilter" data-color="multi"></span>
       </div>
     </div>
 
@@ -356,18 +330,10 @@
           </button>
         </div>
       </div>
-      <div class="flex flex-wrap gap-6  mt-4 w-full text-black" style="color: white;">
+      <div class="flex flex-wrap gap-6  mt-4 w-full text-white hidden">
         <label class="flex items-center space-x-2">
-          <input name="FIELD_OP1" value="M-S" type="radio" checked class="form-radio text-blue-500">
-          <span>Multiple search</span>
-        </label>
-        <label class="flex items-center space-x-2">
-          <input name="FIELD_OP1" value="ADJ_WORD" type="radio" class="form-radio text-blue-500">
+          <input name="FIELD_OP1" value="ADJ_WORD" type="radio" checked class="form-radio text-blue-500">
           <span>Exact phrase</span>
-        </label>
-        <label class="flex items-center space-x-2">
-          <input name="FIELD_OP1" value="AND_WORD" type="radio" class="form-radio text-blue-500">
-          <span>All keywords</span>
         </label>
       </div>
     </form>
@@ -388,12 +354,12 @@
       <!-- <p>
        
         <span class="ml-[13px] font-bold text-[16px] text-white sm:text-[#243C5A] leading-[23px]">
-          Curated heritage materials!</span>
+          Explore our Curated Heritage!</span>
       </p> -->
 
       <h2
         class="text-white sm:text-[#243C5A] text-[35px] sm:text-[36px]  leading-[40px] sm:leading-[45px] mt-[29px] sm:mt-[16px]">
-        Curated heritage materials!
+        Explore our Curated Heritage!
       </h2>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px]">
         Take a trip down memory lane through the Ford Heritage Vault, our comprehensive global collection over 19,000
@@ -401,10 +367,9 @@
         from around the world, images, press releases detailing nearly 100 years’ worth of concept cars and over 300
         issues of the Ford Times publication! Enjoy the ride! </p>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px] font-semibold">
-        We have now added images of Ford's heritage fleet! <a
+        Now featuring our <a
           href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
-          class="underline text-[#2a3c5a]">click here</a> to see what we have parked in our
-        garage. </p>
+          class="underline text-[#2a3c5a]">Ford Heritage Fleet</a>! See what we have parked in our garage!</p>
     </div>
   </div>
 
@@ -416,7 +381,7 @@
 
 <!-- Start of Archive Section -->
 <section id="archive"
-  class="flex flex-col justify-center bg-[#F2F2F2] h-[890px] px-[15px] py-[22px] sm:px-[60px] sm:py-[30px]">
+  class="flex flex-col justify-center bg-[#F2F2F2] h-[750px] px-[15px] py-[8px] sm:px-[60px] sm:py-[12px]">
   <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px]"
     data-aos="fade-up">
     The Latest from the Archives
@@ -513,7 +478,7 @@
     <p class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] text-[#9C9C9C]"> Multimedia
       License Agreement | Images, video and audio from this Web site are provided for the purpose of editorial
       use only. <br /> You must contact archives@ford.com to obtain approval for advertising, marketing or other
-      commercial users. </p>
+      commercial uses. </p>
     <p class="mt-[40px] text-[16px] text-[#9C9C9C] leading-[24px]"> &copy;
       2025 The Ford Motor Company. All Rights Reserved. </p>
   </div> <!-- License -->
@@ -692,7 +657,7 @@
       <div class="absolute inset-0 bg-[#484848] opacity-75"></div>
     </div> <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
     <div
-      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[700px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
+      class="inline-block align-center bg-white rounded-sm shadow-xl transform transition-all my-[90px] sm:my-8 align-middle w-[100%] max-w-[750px] text-[#00095B] relative modalBody h-auto max-h-[650px] sm:overflow-hidden overflow-scroll"
       role="dialog" aria-modal="true">
       <div class="absolute top-[5px] right-[10px] sm:top-[30px] sm:right-[30px] cursor-pointer surveyCloseButton">
         <i class="fa-solid fa-x"></i>

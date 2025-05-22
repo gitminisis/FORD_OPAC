@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   overflow-x: hidden;
 }
+
 @font-face {
   font-family: "Ford Antenna";
   src: url("../fonts/antenna-medium.woff") format("woff");
@@ -215,7 +216,8 @@ body {
 
 /* Modal Animation */
 
-#advanced-submit {
+#advanced-submit,
+#advanced-reset {
   box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
 }
 
