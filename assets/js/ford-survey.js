@@ -151,7 +151,7 @@ class Survey {
     sendFeedback(SESSID) {
         let survey = this;
         let subject = survey.subject;
-        let body = `Ford Heritage Vault User Experience Feedback\n\nTopic: ${survey.topic}\nRate this page: \n Information: ${this.information}/5 \n Visual Appeal: ${this.visual}/5 \n Ease of Use: ${this.easeOfUse}/5 \n Overall: ${this.overall}/5 \n \n Comments: ${this.comment}`;
+        let body = `Ford Heritage Vault User Feedback\n\nTopic: ${survey.topic} \n \n Comments: ${this.comment}`;
         let receiver = 'archives@ford.com';
         let sender = 'noreply@minisisinc.com';
         let url = `${SESSID}?save_mail_form&async=y&xml=y&subject_default=${subject}&from_default=${sender}&to_default=${receiver}`;

@@ -116,7 +116,7 @@ class Report {
 
     }
 
-    
+
 
 
     deleteAllBookmark() {
@@ -132,14 +132,55 @@ class Report {
         })
     }
 
-    setSearchStatement (){
+    setSearchStatement() {
         let hiddenSearchStatement = document.querySelector(".search_statement");
         if (hiddenSearchStatement) {
             $("#searchStatement").prev().text('Results for')
             $("#searchStatement").text(` ${hiddenSearchStatement.innerText}`);
         }
-      
-        
+
+
+    }
+
+    highlightKeyword() {
+        let hiddenSearchStatement = document.querySelector(".search_statement");
+        if (hiddenSearchStatement) {
+
+            let keyword = hiddenSearchStatement.innerText.trim();
+            // summary
+            $('.record h2').each(function () {
+                const regex = new RegExp(`(${keyword})`, 'gi'); // global + case-insensitive
+                const html = $(this).html().replace(regex, '<span class="highlight">$1</span>');
+                $(this).html(html);
+            })
+            if ($('#detail-data').length > 0) {
+                function highlightKeywordInTextNodes(element, keyword) {
+                    const regex = new RegExp(`(${keyword})`, 'gi');
+
+                    $(element).contents().each(function () {
+                        if (this.nodeType === 3) {
+                            const replaced = this.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+                            if (replaced !== this.nodeValue) {
+                                $(this).replaceWith(replaced);
+                            }
+                        } else if (this.nodeType === 1 && !['SCRIPT', 'STYLE'].includes(this.tagName)) {
+                            highlightKeywordInTextNodes(this, keyword); // Recurse into children
+                        }
+                    });
+                }
+
+
+                // Highlight inside h2
+                $('h2').each(function () {
+                    highlightKeywordInTextNodes(this, keyword);
+                });
+
+                // Highlight inside anchor tags inside .detailYear and .detailSubject
+                $('.detailYear a, .detailSubject a').each(function () {
+                    highlightKeywordInTextNodes(this, keyword);
+                });
+            }
+        }
     }
 }
 

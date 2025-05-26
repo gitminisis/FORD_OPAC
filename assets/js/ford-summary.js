@@ -272,6 +272,7 @@ class Summary extends Report {
     this.setCheckedRecord();
     this.setButtonTooltip();
     this.setSortOptions();
+    this.highlightKeyword();
 
   }
 }

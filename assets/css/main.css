@@ -805,3 +805,7 @@ body {
     height: 325px;
   }
 }
+
+.highlight {
+  @apply text-white bg-[#243c5a]
+}

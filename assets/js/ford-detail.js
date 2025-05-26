@@ -500,6 +500,7 @@ class Detail extends Report {
     this.setDefaultYearSearchReport();
     this.initAlsoLikeRecords();
     this.initRecordNavigation();
+    this.highlightKeyword();
     new PDFRequest().init();
   }
 }
