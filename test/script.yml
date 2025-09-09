@@ -1,0 +1,14 @@
+config:
+  target: "https://fordheritagevault.com/"
+  http:
+    timeout: 15
+  phases:
+    - duration: 60
+      arrivalCount: 600
+ 
+scenarios:
+  - name: "Logon"
+    flow:
+      - get:
+          url: "/scripts/mwimain.dll?logon&application=DESCRIPTION_OPAC3&language=144&file=[FORD_ROOT]home.html"
+          
