@@ -13,7 +13,7 @@ $(document).ready(function () {
 });
 class MediaAsset {
   constructor(mediaType, mediaLowRes, mediaThumb) {
-    this.mediaType = mediaType.trim().replace(/ /g, '').replace(/\n/g, '');
+    this.mediaType = mediaType.trim().replace(/ /g, '').replace(/\n/g, '').toLowerCase();
     this.mediaLowRes = mediaLowRes.trim().replace(/ /g, '').replace(/\n/g, '');
     this.mediaThumb = mediaThumb.trim().replace(/ /g, '').replace(/\n/g, '');
   }
@@ -145,7 +145,6 @@ class Detail extends Report {
       let mediaThumb = span[i + 2].__text;
       let mediaAsset = new MediaAsset(mediaType, mediaLowRes, mediaThumb);
       detail.assets.push(mediaAsset);
-
     }
   }
   initColorTooltip() {
@@ -178,12 +177,12 @@ class Detail extends Report {
       let downloadSectionString = (type) => {
         return `<button id="download-detail-assets" class="flex  basis-[100%]">Download</button> <p id="copy-link" class="flex cursor-pointer basis-[100%]">Copy Link<span class="material-icons items-center"> share </span></p>${!isBookmarked ? '<p id="addBookmarkDetail" class="flex cursor-pointer">Add to Collection<span class="material-icons items-center"> shopping_bag </span></p>' : ''}`
       }
-      if (mediaType === 'Image') {
+      if (mediaType === 'image') {
         downloadSectionDOM.append(downloadSectionString('Image'))
 
 
       }
-      if (mediaType === 'Textual') {
+      if (mediaType === 'textual') {
         downloadSectionDOM.append(downloadSectionString('Document'))
         if ((document.getElementById('a_media_img_type') && document.getElementById('a_media_img_type').innerText.toLowerCase() === 'yes')) {
           return;
@@ -195,12 +194,12 @@ class Detail extends Report {
         })
 
       }
-      if (mediaType === 'Moving Image') {
+      if (mediaType === 'movingimage') {
         downloadSectionDOM.append(downloadSectionString('Moving Image'))
 
 
       }
-      if (mediaType === 'Audio') {
+      if (mediaType === 'audio') {
         downloadSectionDOM.append(downloadSectionString('Audio'))
 
 
@@ -256,23 +255,23 @@ class Detail extends Report {
       let imageSrcString = `<div ><div class="relative "><span class="imageThumbnail"><img class="h-[80%] mx-[auto] item "  data-src=${mediaLowRes} src=${mediaThumb} alt="Detail Record Image Thumbnail" /></span> 
       <div class="right-[0] absolute top-[0] text-right pt-[10px] text-[rgb(0,0,0,0)] hover:text-[#F2F2F2] hover:bg-[rgb(0,0,0,0.4)] record_cover"> <button class="bookmarkRecord relative group"> <span class="material-icons"> shopping_bag </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Add to Collection</span> </div></button> <button class="downloadRecord relative group"> <span class="material-icons"> download </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Download Asset</span> </div></button>  <button class="copyRecord relative group"> <span class="material-icons">  share  </span> <div class="absolute top-[10px]  flex-col items-center hidden mt-6 group-hover:flex"> <div class="w-3 h-3 -mb-2 rotate-45 bg-black tooltip"></div> <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Copy Link</span> </div></button></div>
       </div> </div>`
-      if (mediaType === 'Image') {
+      if (mediaType === 'image') {
         detailMediaDOM.append(imageBackgroundString)
         detail.initLightgallery(false);
 
       }
-      else if (mediaType === 'Textual') {
+      else if (mediaType === 'textual') {
         detailMediaDOM.append(imageBackgroundString)
         $('.item').on('click', function () {
           window.open(mediaLowRes, '_blank')
         })
       }
-      else if (mediaType === 'Audio') {
+      else if (mediaType === 'audio') {
         detailMediaDOM.append(`<div class="item" data-src=${mediaLowRes}><a target="_blank" href=${mediaLowRes}><img class="h-[80%] mx-[auto]" src=${mediaThumb} /></a><div > <audio class="mx-[auto]"  controls> <source src="horse.ogg" type="audio/ogg"> <source src="horse.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio></div> </div>`)
       }
-      else if (mediaType === 'Moving Image') {
+      else if (mediaType === 'movingimage') {
         detailMediaDOM.append(`
-      <video width="80%" class="mx-[auto]" controls>
+      <video style="max-height:400px" width="80%" class="mx-[auto] max-h-[400px]" autoplay controls>
         <source src=${mediaLowRes} type="video/mp4">
         <source src=${mediaLowRes} type="video/ogg">
         Your browser does not support HTML video.
@@ -377,37 +376,50 @@ class Detail extends Report {
           records.map((e, i) => new AlsoLike(e, $('.alsoLike').eq(i)).initUIManual(e))
 
 
-          const swiperSlideTemplate = function (thumbnail, title, url) {
-            return `
-            <div  class="hover-slide w-[190px] h-[260px]">
-            <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg trendingNow h-full w-full" >
-              <img
-                alt="${title}-thumbnail"
-                src="${thumbnail}"
-                class="absolute inset-0 w-full object-contain"
-              />
-            
-              <div class="absolute bottom-0  pt-32  w-full">
-                <div class="p-4 sm:p-6 bg-[rgba(0,0,0,0.5)]">
-            
-                  <a class="font-bold text-white text-lg trendingNowLink" href="${url}" >
-                    <h3 class="mt-0.5  text-white trendingNowTitle">${title}</h3>
-                  </a>
-            
-                </div>
-              </div>
-            </article>
+    const swiperSlideTemplate = function (thumbnail, title, url) {
+  return `
+    <div class="hover-slide w-[190px] h-[260px]">
+      <article class="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg trendingNow h-full w-full">
+        <img
+          alt="${title}-thumbnail"
+          src="${thumbnail}"
+          class="absolute inset-0 w-full object-contain"
+        />
+        <div class="absolute bottom-0 pt-32 w-full">
+          <div class="p-4 sm:p-6 bg-[rgba(0,0,0,0.5)]">
+            <a class="font-bold text-white text-lg trendingNowLink" href="${url}">
+              <h3 class="mt-0.5 text-white trendingNowTitle">${title}</h3>
+            </a>
           </div>
-          `
-          }
+        </div>
+      </article>
+    </div>
+  `;
+};
 
-          let currentHover = 3;
-          const MAX_Z_INDEX = 10;
-          records.map((e, i) => {
-            const url = getRecordPermalink(e.refd, 'FORD_DETAIL');
-            const swiperItem = swiperSlideTemplate(e.mediaThumb, e.title, url)
-            $('.slide-wrapper').append(swiperItem)
-          })
+let currentHover = 3;
+const MAX_Z_INDEX = 10;
+
+// Clear existing slides first
+$('.slide-wrapper').empty();
+
+records.forEach((e, i) => {
+  const url = getRecordPermalink(e.refd, 'FORD_DETAIL');
+  const swiperItem = swiperSlideTemplate(e.mediaThumb, e.title, url);
+  $('.slide-wrapper').append(swiperItem);
+});
+
+// ✅ Dynamically adjust layout based on slide count
+const slideCount = records.length;
+const $wrapper = $('.slide-wrapper');
+
+if (slideCount <= 4) {
+  // Center slides if few items
+  $wrapper.addClass('flex justify-center gap-6 flex-wrap');
+} else {
+  // Normal layout for many slides (e.g., swiper scrolling)
+  $wrapper.removeClass('justify-center flex-wrap').addClass('flex gap-4 overflow-x-auto');
+}
 
 
           function setSlidePosition() {

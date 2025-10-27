@@ -19,6 +19,9 @@
   <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.4.0/css/lightgallery.min.css" /> -->
 
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <link rel="preconnect" href="https://unpkg.com">
+  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+  <script src="https://unpkg.com/embla-carousel-autoplay/embla-carousel-autoplay.umd.js"></script>
 
   <style id="antiClickjack">
     body {
@@ -263,7 +266,12 @@
 
           <label class="" for="imageAssetType">Images</label>
         </div>
+        <div class="col-span-1 flex space-x-[10px] items-center">
+          <input type="checkbox" data-asset="Video" id="videotAssetType"
+            class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
 
+          <label class="" for="videotAssetType">Videos</label>
+        </div>
         <div class="col-span-1 flex space-x-[10px] items-center">
           <input type="checkbox" data-asset="Textual" id="documentAssetType"
             class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
@@ -364,11 +372,11 @@
         Take a trip down memory lane through the Ford Heritage Vault, our comprehensive global collection over 19,000
         brochures and photographs. You can peruse our 1903 to 2003 Ford, Lincoln, Mercury, and Edsel products, locations
         from around the world, images, press releases detailing nearly 100 years’ worth of concept cars and over 300
-        issues of the Ford Times publication! Enjoy the ride! </p>
+        issues of the Ford Times publication. Enjoy the ride! </p>
       <p class="text-white sm:text-[#4D4D4D] text-[16px] leading-[25px] mt-[29px] sm:mt-[16px] font-semibold">
         Now featuring our <a
           href="/scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_SUMMARY?sessionsearch&exp=SUBJECT%20Heritage%20Fleet"
-          class="underline text-[#2a3c5a]">Ford Heritage Fleet</a>! See what we have parked in our garage!</p>
+          class="underline text-[#2a3c5a]">Ford Heritage Fleet</a>! See what we have parked in our garage.</p>
     </div>
   </div>
 
@@ -379,7 +387,24 @@
 <!-- End of History of Innovation Section -->
 
 <!-- Start of Archive Section -->
-<section id="archive"
+<section id="archive" class="flex flex-col justify-center bg-[#F2F2F2] px-[15px] py-[8px] sm:px-[60px] sm:py-[24px]">
+  <h2 class="text-[28px] sm:text-[32px] text-[#243C5A] font-medium leading-[48px] text-center mx-[10px] sm:mx-[60px]">
+    Stories from the Vault
+  </h2>
+
+  <!-- Carousel -->
+  <div id="home-video-carousel" class="embla mt-[30px]">
+    <div class="embla__viewport">
+      <div class="embla__container" id="carousel-container"></div>
+    </div>
+    <div class="embla__dots mt-[16px]" aria-label="Slide navigation"></div>
+  </div>
+</section>
+
+
+
+
+<!-- <section id="archive"
   class="flex flex-col justify-center bg-[#F2F2F2] h-[750px] px-[15px] py-[8px] sm:px-[60px] sm:py-[12px]">
   <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px]"
     data-aos="fade-up">
@@ -448,7 +473,7 @@
       </button>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End of Archive Section -->
 
 <!-- Start of Trending Section -->
@@ -456,8 +481,7 @@
   <h2
     class="text-[34px] sm:text-[36px]  text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px] my-[30px] sm:my-[65px]"
     data-aos="fade-up">
-    Ford Motor Company Australia was incorporated March 31, 1925. Celebrate the last 100 years with us! Dive in and see
-    some of the iconic vehicles from the Ford Australia collection!
+    Favorites from the Vault
   </h2>
 
 
@@ -596,10 +620,10 @@
   <!-- Ford Links -->
   <div id="fordLinks" class="bg-[#f4f4f4] text-center text-[#4D4D4D] py-[50px] px-[15px] sm:px-[100px]">
     <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a
-        class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex"
+        class="mt-[25px] font-extralight leading-[32px] text-[13px] sm:text-[18px] flex mx-auto"
         href="https://corporate.ford.com/about/copyright.html" target="_blank"> <img alt="Ford Logo"
           class="h-[30px] mx-1" src="/assets/images/ford-logo.png"> &copy;
-        2025 The Ford Motor Company </p>
+        2025 The Ford Motor Company </a>
     </div>
     <div class="flex flex-col lg:flex-row justify-evenly mt-[15px] "> <a
         href="https://www.ford.com/help/contact/#accessibility" target="_blank">Accessibility</a> <a
@@ -663,7 +687,7 @@
       </div>
       <div
         class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-        <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
+        <h2 class="text-[25px] sm:text-[30px]">Ford Heritage Vault</h2>
         <div class="absolute right-[30px] cursor-pointer modalCloseButton hidden sm:flex"> <i class="fa-solid fa-x"></i>
         </div>
       </div>
@@ -727,7 +751,7 @@
 
       <div
         class="px-[30px] sm:px-[80px] w-full h-[75px] bg-[#00095B] text-white mt-[30px] sm:mt-[16px] text-center sm:text-left flex items-center relative">
-        <h2 class="text-[25px] sm:text-[30px]">Ford Motor Company</h2>
+        <h2 class="text-[25px] sm:text-[30px]">Ford Heritage Vault</h2>
         <div class="absolute right-[30px] cursor-pointer surveyCloseButton hidden sm:flex">
           <i class="fa-solid fa-x"></i>
         </div>
@@ -735,7 +759,7 @@
 
       <div
         class="px-[30px] sm:px-[80px] grid grid-cols-2 w-full text-[14px] text-[#4D4D4D] mt-[20px] text-left gap-x-[20px] gap-y-[15px]">
-      
+
 
 
 
@@ -760,8 +784,8 @@
 
 
         <div class="col-span-2 row-span-2 order-2  relative">
-          <textarea placeholder="Your comment here. If a response is required please provide an email address"
-            maxlength="1000"
+          <p>If a response is required please provide and email address.</p>
+          <textarea placeholder="Your comment here." maxlength="1000"
             class="border-[1px] border-solid border-[#6E6E6E] w-full resize-none min-h-[120px] h-full p-[5px]"></textarea>
           <p class="text-right text-[9px] text-[#4D4D4D]">1000 characters</p>
         </div>
@@ -843,5 +867,130 @@
   </div>
 </div><!-- Session Timeout Modal -->
 </body>
+<style>
+  /* Embla essentials */
+  .embla {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+
+  .embla__viewport {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .embla__container {
+    display: flex;
+    will-change: transform;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    /* no left/right padding */
+    margin: 0;
+    /* no margin offsets */
+    box-sizing: border-box;
+  }
+
+  /* “GIF-like” media styling + your requested per-breakpoint pixel sizes */
+  .vault-media {
+    width: 350px;
+    aspect-ratio: 9/16;
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+    object-fit: cover;
+  }
+
+
+  /* Controls */
+  .embla__controls {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    width: min(800px, 92%);
+  }
+
+  .embla__btn {
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, .1);
+    font-size: 14px;
+  }
+
+  .embla__btn:active {
+    transform: translateY(1px);
+  }
+
+  .embla__dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .embla__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: #cbd5e1;
+    /* slate-300 */
+    border: none;
+    cursor: pointer;
+  }
+
+  .embla__dot--active {
+    background: #243C5A;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const viewport = document.querySelector(".embla__viewport");
+    if (!viewport || !window.EmblaCarousel) return;
+
+    const autoplay = window.EmblaCarouselAutoplay
+      ? window.EmblaCarouselAutoplay({ delay: 4000, stopOnMouseEnter: true })
+      : undefined;
+
+    const embla = EmblaCarousel(
+      viewport,
+      { align: 'center', skipSnaps: false, },
+      autoplay ? [autoplay] : undefined
+    );
+
+    const dotsRoot = document.querySelector(".embla__dots");
+
+    const makeDots = () => {
+      dotsRoot.innerHTML = "";
+      embla.slideNodes().forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "embla__dot";
+        dot.type = "button";
+        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+        dot.addEventListener("click", () => embla.scrollTo(i));
+        dotsRoot.appendChild(dot);
+      });
+    };
+
+    const setActiveDot = () => {
+      const selected = embla.selectedScrollSnap();
+      Array.from(dotsRoot.children).forEach((dot, i) =>
+        dot.classList.toggle("embla__dot--active", i === selected)
+      );
+    };
+
+    embla.on("init", () => { makeDots(); setActiveDot(); });
+    embla.on("select", setActiveDot);
+  });
+</script>
 
 </html>

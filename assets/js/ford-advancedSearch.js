@@ -742,9 +742,7 @@ class Filter {
   }
 
   getFilterJSON() {
-
-    let { keyword, year, make, model, color, assetType, place, design, publication } = this;
-    return { keyword, year, make, model, color, assetType, place, design, publication };
+    return this
   }
 
   setFilterSessionStorage() {
