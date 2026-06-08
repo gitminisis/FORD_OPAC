@@ -267,7 +267,7 @@
           <label class="" for="imageAssetType">Images</label>
         </div>
         <div class="col-span-1 flex space-x-[10px] items-center">
-          <input type="checkbox" data-asset="Video" id="videotAssetType"
+          <input type="checkbox" data-asset="Moving Image" id="videotAssetType"
             class="w-[16px] h-[16px] border-[#6E6E6E] saturate-0 assetTypeFilter" />
 
           <label class="" for="videotAssetType">Videos</label>
@@ -392,11 +392,17 @@
     Stories from the Vault
   </h2>
 
-  <!-- Carousel -->
-  <div id="home-video-carousel" class="embla mt-[30px]">
+  <div id="home-video-carousel" class="embla mt-[30px] relative">
     <div class="embla__viewport">
       <div class="embla__container" id="carousel-container"></div>
     </div>
+    <button class="embla__prev absolute left-2 top-1/2 -translate-y-1/2 bg-[#00095B] text-white rounded-full px-3 py-2 shadow">
+      <
+    </button>
+
+    <button class="embla__next absolute right-2 top-1/2 -translate-y-1/2 bg-[#00095B] text-white rounded-full px-3 py-2 shadow">
+      >
+    </button>
     <div class="embla__dots mt-[16px]" aria-label="Slide navigation"></div>
   </div>
 </section>
@@ -404,7 +410,7 @@
 
 
 
-<!-- <section id="archive"
+ <!-- <section id="archive"
   class="flex flex-col justify-center bg-[#F2F2F2] h-[750px] px-[15px] py-[8px] sm:px-[60px] sm:py-[12px]">
   <h2 class="text-[34px] sm:text-[36px] text-[#243C5A] font-medium leading-[59px] text-center mx-[10px] sm:mx-[60px]"
     data-aos="fade-up">
@@ -473,7 +479,7 @@
       </button>
     </div>
   </div>
-</section> -->
+</section>  -->
 <!-- End of Archive Section -->
 
 <!-- Start of Trending Section -->
@@ -512,7 +518,7 @@
       <div>
         <h3 class="text-[18px] leading-[21px] font-bold text-[#F4F4F4] mb-[25px]"> Ford Press </h3> <a
           class="text-[16px] leading-[19px] text-[#F4F4F4] mb-[20px]"
-          href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Media </a>
+          href="https://media.ford.com/content/fordmedia/fna/us/en.html"> Ford From the Road </a>
       </div>
     </div>
     <div class="w-1/4 flex justify-center">
@@ -556,7 +562,7 @@
       </div>
       <div class="bg-black w-full h-auto px-[15px] pb-[30px] blackBoxCollapse collapse"> <a class="mb-[8px]"
           href="https://media.ford.com/content/fordmedia/fna/us/en.html">
-          Media </a> </div>
+          Ford From the Road </a> </div>
     </div>
     <div>
       <div class="flex justify-between h-[60px] pt-[15px]">
@@ -899,7 +905,7 @@
 
   /* “GIF-like” media styling + your requested per-breakpoint pixel sizes */
   .vault-media {
-    width: 350px;
+    width: 225px;
     aspect-ratio: 9/16;
     border-radius: 0.75rem;
     /* rounded-xl */

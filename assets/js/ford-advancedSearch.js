@@ -720,7 +720,7 @@ class Filter {
       }
       var jsonObj = x2js.xml_str2json(response);
       let optionArray = jsonObj.cluster.index_list.option;
-      let optionArrayList = optionArray.map(el => `<li>${el}</li>`)
+      let optionArrayList = optionArray.filter(el=>el!=="Mustang (Series)  (Series)").map(el => `<li>${el}</li>`)
       $(`#${id}FilterList`).empty();
       $(`#${id}FilterList`).append("<li></li>")
       $(`#${id}FilterList`).append(optionArrayList.join(''));

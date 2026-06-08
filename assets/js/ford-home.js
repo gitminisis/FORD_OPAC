@@ -4,24 +4,50 @@ $(document).ready(function () {
         // const LATEST_ARCHIVE_REFD = ['AR-96-212010.5423', 'AR-2008-8.1.4.555', 'AR-2008-8.1.2.2049'];
         const LATEST_ARCHIVE_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/8bf77645598c41f69cd25034f1c3ccc8/thumbnail",
-                refd: "AR-2008-8.1.2.1262",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/963f4862d54647c0a66f65f595338ec6/t",
+                refd: "AR-2026-4.28",
                 scope: undefined,
-                title: "2009 Ford Mustang sales data shows most popular vehicle colors and options MS0084"
+                title: "From the Vault: Ford and Carhartt collaboration exhibit and Super Duty Truck reveal",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a5a2e89ee92946b38e519dacbbcdb87d/thumbnail",
-                refd: "AR-2008-8.1.2.6074",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/dd3151ed844d43cdac12c6b314ef3d45/thumbnail",
+                refd: "AR-2026-4.25",
                 scope: undefined,
-                title: "2019 Ford F-150 Raptor in desert 3U0A9902_C1"
+                title: "From the Vault: Henry Ford's cash vault",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fad3a7477d194acc836d3beee53f2ecd/thumbnail",
-                refd: "AR-2008-8.1.10.8146",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e179b9624bfc40eba7a78664f9b22c7d/thumbnail",
+                refd: "AR-2026-4.18",
                 scope: undefined,
-                title: "2020 Ford Transit in front of building MS"
-            }
+                title: "From the Vault: 1901 Missing crystal bowl trophy",
+            },
+            {
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/0b80b72ed27e4b98b78623aa5c61a987/thumbnail",
+                refd: "AR-96-212010.5589",
+                scope: undefined,
+                title: "2007 Ford Racing Performance Parts brochure",
+            },
+            {
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/7b04dced41654a3b9fdf8b767e0c1880/thumbnail",
+                refd: "AR-2023-19.5.2088",
+                scope: undefined,
+                title: "2019 Mount Panorama Motor Racing Circuit brochure FAP-2011-12",
+            },
+            {
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/09d59fecb137433f9c9672681d0c117d/thumbnail",
+                refd: "AR-2008-8.1.11.263",
+                scope: undefined,
+                title: "1979 Mercury Capri RS turbocharged with Racing Stripes in studio neg CN26014-36",
+            },
         ];
+
+
 
 
         LATEST_ARCHIVE_RECORD.map((e, i) => new LatestArchive(e, $('.latestArchive').eq(i)).initUIManual(e))
@@ -29,97 +55,116 @@ $(document).ready(function () {
         const TRENDING_NOW_REFD = ['AR-65-90.1249.7', 'AR-2008-8.1.2.2447', 'AR-96-212010.5443', 'AR-2008-8.1.2.4143', 'AR-2008-8.1.7.257', 'AR-96-212010.6325', 'AR-96-212010.5592'];
         const TRENDING_NOW_RECORD = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/59875c2df7584c4ab3065508c687ddf7/thumbnail",
-                refd: "AR-74-18056.51.19",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/cc99b4d631bc4aa8aa2bef0bf575af09/thumbnail",
+                refd: "AR-65-90.1054.1.542",
                 scope: undefined,
-                title: "1993 Ford Ranger 4X4 AR-2002-210286"
+                title: "Ford Times July 1973 (USA)",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/9d8d37245f6c42fb9504f5c06492b392/thumbnail",
-                refd: "AR-2023-19.7.234",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/85d18bdf2aac4c0b8aa543b58bc56634/thumbnail",
+                refd: "AR-2008-8.1.4.488",
                 scope: undefined,
-                title: "Ford Times April 1916 (CAN) FAP-2011-8"
+                title: "1954 Ford F-100 pickup truck neg 103447-001",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/1746984653df47b590c4d74b28684145/thumbnail",
-                refd: "AR-2008-8.1.10.6843",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5ec1ccab74564dfeb3a56500bfc1f1e9/thumbnail",
+                refd: "AR-65-90.1054.1.584",
                 scope: undefined,
-                title: "c 1971 Ford Transit Mark I under bridge"
+                title: "Ford Times June 1965 (USA)",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/5038aa3eccf74b03bf51814e99bfc1ba/thumbnail",
-                refd: "AR-2008-8.1.4.1609",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/842fee0984994bdaa3e9677c4016de2e/thumbnail",
+                refd: "AR-2008-8.1.4.272",
                 scope: undefined,
-                title: "2012 Ford Mustang Cobra Jet neg CN339101-044"
+                title: "1927 Ford Model T Touring Car neg 47365",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/7949905e131641a99ea2cfe5e45a024d/thumbnail",
-                refd: "AR-74-18056.43.2166",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/abe64f1ec0eb4be38e350c085ed38423/thumbnail",
+                refd: "AR-65-90.1054.1.514",
                 scope: undefined,
-                title: "1983 Ford Ranger; design information, updates and options"
+                title: "Ford Times July 1944 (USA)",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/466e473a98b64f448b3eb41d48080aef/thumbnail",
-                refd: "AR-65-90.1054.1.93",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/c0efd232d3674196aee540f1739a6bc0/thumbnail",
+                refd: "AR-96-212010.4058",
                 scope: undefined,
-                title: "Ford Times August 1971 (USA)"
+                title: "1973 Ford American Road Camper brochure",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/440e3677d083463c83103f76e7f47285/thumbnail",
-                refd: "AR-65-90.1054.1.47",
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/ebad206e0c9f42819a3b203d442f8b73/thumbnail",
+                refd: "AR-2008-8.1.7.244",
                 scope: undefined,
-                title: "Ford Times April 1975 (USA)"
-            }
+                title: "1973 Ford Bronco Wagon neg CN6610-184",
+            },
         ];
+
         const HomeVideoCarousel = [
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/414bd7ff2d004262acad5e9cf3fe64fc/orig",
-                refd: "AR-2005-2.22.1",
-                title: "The fuel tank indicator suggested by Jim Moylan"
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/963f4862d54647c0a66f65f595338ec6/t",
+                refd: "AR-2026-4.28",
+                scope: undefined,
+                title: "From the Vault: Ford and Carhartt collaboration exhibit and Super Duty Truck reveal",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/a9ff11ade98d41abb25d4f7b07ab1185/orig",
-                refd: "AR-2005-2.22.2",
-                title: "The Ford Times"
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/dd3151ed844d43cdac12c6b314ef3d45/thumbnail",
+                refd: "AR-2026-4.25",
+                scope: undefined,
+                title: "From the Vault: Henry Ford's cash vault",
             },
             {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/75c7fb9dfff34453a7f4a07395883b65/orig",
-                refd: "AR-2005-2.22.3",
-                title: "1964 World's Fair Magic Skyway Ride and the Introduction of the Mustang"
+                mediaThumb:
+                    "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/e179b9624bfc40eba7a78664f9b22c7d/thumbnail",
+                refd: "AR-2026-4.18",
+                scope: undefined,
+                title: "From the Vault: 1901 Missing crystal bowl trophy",
             },
-            {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/fc5f2c4439a944f8b182e052be4e4800/orig",
-                refd: "AR-2005-2.22.4",
-                title: "Ford Motor Company and Veterans"
-            },
-            {
-                mediaThumb: "https://fordheritagevaultmedia.com/api/links/c29a9048c4864d89915b29f4f39330e4/uuid/beb4a9ebb5134b249cdc4651fec97d0f/orig",
-                refd: "AR-2005-2.22.5",
-                title: "International Lego Day, Lego Ford GT"
-            }
         ];
 
 
         $(function () {
+            // Detect if media is GIF or MP4
+            const renderMedia = (url) => {
+                return `<img src="${url}" class="vault-media w-full" />`;
+            };
+
             $("#home-video-carousel .embla__container").append(
                 HomeVideoCarousel.map(item => `
-        <div class="embla__slide flex flex-col items-center">
-          ${`<video class="vault-media" autoplay muted loop playsinline preload="metadata">
-                   <source src="${item.mediaThumb}" type="video/mp4" />
-                 </video>`
-
-                    }
-          <h3 class="text-[20px] sm:text-[24px] text-[#243C5A] font-medium leading-[32px] text-center mt-[12px]">
-            <a href="scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD ${item.refd}"
-               class="hover:underline hover:text-[#1a2d46] transition-colors duration-200">
-              ${item.title}
-            </a>
-          </h3>
-        </div>
-      `).join("")
+      <div class="embla__slide flex flex-col items-center">
+        ${renderMedia(item.mediaThumb)}
+        <h3 class="text-[20px] sm:text-[24px] text-[#243C5A] font-medium leading-[32px] text-center mt-[12px]">
+          <a href="scripts/mwimain.dll/144/DESCRIPTION_OPAC3/FORD_DETAIL?sessionsearch&exp=REFD ${item.refd}"
+             class="hover:underline hover:text-[#1a2d46] transition-colors duration-200">
+            ${item.title}
+          </a>
+        </h3>
+      </div>
+    `).join("")
             );
 
-            // Optional: pause all videos except the first one
+            // Initialize Embla
+            const emblaNode = document.querySelector("#home-video-carousel");
+            const viewportNode = emblaNode.querySelector(".embla__viewport");
+            const prevBtn = emblaNode.querySelector(".embla__prev");
+            const nextBtn = emblaNode.querySelector(".embla__next");
+
+            const embla = EmblaCarousel(viewportNode, {
+                loop: true,
+                skipSnaps: false
+            });
+
+            prevBtn.addEventListener("click", embla.scrollPrev);
+            nextBtn.addEventListener("click", embla.scrollNext);
+
+            // Pause videos except first
             const $videos = $("#home-video-carousel video");
             $videos.each((i, v) => {
                 if (i > 0) v.pause();
